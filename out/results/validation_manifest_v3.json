@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "status": "awaiting_two_independent_human_annotations",
+  "created_at": "2026-07-10T17:22:25.160025+00:00",
+  "n_items": 120,
+  "items_sha256": "33594897914fdf252eb991c8b6ce61d31ce100d11e870a7b8ce16b60afa2f502",
+  "key_sha256": "8f1dc83f66b0da40704772a900aa9da5abbf79f149b1a2eee21ef8ceb8f66f52",
+  "legacy_validation_v1": "deprecated_tool_assisted_draft_not_used",
+  "ai_annotations": "excluded_from_human_validation",
+  "unit": "sentence",
+  "source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\validation_sheet_v2.csv",
+  "sampling": "existing v2 random sample stratified by final-stage condition",
+  "condition_counts": {
+    "advice": 40,
+    "domain_factual": 10,
+    "emotional": 20,
+    "factual": 30,
+    "neutral_advice": 20
+  },
+  "important_limitation": "sentence-level validation does not directly validate answer-level emission"
+}

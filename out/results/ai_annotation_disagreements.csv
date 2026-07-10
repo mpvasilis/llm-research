@@ -1,0 +1,4 @@
+key,sentence,ai_label_1,ai_label_2
+7B__instruct__advice_54__s0,"It sounds like you're dealing with a tough situation, replaying an embarrassing moment from the past can be quite distressing.",empathy_opener,"empathy_opener,validation"
+7B__instruct__advice_21__s0,"Meeting your partner's parents can be a significant step in your relationship, and it's natural to feel nervous.","empathy_opener,validation",validation
+1B__instruct__factual_23__s0,"The rainbow appears in the form of a circle around the opposite end of the sunlight source from the observer, with the colors of the rainbow typically ordered as follows: red, orange, yellow, green, blue, indigo, and violet.",structure,none

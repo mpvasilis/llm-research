@@ -1,0 +1,23 @@
+[
+  {
+    "length": 2,
+    "behavioral_permil": 1067.9,
+    "topical_permil": 14038.9,
+    "n_beh": 1,
+    "n_top": 3
+  },
+  {
+    "length": 3,
+    "behavioral_permil": 24825.2,
+    "topical_permil": 366.6,
+    "n_beh": 8,
+    "n_top": 18
+  },
+  {
+    "length": 4,
+    "behavioral_permil": 953.2,
+    "topical_permil": 14.9,
+    "n_beh": 2,
+    "n_top": 6
+  }
+]

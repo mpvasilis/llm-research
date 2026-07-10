@@ -1,0 +1,14 @@
+# Core pretraining trace (infini-gram) + web UI need NOTHING — pure stdlib.
+
+# Instruction-layer search reads dataset parquet locally (reliable, no flaky
+# HF search index). DuckDB does the substring search.
+duckdb
+
+# Only Stage-0 LOCAL GENERATION (--generate / Generate checkbox) needs these.
+# Open-data models aren't on HF inference, so we run a small one locally.
+torch
+transformers
+accelerate
+
+# Only Claude (proxy) auto-generation needs this. Paste-mode needs nothing.
+anthropic

@@ -1,0 +1,21 @@
+.env
+.claude/
+.codex-pet-runs/
+__pycache__/
+*.pyc
+.venv/
+tmp/
+
+# Large/generated caches and local runs. Keep out/results and the manuscript.
+out/cache/
+out/_nbtest/
+out/colab_run_v3/
+out/history/
+out/derisk/answers/
+out/paper/*.aux
+out/paper/*.blg
+out/paper/*.fdb_latexmk
+out/paper/*.fls
+out/paper/*.log
+out/paper/*.out
+out/results/.ai_fable_annotations_v3_partial.json

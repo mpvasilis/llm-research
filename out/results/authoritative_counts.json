@@ -1,0 +1,92 @@
+{
+  "first,": {
+    "authoritative": 67601,
+    "1B": 67601,
+    "7B": 67601
+  },
+  "here are some": {
+    "authoritative": 13450,
+    "1B": 13450,
+    "7B": 13450
+  },
+  "here are a few": {
+    "authoritative": 6029,
+    "1B": 6029,
+    "7B": 6029
+  },
+  "mental health professional": {
+    "authoritative": 2154,
+    "1B": 2154,
+    "7B": 2154
+  },
+  "professional help": {
+    "authoritative": 1807,
+    "1B": 1807,
+    "7B": 1807
+  },
+  "seek professional": {
+    "authoritative": 1392,
+    "1B": 1392,
+    "7B": 1392
+  },
+  "it sounds like you": {
+    "authoritative": 1169,
+    "1B": 1169,
+    "7B": 204
+  },
+  "steps you can take": {
+    "authoritative": 887,
+    "1B": 887,
+    "7B": 887
+  },
+  "talk to a": {
+    "authoritative": 322,
+    "1B": 322,
+    "7B": 91
+  },
+  "it's completely normal": {
+    "authoritative": 80,
+    "1B": 80,
+    "7B": 80
+  },
+  "your feelings are valid": {
+    "authoritative": 50,
+    "1B": 50,
+    "7B": null
+  },
+  "it's normal to feel": {
+    "authoritative": 35,
+    "1B": 35,
+    "7B": null
+  },
+  "i'm here for you": {
+    "authoritative": 94,
+    "1B": 31,
+    "7B": null
+  },
+  "what you're feeling": {
+    "authoritative": 51,
+    "1B": 14,
+    "7B": null
+  },
+  "i'm really sorry": {
+    "authoritative": 2371,
+    "1B": null,
+    "7B": 2371
+  },
+  "i'm sorry to hear": {
+    "authoritative": 352,
+    "1B": null,
+    "7B": 352
+  },
+  "i'm not a doctor": {
+    "authoritative": 28,
+    "1B": null,
+    "7B": 28
+  },
+  "it's okay to feel": {
+    "authoritative": 163,
+    "1B": null,
+    "7B": 27
+  }
+}

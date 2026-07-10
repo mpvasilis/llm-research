@@ -1,0 +1,134 @@
+{
+  "detector": "lexicon+e5-embedding",
+  "pretrain_index": "v4_olmo-mix-1124_llama",
+  "sft_datasets": [
+    "allenai/tulu-3-sft-olmo-2-mixture",
+    "allenai/tulu-3-sft-olmo-2-mixture-0225"
+  ],
+  "per_model": {
+    "1B": {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "n_advice": 40,
+      "n_factual": 20,
+      "emb_threshold": 0.82,
+      "emission_rate": {
+        "empathy_opener": { "advice": 0.425, "factual": 0.05 },
+        "validation": { "advice": 0.375, "factual": 0.0 },
+        "disclaimer": { "advice": 0.85, "factual": 0.1 },
+        "crisis_referral": { "advice": 0.85, "factual": 0.0 },
+        "structure": { "advice": 1.0, "factual": 0.4 }
+      },
+      "emission_rate_by_threshold": {
+        "0.8": {
+          "empathy_opener": { "advice": 0.85, "factual": 0.3 },
+          "validation": { "advice": 0.775, "factual": 0.3 },
+          "disclaimer": { "advice": 1.0, "factual": 0.25 },
+          "crisis_referral": { "advice": 1.0, "factual": 0.15 },
+          "structure": { "advice": 1.0, "factual": 0.6 }
+        },
+        "0.82": {
+          "empathy_opener": { "advice": 0.425, "factual": 0.05 },
+          "validation": { "advice": 0.375, "factual": 0.0 },
+          "disclaimer": { "advice": 0.85, "factual": 0.1 },
+          "crisis_referral": { "advice": 0.85, "factual": 0.0 },
+          "structure": { "advice": 1.0, "factual": 0.4 }
+        },
+        "0.84": {
+          "empathy_opener": { "advice": 0.175, "factual": 0.0 },
+          "validation": { "advice": 0.1, "factual": 0.0 },
+          "disclaimer": { "advice": 0.6, "factual": 0.0 },
+          "crisis_referral": { "advice": 0.35, "factual": 0.0 },
+          "structure": { "advice": 1.0, "factual": 0.25 }
+        }
+      },
+      "behavioral_coverage": { "advice": 0.022, "factual": 0.0 },
+      "recoverability_by_length": {
+        "2": { "behavioral_permil": 1682.674, "topical_permil": 2888.184, "ratio": 0.6, "n_beh": 14, "n_top": 30 },
+        "3": { "behavioral_permil": 11304.166, "topical_permil": 423.733, "ratio": 26.7, "n_beh": 34, "n_top": 84 },
+        "4": { "behavioral_permil": 1303.129, "topical_permil": 22.962, "ratio": 56.8, "n_beh": 13, "n_top": 36 }
+      },
+      "role_scoping": [
+        { "phrase": "here are some", "assistant": 11914, "blob": 13276, "inflation": 1.11 },
+        { "phrase": "here are a few", "assistant": 5421, "blob": 6056, "inflation": 1.12 },
+        { "phrase": "healthcare professional", "assistant": 3075, "blob": 3216, "inflation": 1.05 },
+        { "phrase": "i'm really sorry", "assistant": 2366, "blob": 2375, "inflation": 1.0 },
+        { "phrase": "mental health professional", "assistant": 2109, "blob": 2186, "inflation": 1.04 },
+        { "phrase": "professional help", "assistant": 1765, "blob": 1825, "inflation": 1.03 },
+        { "phrase": "seek professional", "assistant": 1353, "blob": 1377, "inflation": 1.02 },
+        { "phrase": "it sounds like you", "assistant": 1130, "blob": 1164, "inflation": 1.03 },
+        { "phrase": "consult a", "assistant": 891, "blob": 978, "inflation": 1.1 },
+        { "phrase": "steps you can take", "assistant": 792, "blob": 797, "inflation": 1.01 },
+        { "phrase": "it's understandable", "assistant": 218, "blob": 227, "inflation": 1.04 },
+        { "phrase": "it's okay to feel", "assistant": 159, "blob": 162, "inflation": 1.02 },
+        { "phrase": "it's completely normal", "assistant": 78, "blob": 103, "inflation": 1.32 }
+      ],
+      "behavioral_forum_share": { "advice": 0.0, "factual": 0.0 },
+      "novelty": { "advice": 0.55, "factual": 0.282 }
+    },
+    "7B": {
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "n_advice": 40,
+      "n_factual": 20,
+      "emb_threshold": 0.82,
+      "emission_rate": {
+        "empathy_opener": { "advice": 0.5, "factual": 0.05 },
+        "validation": { "advice": 0.25, "factual": 0.0 },
+        "disclaimer": { "advice": 0.875, "factual": 0.0 },
+        "crisis_referral": { "advice": 0.775, "factual": 0.0 },
+        "structure": { "advice": 0.975, "factual": 0.45 }
+      },
+      "emission_rate_by_threshold": {
+        "0.8": {
+          "empathy_opener": { "advice": 0.9, "factual": 0.45 },
+          "validation": { "advice": 0.775, "factual": 0.25 },
+          "disclaimer": { "advice": 1.0, "factual": 0.3 },
+          "crisis_referral": { "advice": 1.0, "factual": 0.1 },
+          "structure": { "advice": 1.0, "factual": 0.45 }
+        },
+        "0.82": {
+          "empathy_opener": { "advice": 0.5, "factual": 0.05 },
+          "validation": { "advice": 0.25, "factual": 0.0 },
+          "disclaimer": { "advice": 0.875, "factual": 0.0 },
+          "crisis_referral": { "advice": 0.775, "factual": 0.0 },
+          "structure": { "advice": 0.975, "factual": 0.45 }
+        },
+        "0.84": {
+          "empathy_opener": { "advice": 0.275, "factual": 0.0 },
+          "validation": { "advice": 0.2, "factual": 0.0 },
+          "disclaimer": { "advice": 0.5, "factual": 0.0 },
+          "crisis_referral": { "advice": 0.325, "factual": 0.0 },
+          "structure": { "advice": 0.975, "factual": 0.35 }
+        }
+      },
+      "behavioral_coverage": { "advice": 0.028, "factual": 0.0 },
+      "recoverability_by_length": {
+        "1": { "behavioral_permil": 71629.78, "topical_permil": 8370.733, "ratio": 8.6, "n_beh": 1, "n_top": 3 },
+        "2": { "behavioral_permil": 1630.345, "topical_permil": 1824.56, "ratio": 0.9, "n_beh": 11, "n_top": 27 },
+        "3": { "behavioral_permil": 9243.972, "topical_permil": 212.053, "ratio": 43.6, "n_beh": 41, "n_top": 99 },
+        "4": { "behavioral_permil": 2002.745, "topical_permil": 22.356, "ratio": 89.6, "n_beh": 15, "n_top": 39 }
+      },
+      "role_scoping": [
+        { "phrase": "first,", "assistant": 67285, "blob": 75653, "inflation": 1.12 },
+        { "phrase": "here are some", "assistant": 12049, "blob": 13432, "inflation": 1.11 },
+        { "phrase": "here are a few", "assistant": 5511, "blob": 6156, "inflation": 1.12 },
+        { "phrase": "healthcare professional", "assistant": 3106, "blob": 3309, "inflation": 1.07 },
+        { "phrase": "i'm really sorry", "assistant": 2369, "blob": 2378, "inflation": 1.0 },
+        { "phrase": "mental health professional", "assistant": 2120, "blob": 2214, "inflation": 1.04 },
+        { "phrase": "professional help", "assistant": 1774, "blob": 1838, "inflation": 1.04 },
+        { "phrase": "seek professional", "assistant": 1355, "blob": 1379, "inflation": 1.02 },
+        { "phrase": "it sounds like you", "assistant": 1139, "blob": 1184, "inflation": 1.04 },
+        { "phrase": "steps you can take", "assistant": 803, "blob": 808, "inflation": 1.01 },
+        { "phrase": "i'm sorry to hear", "assistant": 322, "blob": 338, "inflation": 1.05 },
+        { "phrase": "it's understandable", "assistant": 220, "blob": 229, "inflation": 1.04 },
+        { "phrase": "seek medical", "assistant": 166, "blob": 187, "inflation": 1.13 },
+        { "phrase": "it's okay to feel", "assistant": 161, "blob": 164, "inflation": 1.02 },
+        { "phrase": "it's natural to", "assistant": 153, "blob": 158, "inflation": 1.03 },
+        { "phrase": "it's completely normal", "assistant": 78, "blob": 103, "inflation": 1.32 },
+        { "phrase": "what you're feeling", "assistant": 50, "blob": 53, "inflation": 1.06 },
+        { "phrase": "i'm not a doctor", "assistant": 25, "blob": 26, "inflation": 1.04 }
+      ],
+      "behavioral_forum_share": { "advice": 0.0, "factual": 0.0 },
+      "novelty": { "advice": 0.516, "factual": 0.346 }
+    }
+  }
+}

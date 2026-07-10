@@ -1,0 +1,154 @@
+{
+  "1B": {
+    "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+    "n_pairs": 378301,
+    "n_shards": 5,
+    "mean_words": {
+      "chosen": 280.74,
+      "rejected": 283.68,
+      "chosen_over_rejected": 0.99
+    },
+    "behaviors": {
+      "empathy_expression": {
+        "chosen_any": 1997,
+        "rejected_any": 1863,
+        "chosen_only": 1768,
+        "rejected_only": 1634,
+        "both": 229,
+        "paired_risk_difference": 0.00035,
+        "matched_odds_ratio_ha": 1.082,
+        "mcnemar_exact_p": 0.02257832901081835,
+        "mcnemar_log10_p": -1.6463082027237264,
+        "chosen_occurrences": 2136,
+        "rejected_occurrences": 2083,
+        "chosen_per_million_words": 20.11,
+        "rejected_per_million_words": 19.41,
+        "token_normalized_ratio": 1.036
+      },
+      "validation": {
+        "chosen_any": 208,
+        "rejected_any": 187,
+        "chosen_only": 183,
+        "rejected_only": 162,
+        "both": 25,
+        "paired_risk_difference": 6e-05,
+        "matched_odds_ratio_ha": 1.129,
+        "mcnemar_exact_p": 0.28156768154478895,
+        "mcnemar_log10_p": -0.5504171951699821,
+        "chosen_occurrences": 225,
+        "rejected_occurrences": 203,
+        "chosen_per_million_words": 2.12,
+        "rejected_per_million_words": 1.89,
+        "token_normalized_ratio": 1.12
+      },
+      "professional_referral": {
+        "chosen_any": 3774,
+        "rejected_any": 3394,
+        "chosen_only": 2478,
+        "rejected_only": 2098,
+        "both": 1296,
+        "paired_risk_difference": 0.001,
+        "matched_odds_ratio_ha": 1.181,
+        "mcnemar_exact_p": 2.0730316802228153e-08,
+        "mcnemar_log10_p": -7.683394060933131,
+        "chosen_occurrences": 5450,
+        "rejected_occurrences": 4905,
+        "chosen_per_million_words": 51.32,
+        "rejected_per_million_words": 45.71,
+        "token_normalized_ratio": 1.123
+      },
+      "structuring_language": {
+        "chosen_any": 37429,
+        "rejected_any": 32161,
+        "chosen_only": 27047,
+        "rejected_only": 21779,
+        "both": 10382,
+        "paired_risk_difference": 0.01393,
+        "matched_odds_ratio_ha": 1.242,
+        "mcnemar_exact_p": 8.087135875807119e-126,
+        "mcnemar_log10_p": -125.09220526002916,
+        "chosen_occurrences": 41131,
+        "rejected_occurrences": 35755,
+        "chosen_per_million_words": 387.28,
+        "rejected_per_million_words": 333.17,
+        "token_normalized_ratio": 1.162
+      }
+    }
+  },
+  "7B": {
+    "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+    "n_pairs": 378341,
+    "n_shards": 6,
+    "mean_words": {
+      "chosen": 282.67,
+      "rejected": 283.6,
+      "chosen_over_rejected": 0.997
+    },
+    "behaviors": {
+      "empathy_expression": {
+        "chosen_any": 1952,
+        "rejected_any": 1840,
+        "chosen_only": 1734,
+        "rejected_only": 1622,
+        "both": 218,
+        "paired_risk_difference": 0.0003,
+        "matched_odds_ratio_ha": 1.069,
+        "mcnemar_exact_p": 0.05533965355998564,
+        "mcnemar_log10_p": -1.2569635639783723,
+        "chosen_occurrences": 2091,
+        "rejected_occurrences": 1991,
+        "chosen_per_million_words": 19.55,
+        "rejected_per_million_words": 18.56,
+        "token_normalized_ratio": 1.054
+      },
+      "validation": {
+        "chosen_any": 217,
+        "rejected_any": 182,
+        "chosen_only": 191,
+        "rejected_only": 156,
+        "both": 26,
+        "paired_risk_difference": 9e-05,
+        "matched_odds_ratio_ha": 1.224,
+        "mcnemar_exact_p": 0.06781414714554637,
+        "mcnemar_log10_p": -1.1686796957151007,
+        "chosen_occurrences": 235,
+        "rejected_occurrences": 191,
+        "chosen_per_million_words": 2.2,
+        "rejected_per_million_words": 1.78,
+        "token_normalized_ratio": 1.234
+      },
+      "professional_referral": {
+        "chosen_any": 3879,
+        "rejected_any": 3202,
+        "chosen_only": 2602,
+        "rejected_only": 1925,
+        "both": 1277,
+        "paired_risk_difference": 0.00179,
+        "matched_odds_ratio_ha": 1.352,
+        "mcnemar_exact_p": 7.828739638059652e-24,
+        "mcnemar_log10_p": -23.106308150109243,
+        "chosen_occurrences": 5754,
+        "rejected_occurrences": 4634,
+        "chosen_per_million_words": 53.8,
+        "rejected_per_million_words": 43.19,
+        "token_normalized_ratio": 1.246
+      },
+      "structuring_language": {
+        "chosen_any": 38084,
+        "rejected_any": 29456,
+        "chosen_only": 28466,
+        "rejected_only": 19838,
+        "both": 9618,
+        "paired_risk_difference": 0.0228,
+        "matched_odds_ratio_ha": 1.435,
+        "mcnemar_exact_p": 0.0,
+        "mcnemar_log10_p": -338.06689946134753,
+        "chosen_occurrences": 41786,
+        "rejected_occurrences": 32947,
+        "chosen_per_million_words": 390.72,
+        "rejected_per_million_words": 307.06,
+        "token_normalized_ratio": 1.272
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "incomplete_fable_ai_audit_upstream_safeguard_refusal",
+  "n_completed": 31,
+  "n_total": 120,
+  "n_missing": 89,
+  "failed_item_id": "v3_s_93fc97b6da51356a",
+  "failed_item_text": "No Nucleus: Unlike most other cells, red blood cells do not have a nucleus, which",
+  "completed_run_cost_usd": 1.144385,
+  "latest_refusal_cost_usd": 0.1168145,
+  "human_validation_status": "pending_two_complete_independent_human_annotations",
+  "note": "AI-only diagnostic. It is neither a complete annotation nor human validation; missing labels were not fabricated."
+}

@@ -1,0 +1,1780 @@
+{
+  "detector": "lexicon+e5-embedding",
+  "pretrain_index": "v4_olmo-mix-1124_llama",
+  "sft_by_model": {
+    "1B": "allenai/tulu-3-sft-olmo-2-mixture-0225",
+    "7B": "allenai/tulu-3-sft-olmo-2-mixture"
+  },
+  "dpo_by_model": {
+    "1B": "allenai/olmo-2-0425-1b-preference-mix",
+    "7B": "allenai/olmo-2-1124-7b-preference-mix"
+  },
+  "rlvr_by_model": {
+    "1B": [
+      "allenai/RLVR-MATH",
+      "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints"
+    ],
+    "7B": [
+      "allenai/RLVR-GSM"
+    ]
+  },
+  "seeds": 5,
+  "n_prompts": {
+    "advice": 60,
+    "factual": 30,
+    "emotional": 20,
+    "neutral_advice": 20,
+    "domain_factual": 10
+  },
+  "per_model": {
+    "1B": {
+      "stages": [
+        "base",
+        "sft",
+        "dpo",
+        "rlvr",
+        "instruct"
+      ],
+      "stagewise_emission": {
+        "base": {
+          "empathy_opener": {
+            "advice": 0.207,
+            "factual": 0.013
+          },
+          "validation": {
+            "advice": 0.073,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.473,
+            "factual": 0.06
+          },
+          "crisis_referral": {
+            "advice": 0.41,
+            "factual": 0.007
+          },
+          "structure": {
+            "advice": 0.73,
+            "factual": 0.333
+          }
+        },
+        "sft": {
+          "empathy_opener": {
+            "advice": 0.39,
+            "factual": 0.0
+          },
+          "validation": {
+            "advice": 0.183,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.753,
+            "factual": 0.007
+          },
+          "crisis_referral": {
+            "advice": 0.71,
+            "factual": 0.0
+          },
+          "structure": {
+            "advice": 0.857,
+            "factual": 0.067
+          }
+        },
+        "dpo": {
+          "empathy_opener": {
+            "advice": 0.59,
+            "factual": 0.047
+          },
+          "validation": {
+            "advice": 0.353,
+            "factual": 0.013
+          },
+          "disclaimer": {
+            "advice": 0.917,
+            "factual": 0.073
+          },
+          "crisis_referral": {
+            "advice": 0.857,
+            "factual": 0.0
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.587
+          }
+        },
+        "rlvr": {
+          "empathy_opener": {
+            "advice": 0.597,
+            "factual": 0.047
+          },
+          "validation": {
+            "advice": 0.373,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.903,
+            "factual": 0.087
+          },
+          "crisis_referral": {
+            "advice": 0.87,
+            "factual": 0.0
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.6
+          }
+        },
+        "instruct": {
+          "empathy_opener": {
+            "advice": 0.587,
+            "factual": 0.033
+          },
+          "validation": {
+            "advice": 0.36,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.927,
+            "factual": 0.073
+          },
+          "crisis_referral": {
+            "advice": 0.867,
+            "factual": 0.0
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.587
+          }
+        }
+      },
+      "condition_emission": {
+        "empathy_opener": {
+          "advice": 0.587,
+          "factual": 0.033,
+          "emotional": 0.79,
+          "neutral_advice": 0.03,
+          "domain_factual": 0.34
+        },
+        "validation": {
+          "advice": 0.36,
+          "factual": 0.0,
+          "emotional": 0.16,
+          "neutral_advice": 0.0,
+          "domain_factual": 0.12
+        },
+        "disclaimer": {
+          "advice": 0.927,
+          "factual": 0.073,
+          "emotional": 0.51,
+          "neutral_advice": 0.66,
+          "domain_factual": 0.8
+        },
+        "crisis_referral": {
+          "advice": 0.867,
+          "factual": 0.0,
+          "emotional": 0.63,
+          "neutral_advice": 0.31,
+          "domain_factual": 0.38
+        },
+        "structure": {
+          "advice": 1.0,
+          "factual": 0.587,
+          "emotional": 0.82,
+          "neutral_advice": 1.0,
+          "domain_factual": 0.94
+        }
+      },
+      "condition_emission_by_threshold": {
+        "0.8": {
+          "empathy_opener": {
+            "advice": 0.927,
+            "factual": 0.387,
+            "emotional": 0.94,
+            "neutral_advice": 0.46,
+            "domain_factual": 0.92
+          },
+          "validation": {
+            "advice": 0.86,
+            "factual": 0.293,
+            "emotional": 0.88,
+            "neutral_advice": 0.39,
+            "domain_factual": 0.58
+          },
+          "disclaimer": {
+            "advice": 0.997,
+            "factual": 0.433,
+            "emotional": 0.98,
+            "neutral_advice": 0.98,
+            "domain_factual": 1.0
+          },
+          "crisis_referral": {
+            "advice": 0.997,
+            "factual": 0.187,
+            "emotional": 0.98,
+            "neutral_advice": 0.89,
+            "domain_factual": 0.92
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.687,
+            "emotional": 0.99,
+            "neutral_advice": 1.0,
+            "domain_factual": 1.0
+          }
+        },
+        "0.82": {
+          "empathy_opener": {
+            "advice": 0.587,
+            "factual": 0.033,
+            "emotional": 0.79,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.34
+          },
+          "validation": {
+            "advice": 0.36,
+            "factual": 0.0,
+            "emotional": 0.16,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.12
+          },
+          "disclaimer": {
+            "advice": 0.927,
+            "factual": 0.073,
+            "emotional": 0.51,
+            "neutral_advice": 0.66,
+            "domain_factual": 0.8
+          },
+          "crisis_referral": {
+            "advice": 0.867,
+            "factual": 0.0,
+            "emotional": 0.63,
+            "neutral_advice": 0.31,
+            "domain_factual": 0.38
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.587,
+            "emotional": 0.82,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.94
+          }
+        },
+        "0.84": {
+          "empathy_opener": {
+            "advice": 0.297,
+            "factual": 0.0,
+            "emotional": 0.17,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "validation": {
+            "advice": 0.093,
+            "factual": 0.0,
+            "emotional": 0.01,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.463,
+            "factual": 0.007,
+            "emotional": 0.06,
+            "neutral_advice": 0.05,
+            "domain_factual": 0.3
+          },
+          "crisis_referral": {
+            "advice": 0.41,
+            "factual": 0.0,
+            "emotional": 0.02,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.06
+          },
+          "structure": {
+            "advice": 0.997,
+            "factual": 0.253,
+            "emotional": 0.54,
+            "neutral_advice": 0.93,
+            "domain_factual": 0.62
+          }
+        }
+      },
+      "tests": {
+        "empathy_opener": {
+          "factual": {
+            "diff": 0.553,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": -0.203,
+            "perm_p": 0.0051
+          },
+          "neutral_advice": {
+            "diff": 0.557,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.247,
+            "perm_p": 0.0101
+          }
+        },
+        "validation": {
+          "factual": {
+            "diff": 0.36,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.2,
+            "perm_p": 0.0082
+          },
+          "neutral_advice": {
+            "diff": 0.36,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.24,
+            "perm_p": 0.0197
+          }
+        },
+        "disclaimer": {
+          "factual": {
+            "diff": 0.853,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.417,
+            "perm_p": 0.0
+          },
+          "neutral_advice": {
+            "diff": 0.267,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.127,
+            "perm_p": 0.0529
+          }
+        },
+        "crisis_referral": {
+          "factual": {
+            "diff": 0.867,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.237,
+            "perm_p": 0.0011
+          },
+          "neutral_advice": {
+            "diff": 0.557,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.487,
+            "perm_p": 0.0
+          }
+        },
+        "structure": {
+          "factual": {
+            "diff": 0.413,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.18,
+            "perm_p": 0.0
+          },
+          "neutral_advice": {
+            "diff": 0.0,
+            "perm_p": 1.0
+          },
+          "domain_factual": {
+            "diff": 0.06,
+            "perm_p": 0.0172
+          }
+        }
+      },
+      "novelty": {
+        "advice": 0.559,
+        "factual": 0.383
+      },
+      "recoverability_by_length": {
+        "1": {
+          "behavioral_permil": 51287.44,
+          "topical_permil": 35096.409,
+          "ratio": 1.5,
+          "n_beh": 3,
+          "n_top": 9
+        },
+        "2": {
+          "behavioral_permil": 1839.934,
+          "topical_permil": 1708.155,
+          "ratio": 1.1,
+          "n_beh": 11,
+          "n_top": 24
+        },
+        "3": {
+          "behavioral_permil": 12333.431,
+          "topical_permil": 633.829,
+          "ratio": 19.5,
+          "n_beh": 46,
+          "n_top": 126
+        },
+        "4": {
+          "behavioral_permil": 1676.24,
+          "topical_permil": 11.833,
+          "ratio": 141.7,
+          "n_beh": 28,
+          "n_top": 72
+        }
+      },
+      "role_scoping": [
+        {
+          "phrase": "first,",
+          "assistant": 44422,
+          "blob": 52676,
+          "inflation": 1.19
+        },
+        {
+          "phrase": "here are some",
+          "assistant": 11914,
+          "blob": 13276,
+          "inflation": 1.11
+        },
+        {
+          "phrase": "here are a few",
+          "assistant": 5421,
+          "blob": 6056,
+          "inflation": 1.12
+        },
+        {
+          "phrase": "healthcare professional",
+          "assistant": 3075,
+          "blob": 3216,
+          "inflation": 1.05
+        },
+        {
+          "phrase": "mental health professional",
+          "assistant": 2109,
+          "blob": 2186,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "professional help",
+          "assistant": 1765,
+          "blob": 1825,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "seek professional",
+          "assistant": 1353,
+          "blob": 1377,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it sounds like you",
+          "assistant": 1130,
+          "blob": 1164,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "steps you can take",
+          "assistant": 792,
+          "blob": 797,
+          "inflation": 1.01
+        },
+        {
+          "phrase": "talk to a",
+          "assistant": 290,
+          "blob": 410,
+          "inflation": 1.41
+        },
+        {
+          "phrase": "it's understandable",
+          "assistant": 218,
+          "blob": 227,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "it's okay to feel",
+          "assistant": 159,
+          "blob": 162,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it's natural to",
+          "assistant": 152,
+          "blob": 157,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "it's completely normal",
+          "assistant": 78,
+          "blob": 103,
+          "inflation": 1.32
+        },
+        {
+          "phrase": "it's normal to feel",
+          "assistant": 33,
+          "blob": 34,
+          "inflation": 1.03
+        }
+      ],
+      "dpo_analysis": [
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "first,",
+          "chosen": 26535,
+          "rejected": 23046,
+          "chosen_per_million": 70142.56,
+          "rejected_per_million": 60919.74,
+          "chosen_over_rejected": 1.15,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "here are some",
+          "chosen": 13133,
+          "rejected": 11870,
+          "chosen_per_million": 34715.74,
+          "rejected_per_million": 31377.13,
+          "chosen_over_rejected": 1.11,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "here are a few",
+          "chosen": 4621,
+          "rejected": 4206,
+          "chosen_per_million": 12215.14,
+          "rejected_per_million": 11118.13,
+          "chosen_over_rejected": 1.1,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "healthcare professional",
+          "chosen": 1258,
+          "rejected": 1163,
+          "chosen_per_million": 3325.39,
+          "rejected_per_million": 3074.27,
+          "chosen_over_rejected": 1.08,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "professional help",
+          "chosen": 824,
+          "rejected": 694,
+          "chosen_per_million": 2178.16,
+          "rejected_per_million": 1834.52,
+          "chosen_over_rejected": 1.19,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "mental health professional",
+          "chosen": 680,
+          "rejected": 577,
+          "chosen_per_million": 1797.51,
+          "rejected_per_million": 1525.24,
+          "chosen_over_rejected": 1.18,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "steps you can take",
+          "chosen": 669,
+          "rejected": 540,
+          "chosen_per_million": 1768.43,
+          "rejected_per_million": 1427.43,
+          "chosen_over_rejected": 1.24,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it sounds like you",
+          "chosen": 599,
+          "rejected": 501,
+          "chosen_per_million": 1583.4,
+          "rejected_per_million": 1324.34,
+          "chosen_over_rejected": 1.2,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "seek professional",
+          "chosen": 589,
+          "rejected": 503,
+          "chosen_per_million": 1556.96,
+          "rejected_per_million": 1329.63,
+          "chosen_over_rejected": 1.17,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "talk to a",
+          "chosen": 165,
+          "rejected": 191,
+          "chosen_per_million": 436.16,
+          "rejected_per_million": 504.89,
+          "chosen_over_rejected": 0.86,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it's understandable",
+          "chosen": 136,
+          "rejected": 119,
+          "chosen_per_million": 359.5,
+          "rejected_per_million": 314.56,
+          "chosen_over_rejected": 1.14,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it's okay to feel",
+          "chosen": 70,
+          "rejected": 51,
+          "chosen_per_million": 185.04,
+          "rejected_per_million": 134.81,
+          "chosen_over_rejected": 1.37,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it's natural to",
+          "chosen": 54,
+          "rejected": 71,
+          "chosen_per_million": 142.74,
+          "rejected_per_million": 187.68,
+          "chosen_over_rejected": 0.76,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it's completely normal",
+          "chosen": 35,
+          "rejected": 35,
+          "chosen_per_million": 92.52,
+          "rejected_per_million": 92.52,
+          "chosen_over_rejected": 1.0,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "it's normal to feel",
+          "chosen": 22,
+          "rejected": 14,
+          "chosen_per_million": 58.15,
+          "rejected_per_million": 37.01,
+          "chosen_over_rejected": 1.57,
+          "n_docs": 378301
+        }
+      ],
+      "rlvr_analysis": [
+        {
+          "phrase": "here are some",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "here are some",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "here are some",
+              "count": 48,
+              "per_million": 1602.89,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "steps you can take",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "steps you can take",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "steps you can take",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "healthcare professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "healthcare professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "healthcare professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it sounds like you",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it sounds like you",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it sounds like you",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "professional help",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "professional help",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "professional help",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "seek professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "seek professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "seek professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "mental health professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "mental health professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "mental health professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "talk to a",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "talk to a",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "talk to a",
+              "count": 1,
+              "per_million": 33.39,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "here are a few",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "here are a few",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "here are a few",
+              "count": 8,
+              "per_million": 267.15,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it's okay to feel",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's okay to feel",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's okay to feel",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "first,",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "first,",
+              "count": 8,
+              "per_million": 1066.67,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "first,",
+              "count": 881,
+              "per_million": 29419.62,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it's normal to feel",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's normal to feel",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's normal to feel",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it's completely normal",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's completely normal",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's completely normal",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it's understandable",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's understandable",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's understandable",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "it's natural to",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's natural to",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's natural to",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        }
+      ]
+    },
+    "7B": {
+      "stages": [
+        "base",
+        "sft",
+        "dpo",
+        "instruct"
+      ],
+      "stagewise_emission": {
+        "base": {
+          "empathy_opener": {
+            "advice": 0.217,
+            "factual": 0.0
+          },
+          "validation": {
+            "advice": 0.07,
+            "factual": 0.007
+          },
+          "disclaimer": {
+            "advice": 0.543,
+            "factual": 0.053
+          },
+          "crisis_referral": {
+            "advice": 0.48,
+            "factual": 0.053
+          },
+          "structure": {
+            "advice": 0.847,
+            "factual": 0.367
+          }
+        },
+        "sft": {
+          "empathy_opener": {
+            "advice": 0.493,
+            "factual": 0.0
+          },
+          "validation": {
+            "advice": 0.183,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.767,
+            "factual": 0.0
+          },
+          "crisis_referral": {
+            "advice": 0.74,
+            "factual": 0.0
+          },
+          "structure": {
+            "advice": 0.787,
+            "factual": 0.073
+          }
+        },
+        "dpo": {
+          "empathy_opener": {
+            "advice": 0.597,
+            "factual": 0.033
+          },
+          "validation": {
+            "advice": 0.33,
+            "factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.923,
+            "factual": 0.073
+          },
+          "crisis_referral": {
+            "advice": 0.877,
+            "factual": 0.013
+          },
+          "structure": {
+            "advice": 0.977,
+            "factual": 0.54
+          }
+        },
+        "instruct": {
+          "empathy_opener": {
+            "advice": 0.617,
+            "factual": 0.027
+          },
+          "validation": {
+            "advice": 0.383,
+            "factual": 0.013
+          },
+          "disclaimer": {
+            "advice": 0.913,
+            "factual": 0.06
+          },
+          "crisis_referral": {
+            "advice": 0.86,
+            "factual": 0.007
+          },
+          "structure": {
+            "advice": 0.97,
+            "factual": 0.547
+          }
+        }
+      },
+      "condition_emission": {
+        "empathy_opener": {
+          "advice": 0.617,
+          "factual": 0.027,
+          "emotional": 0.76,
+          "neutral_advice": 0.07,
+          "domain_factual": 0.36
+        },
+        "validation": {
+          "advice": 0.383,
+          "factual": 0.013,
+          "emotional": 0.13,
+          "neutral_advice": 0.03,
+          "domain_factual": 0.06
+        },
+        "disclaimer": {
+          "advice": 0.913,
+          "factual": 0.06,
+          "emotional": 0.54,
+          "neutral_advice": 0.72,
+          "domain_factual": 0.82
+        },
+        "crisis_referral": {
+          "advice": 0.86,
+          "factual": 0.007,
+          "emotional": 0.61,
+          "neutral_advice": 0.34,
+          "domain_factual": 0.28
+        },
+        "structure": {
+          "advice": 0.97,
+          "factual": 0.547,
+          "emotional": 0.83,
+          "neutral_advice": 1.0,
+          "domain_factual": 0.84
+        }
+      },
+      "condition_emission_by_threshold": {
+        "0.8": {
+          "empathy_opener": {
+            "advice": 0.94,
+            "factual": 0.387,
+            "emotional": 0.97,
+            "neutral_advice": 0.54,
+            "domain_factual": 0.84
+          },
+          "validation": {
+            "advice": 0.817,
+            "factual": 0.233,
+            "emotional": 0.77,
+            "neutral_advice": 0.43,
+            "domain_factual": 0.46
+          },
+          "disclaimer": {
+            "advice": 0.997,
+            "factual": 0.433,
+            "emotional": 1.0,
+            "neutral_advice": 0.98,
+            "domain_factual": 0.98
+          },
+          "crisis_referral": {
+            "advice": 0.997,
+            "factual": 0.107,
+            "emotional": 0.99,
+            "neutral_advice": 0.95,
+            "domain_factual": 0.92
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.647,
+            "emotional": 0.99,
+            "neutral_advice": 1.0,
+            "domain_factual": 1.0
+          }
+        },
+        "0.82": {
+          "empathy_opener": {
+            "advice": 0.617,
+            "factual": 0.027,
+            "emotional": 0.76,
+            "neutral_advice": 0.07,
+            "domain_factual": 0.36
+          },
+          "validation": {
+            "advice": 0.383,
+            "factual": 0.013,
+            "emotional": 0.13,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.06
+          },
+          "disclaimer": {
+            "advice": 0.913,
+            "factual": 0.06,
+            "emotional": 0.54,
+            "neutral_advice": 0.72,
+            "domain_factual": 0.82
+          },
+          "crisis_referral": {
+            "advice": 0.86,
+            "factual": 0.007,
+            "emotional": 0.61,
+            "neutral_advice": 0.34,
+            "domain_factual": 0.28
+          },
+          "structure": {
+            "advice": 0.97,
+            "factual": 0.547,
+            "emotional": 0.83,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.84
+          }
+        },
+        "0.84": {
+          "empathy_opener": {
+            "advice": 0.37,
+            "factual": 0.0,
+            "emotional": 0.09,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "validation": {
+            "advice": 0.18,
+            "factual": 0.0,
+            "emotional": 0.01,
+            "neutral_advice": 0.01,
+            "domain_factual": 0.0
+          },
+          "disclaimer": {
+            "advice": 0.52,
+            "factual": 0.0,
+            "emotional": 0.09,
+            "neutral_advice": 0.06,
+            "domain_factual": 0.24
+          },
+          "crisis_referral": {
+            "advice": 0.38,
+            "factual": 0.0,
+            "emotional": 0.04,
+            "neutral_advice": 0.02,
+            "domain_factual": 0.08
+          },
+          "structure": {
+            "advice": 0.95,
+            "factual": 0.313,
+            "emotional": 0.53,
+            "neutral_advice": 0.96,
+            "domain_factual": 0.48
+          }
+        }
+      },
+      "tests": {
+        "empathy_opener": {
+          "factual": {
+            "diff": 0.59,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": -0.143,
+            "perm_p": 0.0977
+          },
+          "neutral_advice": {
+            "diff": 0.547,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.257,
+            "perm_p": 0.0305
+          }
+        },
+        "validation": {
+          "factual": {
+            "diff": 0.37,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.253,
+            "perm_p": 0.0026
+          },
+          "neutral_advice": {
+            "diff": 0.353,
+            "perm_p": 0.0001
+          },
+          "domain_factual": {
+            "diff": 0.323,
+            "perm_p": 0.0042
+          }
+        },
+        "disclaimer": {
+          "factual": {
+            "diff": 0.853,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.373,
+            "perm_p": 0.0
+          },
+          "neutral_advice": {
+            "diff": 0.193,
+            "perm_p": 0.001
+          },
+          "domain_factual": {
+            "diff": 0.093,
+            "perm_p": 0.1586
+          }
+        },
+        "crisis_referral": {
+          "factual": {
+            "diff": 0.853,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.25,
+            "perm_p": 0.0003
+          },
+          "neutral_advice": {
+            "diff": 0.52,
+            "perm_p": 0.0
+          },
+          "domain_factual": {
+            "diff": 0.58,
+            "perm_p": 0.0
+          }
+        },
+        "structure": {
+          "factual": {
+            "diff": 0.423,
+            "perm_p": 0.0
+          },
+          "emotional": {
+            "diff": 0.14,
+            "perm_p": 0.004
+          },
+          "neutral_advice": {
+            "diff": -0.03,
+            "perm_p": 0.5739
+          },
+          "domain_factual": {
+            "diff": 0.13,
+            "perm_p": 0.0258
+          }
+        }
+      },
+      "novelty": {
+        "advice": 0.525,
+        "factual": 0.379
+      },
+      "recoverability_by_length": {
+        "2": {
+          "behavioral_permil": 1784.544,
+          "topical_permil": 996.825,
+          "ratio": 1.8,
+          "n_beh": 20,
+          "n_top": 36
+        },
+        "3": {
+          "behavioral_permil": 9354.441,
+          "topical_permil": 1280.4,
+          "ratio": 7.3,
+          "n_beh": 55,
+          "n_top": 129
+        },
+        "4": {
+          "behavioral_permil": 1396.585,
+          "topical_permil": 96.166,
+          "ratio": 14.5,
+          "n_beh": 24,
+          "n_top": 63
+        }
+      },
+      "role_scoping": [
+        {
+          "phrase": "here are some",
+          "assistant": 12049,
+          "blob": 13432,
+          "inflation": 1.11
+        },
+        {
+          "phrase": "here are a few",
+          "assistant": 5511,
+          "blob": 6156,
+          "inflation": 1.12
+        },
+        {
+          "phrase": "healthcare professional",
+          "assistant": 3106,
+          "blob": 3309,
+          "inflation": 1.07
+        },
+        {
+          "phrase": "i'm really sorry",
+          "assistant": 2369,
+          "blob": 2378,
+          "inflation": 1.0
+        },
+        {
+          "phrase": "mental health professional",
+          "assistant": 2120,
+          "blob": 2214,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "professional help",
+          "assistant": 1774,
+          "blob": 1838,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "seek professional",
+          "assistant": 1355,
+          "blob": 1379,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it sounds like you",
+          "assistant": 1139,
+          "blob": 1184,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "consult a",
+          "assistant": 927,
+          "blob": 1031,
+          "inflation": 1.11
+        },
+        {
+          "phrase": "steps you can take",
+          "assistant": 803,
+          "blob": 808,
+          "inflation": 1.01
+        },
+        {
+          "phrase": "talk to a",
+          "assistant": 286,
+          "blob": 408,
+          "inflation": 1.43
+        },
+        {
+          "phrase": "i'm sorry to hear",
+          "assistant": 322,
+          "blob": 338,
+          "inflation": 1.05
+        },
+        {
+          "phrase": "it's natural to",
+          "assistant": 153,
+          "blob": 158,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "it's completely normal",
+          "assistant": 78,
+          "blob": 103,
+          "inflation": 1.32
+        },
+        {
+          "phrase": "your feelings are valid",
+          "assistant": 50,
+          "blob": 50,
+          "inflation": 1.0
+        },
+        {
+          "phrase": "it's normal to feel",
+          "assistant": 33,
+          "blob": 34,
+          "inflation": 1.03
+        }
+      ],
+      "dpo_analysis": [
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "here are some",
+          "chosen": 13889,
+          "rejected": 11139,
+          "chosen_per_million": 36710.27,
+          "rejected_per_million": 29441.69,
+          "chosen_over_rejected": 1.25,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "here are a few",
+          "chosen": 4560,
+          "rejected": 4025,
+          "chosen_per_million": 12052.62,
+          "rejected_per_million": 10638.55,
+          "chosen_over_rejected": 1.13,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "healthcare professional",
+          "chosen": 1330,
+          "rejected": 1094,
+          "chosen_per_million": 3515.35,
+          "rejected_per_million": 2891.57,
+          "chosen_over_rejected": 1.22,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "professional help",
+          "chosen": 868,
+          "rejected": 691,
+          "chosen_per_million": 2294.23,
+          "rejected_per_million": 1826.39,
+          "chosen_over_rejected": 1.26,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "consult a",
+          "chosen": 826,
+          "rejected": 712,
+          "chosen_per_million": 2183.22,
+          "rejected_per_million": 1881.9,
+          "chosen_over_rejected": 1.16,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "mental health professional",
+          "chosen": 695,
+          "rejected": 504,
+          "chosen_per_million": 1836.97,
+          "rejected_per_million": 1332.13,
+          "chosen_over_rejected": 1.38,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "seek professional",
+          "chosen": 644,
+          "rejected": 512,
+          "chosen_per_million": 1702.17,
+          "rejected_per_million": 1353.28,
+          "chosen_over_rejected": 1.26,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "steps you can take",
+          "chosen": 622,
+          "rejected": 470,
+          "chosen_per_million": 1644.02,
+          "rejected_per_million": 1242.27,
+          "chosen_over_rejected": 1.32,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "it sounds like you",
+          "chosen": 559,
+          "rejected": 483,
+          "chosen_per_million": 1477.5,
+          "rejected_per_million": 1276.63,
+          "chosen_over_rejected": 1.16,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "i'm really sorry",
+          "chosen": 202,
+          "rejected": 220,
+          "chosen_per_million": 533.91,
+          "rejected_per_million": 581.49,
+          "chosen_over_rejected": 0.92,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "talk to a",
+          "chosen": 191,
+          "rejected": 188,
+          "chosen_per_million": 504.84,
+          "rejected_per_million": 496.91,
+          "chosen_over_rejected": 1.02,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "i'm sorry to hear",
+          "chosen": 151,
+          "rejected": 172,
+          "chosen_per_million": 399.11,
+          "rejected_per_million": 454.62,
+          "chosen_over_rejected": 0.88,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "it's natural to",
+          "chosen": 69,
+          "rejected": 47,
+          "chosen_per_million": 182.38,
+          "rejected_per_million": 124.23,
+          "chosen_over_rejected": 1.47,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "it's completely normal",
+          "chosen": 26,
+          "rejected": 29,
+          "chosen_per_million": 68.72,
+          "rejected_per_million": 76.65,
+          "chosen_over_rejected": 0.9,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "your feelings are valid",
+          "chosen": 20,
+          "rejected": 13,
+          "chosen_per_million": 52.86,
+          "rejected_per_million": 34.36,
+          "chosen_over_rejected": 1.54,
+          "n_docs": 378341
+        },
+        {
+          "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+          "phrase": "it's normal to feel",
+          "chosen": 18,
+          "rejected": 17,
+          "chosen_per_million": 47.58,
+          "rejected_per_million": 44.93,
+          "chosen_over_rejected": 1.06,
+          "n_docs": 378341
+        }
+      ],
+      "rlvr_analysis": [
+        {
+          "phrase": "steps you can take",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "steps you can take",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "here are some",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "here are some",
+              "count": 4,
+              "per_million": 535.26,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "i'm really sorry",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "i'm really sorry",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "mental health professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "mental health professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "i'm sorry to hear",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "i'm sorry to hear",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "talk to a",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "talk to a",
+              "count": 1,
+              "per_million": 133.82,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "professional help",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "professional help",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "seek professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "seek professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "consult a",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "consult a",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "it's natural to",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "it's natural to",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "here are a few",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "here are a few",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "healthcare professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "healthcare professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "it sounds like you",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "it sounds like you",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "it's completely normal",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "it's completely normal",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "it's normal to feel",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "it's normal to feel",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        },
+        {
+          "phrase": "your feelings are valid",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-GSM",
+              "phrase": "your feelings are valid",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7473
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

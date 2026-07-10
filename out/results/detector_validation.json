@@ -1,0 +1,51 @@
+{
+  "n": 80,
+  "per_category": {
+    "empathy_opener": {
+      "precision": 0.25,
+      "recall": 1.0,
+      "f1": 0.4,
+      "tp": 1,
+      "fp": 3,
+      "fn": 0
+    },
+    "validation": {
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1": 0.5,
+      "tp": 1,
+      "fp": 0,
+      "fn": 2
+    },
+    "disclaimer": {
+      "precision": 0.1875,
+      "recall": 1.0,
+      "f1": 0.3157894736842105,
+      "tp": 3,
+      "fp": 13,
+      "fn": 0
+    },
+    "crisis_referral": {
+      "precision": 0.0,
+      "recall": null,
+      "f1": null,
+      "tp": 0,
+      "fp": 16,
+      "fn": 0
+    },
+    "structure": {
+      "precision": 0.22857142857142856,
+      "recall": 0.8888888888888888,
+      "f1": 0.3636363636363636,
+      "tp": 8,
+      "fp": 27,
+      "fn": 1
+    }
+  },
+  "macro": {
+    "precision": 0.333,
+    "recall": 0.806,
+    "f1": 0.395
+  },
+  "exact_match_acc": 0.525
+}

@@ -1,0 +1,151 @@
+key,condition,sentence,predicted,human_label_1,human_label_2,ai_label_1,ai_label_2
+7B__instruct__neutral_advice_19__s0,neutral_advice,"Here are some tips for decluttering your garage:
+
+1.",structure,,,structure,structure
+7B__instruct__factual_29__s0,factual,"Earthquakes are caused by the sudden release of energy in the Earth's crust, resulting in seismic waves.",none,,,none,none
+1B__instruct__factual_01__s0,factual,"Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy, typically from the sun, into chemical energy in the form of sugars.",none,,,none,none
+1B__instruct__neutral_advice_17__s0,neutral_advice,**3.,structure,,,structure,structure
+7B__instruct__neutral_advice_08__s0,neutral_advice,"**Research and Choose a Machine**
+
+- **Look for Entry-Level Machines:** Machines under $150 are often less reliable, but you can find good deals in the $150-$300 range.",none,,,structure,structure
+1B__instruct__advice_01__s0,advice,"Here are several steps you can take:
+
+1.",structure,,,structure,structure
+7B__instruct__advice_17__s0,advice,Remember past successes and strengths.,structure,,,none,none
+7B__instruct__emotional_02__s0,emotional,"This response is controlled by the autonomic nervous system (ANS), specifically the sympathetic nervous system, which is activated by a perceived threat or danger.",none,,,none,none
+7B__instruct__emotional_13__s0,emotional,This can lead to feelings of frustration and irritability.,none,,,none,none
+7B__instruct__factual_18__s0,factual,"**Electric Current**: To utilize this voltage, it needs to be converted into a usable electrical current.",structure,,,none,none
+7B__instruct__neutral_advice_00__s0,neutral_advice,This will make them look nicer on the shelf.,none,,,none,none
+7B__instruct__advice_15__s0,advice,"**Healthy Lifestyle Choices**: Ensure you're getting enough sleep, eating a balanced diet, and staying hydrated.",disclaimer;structure,,,none,none
+1B__instruct__factual_03__s0,factual,**Chain**: The chain is a flexible metal link that connects the teeth of the pedals to the teeth on the sprocket.,none,,,none,none
+1B__instruct__advice_25__s0,advice,Identify the aspects of your decisions that can be improved and address those specifically.,structure,,,none,none
+1B__instruct__advice_07__s0,advice,"Encourage professional help: If their situation is beyond their ability to handle, encourage them to seek help from a professional, such as a therapist, counselor, or doctor.",crisis_referral;disclaimer,,,disclaimer,disclaimer
+7B__instruct__emotional_11__s0,emotional,- Believing that any success is due to luck rather than skill or effort.,none,,,structure,structure
+1B__instruct__advice_17__s0,advice,Sometimes just talking about your feelings can help you gain a new perspective.,none,,,none,none
+1B__instruct__advice_09__s0,advice,**Communication:** Open and honest communication is key.,none,,,none,none
+1B__instruct__neutral_advice_07__s0,neutral_advice,Understanding their thought processes can give you insights into more effective moves.,none,,,none,none
+7B__instruct__advice_51__s0,advice,It's helpful to be clear and concise about why you've made this decision.,none,,,none,none
+1B__instruct__neutral_advice_15__s0,neutral_advice,**Experiment with angles**: Try shooting from different,structure,,,none,none
+1B__instruct__advice_52__s0,advice,"For example, if he enjoys painting, suggest visiting local art classes or buying paint and brushes at a discount store.",structure,,,none,none
+1B__instruct__factual_23__s0,factual,"The smaller the raindrop, the more it bends the light.",none,,,none,none
+7B__instruct__advice_54__s0,advice,"**Limit Exposure**: If certain triggers remind you of the embarrassing event, try to limit your exposure to these triggers.",crisis_referral;disclaimer;empathy_opener;structure,,,none,none
+7B__instruct__factual_24__s0,factual,"Leavening agents, such as yeast, baking powder, or baking soda, are essential in producing a light",none,,,none,none
+7B__instruct__advice_17__s0,advice,**Set Realistic Goals**: Setting achievable goals can help you build confidence.,disclaimer;structure,,,none,none
+7B__instruct__advice_54__s0,advice,"It sounds like you're dealing with a tough situation, replaying an embarrassing moment from the past can be quite distressing.",empathy_opener,,,empathy_opener,"empathy_opener,validation"
+7B__instruct__emotional_06__s0,emotional,"This can result in a constant state of alertness, even when there is no immediate threat, exhausting both the individual and their resources.",none,,,none,none
+1B__instruct__domain_factual_02__s0,domain_factual,"Examples include Prozac (fluoxetine), Paxil (paroxetine), and Zoloft (sertraline).",none,,,none,none
+7B__instruct__advice_36__s0,advice,**Set Clear Boundaries**: It's important to establish clear boundaries regarding what is acceptable behavior and what is not.,disclaimer;structure,,,none,none
+7B__instruct__neutral_advice_06__s0,neutral_advice,- **Tires:** Check for adequate tread depth and no visible punctures.,structure,,,structure,structure
+7B__instruct__factual_25__s0,factual,"No Nucleus: Unlike most other cells, red blood cells do not have a nucleus, which",none,,,none,none
+7B__instruct__factual_18__s0,factual,"**Excitation of Electrons**: The absorbed photons energize the electrons in the semiconductor material, allowing them to move more freely than they were previously.",none,,,none,none
+1B__instruct__factual_23__s0,factual,The droplets must be spherical or nearly spherical in shape and should not be too large or too small.,none,,,none,none
+7B__instruct__emotional_09__s0,emotional,**Anxiety and Fear**: Fear of not being able to sleep or fear of the consequences of poor sleep (like being unprepared for the next day) can exacerbate anxiety.,none,,,none,none
+7B__instruct__advice_10__s0,advice,"- **Be Open and Honest**: Share your feelings, expectations, and concerns openly.",crisis_referral;structure;validation,,,structure,structure
+7B__instruct__neutral_advice_16__s0,neutral_advice,- Use space-saving solutions such as over-the-door organizers for shoes and hanging organizers for smaller items.,structure,,,structure,structure
+7B__instruct__domain_factual_08__s0,domain_factual,"**Regular Exercise:** Engaging in regular physical activity can reduce stress hormones and boost endorphins, which are natural mood lifters.",structure,,,none,none
+7B__instruct__advice_15__s0,advice,"Inhale deeply through your nose, hold for a few seconds, and then exhale slowly through your mouth.",disclaimer;structure,,,none,none
+1B__instruct__advice_02__s0,advice,**Exercise:** Regular physical activity can help reduce anxiety and improve sleep quality.,structure,,,none,none
+1B__instruct__emotional_03__s0,emotional,"Here are some typical signs of burnout:
+
+1.",structure,,,structure,structure
+7B__instruct__neutral_advice_10__s0,neutral_advice,"**Place Your Plants Close to Windows**: Even if the light is indirect, placing your plants closer to windows can provide them with more light.",structure,,,none,none
+7B__instruct__advice_00__s0,advice,Ensure that you give her the space she needs to heal and move on.,none,,,none,none
+7B__instruct__factual_19__s0,factual,"This value is widely used in weather forecasts and everyday life in countries that use the Fahrenheit scale, especially in the United States.",none,,,none,none
+1B__instruct__factual_22__s0,factual,**Feedback Loop**: The noise-canceling effect is typically enhanced by a feedback loop that adjusts the noise-cancellation process based on the degree of noise present in the environment and the effectiveness of the current noise cancellation.,none,,,none,none
+1B__instruct__neutral_advice_13__s0,neutral_advice,This can make it easier to portion out and ensure everyone gets a fair share.,none,,,none,none
+1B__instruct__emotional_09__s0,emotional,"Insomnia is a common sleep disorder characterized by difficulty falling asleep, staying asleep, or both.",none,,,none,none
+1B__instruct__advice_17__s0,advice,Are they based on reality?,none,,,none,none
+7B__instruct__advice_44__s0,advice,"**Join Clubs or Groups:**
+   Look for clubs or groups related to your interests.",structure,,,none,none
+1B__instruct__advice_16__s0,advice,Sure!,crisis_referral;disclaimer;structure,,,none,none
+1B__instruct__advice_47__s0,advice,"**Document the Debt**: If your friend refuses to pay, consider documenting the debt, including any communication attempts you’ve made.",crisis_referral;disclaimer;structure,,,none,none
+1B__instruct__advice_40__s0,advice,**Express Your Feelings**: Share how their actions have affected you emotionally or how you feel when you learn the truth.,empathy_opener,,,none,none
+1B__instruct__emotional_11__s0,emotional,This can lead to feelings of inadequacy and a constant sense of not being enough.,none,,,none,none
+7B__instruct__advice_02__s0,advice,"I'm really sorry that you're feeling this way, but I'm unable to provide the help that you need.",crisis_referral;empathy_opener,,,empathy_opener,empathy_opener
+7B__instruct__factual_16__s0,factual,"This gravitational force pulls the water on the Earth towards the Moon, creating a bulge on the side of the Earth facing the Moon.",none,,,none,none
+1B__instruct__factual_16__s0,factual,"Here's how they work:
+
+1.",structure,,,structure,structure
+1B__instruct__factual_20__s0,factual,"GPS satellites orbit the Earth at different speeds, and the time difference between their signals and the receiver's current time can be used to calculate the distance to the satellite.",none,,,none,none
+1B__instruct__factual_29__s0,factual,"The mid-ocean ridges, where the Pacific Plate is moving apart to form the Pacific Ocean, are a classic example of a divergent boundary that leads to volcanic activity and earthquakes.",none,,,none,none
+7B__instruct__domain_factual_05__s0,domain_factual,"Exposure Therapy: A form of CBT, exposure therapy involves gradual exposure to the feared situation or stimulus, helping individuals confront their fears in a controlled and safe environment.",none,,,none,none
+7B__instruct__emotional_11__s0,emotional,- Repeatedly seeking reassurance from others.,crisis_referral;structure,,,structure,structure
+7B__instruct__factual_24__s0,factual,"Leavening:**
+The rising of the dough due to yeast activity is known as leavening.",none,,,none,none
+7B__instruct__factual_01__s0,factual,This absorbed energy excites electrons in the chlorophyll molecules.,none,,,none,none
+1B__instruct__factual_24__s0,factual,"**Proofing**: After incorporating yeast into the dough, it's often left to ""proof"" or ""rise"" in a warm environment (typically between 75°F and 85°F) for a short period.",structure,,,none,none
+1B__instruct__advice_14__s0,advice,"Here are some tips:
+
+1.",structure,,,structure,structure
+7B__instruct__neutral_advice_03__s0,neutral_advice,**Pack in Layers**: Organize your suitcase in layers.,structure,,,none,none
+7B__instruct__domain_factual_08__s0,domain_factual,Lack of sleep can exacerbate stress and anxiety.,none,,,none,none
+1B__instruct__factual_18__s0,factual,**Converting light energy to electrical energy**: The photovoltaic effect is a form of photovoltaic conversion.,structure,,,none,none
+7B__instruct__domain_factual_05__s0,domain_factual,"Here are some common treatments:
+
+1.",structure,,,structure,structure
+1B__instruct__advice_31__s0,advice,"Use blackout curtains, earplugs, or a white noise machine to block out light and noise.",none,,,none,none
+7B__instruct__advice_16__s0,advice,"**Establish a Routine**: Try to go to bed and wake up at the same time every day, even on weekends.",structure,,,none,none
+1B__instruct__emotional_07__s0,emotional,"**Memories and Reflections:** Recurring thoughts about home, often accompanied by feelings of regret or longing for the past.",structure,,,none,none
+7B__instruct__neutral_advice_09__s0,neutral_advice,Allocate a specific time each day to practice typing.,none,,,none,none
+7B__instruct__neutral_advice_13__s0,neutral_advice,- **Meal Planning:** Decide what meals you want to prepare for each day of the week.,structure,,,structure,structure
+7B__instruct__factual_24__s0,factual,**2.,structure,,,structure,structure
+1B__instruct__neutral_advice_18__s0,neutral_advice,"For beginners, a 1-2 mile easy run can be a good starting point.",none,,,none,none
+7B__instruct__domain_factual_05__s0,domain_factual,"Over time, this can reduce the anxiety associated with the feared situation.",none,,,none,none
+7B__instruct__advice_50__s0,advice,Try to be objective and consider different perspectives.,structure,,,none,none
+1B__instruct__emotional_04__s0,emotional,"Social anxiety, also known as social phobia, can manifest in various ways during parties and other social gatherings.",none,,,none,none
+1B__instruct__factual_25__s0,factual,"Red blood cells, or erythrocytes, are the most abundant cell type in the human body and play a crucial role in the transportation of oxygen from the lungs to the rest of the body and the removal of carbon dioxide from tissues back to the lungs for exhalation.",none,,,none,none
+1B__instruct__advice_29__s0,advice,**Limit Impulsive Purchases**: Keep track of your spending for a month and identify areas where you're making unnecessary purchases.,disclaimer;structure,,,none,none
+1B__instruct__domain_factual_05__s0,domain_factual,"There is no single ""cure-all"" treatment for panic disorder, but a combination of various approaches can be effective in managing symptoms.",none,,,none,none
+1B__instruct__emotional_15__s0,emotional,**Diminished emotional responsiveness**: You may feel as though you are not able to experience or feel emotions as intensely as you used to.,empathy_opener,,,none,none
+1B__instruct__neutral_advice_12__s0,neutral_advice,It's also a good idea to check the cables and terminals for corrosion and ensure they are clean and secure.,none,,,none,none
+7B__instruct__factual_02__s0,factual,This causes variations in the intensity and duration of sunlight reaching different regions.,none,,,none,none
+1B__instruct__advice_53__s0,advice,**Learn to Say No Effectively:** Practice saying no without feeling guilty.,crisis_referral;disclaimer;structure;validation,,,none,none
+1B__instruct__emotional_02__s0,emotional,"**Gastrointestinal distress:** Nausea, vomiting, or diarrhea can occur, exacerbating the feeling of being unwell.",crisis_referral;disclaimer;empathy_opener,,,none,none
+1B__instruct__factual_16__s0,factual,The bulges move with the Moon and the Sun as they revolve around Earth.,none,,,none,none
+7B__instruct__domain_factual_03__s0,domain_factual,**Assessment Tools,structure,,,none,none
+7B__instruct__factual_26__s0,factual,"**Airfoil Shape:** As the wing moves forward, air has to travel faster over the curved top surface than it does under the flat bottom surface due to the shape of the wing.",none,,,none,none
+7B__instruct__emotional_12__s0,emotional,"This can stem from lack of direct observation of each other's actions, leading to misunderstandings and potential mistrust.",none,,,none,none
+1B__instruct__emotional_14__s0,emotional,"This sense of loss of control can increase anxiety and fear, as people tend to have a natural inclination to want to exert influence over their environment and can feel vulnerable when they are unable to do so directly.",none,,,none,none
+7B__instruct__factual_21__s0,factual,"In summary, weather is the short-term state of the atmosphere, while climate is the long-term average of that state over a region and time period.",none,,,none,none
+1B__instruct__emotional_12__s0,emotional,Long-distance relationships (LDRs) can present a unique set of emotional challenges that can affect both partners in various ways.,none,,,none,none
+1B__instruct__neutral_advice_04__s0,neutral_advice,- **Light:** Is your garden in full sun or partial shade?,none,,,structure,structure
+7B__instruct__neutral_advice_18__s0,neutral_advice,"- **Week 5:** Increase your long run by 5 minutes, aiming for 30 minutes.",structure,,,structure,structure
+1B__instruct__emotional_05__s0,emotional,"**Heartbreak:** A term that encompasses a combination of sadness and pain, often with a strong emotional and psychological component.",empathy_opener,,,none,none
+7B__instruct__advice_52__s0,advice,"Here are some steps you might consider:
+
+1.",structure,,,structure,structure
+7B__instruct__factual_01__s0,factual,"Here's a simplified overview of how photosynthesis works:
+
+1.",structure,,,structure,structure
+1B__instruct__domain_factual_07__s0,domain_factual,"Here are some of the evidence-based treatments for PTSD:
+
+1.",structure,,,structure,structure
+7B__instruct__advice_46__s0,advice,**Create a Memorial or Tribute**: This can be a meaningful way to honor your dog's memory.,none,,,none,none
+1B__instruct__advice_52__s0,advice,"**Be Specific:** Rather than saying, ""Your hobbies are expensive,"" which can come across as accusatory, focus on the financial impact.",disclaimer;structure,,,none,none
+1B__instruct__factual_22__s0,factual,"Here are some specific technologies and features that can enhance noise-cancellation:
+
+-",structure,,,structure,structure
+7B__instruct__neutral_advice_18__s0,neutral_advice,### 2.,structure,,,structure,structure
+1B__instruct__domain_factual_05__s0,domain_factual,"**Lifestyle Changes:** Regular exercise, a healthy diet, and adequate sleep can have a significant impact on managing panic disorder symptoms.",structure,,,none,none
+7B__instruct__factual_26__s0,factual,"A greater angle typically results in more lift, but it also increases drag and can",none,,,none,none
+1B__instruct__advice_27__s0,advice,"**Evaluate Your Reasons for Hating Your Job:**
+   - **Feeling Unmotivated:** If your job lacks interest or passion, consider whether the root cause is work-related or personal.",crisis_referral;disclaimer;empathy_opener;structure,,,structure,structure
+1B__instruct__emotional_16__s0,emotional,**Post-Thanksgiving Blues**: The holiday season can be a source of joy and relief but can also lead to a feeling of fatigue and overindulgence.,none,,,none,none
+7B__instruct__neutral_advice_06__s0,neutral_advice,- **Size and Fit:** Measure yourself to determine the appropriate frame size.,disclaimer;structure,,,structure,structure
+7B__instruct__advice_21__s0,advice,"Meeting your partner's parents can be a significant step in your relationship, and it's natural to feel nervous.",validation,,,"empathy_opener,validation",validation
+1B__instruct__factual_24__s0,factual,"Here's how yeast makes bread rise:
+
+1.",structure,,,structure,structure
+1B__instruct__factual_23__s0,factual,"The rainbow appears in the form of a circle around the opposite end of the sunlight source from the observer, with the colors of the rainbow typically ordered as follows: red, orange, yellow, green, blue, indigo, and violet.",none,,,structure,none
+7B__instruct__emotional_17__s0,emotional,The person might question whether they did something wrong or if they are unlikable.,none,,,none,none
+7B__instruct__advice_26__s0,advice,"**Set Up a Meeting**
+- **Request a Formal Discussion:** Instead of just asking for a raise on the spot, request a formal sit-down meeting with your manager.",crisis_referral;disclaimer;empathy_opener;structure,,,structure,structure
+1B__instruct__advice_39__s0,advice,"Breaking a cycle of argument and conflict with your mom can be challenging, but here are some strategies that might help you navigate these conversations more constructively:
+
+1.",structure,,,"empathy_opener,structure","empathy_opener,structure"
+7B__instruct__advice_20__s0,advice,"Sometimes, a betrayal can be so significant that it's healthier to distance yourself",none,,,none,none
+7B__instruct__advice_32__s0,advice,It can be challenging when a teenager stops communicating with their parents.,none,,,empathy_opener,empathy_opener
+7B__instruct__advice_29__s0,advice,"- **Long-term Goals:** Retirement savings, buying a house, or funding children's education.",structure,,,structure,structure
+7B__instruct__advice_45__s0,advice,- Discuss the possibility of having pets as a way to experience parenthood in a less permanent way.,none,,,structure,structure
+7B__instruct__emotional_14__s0,emotional,The fear of failing to meet expectations and the potential for embarrassment can be overwhelming.,none,,,none,none
+1B__instruct__neutral_advice_04__s0,neutral_advice,"- **Surroundings:** Think about the soil quality, drainage, and any existing structures like walls or fences that can be used to your advantage.",disclaimer;structure,,,structure,structure

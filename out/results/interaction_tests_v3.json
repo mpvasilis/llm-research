@@ -1,0 +1,301 @@
+{
+  "1B": {
+    "empathy_opener": {
+      "base->sft": {
+        "did": 0.1967,
+        "perm_p": 0.0007999200079992001,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.1533,
+        "perm_p": 0.005499450054994501,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->rlvr": {
+        "did": 0.0067,
+        "perm_p": 0.9147085291470853,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "rlvr->instruct": {
+        "did": 0.0033,
+        "perm_p": 1.0,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.36,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "validation": {
+      "base->sft": {
+        "did": 0.11,
+        "perm_p": 0.040495950404959506,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.1567,
+        "perm_p": 0.007399260073992601,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->rlvr": {
+        "did": 0.0333,
+        "perm_p": 0.5009499050094991,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "rlvr->instruct": {
+        "did": -0.0133,
+        "perm_p": 0.817918208179182,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.2867,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "disclaimer": {
+      "base->sft": {
+        "did": 0.3333,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.0967,
+        "perm_p": 0.0670932906709329,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->rlvr": {
+        "did": -0.0267,
+        "perm_p": 0.5121487851214879,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "rlvr->instruct": {
+        "did": 0.0367,
+        "perm_p": 0.21347865213478653,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.44,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "crisis_referral": {
+      "base->sft": {
+        "did": 0.3067,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.1467,
+        "perm_p": 0.0032996700329967,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->rlvr": {
+        "did": 0.0133,
+        "perm_p": 0.7605239476052394,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "rlvr->instruct": {
+        "did": -0.0033,
+        "perm_p": 1.0,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.4633,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "structure": {
+      "base->sft": {
+        "did": 0.3933,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": -0.3767,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->rlvr": {
+        "did": -0.0133,
+        "perm_p": 0.6982301769823017,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "rlvr->instruct": {
+        "did": 0.0133,
+        "perm_p": 0.6031396860313969,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.0167,
+        "perm_p": 0.8384161583841616,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    }
+  },
+  "7B": {
+    "empathy_opener": {
+      "base->sft": {
+        "did": 0.2767,
+        "perm_p": 0.00029997000299970003,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.07,
+        "perm_p": 0.2512748725127487,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->instruct": {
+        "did": 0.0267,
+        "perm_p": 0.5064493550644935,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.3733,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "validation": {
+      "base->sft": {
+        "did": 0.12,
+        "perm_p": 0.0235976402359764,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.1467,
+        "perm_p": 0.007999200079992,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->instruct": {
+        "did": 0.04,
+        "perm_p": 0.2625737426257374,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.3067,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "disclaimer": {
+      "base->sft": {
+        "did": 0.2767,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.0833,
+        "perm_p": 0.10868913108689131,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->instruct": {
+        "did": 0.0033,
+        "perm_p": 1.0,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.3633,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "crisis_referral": {
+      "base->sft": {
+        "did": 0.3133,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": 0.1233,
+        "perm_p": 0.024897510248975102,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->instruct": {
+        "did": -0.01,
+        "perm_p": 0.8873112688731127,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": 0.4267,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    },
+    "structure": {
+      "base->sft": {
+        "did": 0.2333,
+        "perm_p": 0.00029997000299970003,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "sft->dpo": {
+        "did": -0.2767,
+        "perm_p": 9.999000099990002e-05,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "dpo->instruct": {
+        "did": -0.0133,
+        "perm_p": 0.5931406859314069,
+        "n_advice": 60,
+        "n_factual": 30
+      },
+      "base->instruct": {
+        "did": -0.0567,
+        "perm_p": 0.5158484151584841,
+        "n_advice": 60,
+        "n_factual": 30
+      }
+    }
+  },
+  "monte_carlo_p": {
+    "draws": 10000,
+    "formula": "(exceedances + 1) / (draws + 1)",
+    "source": "interaction_tests.json"
+  }
+}

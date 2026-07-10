@@ -1,0 +1,134 @@
+{
+  "1B": {
+    "empathy_opener": {
+      "advice": "35/60",
+      "factual": "1/30",
+      "risk_diff": 0.55,
+      "rd_ci": [
+        0.366,
+        0.669
+      ],
+      "odds_ratio": 27.4,
+      "or_ci": [
+        4.9,
+        152.5
+      ],
+      "fisher_p": 1.4307374804577426e-07,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "validation": {
+      "advice": "22/60",
+      "factual": "0/30",
+      "risk_diff": 0.367,
+      "rd_ci": [
+        0.208,
+        0.493
+      ],
+      "odds_ratio": 35.6,
+      "or_ci": [
+        2.1,
+        611.7
+      ],
+      "fisher_p": 4.152660810822542e-05,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "disclaimer": {
+      "advice": "56/60",
+      "factual": "2/30",
+      "risk_diff": 0.867,
+      "rd_ci": [
+        0.693,
+        0.93
+      ],
+      "odds_ratio": 143.1,
+      "or_ci": [
+        28.6,
+        716.3
+      ],
+      "fisher_p": 8.873440800279218e-17,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "structure": {
+      "advice": "60/60",
+      "factual": "18/30",
+      "risk_diff": 0.4,
+      "rd_ci": [
+        0.235,
+        0.577
+      ],
+      "odds_ratio": 81.8,
+      "or_ci": [
+        4.6,
+        1448.2
+      ],
+      "fisher_p": 3.1578675381484297e-07,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    }
+  },
+  "7B": {
+    "empathy_opener": {
+      "advice": "37/60",
+      "factual": "1/30",
+      "risk_diff": 0.583,
+      "rd_ci": [
+        0.4,
+        0.699
+      ],
+      "odds_ratio": 31.4,
+      "or_ci": [
+        5.6,
+        175.2
+      ],
+      "fisher_p": 2.1451655181628797e-08,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "validation": {
+      "advice": "23/60",
+      "factual": "0/30",
+      "risk_diff": 0.383,
+      "rd_ci": [
+        0.224,
+        0.51
+      ],
+      "odds_ratio": 38.2,
+      "or_ci": [
+        2.2,
+        655.4
+      ],
+      "fisher_p": 1.8962843643907343e-05,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "disclaimer": {
+      "advice": "55/60",
+      "factual": "2/30",
+      "risk_diff": 0.85,
+      "rd_ci": [
+        0.674,
+        0.917
+      ],
+      "odds_ratio": 115.0,
+      "or_ci": [
+        24.1,
+        548.4
+      ],
+      "fisher_p": 5.661974177975353e-16,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    },
+    "structure": {
+      "advice": "58/60",
+      "factual": "16/30",
+      "risk_diff": 0.433,
+      "rd_ci": [
+        0.25,
+        0.607
+      ],
+      "odds_ratio": 20.6,
+      "or_ci": [
+        4.8,
+        87.6
+      ],
+      "fisher_p": 1.2430896831910014e-06,
+      "prompt_clustered_perm_p": 9.999000099990002e-05
+    }
+  }
+}

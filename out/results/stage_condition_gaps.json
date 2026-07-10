@@ -1,0 +1,146 @@
+{
+  "1B": {
+    "empathy_opener": {
+      "gap_by_stage": {
+        "base": 0.194,
+        "sft": 0.39,
+        "dpo": 0.543,
+        "rlvr": 0.55,
+        "instruct": 0.554
+      },
+      "gap_deltas": {
+        "base->sft": 0.196,
+        "sft->dpo": 0.153,
+        "dpo->rlvr": 0.007,
+        "rlvr->instruct": 0.004
+      }
+    },
+    "validation": {
+      "gap_by_stage": {
+        "base": 0.073,
+        "sft": 0.183,
+        "dpo": 0.34,
+        "rlvr": 0.373,
+        "instruct": 0.36
+      },
+      "gap_deltas": {
+        "base->sft": 0.11,
+        "sft->dpo": 0.157,
+        "dpo->rlvr": 0.033,
+        "rlvr->instruct": -0.013
+      }
+    },
+    "disclaimer": {
+      "gap_by_stage": {
+        "base": 0.413,
+        "sft": 0.746,
+        "dpo": 0.844,
+        "rlvr": 0.816,
+        "instruct": 0.854
+      },
+      "gap_deltas": {
+        "base->sft": 0.333,
+        "sft->dpo": 0.098,
+        "dpo->rlvr": -0.028,
+        "rlvr->instruct": 0.038
+      }
+    },
+    "crisis_referral": {
+      "gap_by_stage": {
+        "base": 0.403,
+        "sft": 0.71,
+        "dpo": 0.857,
+        "rlvr": 0.87,
+        "instruct": 0.867
+      },
+      "gap_deltas": {
+        "base->sft": 0.307,
+        "sft->dpo": 0.147,
+        "dpo->rlvr": 0.013,
+        "rlvr->instruct": -0.003
+      }
+    },
+    "structure": {
+      "gap_by_stage": {
+        "base": 0.397,
+        "sft": 0.79,
+        "dpo": 0.413,
+        "rlvr": 0.4,
+        "instruct": 0.413
+      },
+      "gap_deltas": {
+        "base->sft": 0.393,
+        "sft->dpo": -0.377,
+        "dpo->rlvr": -0.013,
+        "rlvr->instruct": 0.013
+      }
+    }
+  },
+  "7B": {
+    "empathy_opener": {
+      "gap_by_stage": {
+        "base": 0.217,
+        "sft": 0.493,
+        "dpo": 0.564,
+        "instruct": 0.59
+      },
+      "gap_deltas": {
+        "base->sft": 0.276,
+        "sft->dpo": 0.071,
+        "dpo->instruct": 0.026
+      }
+    },
+    "validation": {
+      "gap_by_stage": {
+        "base": 0.063,
+        "sft": 0.183,
+        "dpo": 0.33,
+        "instruct": 0.37
+      },
+      "gap_deltas": {
+        "base->sft": 0.12,
+        "sft->dpo": 0.147,
+        "dpo->instruct": 0.04
+      }
+    },
+    "disclaimer": {
+      "gap_by_stage": {
+        "base": 0.49,
+        "sft": 0.767,
+        "dpo": 0.85,
+        "instruct": 0.853
+      },
+      "gap_deltas": {
+        "base->sft": 0.277,
+        "sft->dpo": 0.083,
+        "dpo->instruct": 0.003
+      }
+    },
+    "crisis_referral": {
+      "gap_by_stage": {
+        "base": 0.427,
+        "sft": 0.74,
+        "dpo": 0.864,
+        "instruct": 0.853
+      },
+      "gap_deltas": {
+        "base->sft": 0.313,
+        "sft->dpo": 0.124,
+        "dpo->instruct": -0.011
+      }
+    },
+    "structure": {
+      "gap_by_stage": {
+        "base": 0.48,
+        "sft": 0.714,
+        "dpo": 0.437,
+        "instruct": 0.423
+      },
+      "gap_deltas": {
+        "base->sft": 0.234,
+        "sft->dpo": -0.277,
+        "dpo->instruct": -0.014
+      }
+    }
+  }
+}

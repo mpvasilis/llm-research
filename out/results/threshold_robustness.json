@@ -1,0 +1,45 @@
+{
+  "source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\summary_v3.json",
+  "models": {
+    "1B": {
+      "0.8": {
+        "empathy_emotional_minus_advice": 0.013,
+        "validation_advice_minus_max_control": -0.02,
+        "referral_advice_minus_domain_factual": -0.003,
+        "structuring_advice_minus_neutral_advice": 0.0
+      },
+      "0.82": {
+        "empathy_emotional_minus_advice": 0.203,
+        "validation_advice_minus_max_control": 0.2,
+        "referral_advice_minus_domain_factual": 0.127,
+        "structuring_advice_minus_neutral_advice": 0.0
+      },
+      "0.84": {
+        "empathy_emotional_minus_advice": -0.127,
+        "validation_advice_minus_max_control": 0.083,
+        "referral_advice_minus_domain_factual": 0.163,
+        "structuring_advice_minus_neutral_advice": 0.067
+      }
+    },
+    "7B": {
+      "0.8": {
+        "empathy_emotional_minus_advice": 0.03,
+        "validation_advice_minus_max_control": 0.047,
+        "referral_advice_minus_domain_factual": 0.017,
+        "structuring_advice_minus_neutral_advice": 0.0
+      },
+      "0.82": {
+        "empathy_emotional_minus_advice": 0.143,
+        "validation_advice_minus_max_control": 0.253,
+        "referral_advice_minus_domain_factual": 0.093,
+        "structuring_advice_minus_neutral_advice": -0.03
+      },
+      "0.84": {
+        "empathy_emotional_minus_advice": -0.28,
+        "validation_advice_minus_max_control": 0.17,
+        "referral_advice_minus_domain_factual": 0.28,
+        "structuring_advice_minus_neutral_advice": -0.01
+      }
+    }
+  }
+}

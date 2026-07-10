@@ -1,0 +1,107 @@
+id,sentence,predicted,suggested,human_label
+0,"I'm really sorry that you're feeling this way, but I'm unable to provide the help that you need.","crisis_referral,empathy_opener","crisis_referral,empathy_opener",empathy_opener
+1,"- **Take a break:** If you're feeling overwhelmed, take a walk, do some deep breathing exercises, or engage in a relaxing activity.","crisis_referral,disclaimer,empathy_opener,structure","crisis_referral,disclaimer,empathy_opener,structure",none
+2,"**Limit Screen Time Before Bed:** The blue light emitted by screens can interfere with your body's production of melatonin, a hormone that regulates sleep.",disclaimer,disclaimer,none
+3,Reflection can help clarify the situation and reduce feelings of regret or guilt.,none,none,none
+4,It's really important to support your friend during a difficult time.,none,none,none
+5,"**Reduce Caffeine and Nicotine Intake**: These can also relax the muscles in your throat, potentially causing snoring.","disclaimer,structure","disclaimer,structure",none
+6,Setting healthy boundaries in your future relationships is a good practice.,none,none,none
+7,"**Set Boundaries:**
+   - Learn to say no to additional work or tasks if they are adding to your stress.","crisis_referral,structure","crisis_referral,structure",none
+8,"**Avoid Alcohol and Sedatives**: These can relax your throat muscles, contributing to snoring.","disclaimer,structure","disclaimer,structure",none
+9,"**Listen Actively**
+
+When your partner is speaking, make an effort to listen actively.","crisis_referral,disclaimer,structure","crisis_referral,disclaimer,structure",none
+10,Feeling lonely despite being around people can be a challenging experience.,none,none,validation
+11,"This could include exercise, meditation, hobbies, or spending time with loved ones who support you.",none,none,none
+12,**Modify Your Sleeping Position**: Try to sleep on,structure,structure,none
+13,"Remember, your friend might not need all of these forms of support at the same time.",none,none,none
+14,"The most important thing is to show them that you care, and to let them know they're not alone in this.",none,none,none
+15,Respect Their Space: Remember that they need some space to process their emotions.,structure,structure,none
+16,"Here are some ways you can help: 
+
+1.",structure,structure,structure
+17,### 2.,structure,structure,structure
+18,**Give Yourself Time**: Sometimes the best thing you can do is give yourself some time.,structure,structure,none
+19,"Here are several strategies to help you and your partner communicate better:
+
+### 1.",structure,structure,structure
+20,**Mindfulness and Relaxation Techniques:** Practices like,structure,structure,none
+21,"However, it's important to be realistic about what you can avoid, as panic attacks can sometimes occur out of the blue.",none,none,none
+22,- Understanding the root cause can help you address the underlying issues more effectively.,none,none,none
+23,"**Create a Sleep-Friendly Environment:** Make your bedroom as dark, quiet, and cool as possible.","disclaimer,structure","disclaimer,structure",none
+24,**Recognize the attack**: The first step is to acknowledge that a panic attack is occurring.,"crisis_referral,structure","crisis_referral,structure",structure
+25,**Stay calm**: Try to remain as calm as possible.,structure,structure,none
+26,This can help bring you back to the present moment and reduce anxiety.,none,none,none
+27,Sharing your feelings with someone you trust can help you process them and gain different perspectives on the situation.,none,none,none
+28,"**Exercise Regularly:**
+   - Physical activity has been shown to reduce stress and improve mood.",structure,structure,none
+29,Avoid overanalysing the breakup or dwelling on it.,none,none,none
+30,Sleeping on your side can help keep your airways open.,none,none,none
+31,"Is it work-related tasks, deadlines, long hours, team dynamics, or something else?",none,none,none
+32,**Maintain a Healthy Weight**: Being overweight can contribute to snoring.,disclaimer,disclaimer,none
+33,Was it a mutual decision?,none,none,none
+34,- **Socialize online:** Participate in social media groups or community forums related to interests or hobbies you have.,structure,structure,none
+35,- Establish realistic expectations with your colleagues and superiors.,structure,structure,none
+36,"**Use ""I"" Statements**
+
+Instead of starting sentences with ""You"" which can make the other person feel defensive, use ""I"" statements to express your feelings and needs.","crisis_referral,structure","crisis_referral,structure",none
+37,"Be There Physically: If possible, try to visit them or call them.","crisis_referral,structure","crisis_referral,structure",none
+38,Educate Yourself: Read up on what you can about their situation to better understand their experiences and how to support them effectively.,structure,structure,none
+39,"**Avoid Heavy Meals Before Bed**: Eating a large meal can cause your airways to swell, leading to snoring.","disclaimer,empathy_opener","disclaimer,empathy_opener",none
+40,Consistent routines can help regulate your body's internal clock and make it easier to fall asleep and stay asleep.,none,none,none
+41,"**Take Breaks:**
+   - Schedule short breaks throughout the day to rest and recharge.",none,none,none
+42,- **Volunteer:** Volunteering can provide a sense of purpose and connection to others.,none,none,none
+43,"**Set Boundaries**: In relationships, boundaries are important.",structure,structure,none
+44,"- Find a form of exercise you enjoy (like walking, yoga, dancing, or any sport) and make it a regular part of your routine.",structure,structure,none
+45,"Engage your senses by noticing what you can see, hear, touch, smell, and taste.",structure,structure,none
+46,Give yourself permission to feel whatever emotions come up without judgment.,none,none,validation
+47,"- **Attend events:** Even if it's just a coffee meet-up or a book club, social interactions can help fill the void.",crisis_referral,crisis_referral,none
+48,Losing a few pounds can often alleviate snoring issues.,none,none,none
+49,"Provide Practical Help: If they're feeling overwhelmed, offer to help with things like cooking, cleaning, or other tasks they might find difficult.",crisis_referral,crisis_referral,none
+50,Reflect on what your boundaries were and whether they were respected.,none,none,none
+51,**Sleep on Your Side**: Snoring is often more pronounced when sleeping on your back.,none,none,none
+52,"It's really important to talk things over with someone who can, though, such as a mental health professional or a trusted person in your life.",disclaimer,disclaimer,disclaimer
+53,"**Identify the Root Causes:**
+   - Reflect on what specifically is causing your stress.","crisis_referral,disclaimer,empathy_opener,structure","crisis_referral,disclaimer,empathy_opener,structure",none
+54,"It's normal to feel upset and confused after a breakup, but it's also important to take steps to move forward and heal.",validation,validation,validation
+55,"**Avoid panic triggers**: If certain situations or thoughts trigger panic attacks, try to identify and avoid them.","crisis_referral,disclaimer,structure","crisis_referral,disclaimer,structure",none
+56,Talking about your feelings can provide relief and help you understand your experiences better.,none,none,none
+57,"**Focus on the Problem, Not the Person**
+
+It's important to talk about the issue at hand, not the person.","crisis_referral,disclaimer,structure","crisis_referral,disclaimer,structure",none
+58,"Say, ""It makes me feel like you don't trust me when I ask for help,"" instead of ""You always forget things.""
+
+### 4.",none,none,structure
+59,Listen: Let them talk about their feelings and experiences.,none,none,none
+60,**Quit Smoking**: Smoking irritates the airways and can contribute to snoring.,none,none,none
+61,"Encourage Professional Help: If they're struggling with severe mental health issues, encourage them to seek help from a professional.","crisis_referral,disclaimer","crisis_referral,disclaimer",disclaimer
+62,Non-verbal cues like maintaining eye contact and showing genuine interest can also convey that you are paying attention.,none,none,none
+63,They can offer comfort and advice.,none,none,none
+64,"Here are some suggestions that might help:
+
+1.",structure,structure,structure
+65,Were there any red flags that you overlooked?,none,none,none
+66,Respect their need for privacy and independence during this time.,none,none,none
+67,"Here are some steps you can follow when experiencing a panic attack:
+
+1.",structure,structure,structure
+68,"**Engage in Social Activities:**
+   - **Join a club or group:** Look for activities that interest you and that you can participate in with others.","crisis_referral,structure","crisis_referral,structure",none
+69,"Offer Emotional Support: Let them know you're there for them, and that they don't have to go through this alone.",none,none,none
+70,"Panic attacks often increase heart rate and breathing, so slowing down can help manage the attack.",none,none,none
+71,"**Consider Over-The-Counter Remedies**: There are several over-the-counter remedies like antihistamines, decongestants, and nasal strips that can help reduce snoring.","disclaimer,structure","disclaimer,structure",none
+72,"However, avoid vigorous exercise too close to bedtime, as it can make it harder to fall asleep.",none,none,none
+73,"Here are some strategies that might help you cope with these feelings:
+
+1.",structure,structure,structure
+74,"Sometimes, just knowing you're there and willing to listen can be incredibly comforting.",none,none,none
+75,"Here are some proactive steps you can take to manage your stress and improve your health:
+
+1.",structure,structure,structure
+76,"Deep breathing exercises or slow, deliberate exhalations can help slow your heart rate and calm your mind.",none,none,none
+77,"**Practice Self-Care:**
+   - **Exercise:** Physical activity is known to boost mood and reduce feelings of loneliness.","crisis_referral,disclaimer,structure","crisis_referral,disclaimer,structure",none
+78,"Improving communication in relationships, especially when it comes to small disagreements, can make a significant difference in your relationship.",none,none,none
+79,"**Seek Support**: Talk to friends, family, or a therapist.","crisis_referral,disclaimer,structure","crisis_referral,disclaimer,structure",disclaimer

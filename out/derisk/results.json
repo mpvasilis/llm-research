@@ -1,0 +1,478 @@
+{
+  "summary": {
+    "n_advice": 8,
+    "n_factual": 4,
+    "Q1_emission_rate": {
+      "empathy_opener": {
+        "advice": 0.125,
+        "factual": 0.0
+      },
+      "validation": {
+        "advice": 0.125,
+        "factual": 0.0
+      },
+      "disclaimer": {
+        "advice": 0.25,
+        "factual": 0.0
+      },
+      "crisis_referral": {
+        "advice": 0.0,
+        "factual": 0.0
+      },
+      "structure": {
+        "advice": 0.75,
+        "factual": 0.0
+      }
+    },
+    "Q1_behavioral_coverage": {
+      "advice": 0.021,
+      "factual": 0.0
+    },
+    "Q3_behavioral_sft_recoverable": {
+      "advice": 1.0,
+      "factual": 0
+    },
+    "Q3_topical_sft_recoverable": {
+      "advice": 1.0,
+      "factual": 1.0
+    },
+    "Q4_behavioral_forum_share": {
+      "advice": 0.531,
+      "factual": 0.0
+    },
+    "novelty_rate": {
+      "advice": 0.632,
+      "factual": 0.728
+    }
+  },
+  "per_answer": [
+    {
+      "tag": "advice",
+      "i": 0,
+      "question": "I broke up with my girlfriend without any reason and I feel terrible. What should I do?",
+      "answer_chars": 1285,
+      "behavior_categories": [
+        "structure",
+        "validation"
+      ],
+      "behavioral_coverage": 0.034,
+      "pretrain_verbatim_coverage": 0.386,
+      "novelty_rate": 0.614,
+      "longest_pretrain_span": 9,
+      "behavioral_source_split": {
+        "n": 4,
+        "forum_share": 0.5,
+        "curated_share": 0.25,
+        "by_bucket": {
+          "cc_head": 1,
+          "cc_middle": 1,
+          "cc_tail": 1,
+          "falcon": 1
+        }
+      },
+      "body_source_split": {
+        "n": 6,
+        "forum_share": 0.833,
+        "curated_share": 0.167,
+        "by_bucket": {
+          "c4": 1,
+          "cc_tail": 3,
+          "reddit": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 1,
+      "question": "How do I stop snoring while sleeping with my girlfriend?",
+      "answer_chars": 1183,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.453,
+      "novelty_rate": 0.547,
+      "longest_pretrain_span": 10,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.125,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "cc_head": 4,
+          "cc_middle": 3,
+          "cc_tail": 1
+        }
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 2,
+      "question": "I've been feeling really anxious lately and can't sleep. Any advice?",
+      "answer_chars": 1235,
+      "behavior_categories": [
+        "disclaimer",
+        "empathy_opener",
+        "structure"
+      ],
+      "behavioral_coverage": 0.044,
+      "pretrain_verbatim_coverage": 0.369,
+      "novelty_rate": 0.631,
+      "longest_pretrain_span": 14,
+      "behavioral_source_split": {
+        "n": 6,
+        "forum_share": 1.0,
+        "curated_share": 0.0,
+        "by_bucket": {
+          "cc_tail": 5,
+          "falcon": 1
+        }
+      },
+      "body_source_split": {
+        "n": 6,
+        "forum_share": 0.5,
+        "curated_share": 0.333,
+        "by_bucket": {
+          "cc_head": 2,
+          "cc_middle": 1,
+          "falcon": 1,
+          "reddit": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 3,
+      "question": "My partner and I keep fighting about small things. How can we communicate better?",
+      "answer_chars": 1223,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.339,
+      "novelty_rate": 0.661,
+      "longest_pretrain_span": 9,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.375,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "c4": 2,
+          "cc_head": 2,
+          "cc_middle": 1,
+          "falcon": 3
+        }
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 4,
+      "question": "I feel lonely all the time even when I'm around people. What can I do?",
+      "answer_chars": 1170,
+      "behavior_categories": [
+        "structure"
+      ],
+      "behavioral_coverage": 0.017,
+      "pretrain_verbatim_coverage": 0.365,
+      "novelty_rate": 0.635,
+      "longest_pretrain_span": 9,
+      "behavioral_source_split": {
+        "n": 2,
+        "forum_share": 1.0,
+        "curated_share": 0.0,
+        "by_bucket": {
+          "cc_tail": 1,
+          "reddit": 1
+        }
+      },
+      "body_source_split": {
+        "n": 6,
+        "forum_share": 0.0,
+        "curated_share": 0.667,
+        "by_bucket": {
+          "c4": 1,
+          "cc_head": 3,
+          "cc_middle": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 5,
+      "question": "I think I'm having panic attacks. What should I do when one happens?",
+      "answer_chars": 1254,
+      "behavior_categories": [
+        "structure"
+      ],
+      "behavioral_coverage": 0.015,
+      "pretrain_verbatim_coverage": 0.371,
+      "novelty_rate": 0.629,
+      "longest_pretrain_span": 8,
+      "behavioral_source_split": {
+        "n": 2,
+        "forum_share": 0.5,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "cc_head": 1,
+          "cc_tail": 1
+        }
+      },
+      "body_source_split": {
+        "n": 6,
+        "forum_share": 0.5,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "cc_head": 3,
+          "falcon": 1,
+          "reddit": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 6,
+      "question": "I'm really stressed about work and it's affecting my health. What can I do?",
+      "answer_chars": 1198,
+      "behavior_categories": [
+        "structure"
+      ],
+      "behavioral_coverage": 0.038,
+      "pretrain_verbatim_coverage": 0.368,
+      "novelty_rate": 0.632,
+      "longest_pretrain_span": 10,
+      "behavioral_source_split": {
+        "n": 4,
+        "forum_share": 0.75,
+        "curated_share": 0.0,
+        "by_bucket": {
+          "cc_middle": 1,
+          "cc_tail": 1,
+          "falcon": 2
+        }
+      },
+      "body_source_split": {
+        "n": 6,
+        "forum_share": 0.333,
+        "curated_share": 0.667,
+        "by_bucket": {
+          "c4": 1,
+          "cc_head": 3,
+          "reddit": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "advice",
+      "i": 7,
+      "question": "My friend is going through a hard time and I don't know how to support them.",
+      "answer_chars": 1251,
+      "behavior_categories": [
+        "disclaimer",
+        "structure"
+      ],
+      "behavioral_coverage": 0.024,
+      "pretrain_verbatim_coverage": 0.295,
+      "novelty_rate": 0.705,
+      "longest_pretrain_span": 10,
+      "behavioral_source_split": {
+        "n": 4,
+        "forum_share": 0.5,
+        "curated_share": 0.0,
+        "by_bucket": {
+          "cc_middle": 2,
+          "falcon": 1,
+          "reddit": 1
+        }
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.25,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "cc_head": 4,
+          "cc_middle": 2,
+          "reddit": 2
+        }
+      },
+      "behavioral_sft_recoverable": 1.0,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "factual",
+      "i": 0,
+      "question": "What is the capital of Australia?",
+      "answer_chars": 37,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.0,
+      "novelty_rate": 1.0,
+      "longest_pretrain_span": 0,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "factual",
+      "i": 1,
+      "question": "How does photosynthesis work?",
+      "answer_chars": 1234,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.4,
+      "novelty_rate": 0.6,
+      "longest_pretrain_span": 8,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.25,
+        "curated_share": 0.25,
+        "by_bucket": {
+          "cc_head": 2,
+          "cc_middle": 4,
+          "cc_tail": 1,
+          "falcon": 1
+        }
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "factual",
+      "i": 2,
+      "question": "What causes the seasons on Earth?",
+      "answer_chars": 1121,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.355,
+      "novelty_rate": 0.645,
+      "longest_pretrain_span": 10,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.25,
+        "curated_share": 0.5,
+        "by_bucket": {
+          "c4": 1,
+          "cc_head": 3,
+          "cc_middle": 2,
+          "cc_tail": 1,
+          "falcon": 1
+        }
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    },
+    {
+      "tag": "factual",
+      "i": 3,
+      "question": "Explain how a bicycle gear system works.",
+      "answer_chars": 1195,
+      "behavior_categories": [],
+      "behavioral_coverage": 0.0,
+      "pretrain_verbatim_coverage": 0.333,
+      "novelty_rate": 0.667,
+      "longest_pretrain_span": 8,
+      "behavioral_source_split": {
+        "n": 0,
+        "forum_share": 0.0,
+        "curated_share": 0.0,
+        "by_bucket": {}
+      },
+      "body_source_split": {
+        "n": 8,
+        "forum_share": 0.25,
+        "curated_share": 0.25,
+        "by_bucket": {
+          "c4": 1,
+          "cc_middle": 3,
+          "cc_tail": 1,
+          "falcon": 1,
+          "math": 1,
+          "wiki": 1
+        }
+      },
+      "behavioral_sft_recoverable": null,
+      "topical_sft_recoverable": 1.0
+    }
+  ],
+  "Q2_role_scoping": [
+    {
+      "phrase": "here are some",
+      "assistant": 3947,
+      "blob": 4451,
+      "inflation": 1.13
+    },
+    {
+      "phrase": "i'm really sorry",
+      "assistant": 58,
+      "blob": 63,
+      "inflation": 1.09
+    },
+    {
+      "phrase": "it's normal to feel",
+      "assistant": 8,
+      "blob": 8,
+      "inflation": 1.0
+    },
+    {
+      "phrase": "mental health professional",
+      "assistant": 142,
+      "blob": 153,
+      "inflation": 1.08
+    },
+    {
+      "phrase": "professional help",
+      "assistant": 139,
+      "blob": 151,
+      "inflation": 1.09
+    },
+    {
+      "phrase": "steps you can take",
+      "assistant": 217,
+      "blob": 220,
+      "inflation": 1.01
+    }
+  ]
+}

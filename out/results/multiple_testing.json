@@ -1,0 +1,434 @@
+{
+  "method": "Benjamini-Hochberg",
+  "stage_interactions": {
+    "family": "all adjacent-stage x reported-behavior tests",
+    "n": 28,
+    "tests": [
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "transition": "base->sft",
+        "p": 0.0007999200079992001,
+        "q": 0.0027997200279972004
+      },
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "transition": "sft->dpo",
+        "p": 0.005499450054994501,
+        "q": 0.017109400171094004
+      },
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "transition": "dpo->rlvr",
+        "p": 0.9147085291470853,
+        "q": 0.9850707236968611
+      },
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "transition": "rlvr->instruct",
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "base->sft",
+        "p": 0.040495950404959506,
+        "q": 0.08722204702606663
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "sft->dpo",
+        "p": 0.007399260073992601,
+        "q": 0.020361600203616003
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "dpo->rlvr",
+        "p": 0.5009499050094991,
+        "q": 0.6828650468286506
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "rlvr->instruct",
+        "p": 0.817918208179182,
+        "q": 0.9160683931606839
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "base->sft",
+        "p": 9.999000099990002e-05,
+        "q": 0.0005599440055994401
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "sft->dpo",
+        "p": 0.0670932906709329,
+        "q": 0.1341865813418658
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "dpo->rlvr",
+        "p": 0.5121487851214879,
+        "q": 0.6828650468286506
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "rlvr->instruct",
+        "p": 0.21347865213478653,
+        "q": 0.37358764123587646
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "base->sft",
+        "p": 9.999000099990002e-05,
+        "q": 0.0005599440055994401
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "sft->dpo",
+        "p": 9.999000099990002e-05,
+        "q": 0.0005599440055994401
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "dpo->rlvr",
+        "p": 0.6982301769823017,
+        "q": 0.8146018731460187
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "rlvr->instruct",
+        "p": 0.6031396860313969,
+        "q": 0.7342570090817006
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "transition": "base->sft",
+        "p": 0.00029997000299970003,
+        "q": 0.0011998800119988001
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "transition": "sft->dpo",
+        "p": 0.2512748725127487,
+        "q": 0.4084480440844804
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "transition": "dpo->instruct",
+        "p": 0.5064493550644935,
+        "q": 0.6828650468286506
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "transition": "base->sft",
+        "p": 0.0235976402359764,
+        "q": 0.0550611605506116
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "transition": "sft->dpo",
+        "p": 0.007999200079992,
+        "q": 0.020361600203616003
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "transition": "dpo->instruct",
+        "p": 0.2625737426257374,
+        "q": 0.4084480440844804
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "transition": "base->sft",
+        "p": 9.999000099990002e-05,
+        "q": 0.0005599440055994401
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "transition": "sft->dpo",
+        "p": 0.10868913108689131,
+        "q": 0.20288637802886378
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "transition": "dpo->instruct",
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "transition": "base->sft",
+        "p": 0.00029997000299970003,
+        "q": 0.0011998800119988001
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "transition": "sft->dpo",
+        "p": 9.999000099990002e-05,
+        "q": 0.0005599440055994401
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "transition": "dpo->instruct",
+        "p": 0.5931406859314069,
+        "q": 0.7342570090817006
+      }
+    ]
+  },
+  "matched_controls": {
+    "family": "all advice-vs-matched-control tests in Table 2",
+    "n": 24,
+    "summary_source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\summary_v3.json",
+    "tests": [
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "control": "emotional",
+        "p": 0.0051994800519948,
+        "q": 0.009599040095990401
+      },
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "control": "neutral_advice",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "1B",
+        "behavior": "empathy_opener",
+        "control": "domain_factual",
+        "p": 0.010198980101989802,
+        "q": 0.01631836816318368
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "control": "emotional",
+        "p": 0.0082991700829917,
+        "q": 0.014227148713700058
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "control": "neutral_advice",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "control": "domain_factual",
+        "p": 0.0197980201979802,
+        "q": 0.0279501461618544
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "control": "emotional",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "control": "neutral_advice",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "control": "domain_factual",
+        "p": 0.05299470052994701,
+        "q": 0.06359364063593641
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "control": "emotional",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "control": "neutral_advice",
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "control": "domain_factual",
+        "p": 0.017298270172982702,
+        "q": 0.025947405259474053
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "control": "emotional",
+        "p": 0.09779022097790221,
+        "q": 0.11176025254617394
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "control": "neutral_advice",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "control": "domain_factual",
+        "p": 0.030596940305969402,
+        "q": 0.03864876670227714
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "control": "emotional",
+        "p": 0.0026997300269973002,
+        "q": 0.00647935206479352
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "control": "neutral_advice",
+        "p": 0.00019998000199980003,
+        "q": 0.0005999400059994001
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "control": "domain_factual",
+        "p": 0.004299570042995701,
+        "q": 0.008599140085991401
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "control": "emotional",
+        "p": 9.999000099990002e-05,
+        "q": 0.00034282286057108575
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "control": "neutral_advice",
+        "p": 0.0010998900109989002,
+        "q": 0.0029330400293304006
+      },
+      {
+        "model": "7B",
+        "behavior": "disclaimer",
+        "control": "domain_factual",
+        "p": 0.1586841315868413,
+        "q": 0.1731099617310996
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "control": "emotional",
+        "p": 0.0040995900409959,
+        "q": 0.008599140085991401
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "control": "neutral_advice",
+        "p": 0.573942605739426,
+        "q": 0.5988966320759228
+      },
+      {
+        "model": "7B",
+        "behavior": "structure",
+        "control": "domain_factual",
+        "p": 0.025897410258974102,
+        "q": 0.0345298803452988
+      }
+    ]
+  },
+  "dpo_pairwise": {
+    "family": "all model x behavior pair-level McNemar tests",
+    "n": 8,
+    "tests": [
+      {
+        "model": "1B",
+        "behavior": "empathy_expression",
+        "p": 0.02257832901081835,
+        "q": 0.03612532641730936
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "p": 0.28156768154478895,
+        "q": 0.28156768154478895
+      },
+      {
+        "model": "1B",
+        "behavior": "professional_referral",
+        "p": 2.0730316802228153e-08,
+        "q": 4.1460633604456305e-08
+      },
+      {
+        "model": "1B",
+        "behavior": "structuring_language",
+        "p": 8.087135875807119e-126,
+        "q": 3.2348543503228475e-125
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_expression",
+        "p": 0.05533965355998564,
+        "q": 0.07378620474664752
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "p": 0.06781414714554637,
+        "q": 0.077501882452053
+      },
+      {
+        "model": "7B",
+        "behavior": "professional_referral",
+        "p": 7.828739638059652e-24,
+        "q": 2.087663903482574e-23
+      },
+      {
+        "model": "7B",
+        "behavior": "structuring_language",
+        "p": 0.0,
+        "q": 0.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+
+=== 1B: allenai/tulu-3-sft-olmo-2-mixture-0225 ===
+  ensuring parquet cached (downloads once) ...
+  NDOCS (rows/conversations) = 866,138
+    first,                       asst=44422 blob=52676 /M=51287.4 infl=1.19
+    here are some                asst=11914 blob=13276 /M=13755.3 infl=1.11
+    here are a few               asst=5421 blob=6056 /M=6258.8 infl=1.12
+    mental health professional   asst=2109 blob=2186 /M=2434.9 infl=1.04
+    professional help            asst=1765 blob=1825 /M=2037.8 infl=1.03
+    seek professional            asst=1353 blob=1377 /M=1562.1 infl=1.02
+    it sounds like you           asst=1130 blob=1164 /M=1304.6 infl=1.03
+    steps you can take           asst=792 blob=797 /M=914.4 infl=1.01
+    talk to a                    asst=290 blob=410 /M=334.8 infl=1.41
+    it's completely normal       asst=78 blob=103 /M=90.1 infl=1.32
+    i'm here for you             asst=90 blob=97 /M=103.9 infl=1.08
+    what you're feeling          asst=50 blob=53 /M=57.7 infl=1.06
+    your feelings are valid      asst=49 blob=49 /M=56.6 infl=1.0
+    it's normal to feel          asst=33 blob=34 /M=38.1 infl=1.03
+  3-word distinct leave-one-out: 5 types, mean 3334.6 -> 729.4 (drop 'here are some')
+
+=== 7B: allenai/tulu-3-sft-olmo-2-mixture ===
+  ensuring parquet cached (downloads once) ...
+  NDOCS (rows/conversations) = 939,344
+    first,                       asst=67285 blob=75653 /M=71629.8 infl=1.12
+    here are some                asst=12049 blob=13432 /M=12827.0 infl=1.11
+    here are a few               asst=5511 blob=6156 /M=5866.9 infl=1.12
+    i'm really sorry             asst=2369 blob=2378 /M=2522.0 infl=1.0
+    mental health professional   asst=2120 blob=2214 /M=2256.9 infl=1.04
+    professional help            asst=1774 blob=1838 /M=1888.6 infl=1.04
+    seek professional            asst=1355 blob=1379 /M=1442.5 infl=1.02
+    it sounds like you           asst=1139 blob=1184 /M=1212.5 infl=1.04
+    steps you can take           asst=803 blob=808 /M=854.9 infl=1.01
+    talk to a                    asst=286 blob=408 /M=304.5 infl=1.43
+    i'm sorry to hear            asst=322 blob=338 /M=342.8 infl=1.05
+    it's okay to feel            asst=161 blob=164 /M=171.4 infl=1.02
+    it's completely normal       asst=78 blob=103 /M=83.0 infl=1.32
+    i'm not a doctor             asst=25 blob=26 /M=26.6 infl=1.04
+  3-word distinct leave-one-out: 5 types, mean 3598.7 -> 1291.6 (drop 'here are some')
+
+Wrote C:\Users\vasilis\Documents\GitHub\llm-research\out\results\sft_recount_olmo2.json

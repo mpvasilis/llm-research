@@ -1,0 +1,256 @@
+{
+  "mixtures": {
+    "1B": "allenai/tulu-3-sft-olmo-2-mixture-0225",
+    "7B": "allenai/tulu-3-sft-olmo-2-mixture"
+  },
+  "per_model": {
+    "1B": {
+      "dataset": "allenai/tulu-3-sft-olmo-2-mixture-0225",
+      "ndocs": 866138,
+      "phrases": [
+        {
+          "phrase": "first,",
+          "len": 1,
+          "assistant": 44422,
+          "blob": 52676,
+          "permil": 51287.4,
+          "inflation": 1.19
+        },
+        {
+          "phrase": "here are some",
+          "len": 3,
+          "assistant": 11914,
+          "blob": 13276,
+          "permil": 13755.3,
+          "inflation": 1.11
+        },
+        {
+          "phrase": "here are a few",
+          "len": 4,
+          "assistant": 5421,
+          "blob": 6056,
+          "permil": 6258.8,
+          "inflation": 1.12
+        },
+        {
+          "phrase": "mental health professional",
+          "len": 3,
+          "assistant": 2109,
+          "blob": 2186,
+          "permil": 2434.9,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "professional help",
+          "len": 2,
+          "assistant": 1765,
+          "blob": 1825,
+          "permil": 2037.8,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "seek professional",
+          "len": 2,
+          "assistant": 1353,
+          "blob": 1377,
+          "permil": 1562.1,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it sounds like you",
+          "len": 4,
+          "assistant": 1130,
+          "blob": 1164,
+          "permil": 1304.6,
+          "inflation": 1.03
+        },
+        {
+          "phrase": "steps you can take",
+          "len": 4,
+          "assistant": 792,
+          "blob": 797,
+          "permil": 914.4,
+          "inflation": 1.01
+        },
+        {
+          "phrase": "talk to a",
+          "len": 3,
+          "assistant": 290,
+          "blob": 410,
+          "permil": 334.8,
+          "inflation": 1.41
+        },
+        {
+          "phrase": "it's completely normal",
+          "len": 3,
+          "assistant": 78,
+          "blob": 103,
+          "permil": 90.1,
+          "inflation": 1.32
+        },
+        {
+          "phrase": "i'm here for you",
+          "len": 4,
+          "assistant": 90,
+          "blob": 97,
+          "permil": 103.9,
+          "inflation": 1.08
+        },
+        {
+          "phrase": "what you're feeling",
+          "len": 3,
+          "assistant": 50,
+          "blob": 53,
+          "permil": 57.7,
+          "inflation": 1.06
+        },
+        {
+          "phrase": "your feelings are valid",
+          "len": 4,
+          "assistant": 49,
+          "blob": 49,
+          "permil": 56.6,
+          "inflation": 1.0
+        },
+        {
+          "phrase": "it's normal to feel",
+          "len": 4,
+          "assistant": 33,
+          "blob": 34,
+          "permil": 38.1,
+          "inflation": 1.03
+        }
+      ],
+      "leave_one_out_3word": {
+        "n_distinct_3word": 5,
+        "dropped": "here are some",
+        "mean_permil_all": 3334.6,
+        "mean_permil_drop_top": 729.4
+      }
+    },
+    "7B": {
+      "dataset": "allenai/tulu-3-sft-olmo-2-mixture",
+      "ndocs": 939344,
+      "phrases": [
+        {
+          "phrase": "first,",
+          "len": 1,
+          "assistant": 67285,
+          "blob": 75653,
+          "permil": 71629.8,
+          "inflation": 1.12
+        },
+        {
+          "phrase": "here are some",
+          "len": 3,
+          "assistant": 12049,
+          "blob": 13432,
+          "permil": 12827.0,
+          "inflation": 1.11
+        },
+        {
+          "phrase": "here are a few",
+          "len": 4,
+          "assistant": 5511,
+          "blob": 6156,
+          "permil": 5866.9,
+          "inflation": 1.12
+        },
+        {
+          "phrase": "i'm really sorry",
+          "len": 3,
+          "assistant": 2369,
+          "blob": 2378,
+          "permil": 2522.0,
+          "inflation": 1.0
+        },
+        {
+          "phrase": "mental health professional",
+          "len": 3,
+          "assistant": 2120,
+          "blob": 2214,
+          "permil": 2256.9,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "professional help",
+          "len": 2,
+          "assistant": 1774,
+          "blob": 1838,
+          "permil": 1888.6,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "seek professional",
+          "len": 2,
+          "assistant": 1355,
+          "blob": 1379,
+          "permil": 1442.5,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it sounds like you",
+          "len": 4,
+          "assistant": 1139,
+          "blob": 1184,
+          "permil": 1212.5,
+          "inflation": 1.04
+        },
+        {
+          "phrase": "steps you can take",
+          "len": 4,
+          "assistant": 803,
+          "blob": 808,
+          "permil": 854.9,
+          "inflation": 1.01
+        },
+        {
+          "phrase": "talk to a",
+          "len": 3,
+          "assistant": 286,
+          "blob": 408,
+          "permil": 304.5,
+          "inflation": 1.43
+        },
+        {
+          "phrase": "i'm sorry to hear",
+          "len": 4,
+          "assistant": 322,
+          "blob": 338,
+          "permil": 342.8,
+          "inflation": 1.05
+        },
+        {
+          "phrase": "it's okay to feel",
+          "len": 4,
+          "assistant": 161,
+          "blob": 164,
+          "permil": 171.4,
+          "inflation": 1.02
+        },
+        {
+          "phrase": "it's completely normal",
+          "len": 3,
+          "assistant": 78,
+          "blob": 103,
+          "permil": 83.0,
+          "inflation": 1.32
+        },
+        {
+          "phrase": "i'm not a doctor",
+          "len": 4,
+          "assistant": 25,
+          "blob": 26,
+          "permil": 26.6,
+          "inflation": 1.04
+        }
+      ],
+      "leave_one_out_3word": {
+        "n_distinct_3word": 5,
+        "dropped": "here are some",
+        "mean_permil_all": 3598.7,
+        "mean_permil_drop_top": 1291.6
+      }
+    }
+  }
+}
