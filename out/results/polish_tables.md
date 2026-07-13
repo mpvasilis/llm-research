@@ -1,4 +1,4 @@
-Source: `C:\Users\vasilis\Documents\GitHub\llm-research\out\results\summary_v2.json`
+Source: `out/results/summary_v3.json`
 
 ### Emission rates: counts and Wilson 95% CIs (primary threshold 0.82)
 
@@ -9,11 +9,11 @@ Source: `C:\Users\vasilis\Documents\GitHub\llm-research\out\results\summary_v2.j
 | 1B | disclaimer | 56/60 (0.933, [0.841,0.974]) | 2/30 (0.067, [0.018,0.213]) |
 | 1B | crisis_referral | 52/60 (0.867, [0.758,0.931]) | 0/30 (0.0, [0,0.114]) |
 | 1B | structure | 60/60 (1.0, [0.94,1.0]) | 18/30 (0.6, [0.423,0.754]) |
-| 7B | empathy_opener | 37/60 (0.617, [0.49,0.729]) | 0/30 (0.0, [0,0.114]) |
+| 7B | empathy_opener | 37/60 (0.617, [0.49,0.729]) | 1/30 (0.033, [0.006,0.167]) |
 | 7B | validation | 23/60 (0.383, [0.271,0.51]) | 0/30 (0.0, [0,0.114]) |
 | 7B | disclaimer | 55/60 (0.917, [0.819,0.964]) | 2/30 (0.067, [0.018,0.213]) |
 | 7B | crisis_referral | 52/60 (0.867, [0.758,0.931]) | 0/30 (0.0, [0,0.114]) |
-| 7B | structure | 58/60 (0.967, [0.886,0.991]) | 13/30 (0.433, [0.274,0.608]) |
+| 7B | structure | 58/60 (0.967, [0.886,0.991]) | 16/30 (0.533, [0.361,0.698]) |
 
 ### Threshold sensitivity: advice emission at e5 thresholds 0.80 / 0.82 / 0.84
 
@@ -53,56 +53,56 @@ Source: `C:\Users\vasilis\Documents\GitHub\llm-research\out\results\summary_v2.j
 | 1B | disclaimer | 0.927 | 0.073 | 0.51 | 0.66 | 0.8 |
 | 1B | crisis_referral | 0.867 | 0.0 | 0.63 | 0.31 | 0.38 |
 | 1B | structure | 1.0 | 0.587 | 0.82 | 1.0 | 0.94 |
-| 7B | empathy_opener | 0.617 | 0.0 | NA | NA | NA |
-| 7B | validation | 0.383 | 0.0 | NA | NA | NA |
-| 7B | disclaimer | 0.913 | 0.062 | NA | NA | NA |
-| 7B | crisis_referral | 0.86 | 0.0 | NA | NA | NA |
-| 7B | structure | 0.97 | 0.431 | NA | NA | NA |
+| 7B | empathy_opener | 0.617 | 0.027 | 0.76 | 0.07 | 0.36 |
+| 7B | validation | 0.383 | 0.013 | 0.13 | 0.03 | 0.06 |
+| 7B | disclaimer | 0.913 | 0.06 | 0.54 | 0.72 | 0.82 |
+| 7B | crisis_referral | 0.86 | 0.007 | 0.61 | 0.34 | 0.28 |
+| 7B | structure | 0.97 | 0.547 | 0.83 | 1.0 | 0.84 |
 
 ### Prompt-clustered permutation tests: advice vs control conditions
 
 | model | behavior | control | diff | perm_p |
 |---|---|---|---|---|
-| 1B | empathy_opener | factual | 0.553 | 0.0 |
-| 1B | empathy_opener | emotional | -0.203 | 0.0051 |
-| 1B | empathy_opener | neutral_advice | 0.557 | 0.0 |
-| 1B | empathy_opener | domain_factual | 0.247 | 0.0101 |
-| 1B | validation | factual | 0.36 | 0.0 |
-| 1B | validation | emotional | 0.2 | 0.0082 |
-| 1B | validation | neutral_advice | 0.36 | 0.0 |
-| 1B | validation | domain_factual | 0.24 | 0.0197 |
-| 1B | disclaimer | factual | 0.853 | 0.0 |
-| 1B | disclaimer | emotional | 0.417 | 0.0 |
-| 1B | disclaimer | neutral_advice | 0.267 | 0.0 |
-| 1B | disclaimer | domain_factual | 0.127 | 0.0529 |
-| 1B | crisis_referral | factual | 0.867 | 0.0 |
-| 1B | crisis_referral | emotional | 0.237 | 0.0011 |
-| 1B | crisis_referral | neutral_advice | 0.557 | 0.0 |
-| 1B | crisis_referral | domain_factual | 0.487 | 0.0 |
-| 1B | structure | factual | 0.413 | 0.0 |
-| 1B | structure | emotional | 0.18 | 0.0 |
+| 1B | empathy_opener | factual | 0.553 | 9.999000099990002e-05 |
+| 1B | empathy_opener | emotional | -0.203 | 0.0051994800519948 |
+| 1B | empathy_opener | neutral_advice | 0.557 | 9.999000099990002e-05 |
+| 1B | empathy_opener | domain_factual | 0.247 | 0.010198980101989802 |
+| 1B | validation | factual | 0.36 | 9.999000099990002e-05 |
+| 1B | validation | emotional | 0.2 | 0.0082991700829917 |
+| 1B | validation | neutral_advice | 0.36 | 9.999000099990002e-05 |
+| 1B | validation | domain_factual | 0.24 | 0.0197980201979802 |
+| 1B | disclaimer | factual | 0.853 | 9.999000099990002e-05 |
+| 1B | disclaimer | emotional | 0.417 | 9.999000099990002e-05 |
+| 1B | disclaimer | neutral_advice | 0.267 | 9.999000099990002e-05 |
+| 1B | disclaimer | domain_factual | 0.127 | 0.05299470052994701 |
+| 1B | crisis_referral | factual | 0.867 | 9.999000099990002e-05 |
+| 1B | crisis_referral | emotional | 0.237 | 0.0011998800119988001 |
+| 1B | crisis_referral | neutral_advice | 0.557 | 9.999000099990002e-05 |
+| 1B | crisis_referral | domain_factual | 0.487 | 9.999000099990002e-05 |
+| 1B | structure | factual | 0.413 | 9.999000099990002e-05 |
+| 1B | structure | emotional | 0.18 | 9.999000099990002e-05 |
 | 1B | structure | neutral_advice | 0.0 | 1.0 |
-| 1B | structure | domain_factual | 0.06 | 0.0172 |
-| 7B | empathy_opener | factual | 0.617 | 0.0 |
-| 7B | empathy_opener | emotional | NA | NA |
-| 7B | empathy_opener | neutral_advice | NA | NA |
-| 7B | empathy_opener | domain_factual | NA | NA |
-| 7B | validation | factual | 0.383 | 0.0002 |
-| 7B | validation | emotional | NA | NA |
-| 7B | validation | neutral_advice | NA | NA |
-| 7B | validation | domain_factual | NA | NA |
-| 7B | disclaimer | factual | 0.852 | 0.0 |
-| 7B | disclaimer | emotional | NA | NA |
-| 7B | disclaimer | neutral_advice | NA | NA |
-| 7B | disclaimer | domain_factual | NA | NA |
-| 7B | crisis_referral | factual | 0.86 | 0.0 |
-| 7B | crisis_referral | emotional | NA | NA |
-| 7B | crisis_referral | neutral_advice | NA | NA |
-| 7B | crisis_referral | domain_factual | NA | NA |
-| 7B | structure | factual | 0.539 | 0.0 |
-| 7B | structure | emotional | NA | NA |
-| 7B | structure | neutral_advice | NA | NA |
-| 7B | structure | domain_factual | NA | NA |
+| 1B | structure | domain_factual | 0.06 | 0.017298270172982702 |
+| 7B | empathy_opener | factual | 0.59 | 9.999000099990002e-05 |
+| 7B | empathy_opener | emotional | -0.143 | 0.09779022097790221 |
+| 7B | empathy_opener | neutral_advice | 0.547 | 9.999000099990002e-05 |
+| 7B | empathy_opener | domain_factual | 0.257 | 0.030596940305969402 |
+| 7B | validation | factual | 0.37 | 9.999000099990002e-05 |
+| 7B | validation | emotional | 0.253 | 0.0026997300269973002 |
+| 7B | validation | neutral_advice | 0.353 | 0.00019998000199980003 |
+| 7B | validation | domain_factual | 0.323 | 0.004299570042995701 |
+| 7B | disclaimer | factual | 0.853 | 9.999000099990002e-05 |
+| 7B | disclaimer | emotional | 0.373 | 9.999000099990002e-05 |
+| 7B | disclaimer | neutral_advice | 0.193 | 0.0010998900109989002 |
+| 7B | disclaimer | domain_factual | 0.093 | 0.1586841315868413 |
+| 7B | crisis_referral | factual | 0.853 | 9.999000099990002e-05 |
+| 7B | crisis_referral | emotional | 0.25 | 0.00039996000399960006 |
+| 7B | crisis_referral | neutral_advice | 0.52 | 9.999000099990002e-05 |
+| 7B | crisis_referral | domain_factual | 0.58 | 9.999000099990002e-05 |
+| 7B | structure | factual | 0.423 | 9.999000099990002e-05 |
+| 7B | structure | emotional | 0.14 | 0.0040995900409959 |
+| 7B | structure | neutral_advice | -0.03 | 0.573942605739426 |
+| 7B | structure | domain_factual | 0.13 | 0.025897410258974102 |
 
 ### Per-phrase SFT-assistant recoverability (role-scoped)
 

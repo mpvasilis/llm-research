@@ -1,5 +1,5 @@
 {
-  "summary_source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\summary_v2.json",
+  "summary_source": "out/results/summary_v3.json",
   "ndocs": {
     "1B": 866138,
     "7B": 939344
@@ -108,11 +108,11 @@
           ]
         },
         "factual": {
-          "k": 0,
+          "k": 1,
           "n": 30,
           "ci": [
-            0,
-            0.114
+            0.006,
+            0.167
           ]
         }
       },
@@ -180,11 +180,11 @@
           ]
         },
         "factual": {
-          "k": 13,
+          "k": 16,
           "n": 30,
           "ci": [
-            0.274,
-            0.608
+            0.361,
+            0.698
           ]
         }
       }
@@ -300,38 +300,38 @@
     "7B": {
       "empathy_opener": {
         "advice": 0.617,
-        "factual": 0.0,
-        "emotional": null,
-        "neutral_advice": null,
-        "domain_factual": null
+        "factual": 0.027,
+        "emotional": 0.76,
+        "neutral_advice": 0.07,
+        "domain_factual": 0.36
       },
       "validation": {
         "advice": 0.383,
-        "factual": 0.0,
-        "emotional": null,
-        "neutral_advice": null,
-        "domain_factual": null
+        "factual": 0.013,
+        "emotional": 0.13,
+        "neutral_advice": 0.03,
+        "domain_factual": 0.06
       },
       "disclaimer": {
         "advice": 0.913,
-        "factual": 0.062,
-        "emotional": null,
-        "neutral_advice": null,
-        "domain_factual": null
+        "factual": 0.06,
+        "emotional": 0.54,
+        "neutral_advice": 0.72,
+        "domain_factual": 0.82
       },
       "crisis_referral": {
         "advice": 0.86,
-        "factual": 0.0,
-        "emotional": null,
-        "neutral_advice": null,
-        "domain_factual": null
+        "factual": 0.007,
+        "emotional": 0.61,
+        "neutral_advice": 0.34,
+        "domain_factual": 0.28
       },
       "structure": {
         "advice": 0.97,
-        "factual": 0.431,
-        "emotional": null,
-        "neutral_advice": null,
-        "domain_factual": null
+        "factual": 0.547,
+        "emotional": 0.83,
+        "neutral_advice": 1.0,
+        "domain_factual": 0.84
       }
     }
   },
@@ -340,83 +340,83 @@
       "empathy_opener": {
         "factual": {
           "diff": 0.553,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
           "diff": -0.203,
-          "perm_p": 0.0051
+          "perm_p": 0.0051994800519948
         },
         "neutral_advice": {
           "diff": 0.557,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
           "diff": 0.247,
-          "perm_p": 0.0101
+          "perm_p": 0.010198980101989802
         }
       },
       "validation": {
         "factual": {
           "diff": 0.36,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
           "diff": 0.2,
-          "perm_p": 0.0082
+          "perm_p": 0.0082991700829917
         },
         "neutral_advice": {
           "diff": 0.36,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
           "diff": 0.24,
-          "perm_p": 0.0197
+          "perm_p": 0.0197980201979802
         }
       },
       "disclaimer": {
         "factual": {
           "diff": 0.853,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
           "diff": 0.417,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "neutral_advice": {
           "diff": 0.267,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
           "diff": 0.127,
-          "perm_p": 0.0529
+          "perm_p": 0.05299470052994701
         }
       },
       "crisis_referral": {
         "factual": {
           "diff": 0.867,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
           "diff": 0.237,
-          "perm_p": 0.0011
+          "perm_p": 0.0011998800119988001
         },
         "neutral_advice": {
           "diff": 0.557,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
           "diff": 0.487,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         }
       },
       "structure": {
         "factual": {
           "diff": 0.413,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
           "diff": 0.18,
-          "perm_p": 0.0
+          "perm_p": 9.999000099990002e-05
         },
         "neutral_advice": {
           "diff": 0.0,
@@ -424,99 +424,99 @@
         },
         "domain_factual": {
           "diff": 0.06,
-          "perm_p": 0.0172
+          "perm_p": 0.017298270172982702
         }
       }
     },
     "7B": {
       "empathy_opener": {
         "factual": {
-          "diff": 0.617,
-          "perm_p": 0.0
+          "diff": 0.59,
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": -0.143,
+          "perm_p": 0.09779022097790221
         },
         "neutral_advice": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.547,
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.257,
+          "perm_p": 0.030596940305969402
         }
       },
       "validation": {
         "factual": {
-          "diff": 0.383,
-          "perm_p": 0.0002
+          "diff": 0.37,
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.253,
+          "perm_p": 0.0026997300269973002
         },
         "neutral_advice": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.353,
+          "perm_p": 0.00019998000199980003
         },
         "domain_factual": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.323,
+          "perm_p": 0.004299570042995701
         }
       },
       "disclaimer": {
         "factual": {
-          "diff": 0.852,
-          "perm_p": 0.0
+          "diff": 0.853,
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.373,
+          "perm_p": 9.999000099990002e-05
         },
         "neutral_advice": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.193,
+          "perm_p": 0.0010998900109989002
         },
         "domain_factual": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.093,
+          "perm_p": 0.1586841315868413
         }
       },
       "crisis_referral": {
         "factual": {
-          "diff": 0.86,
-          "perm_p": 0.0
+          "diff": 0.853,
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.25,
+          "perm_p": 0.00039996000399960006
         },
         "neutral_advice": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.52,
+          "perm_p": 9.999000099990002e-05
         },
         "domain_factual": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.58,
+          "perm_p": 9.999000099990002e-05
         }
       },
       "structure": {
         "factual": {
-          "diff": 0.539,
-          "perm_p": 0.0
+          "diff": 0.423,
+          "perm_p": 9.999000099990002e-05
         },
         "emotional": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.14,
+          "perm_p": 0.0040995900409959
         },
         "neutral_advice": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": -0.03,
+          "perm_p": 0.573942605739426
         },
         "domain_factual": {
-          "diff": NaN,
-          "perm_p": 0.0
+          "diff": 0.13,
+          "perm_p": 0.025897410258974102
         }
       }
     }

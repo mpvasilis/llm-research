@@ -205,7 +205,7 @@
   "matched_controls": {
     "family": "all advice-vs-matched-control tests in Table 2",
     "n": 24,
-    "summary_source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\summary_v3.json",
+    "summary_source": "out/results/summary_v3.json",
     "tests": [
       {
         "model": "1B",

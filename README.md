@@ -19,12 +19,17 @@ Important outputs:
 - `out/results/summary_v3.json`: canonical behavioral results.
 - `out/results/interaction_tests_v3.json`: stage-by-condition permutation tests.
 - `out/results/multiple_testing.json`: Benjamini-Hochberg corrections.
-- `out/results/dpo_pairwise.json`: paired and word-normalized DPO analysis.
+- `out/results/dpo_pairwise.json`: paired McNemar DPO analysis with descriptive
+  per-word normalization.
 - `out/results/threshold_robustness.json`: detector-threshold contrasts.
+- `out/results/audit_cluster_bootstrap.json`: response-cluster uncertainty for
+  the AI-only 120-sentence detector audit.
 - `out/results/validation_sheet_v2.csv`: blinded stratified validation sample.
 - `output/jupyter-notebook/blackboxnlp_complete_pipeline.ipynb`: complete
   Google Colab pipeline, including regeneration, corrected statistics,
   validation v3, and the optional causal pilot.
+- `output/submission/blackboxnlp_anonymous_submission.zip`: identity-scanned,
+  self-contained review PDF, source, code, and machine-readable artifacts.
 
 ## Complete Google Colab workflow
 
@@ -72,6 +77,7 @@ python -m experiments.between_condition_stats
 python -m experiments.stage_condition_gaps
 python -m experiments.multiple_testing
 python -m experiments.threshold_robustness
+python -m experiments.audit_cluster_bootstrap
 python -m experiments.render_interaction
 ```
 

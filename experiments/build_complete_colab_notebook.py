@@ -337,6 +337,7 @@ modules = [
     "experiments.stage_condition_gaps",
     "experiments.multiple_testing",
     "experiments.threshold_robustness",
+    "experiments.audit_cluster_bootstrap",
     "experiments.render_interaction",
 ]
 for module in modules:

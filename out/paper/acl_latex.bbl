@@ -82,16 +82,16 @@ Marco~Tulio Ribeiro, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. 2020.
   for Computational Linguistics}, pages 4902--4912. Association for
   Computational Linguistics.
 
-\bibitem[{{Team OLMo} et~al.(2024){Team OLMo}, Walsh, Soldaini, Groeneveld, Lo,
+\bibitem[{{Team OLMo} et~al.(2025){Team OLMo}, Walsh, Soldaini, Groeneveld, Lo,
   Arora, Bhagia, Gu, Huang, Jordan, Lambert, Schwenk, Tafjord, Anderson,
-  Atkinson, Brahman, Clark, Dasigi, Dziri, Guerquin, Heineman, Ivison, Koh,
-  Liu, Malik, Merrill, Miranda, Morrison, Murray, Nam, Poznanski, Pyatkin,
-  Rangapur, Schmitz, Skjonsberg, Wadden, Wilhelm, Wilson, Zettlemoyer, Farhadi,
-  Smith, and Hajishirzi}]{olmo2025olmo2}
+  Atkinson, Brahman, Clark, Dasigi, Dziri, Ettinger, Guerquin, Heineman,
+  Ivison, Koh, Liu, Malik, Merrill, Miranda, Morrison, Murray, Nam, Poznanski,
+  Pyatkin, Rangapur, Schmitz, Skjonsberg, Wadden, Wilhelm, Wilson, Zettlemoyer,
+  Farhadi, Smith, and Hajishirzi}]{olmo2025olmo2}
 {Team OLMo}, Pete Walsh, Luca Soldaini, Dirk Groeneveld, Kyle Lo, Shane Arora,
   Akshita Bhagia, Yuling Gu, Shengyi Huang, Matt Jordan, Nathan Lambert, Dustin
   Schwenk, Oyvind Tafjord, Taira Anderson, David Atkinson, Faeze Brahman,
-  Christopher Clark, Pradeep Dasigi, Nouha Dziri, and 23 others. 2024.
+  Christopher Clark, Pradeep Dasigi, Nouha Dziri, and 24 others. 2025.
 \newblock \href {https://arxiv.org/abs/2501.00656} {{2 OLMo 2 Furious}}.
 \newblock \emph{Preprint}, arXiv:2501.00656.
 \newblock A shorter version appeared at COLM 2025.

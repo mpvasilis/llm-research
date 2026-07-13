@@ -1,6 +1,7 @@
 # BlackboxNLP 2026 submission notes
 
 Target: regular archival track, anonymous ACL review format.
+Direct-submission deadline: July 17, 2026, 23:59 Anywhere on Earth.
 
 ## Completed analyses
 
@@ -23,22 +24,29 @@ Target: regular archival track, anonymous ACL review format.
 - Provenance-safe validation v3: separate blinded items/key, separate human
   annotation files, human certification, confidence intervals, disagreement
   export, and adjudication.
-- Anonymous ten-page PDF: seven content/ethics pages, references beginning on
-  page 8, and appendix continuing through page 10.
+- Complete 120-sentence AI-only consensus audit, explicitly not described as
+  human validation, plus a 10,000-draw Bayesian response-cluster bootstrap over
+  its 97 source responses (`audit_cluster_bootstrap.json`).
+- Anonymous eleven-page PDF: eight content/ethics pages, references beginning
+  on page 8, and appendix continuing through page 11.
+- Identity-scanned, self-contained anonymous review package that recompiles
+  cleanly (`output/submission/blackboxnlp_anonymous_submission.zip`).
 
 ## Remaining submission gate
 
-- [ ] Two distinct people independently complete validation v3 using the
-  complete Colab notebook and `ANNOTATION_GUIDE.md`.
-- [ ] Run the validation-v3 scoring cell, adjudicate disagreements, and rerun.
-- [ ] Add per-condition precision/recall, Cohen's kappa, and adjudication to the
-  detector-validation section.
-- [ ] Re-evaluate wording if detector false-positive rates differ materially by
-  condition.
+- [ ] Run the 1,500 missing Base/SFT/DPO matched-control generations on the
+  signed-in Colab A100 runtime and require the strict 24-test result to report
+  `status=complete`.
+- [ ] Incorporate those verified numbers, rebuild the PDF and anonymous ZIP,
+  and obtain a final independent review.
+- [ ] Make the identifiable public development repository private for the
+  double-blind review period. Do not link it in the submission. Git history,
+  repository ownership, notebook URLs, and the searchable title reveal author
+  identity even though the PDF and anonymous ZIP are clean.
 
-This human step must not be replaced with AI-generated labels.
-The legacy 80-row tool-assisted draft and the two AI diagnostic passes are
-explicitly excluded from the final human-validation result.
+Independent human validation remains a high-value follow-up, but it is not
+represented as completed evidence in this submission. The legacy tool-assisted
+draft and AI consensus audit cannot be called human validation.
 
 ## Packaging checklist
 
@@ -49,9 +57,9 @@ explicitly excluded from the final human-validation result.
   professional referral, structuring language.
 - [ ] Record the original model-generation accelerator type and total GPU hours
   if available.
-- [ ] Create an anonymous supplementary archive excluding `.env`, cached parquet
+- [x] Create an anonymous supplementary archive excluding `.env`, cached parquet
   files, local model weights, history, and identity-bearing paths.
-- [ ] Recompile and visually inspect the final PDF after human-validation edits.
+- [x] Recompile the anonymous source package and visually inspect the PDF.
 
 ## Camera-ready only
 

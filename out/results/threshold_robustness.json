@@ -1,5 +1,5 @@
 {
-  "source": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\results\\summary_v3.json",
+  "source": "out/results/summary_v3.json",
   "models": {
     "1B": {
       "0.8": {

@@ -168,12 +168,13 @@ def main():
     ct, cj = condition_table()
     tst, tsj = tests_table()
     pt, loo = perphrase_and_loo()
-    parts = [f"Source: `{SUMMARY_PATH}`\n", et, tt, st, ct, tst, pt]
+    portable_source = SUMMARY_PATH.resolve().relative_to(ROOT.resolve()).as_posix()
+    parts = [f"Source: `{portable_source}`\n", et, tt, st, ct, tst, pt]
     md = "\n".join(p for p in parts if p) + "\n"
     out = ROOT / "out" / "results"
     (out / "polish_tables.md").write_text(md, encoding="utf-8")
     (out / "polish_tables.json").write_text(json.dumps(
-        {"summary_source": str(SUMMARY_PATH), "ndocs": NDOCS, "emission_ci": ej,
+        {"summary_source": SUMMARY_PATH.resolve().relative_to(ROOT.resolve()).as_posix(), "ndocs": NDOCS, "emission_ci": ej,
          "stagewise_advice": sj, "condition_emission": cj, "prompt_clustered_tests": tsj,
          "leave_one_out_3word": loo},
         indent=2), encoding="utf-8")

@@ -13,7 +13,7 @@ from experiments.summary_adapter import load_summary
 
 def main():
     summary, source = load_summary()
-    output = {"source": str(source), "models": {}}
+    output = {"source": source.resolve().relative_to(ROOT.resolve()).as_posix(), "models": {}}
     for model in ("1B", "7B"):
         sweep = summary["per_model"][model]["condition_emission_by_threshold"]
         output["models"][model] = {}

@@ -6,7 +6,7 @@ Where Does Machine Advice Emerge? An Auditable, Observational Trace Across OLMo-
 
 ## Authors / affiliation
 
-<Your Name>, Independent Researcher / Innovation Bee
+Complete this field only after double-blind review.
 
 > Note: arXiv is NOT anonymous. The author and affiliation line above is public; do not submit this version to a double-blind venue (BlackboxNLP 2026) under your real name. That review version uses the anonymized LaTeX in `acl_latex.tex`.
 

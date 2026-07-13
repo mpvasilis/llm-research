@@ -56,6 +56,15 @@ KEY_FIELDS = [
 ]
 
 
+def portable_path(path: Path) -> str:
+    """Serialize a repository-relative path without leaking a workstation user name."""
+
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return path.name
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -174,7 +183,7 @@ def prepare_sentence(
         keys,
         {
             "unit": "sentence",
-            "source": str(source),
+            "source": portable_path(source),
             "sampling": "existing v2 random sample stratified by final-stage condition",
             "condition_counts": dict(sorted(counts.items())),
             "important_limitation": "sentence-level validation does not directly validate answer-level emission",
@@ -282,7 +291,7 @@ def prepare_response(
         keys,
         {
             "unit": "response",
-            "source": str(answers_dir),
+            "source": portable_path(answers_dir),
             "sampling": "random model-stage-condition strata plus detector-positive enrichment",
             "threshold": threshold,
             "random_per_stratum": random_per_stratum,
@@ -349,17 +358,17 @@ def init_annotation(
 
 def _validate_annotation(path: Path, meta_path: Path, expected_ids: set[str]) -> dict[str, str]:
     if not path.exists() or not meta_path.exists():
-        raise ValueError(f"Missing annotation or certification file: {path}")
+        raise ValueError(f"Missing annotation or certification file: {path.name}")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     if meta.get("annotator_type") != "human" or not meta.get("independent_before_adjudication"):
-        raise ValueError(f"Invalid human certification in {meta_path}")
+        raise ValueError(f"Invalid human certification in {meta_path.name}")
     rows = read_csv(path)
     if {row["item_id"] for row in rows} != expected_ids or len(rows) != len(expected_ids):
-        raise ValueError(f"{path} does not cover the current item set exactly")
+        raise ValueError(f"{path.name} does not cover the current item set exactly")
     labels = {}
     for row in rows:
         if row.get("annotator_type") != "human":
-            raise ValueError(f"Non-human row in {path}: {row['item_id']}")
+            raise ValueError(f"Non-human row in {path.name}: {row['item_id']}")
         labels[row["item_id"]] = canonical_label(row.get("label", ""))
     return labels
 

@@ -1,0 +1,143 @@
+{
+  "status": "complete_ai_only_bayesian_response_cluster_bootstrap",
+  "n_sentences": 120,
+  "n_response_clusters": 97,
+  "sampling": "seed-0 final-model responses; Bayesian bootstrap with Dirichlet(1) response weights",
+  "replicates": 10000,
+  "random_seed": 20260713,
+  "categories": {
+    "empathy_opener": {
+      "precision": 0.222,
+      "recall": 0.5,
+      "f1": 0.308,
+      "tp": 2,
+      "fp": 7,
+      "fn": 2,
+      "cluster_bootstrap_ci95": {
+        "precision": [
+          0.036,
+          0.464
+        ],
+        "recall": [
+          0.096,
+          0.903
+        ],
+        "f1": [
+          0.054,
+          0.567
+        ]
+      },
+      "valid_replicates": {
+        "precision": 10000,
+        "recall": 10000,
+        "f1": 10000
+      }
+    },
+    "validation": {
+      "precision": 0.333,
+      "recall": 0.5,
+      "f1": 0.4,
+      "tp": 1,
+      "fp": 2,
+      "fn": 1,
+      "cluster_bootstrap_ci95": {
+        "precision": [
+          0.015,
+          0.843
+        ],
+        "recall": [
+          0.025,
+          0.976
+        ],
+        "f1": [
+          0.019,
+          0.829
+        ]
+      },
+      "valid_replicates": {
+        "precision": 10000,
+        "recall": 10000,
+        "f1": 10000
+      }
+    },
+    "disclaimer": {
+      "precision": 0.062,
+      "recall": 1.0,
+      "f1": 0.118,
+      "tp": 1,
+      "fp": 15,
+      "fn": 0,
+      "cluster_bootstrap_ci95": {
+        "precision": [
+          0.002,
+          0.216
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          0.003,
+          0.356
+        ]
+      },
+      "valid_replicates": {
+        "precision": 10000,
+        "recall": 10000,
+        "f1": 10000
+      }
+    },
+    "structure": {
+      "precision": 0.491,
+      "recall": 0.867,
+      "f1": 0.627,
+      "tp": 26,
+      "fp": 27,
+      "fn": 4,
+      "cluster_bootstrap_ci95": {
+        "precision": [
+          0.349,
+          0.634
+        ],
+        "recall": [
+          0.741,
+          0.958
+        ],
+        "f1": [
+          0.491,
+          0.741
+        ]
+      },
+      "valid_replicates": {
+        "precision": 10000,
+        "recall": 10000,
+        "f1": 10000
+      }
+    }
+  },
+  "macro": {
+    "precision": 0.277,
+    "recall": 0.717,
+    "f1": 0.363,
+    "cluster_bootstrap_ci95": {
+      "precision": [
+        0.162,
+        0.423
+      ],
+      "recall": [
+        0.569,
+        0.87
+      ],
+      "f1": [
+        0.225,
+        0.488
+      ]
+    },
+    "valid_replicates": {
+      "precision": 10000,
+      "recall": 10000,
+      "f1": 10000
+    }
+  },
+  "interpretation": "Bayesian-bootstrap percentile intervals account for repeated sentences within responses but remain AI-consensus diagnostic intervals, not human-validation uncertainty."
+}

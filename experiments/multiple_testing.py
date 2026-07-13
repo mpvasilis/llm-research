@@ -75,7 +75,7 @@ def main():
         "matched_controls": {
             "family": "all advice-vs-matched-control tests in Table 2",
             "n": len(control_records),
-            "summary_source": str(summary_path),
+            "summary_source": summary_path.resolve().relative_to(ROOT.resolve()).as_posix(),
             "tests": benjamini_hochberg(control_records),
         },
     }
