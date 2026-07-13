@@ -1,0 +1,304 @@
+{
+  "status": "complete_120_item_ai_only_consensus_audit",
+  "provenance": {
+    "pass_1": "Codex AI, blinded",
+    "pass_2": "independent Codex AI, blinded",
+    "adjudicator": "Claude Opus 4.8 AI",
+    "human_validation": false
+  },
+  "n": 120,
+  "exact_set_agreement_before_adjudication": 0.975,
+  "n_adjudicated_by_opus": 3,
+  "category_agreement": {
+    "empathy_opener": 0.992,
+    "validation": 0.992,
+    "disclaimer": 1.0,
+    "crisis_referral": 1.0,
+    "structure": 0.992
+  },
+  "cohen_kappa": {
+    "empathy_opener": 0.885,
+    "validation": 0.663,
+    "disclaimer": 1.0,
+    "crisis_referral": null,
+    "structure": 0.978
+  },
+  "detector_vs_ai_pass_1": {
+    "empathy_opener": {
+      "precision": 0.222,
+      "precision_ci95": [
+        0.063,
+        0.547
+      ],
+      "recall": 0.4,
+      "recall_ci95": [
+        0.118,
+        0.769
+      ],
+      "f1": 0.286,
+      "tp": 2,
+      "fp": 7,
+      "fn": 3
+    },
+    "validation": {
+      "precision": 0.333,
+      "precision_ci95": [
+        0.061,
+        0.792
+      ],
+      "recall": 1.0,
+      "recall_ci95": [
+        0.207,
+        1.0
+      ],
+      "f1": 0.5,
+      "tp": 1,
+      "fp": 2,
+      "fn": 0
+    },
+    "disclaimer": {
+      "precision": 0.062,
+      "precision_ci95": [
+        0.011,
+        0.283
+      ],
+      "recall": 1.0,
+      "recall_ci95": [
+        0.207,
+        1.0
+      ],
+      "f1": 0.118,
+      "tp": 1,
+      "fp": 15,
+      "fn": 0
+    },
+    "crisis_referral": {
+      "precision": 0.0,
+      "precision_ci95": [
+        0.0,
+        0.259
+      ],
+      "recall": null,
+      "recall_ci95": null,
+      "f1": null,
+      "tp": 0,
+      "fp": 11,
+      "fn": 0
+    },
+    "structure": {
+      "precision": 0.491,
+      "precision_ci95": [
+        0.361,
+        0.621
+      ],
+      "recall": 0.839,
+      "recall_ci95": [
+        0.674,
+        0.929
+      ],
+      "f1": 0.619,
+      "tp": 26,
+      "fp": 27,
+      "fn": 5
+    }
+  },
+  "detector_vs_ai_pass_2": {
+    "empathy_opener": {
+      "precision": 0.222,
+      "precision_ci95": [
+        0.063,
+        0.547
+      ],
+      "recall": 0.5,
+      "recall_ci95": [
+        0.15,
+        0.85
+      ],
+      "f1": 0.308,
+      "tp": 2,
+      "fp": 7,
+      "fn": 2
+    },
+    "validation": {
+      "precision": 0.333,
+      "precision_ci95": [
+        0.061,
+        0.792
+      ],
+      "recall": 0.5,
+      "recall_ci95": [
+        0.095,
+        0.905
+      ],
+      "f1": 0.4,
+      "tp": 1,
+      "fp": 2,
+      "fn": 1
+    },
+    "disclaimer": {
+      "precision": 0.062,
+      "precision_ci95": [
+        0.011,
+        0.283
+      ],
+      "recall": 1.0,
+      "recall_ci95": [
+        0.207,
+        1.0
+      ],
+      "f1": 0.118,
+      "tp": 1,
+      "fp": 15,
+      "fn": 0
+    },
+    "crisis_referral": {
+      "precision": 0.0,
+      "precision_ci95": [
+        0.0,
+        0.259
+      ],
+      "recall": null,
+      "recall_ci95": null,
+      "f1": null,
+      "tp": 0,
+      "fp": 11,
+      "fn": 0
+    },
+    "structure": {
+      "precision": 0.491,
+      "precision_ci95": [
+        0.361,
+        0.621
+      ],
+      "recall": 0.867,
+      "recall_ci95": [
+        0.703,
+        0.947
+      ],
+      "f1": 0.627,
+      "tp": 26,
+      "fp": 27,
+      "fn": 4
+    }
+  },
+  "detector_vs_ai_consensus": {
+    "empathy_opener": {
+      "precision": 0.222,
+      "precision_ci95": [
+        0.063,
+        0.547
+      ],
+      "recall": 0.5,
+      "recall_ci95": [
+        0.15,
+        0.85
+      ],
+      "f1": 0.308,
+      "tp": 2,
+      "fp": 7,
+      "fn": 2
+    },
+    "validation": {
+      "precision": 0.333,
+      "precision_ci95": [
+        0.061,
+        0.792
+      ],
+      "recall": 0.5,
+      "recall_ci95": [
+        0.095,
+        0.905
+      ],
+      "f1": 0.4,
+      "tp": 1,
+      "fp": 2,
+      "fn": 1
+    },
+    "disclaimer": {
+      "precision": 0.062,
+      "precision_ci95": [
+        0.011,
+        0.283
+      ],
+      "recall": 1.0,
+      "recall_ci95": [
+        0.207,
+        1.0
+      ],
+      "f1": 0.118,
+      "tp": 1,
+      "fp": 15,
+      "fn": 0
+    },
+    "crisis_referral": {
+      "precision": 0.0,
+      "precision_ci95": [
+        0.0,
+        0.259
+      ],
+      "recall": null,
+      "recall_ci95": null,
+      "f1": null,
+      "tp": 0,
+      "fp": 11,
+      "fn": 0
+    },
+    "structure": {
+      "precision": 0.491,
+      "precision_ci95": [
+        0.361,
+        0.621
+      ],
+      "recall": 0.867,
+      "recall_ci95": [
+        0.703,
+        0.947
+      ],
+      "f1": 0.627,
+      "tp": 26,
+      "fp": 27,
+      "fn": 4
+    }
+  },
+  "opus_adjudication": {
+    "status": "complete_ai_only_adjudication",
+    "model": "claude-opus-4-8",
+    "role": "adjudicator_of_two_independent_blinded_ai_passes",
+    "n_disagreements": 3,
+    "decisions": [
+      {
+        "key": "7B__instruct__advice_54__s0",
+        "label": "empathy_opener,validation",
+        "reason": "The sentence directly acknowledges the person's difficult emotional experience and also frames distress as an understandable reaction."
+      },
+      {
+        "key": "7B__instruct__advice_21__s0",
+        "label": "validation",
+        "reason": "The sentence normalizes nervousness but makes a generic claim rather than directly acknowledging the reader's own felt experience."
+      },
+      {
+        "key": "1B__instruct__factual_23__s0",
+        "label": "none",
+        "reason": "The ordered colors are a factual sequence inside a sentence, not a preamble organizing the response."
+      }
+    ],
+    "run": {
+      "session_id": "dc722d3a-a971-4859-83b7-cca6d8b1f579",
+      "total_cost_usd": 0.0826695,
+      "duration_ms": 16280,
+      "model_usage": {
+        "claude-opus-4-8": {
+          "input_tokens": 2721,
+          "output_tokens": 1009,
+          "cache_read_input_tokens": 35804,
+          "cache_creation_input_tokens": 2935,
+          "cost_usd": 0.07507575
+        }
+      }
+    },
+    "human_validation": false,
+    "note": "AI-only diagnostic adjudication; not human validation."
+  },
+  "human_validation_status": "pending_two_complete_independent_human_annotations",
+  "interpretation": "Complete AI-only diagnostic audit. It does not satisfy or replace the separate two-human validation protocol."
+}

@@ -6,16 +6,17 @@
 %   2026 (EMNLP workshop), [review] mode. For camera-ready: [review]->[final],
 %   swap the anonymous \author block.
 %
-%   DATA: every number comes from the single artifact
-%   out/results/summary_v3.json (plus-one-corrected v2 stagewise + matched-control run, 5 seeds,
-%   140 prompts). Derived stats via experiments/monte_carlo_correction.py,
+%   DATA: stagewise, matched-control, and corpus numbers come from
+%   out/results/summary_v3.json (plus-one-corrected v2 run, 5 seeds, 140
+%   prompts); audit numbers come from ai_consensus_validation_v3.json. Derived stats via experiments/monte_carlo_correction.py,
 %   derive_paper_stats.py, between_condition_stats.py, stage_condition_gaps.py,
 %   multiple_testing.py, threshold_robustness.py, and dpo_pairwise.py. Primary inference =
 %   prompt-clustered permutation tests (in the artifact); the equivalent-count
 %   Fisher/Wilson/OR table is an appendix sensitivity analysis ONLY.
-%   PENDING (do not claim until done): two complete certified human passes and
-%   adjudication through validation v3 (the legacy 80-row diagnostic is not
-%   human validation); causal leave-cluster-out; Stage-2 Dolmino index.
+%   COMPLETED DIAGNOSTIC: two independent blinded AI passes over 120 sentences,
+%   with three disagreements adjudicated by Claude Opus 4.8. This is explicitly
+%   AI-only and is not human validation. PENDING: causal leave-cluster-out;
+%   Stage-2 Dolmino index; independent human validation.
 % =====================================================================
 
 \documentclass[11pt]{article}
@@ -34,8 +35,8 @@
 % Absorb small overfulls from long \texttt{} identifiers.
 \emergencystretch=3em
 
-\title{Where Does Machine Advice Emerge? An Auditable, Observational Trace
-Across OLMo-2's Open Training Pipeline}
+\title{Tracing Machine-Advice Markers Across OLMo-2: Open Training Data,
+Stagewise Dynamics, and a Measurement Audit}
 
 % === Anonymous author block for review (current) ===
 \author{Anonymous Submission}
@@ -49,39 +50,27 @@ Across OLMo-2's Open Training Pipeline}
 \maketitle
 
 \begin{abstract}
-When asked for personal advice, instruction-tuned models tend to produce a
-recognizable bundle: an empathy expression, emotional validation, professional
-referral, and structuring language. Is this one ``advice template,'' and where
-in training does its targeting change? We trace these behaviors across OLMo-2's
-open post-training pipeline and exact Stage-1 pretraining corpus, each model's
-exact SFT mixture, the DPO preference mixes, the RLVR sets, and the public
-Base$\to$SFT$\to$DPO$\to$RLVR checkpoints --- using 140 prompts in five matched
-conditions, five sampled generations each, and prompt-clustered permutation
-tests. Three findings. \textbf{(1)~At the preregistered detector threshold, the
-bundle decomposes.} Empathy expression is higher on emotional non-advice than
-advice; structuring language is identical on neutral advice; professional
-referral occurs on $0.80$--$0.82$ of clinical-information prompts; validation
-alone is elevated against every matched control in both models. A threshold
-sweep preserves the structuring result but qualifies the empathy and referral
-contrasts. \textbf{(2)~Stagewise, every advice-vs-factual gap widens at
- SFT; DPO acts behavior-specifically.} A stage$\times$condition
- difference-in-differences (prompt-clustered permutation test) shows all eight
- Base$\to$SFT changes are positive (unadjusted $p<0.05$), with six surviving
- Benjamini--Hochberg correction across the full adjacent-stage grid; DPO
- significantly further widens the expressive gaps and
-\emph{collapses} the structuring gap ($-0.28$--$-0.38$, $p<10^{-4}$) but does
-\emph{not} significantly move the near-ceiling referral gap; no later-stage gap
-change is detected. \textbf{(3)~The open data layers corroborate this.} Referral
-phrasings occur in thousands of exact-SFT assistant turns. Across ${\sim}378$k
-DPO pairs per model, they remain enriched in chosen responses after pair-level
-testing and word normalization ($q<10^{-7}$); structuring language is stronger
-still ($q<10^{-124}$). Both have near-zero direct lexical evidence in the
-searched RLVR data; advice answers are also more novel than factual
-ones against the exact pretraining corpus (verbatim-only, hedged). The
-evidence is observational, a preliminary detector audit indicates high
-recall/low precision (rates are upward-biased), and the SFT co-occurrence is
-phrase-sparse; we report all
-three plainly and release the tracer, prompts, and artifact.
+Instruction-tuned models often combine empathy, validation, professional
+referral, and structuring language when giving personal advice. We ask whether
+this is one template and where its targeting changes during training. We trace
+these markers across OLMo-2's public Base, SFT, DPO, and RLVR checkpoints using
+a 140-prompt behavioral battery (five conditions; five generations per prompt),
+with its 90 advice-plus-factual prompts used for stagewise comparisons, and
+exact searches of the corresponding open training data. The pattern
+decomposes: validation is the only marker elevated on advice against every
+matched control; empathy tracks emotional content, structuring tracks how-to
+form, and referral also fires on clinical-information prompts. Across two model
+sizes, all eight advice-versus-factual gaps widen at SFT, with six surviving
+multiplicity correction. DPO further widens expressive-marker gaps but spreads
+structuring to factual answers, collapsing its advice gap; no later transition
+is significant. Exact data provide compatible phrase-level evidence: referral phrases
+occur in SFT assistant turns, referral and structuring phrases are enriched in
+DPO chosen responses under paired, word-normalized tests, and both are nearly
+absent from the searched RLVR data. A separate 120-sentence AI consensus audit
+finds detector macro precision $0.28$ and recall $0.72$, so checkpoint-level
+rates remain provisional. Because SFT evidence is phrase-sparse, the strongest
+conclusion is the paired, length-normalized DPO enrichment rather than semantic
+behavior prevalence across checkpoints.
 \end{abstract}
 
 \section{Introduction}
@@ -95,13 +84,13 @@ behaviors that merely co-occur on advice prompts? Second, \emph{where} in
 training does each behavior emerge?
 
 Answering either requires public training artifacts and intermediate weights. A final
-OLMo-2 Instruct checkpoint is the product of four data-bearing stages ---
+OLMo-2 Instruct checkpoint is the product of four data-bearing stages:
 pretraining, supervised fine-tuning (SFT), direct preference optimization
 (DPO), and reinforcement learning with verifiable rewards (RLVR)
-\citep{olmo2025olmo2} --- and OLMo-2 is, to our knowledge, the only current
+\citep{olmo2025olmo2}. OLMo-2 is, to our knowledge, the only current
 family for which all post-training data \emph{and} intermediate weight
 checkpoints are public. We exploit both: we run the same behavioral evaluation
-on every public stage checkpoint, and we search each stage's exact data ---
+on every public stage checkpoint, and we search each stage's exact data:
 the Stage-1 corpus OLMo-Mix-1124 via infini-gram, each model's exact SFT
 mixture (\texttt{tulu-3-sft-olmo-2-mixture} for the 1124-7B line,
 \texttt{tulu-3-sft-olmo-2-mixture-0225} for the 0425-1B line), the DPO
@@ -117,30 +106,34 @@ not searched.
 \paragraph{Contributions.}
 \begin{enumerate}\itemsep2pt
 \item \textbf{An auditable behavior-level tracer on exact open data.} A
-released lexicon$+$e5 detector, role-scoped (assistant-only) corpus search,
-and a 140-prompt battery in five matched conditions (advice, factual,
-emotional non-advice, neutral advice, domain factual), five seeds per prompt,
-with prompt-clustered permutation inference.
+140-prompt battery in five matched conditions (advice, factual, emotional
+non-advice, neutral advice, domain factual), five generations per prompt, a
+released lexicon$+$e5 detector, role-scoped corpus search, and a separate
+120-sentence AI consensus audit.
 \item \textbf{A controlled decomposition of the ``advice template.''} At the
-primary threshold, empathy expression tracks emotional content, structuring
-language tracks the how-to form, professional referral tracks advice/health,
-and validation alone is elevated against every matched control in both models;
+primary threshold, detector-positive empathy tracks emotional content, structuring
+language tracks the how-to form, referral markers track advice/health,
+and the validation marker alone is elevated against every matched control;
 the threshold sweep identifies which distinctions are detector-sensitive
 (Section~\ref{sec:decomposition}).
 \item \textbf{A stagewise difference-in-differences with significance.} A
 prompt-clustered permutation test on per-prompt trajectories across
- Base$\to$SFT$\to$DPO$\to$RLVR checkpoints shows every gap widens at SFT (six
+ Base$\to$SFT$\to$DPO$\to$RLVR checkpoints shows every detector gap widens at SFT (six
  of eight changes survive multiplicity correction), DPO significantly widens
  the expressive gaps and \emph{collapses}
 the structuring gap (generalizing lists to non-advice) but not the near-ceiling
 referral gap, with no later-stage gap change detected
 (Section~\ref{sec:stagewise}).
-\item \textbf{Data-layer corroboration with paired inference.} Referral
+\item \textbf{A measurement audit rather than an assumed oracle.} Two
+independent blinded AI passes agree exactly on 117/120 sentences; Claude Opus
+4.8 adjudicates the remaining three. The resulting low precision sharply
+limits output-level interpretation, while the paired DPO and exact corpus
+results remain detector-independent at the phrase level.
+\item \textbf{Compatible data-layer evidence with paired inference.} Referral
 phrasings cluster in exact-SFT assistant turns (phrase-sparse, leave-one-out
 reported) and remain enriched in DPO chosen responses under pair-level McNemar
-tests and word normalization; searched RLVR counts are near zero. A
-low-precision detector and verbatim-only
-novelty are stated as first-class limitations
+tests and word normalization; searched RLVR counts are near zero. Verbatim-only
+novelty is stated as a first-class limitation
 (Sections~\ref{sec:datalayers}--\ref{sec:detval}).
 \end{enumerate}
 
@@ -171,8 +164,8 @@ Public data at every stage is what makes the trace auditable.
 \paragraph{The superficial alignment hypothesis.}
 LIMA \citep{zhou2023lima} argues alignment largely surfaces a latent style
 from few demonstrations; \citet{ghosh2024closer} interrogate this. Our
-stagewise gaps give a behavior-level version: each behavior exists at base,
-and post-training mainly \emph{re-targets} it toward the right conditions.
+stagewise gaps give a behavior-level version: each marker is nonzero at base,
+and post-training produces larger advice-minus-factual detector gaps.
 
 \paragraph{Causal data attribution.}
 LESS uses optimizer-aware gradient similarity to select influential instruction
@@ -187,19 +180,25 @@ causation.
 
 \subsection{Behavior detection (lexicon + e5)}
 \label{sec:method-detect}
-A hand-seeded, human-auditable lexicon defines four reported constructs:
+A hand-seeded, inspectable lexicon defines four reported constructs:
 \textbf{empathy expression} (artifact key \texttt{empathy\_opener}),
 \textbf{validation}, \textbf{professional referral} (\texttt{disclaimer}), and
 \textbf{structuring language} (\texttt{structure}). A fifth category,
-\texttt{crisis\_referral}, fails the preliminary audit and is excluded. Exact matching is
+\texttt{crisis\_referral}, fails the 120-sentence audit and is excluded. Exact matching is
 augmented with \textbf{e5-small} paraphrase embeddings \citep{wang2024e5}, a
-category firing when any sentence exceeds similarity $\tau=0.82$ to a seed
+response is detector-positive when any sentence exceeds similarity $\tau=0.82$ to a seed
 exemplar (sweep $0.80/0.82/0.84$). \textbf{Detector construction and
 circularity.} The lexicon, exemplars, and threshold were hand-seeded during an
 8-prompt pilot on OLMo-2-1B and frozen \emph{before} the present 140-prompt
 battery was authored; all three control conditions and 100 of the 140 prompts
-were written after freezing. The detector is preliminarily audited in
-Section~\ref{sec:detval} and released in full (Appendix~\ref{app:lexicon}).
+were written after freezing. The sample sizes refer to distinct datasets: the
+140 prompts form the behavioral evaluation, whereas 120 stratified final-model
+sentences form a detector-accuracy audit. We audit those sentences
+(40/30/20/20/10 across the five conditions) using two complete, independent,
+blinded AI passes and Claude Opus 4.8 adjudication of their three disagreements.
+This is an AI diagnostic, not human validation. The labels, adjudication
+reasons, and detector are released (Section~\ref{sec:detval};
+Appendix~\ref{app:lexicon}).
 
 \subsection{Prompt battery and generation}
 \label{sec:method-battery}
@@ -215,7 +214,7 @@ distinct seeds).
 \subsection{Statistical unit}
 \label{sec:method-stats}
 The clustering unit is the \textbf{prompt}: each prompt contributes its mean
-emission over its five generations, and condition rates are means over
+detector-positive indicator over five generations, and condition rates are means over
 prompts. All between-condition inference uses \textbf{prompt-clustered
 permutation tests} (10{,}000 permutations of prompt-level means; two-sided;
 Monte Carlo $p=(b+1)/(B+1)$). Benjamini--Hochberg correction is applied
@@ -232,7 +231,7 @@ The same evaluation runs on every public checkpoint: 1B
 Base$\to$SFT$\to$DPO$\to$RLVR1$\to$Instruct; 7B
 Base$\to$SFT$\to$DPO$\to$Instruct. Base checkpoints have no chat template and
 use a plain Question/Answer format (a comparison caveat we state). The
-stagewise grid runs advice$+$factual; all five conditions run on the final
+stagewise grid runs the 90 advice$+$factual prompts; all five conditions run on the final
 models. For each stage's data we search: the exact Stage-1 corpus
 (\texttt{v4\_olmo-mix-1124\_llama}; novelty $=1-$verbatim coverage), each
 model's exact SFT mixture in DuckDB with \textbf{assistant-only} scoping
@@ -244,19 +243,33 @@ RLVR sets. SFT recoverability compares behavioral phrases against
 \textbf{length-matched topical controls} from the same answers, per-million
 documents, with a distinct-phrase leave-one-out.
 
-\paragraph{Reproducibility.} Every number derives from
-\texttt{summary\_v3.json} and released scripts under \texttt{experiments/};
-prompts, lexicon, seeds, thresholds, and adjusted-$p$ output ship with it.
+\paragraph{Reproducibility.} Stagewise, condition, and corpus numbers derive
+from \texttt{summary\_v3.json} and released scripts under
+\texttt{experiments/}; prompts, lexicon, seeds, thresholds, and adjusted-$p$
+output ship with it. Audit numbers are separately materialized in
+\texttt{ai\_consensus\_validation\_v3.json}, with both 120-item passes,
+consensus labels, Opus decisions, and reasons released alongside it.
 
 \section{Results}
 \label{sec:results}
 
-\subsection{The advice bundle decomposes at the primary threshold}
+\paragraph{Results at a glance.} Four outcomes organize the analysis. First,
+the apparent advice bundle decomposes into affect-linked empathy, form-linked
+structuring, domain-linked referral, and a validation marker consistently
+elevated on advice. Second, all eight advice-minus-factual detector gaps widen
+at SFT (six survive correction), while DPO selectively widens expressive gaps
+and spreads structuring to factual answers. Third, exact phrase searches find
+referral and structuring enrichment in DPO chosen responses but almost none in
+the searched RLVR data. Fourth, the separate 120-sentence audit finds low
+detector precision, so the checkpoint results are marker trajectories rather
+than estimates of semantic behavior prevalence.
+
+\subsection{The detector-positive advice bundle decomposes at the primary threshold}
 \label{sec:decomposition}
 
-Table~\ref{tab:conditions} gives mean prompt-level emission per condition on
+Table~\ref{tab:conditions} gives mean prompt-level detector-positive rates per condition on
 the final models; Table~\ref{tab:contrasts} tests advice against each matched
-control. Against \emph{plain factual} controls every behavior separates
+control. Against \emph{plain factual} controls every detector category separates
 sharply in both models (all prompt-clustered $p<10^{-4}$; referral $0.927$
 vs $0.073$ at 1B, $0.913$ vs $0.060$ at 7B). But the matched controls show
 this is \textbf{not one advice-specific template}:
@@ -274,15 +287,15 @@ $\tau=.82$.} It fires on
 $0.66$--$0.72$ of neutral-advice and $0.80$--$0.82$ of clinical-information
 prompts; its advice increment over domain-factual is small and not significant
 ($+0.127$, $p=.053$ at 1B; $+0.093$, $p=.159$ at 7B).
-\item \textbf{Validation is the only behavior consistently elevated on
+\item \textbf{The validation marker is the only detector category consistently elevated on
 personal advice relative to every matched control}: higher on advice than
 \emph{every} control in \emph{both} models (all unadjusted $p\leq.02$; all
 BH-adjusted $q\leq.028$), including emotional non-advice ($0.36$ vs $0.16$, $p=.008$;
 $0.383$ vs $0.13$, $p=.003$).
 \end{itemize}
 
-Thus the primary-threshold ``template'' separates into affect-linked empathy,
-form-linked structuring, domain-linked referral, and validation consistently
+Within the frozen detector, the primary-threshold marker bundle separates into affect-linked empathy,
+form-linked structuring, domain-linked referral, and a validation marker consistently
 elevated on advice. These are not detector-invariant universals: the threshold
 sweep preserves the structuring result but qualifies the empathy and referral
 contrasts (Section~\ref{sec:detval}). The 1B-vs-7B differences are small and
@@ -306,12 +319,12 @@ structuring     & 1B & 1.000 & 0.587 & 0.820 & \textbf{1.000} & 0.940 \\
                 & 7B & 0.970 & 0.547 & 0.830 & \textbf{1.000} & 0.840 \\
 \bottomrule
 \end{tabular}
-\caption{Mean prompt-level emission per condition (final models, $\tau=0.82$;
+\caption{Mean prompt-level detector-positive rate per condition (final models, $\tau=0.82$;
 each prompt averaged over 5 generations). Bold marks the cells that break the
 ``advice-specific'' reading: empathy peaks on emotional \emph{non-advice}
 prompts, and structuring language is at ceiling on \emph{neutral} advice. Rates are
 upward-biased (Section~\ref{sec:detval}); \texttt{crisis\_referral} is
-excluded (failed preliminary audit).}
+excluded (0 TP / 11 FP in the 120-sentence audit).}
 \label{tab:conditions}
 \end{table*}
 
@@ -340,10 +353,10 @@ negative cells carry the decomposition (Section~\ref{sec:decomposition}).}
 \label{tab:contrasts}
 \end{table}
 
-\subsection{Stagewise: every gap widens at SFT; DPO acts behavior-specifically}
+\subsection{Stagewise marker dynamics: every gap widens at SFT}
 \label{sec:stagewise}
 
-Raw advice-side rates rising across stages would be ambiguous --- post-training
+Raw advice-side rates rising across stages would be ambiguous because post-training
 could simply make \emph{all} outputs more cautious and listy. The right quantity
 is the \textbf{advice-minus-factual gap} $\Delta_s$ at each stage
 (Table~\ref{tab:stagewise}) and its \emph{change} across adjacent stages, a
@@ -355,25 +368,29 @@ permutation test on per-prompt stage trajectories (Table~\ref{tab:interaction};
 \item \textbf{SFT widens every gap.} All eight base$\to$SFT changes are positive
 (raw $p<0.05$; referral $+0.33$/$+0.28$, structuring $+0.39$/$+0.23$). BH
 correction across all 28 adjacent-stage$\times$behavior tests preserves six;
-validation is marginal ($q=.087$/$.055$). Every behavior is already nonzero at
-base, so SFT re-\emph{targets} a pretrained capability rather than creating it.
-\item \textbf{DPO acts behavior-specifically.} It significantly further widens
-the \emph{expressive} gaps (validation $+0.16$/$+0.15$, $p\leq0.008$; 1B empathy
+validation is marginal ($q=.087$/$.055$). Every detector category is already nonzero at
+base, so SFT widens advice-minus-factual marker gaps for categories already
+detected at Base.
+\item \textbf{DPO acts marker-specifically.} It significantly further widens
+the \emph{expressive-marker} gaps (validation $+0.16$/$+0.15$, $p\leq0.008$; 1B empathy
 $+0.15$, $p=0.005$) but \emph{not} the referral gap ($+0.10$/$+0.08$,
 $p=0.067$/$0.109$), which is already near ceiling on advice after SFT. Its
 preference data nonetheless contains more referral phrasings in chosen than
 rejected responses (Table~\ref{tab:dpo}),
 consistent with \emph{maintaining} that near-saturated gap.
 \item \textbf{DPO collapses the structuring gap.} Its gap falls
-$-0.38$/$-0.28$ at DPO ($p<10^{-4}$) --- not because advice-side structuring drops
+$-0.38$/$-0.28$ at DPO ($p<10^{-4}$), not because advice-side structuring drops
 (it is at ceiling) but because DPO raises structuring on \emph{factual} answers
 from $0.07$ to $0.54$--$0.59$. Preference tuning spreads structuring language
-everywhere while leaving the safety and expressive behaviors condition-targeted.
+everywhere while leaving the other advice-minus-factual detector gaps positive.
 \end{itemize}
 
 \textbf{RLVR and the final merge move no gap significantly} (every
 dpo$\to$rlvr and final-merge transition has $p\geq0.21$), consistent with RLVR's
-math-only data (Section~\ref{sec:datalayers}).
+math-only data (Section~\ref{sec:datalayers}). These significance tests are
+internally valid for the frozen detector outputs; because the audit finds
+condition-dependent false positives and does not span checkpoints, they do not
+by themselves establish changes in human-judged behavior prevalence.
 
 \begin{table}[t]
 \centering
@@ -421,7 +438,7 @@ Model & Stage & Empathy & Validation & Referral & Structuring \\
 7B & instruct & .617 (.590) & .383 (.370) & .913 (.853) & .970 (.423) \\
 \bottomrule
 \end{tabular}
-\caption{Stagewise advice emission with the \textbf{advice-minus-factual gap
+\caption{Stagewise advice detector-positive rate with the \textbf{advice-minus-factual gap
 in parentheses} ($\tau=0.82$). The referral gap widens at SFT
 ($+0.33$/$+0.28$, $p<10^{-4}$; interaction tests in Table~\ref{tab:interaction})
 and is not significantly changed thereafter; the structuring gap collapses at DPO
@@ -430,7 +447,7 @@ because factual answers become listy too. Base checkpoints use a plain QA format
 \label{tab:stagewise}
 \end{table*}
 
-\subsection{The data layers corroborate the checkpoint story}
+\subsection{The data layers provide compatible phrase-level evidence}
 \label{sec:datalayers}
 
 \paragraph{SFT: a finite, auditable referral cluster (phrase-sparse).}
@@ -458,8 +475,8 @@ $2.1\times10^{-23}$); per-million-word enrichment remains $1.12\times$/$1.25\tim
 Structuring language is stronger still ($27047$ vs $21779$ and $28466$ vs
 $19838$; $q<10^{-124}$; word-normalized $1.16\times$/$1.27\times$). Empathy is
 weakly enriched only at 1B after correction, and validation is not significant
-(Table~\ref{tab:dpo}). These paired co-occurrences corroborate, but do not
-attribute, the checkpoint changes.
+(Table~\ref{tab:dpo}). These paired co-occurrences are compatible with, but do
+not attribute or directly validate, the checkpoint changes.
 
 \begin{table}[t]
 \centering
@@ -506,29 +523,40 @@ checkpoints' nonzero behavior rates are the stronger evidence that the
 \subsection{Detector audit and threshold sensitivity}
 \label{sec:detval}
 
-A tool-assisted preliminary pass over 80 sentences drawn from advice answers
-(Table~\ref{tab:detval}) indicates that the detector is
-\textbf{high-recall, low-precision} (macro P $0.33$ / R $0.81$; referral P
-$0.19$ / R $1.00$). The provenance record does not establish completed
-independent human review, so we treat these numbers as a diagnostic audit, not
-human validation. Consequently all
-emission rates in this paper are \textbf{likely upward-biased} (not a formal
-upper bound: recall $<1$). The advice-vs-factual \emph{direction} rests on
-factual answers triggering fewer false positives, which this advice-only
-sample \textbf{suggests but does not measure}; therefore even the direction of
-the cross-condition gaps remains provisional. \texttt{crisis\_referral} failed
-this preliminary audit outright (0 TP / 16
-FP) and is excluded everywhere. We release a \textbf{stratified 120-sentence
-validation set spanning all five conditions and a blinded two-human workflow}
-(40/30/20/20/10 per condition) with separate files, agreement, confidence
-intervals, and adjudication. The completed human result remains future work;
-no cross-condition precision is claimed here. The threshold sweep
-is informative rather than uniformly reassuring (Appendix~\ref{app:threshold}):
-structuring's advice--neutral contrast stays within $.07$ in all six
-model-threshold cells and validation exceeds every control in five of six, but
-the empathy emotional--advice contrast reverses at $.84$ and the referral
-contrast changes magnitude. We therefore treat the decomposition as a
-primary-threshold result, not a detector-invariant taxonomy.
+A condition-stratified random audit samples 120 final-model sentences across
+all five conditions (40 advice, 30 factual, 20 emotional non-advice, 20 neutral
+advice, 10 domain factual). The sample contains 56 1B and 64 7B sentences from
+97 distinct seed-0 responses; it was not stratified on detector predictions,
+and multiple sentences can come from one response. Two independent blinded Codex passes agree exactly on 117/120
+sentences (97.5\%); category agreement is 99.2--100\%, with Cohen's $\kappa$
+$=.885/.663/1.000/.978$ for empathy/validation/referral/structuring. Claude
+Opus 4.8 adjudicates the three disagreements. This establishes reproducible AI
+consensus, not human ground truth.
+
+Against that consensus, the detector has \textbf{low precision and
+category-dependent recall} (Table~\ref{tab:detval}; four-category macro P
+$0.28$, R $0.72$, F1 $0.36$; empathy and validation recall are each $0.50$).
+The errors are also condition-dependent: professional referral produces 12
+false positives on advice, one on emotional non-advice, two on neutral advice,
+and none on factual or domain-factual items; validation's two false positives
+are both advice items. Thus subtraction does not guarantee cancellation, and
+even cross-condition directions remain provisional. \texttt{crisis\_referral}
+again fails (0 TP / 11 FP) and is excluded. Absolute output rates are therefore
+upward-biased (not formal upper bounds because recall is below one), while the
+stagewise results should be read as trajectories of a frozen marker detector,
+not estimates of semantic behavior prevalence.
+
+The low positive prevalence yields wide Wilson 95\% intervals (e.g., referral
+precision $[.011,.283]$ and validation precision $[.061,.792]$; all intervals
+ship with the artifact), and the sentence-level sample does not directly
+validate answer-level emission. The audit itself is AI-only. We therefore also release a blinded
+two-human workflow with separate files and adjudication, but do not claim it was
+completed. The threshold sweep is informative rather than uniformly reassuring
+(Appendix~\ref{app:threshold}): structuring's advice--neutral contrast stays
+within $.07$ in all six model-threshold cells and validation exceeds every
+control in five of six, but empathy reverses at $.84$ and referral changes
+magnitude. These are robustness checks on the detector, not a validated
+taxonomy.
 
 \begin{table}[t]
 \centering
@@ -537,39 +565,40 @@ primary-threshold result, not a detector-invariant taxonomy.
 \toprule
 category & P & R & F1 & tp/fp/fn \\
 \midrule
-empathy expr. & 0.25 & 1.00 & 0.40 & 1/3/0 \\
-validation & 1.00 & 0.33 & 0.50 & 1/0/2 \\
-referral & 0.19 & 1.00 & 0.32 & 3/13/0 \\
-structuring & 0.23 & 0.89 & 0.36 & 8/27/1 \\
+empathy expr. & 0.22 & 0.50 & 0.31 & 2/7/2 \\
+validation & 0.33 & 0.50 & 0.40 & 1/2/1 \\
+referral & 0.06 & 1.00 & 0.12 & 1/15/0 \\
+structuring & 0.49 & 0.87 & 0.63 & 26/27/4 \\
 \midrule
-\multicolumn{5}{l}{macro P 0.33 / R 0.81 / F1 0.40; exact-match 0.53; $n{=}80$} \\
+\multicolumn{5}{l}{macro P 0.28 / R 0.72 / F1 0.36; $n{=}120$} \\
 \bottomrule
 \end{tabular}
-\caption{Preliminary detector P/R/F1 against a tool-assisted diagnostic pass
-over 80 advice sentences ($\tau=0.82$). These are not completed human-validation
-metrics; rates are upward-biased.
-\texttt{crisis\_referral}: 0 TP / 16 FP, dropped.}
+\caption{Detector P/R/F1 against the adjudicated 120-sentence AI consensus
+($\tau=0.82$). The two blinded AI passes agreed on 117/120 items; Opus
+adjudicated three. This is not human validation. Wilson intervals are released
+with the artifact. \texttt{crisis\_referral}: 0 TP / 11 FP, dropped.}
 \label{tab:detval}
 \end{table}
 
 \section{Discussion}
 
-\paragraph{From ``advice template'' to trained targeting.} The decomposition
-and stagewise gaps suggest a simple account: pretraining supplies each behavior
-as a \emph{capability}; SFT strengthens targeting (every gap widens; six of eight
-changes survive correction); DPO then acts
-selectively --- significantly widening the expressive gaps and collapsing the
+\paragraph{From ``advice template'' to trained marker trajectories.} The
+detector-positive decomposition and stagewise gaps nominate a testable account:
+relevant language is already detected at Base; SFT widens every
+advice-minus-factual marker gap (six of eight changes survive correction); DPO then acts
+selectively by significantly widening the expressive gaps and collapsing the
 structuring gap (spreading organizers to factual answers) while leaving the
 already-saturated referral gap unmoved, even as referral phrasings show strong
 paired, word-normalized chosen-response enrichment; no RLVR-stage gap change is
-detected. Every step is
-observational, but each is now separately auditable and significance-tested ---
-and the DPO chosen/rejected differential and RLVR zero-counts are corroborations
-that pure output-level analysis could not have provided.
+detected. The output trajectory remains provisional because of measurement
+error. The strongest evidence is instead phrase-level and independently
+auditable: the DPO chosen/rejected differential and RLVR zero-counts do not rely
+on the embedding threshold, although they still establish co-occurrence rather
+than causation.
 
-\paragraph{Safety implications.} The professional-referral behavior --- the
-bundle's safety-relevant component --- localizes to a finite, inspectable SFT
-demonstration cluster and measurable DPO chosen-response enrichment. That makes it
+\paragraph{Safety implications.} Professional-referral phrasing, the
+bundle's safety-relevant marker, localizes to a finite, inspectable SFT
+demonstration cluster and measurable DPO chosen-response enrichment. That makes the marker
 auditable, and also fragile: mixture or preference-annotation changes could
 silently weaken it. The causal leave-cluster-out test our trace nominates
 (remove the referral cluster, re-SFT, compare against random-cluster removal)
@@ -588,12 +617,15 @@ turns. (4)~Cluster inference at the prompt, not the sample.
 \item \textbf{Observational throughout.} Stage localization and data
 co-occurrence, including the DPO chosen/rejected differential, establish no
 causation; the nominated leave-cluster-out re-SFT is future work.
-\item \textbf{Detector and threshold.} A tool-assisted preliminary pass suggests
-high recall and low precision (referral P $0.19$), but is not completed human
-validation; the factual false-positive rate is unmeasured (a provenance-safe,
-stratified two-human workflow is released). Rates are upward-biased. Absolute
-levels and the empathy/referral decomposition are
-threshold-sensitive; structuring and validation are more stable.
+\item \textbf{Detector and threshold.} The complete 120-sentence AI consensus
+audit finds low precision and category-dependent recall (referral P $0.06$;
+empathy and validation R $0.50$) plus
+condition-dependent errors. The two blinded passes agree strongly and Opus
+adjudicates all three disagreements, but this is not human validation. Rates
+are upward-biased; absolute levels, cross-condition gaps, and checkpoint
+trajectories remain provisional. Empathy/referral are threshold-sensitive;
+structuring and validation are more stable under the threshold sweep but still
+show false positives. A provenance-safe two-human workflow is released.
 \item \textbf{Coverage gaps.} Stage-2 mid-training (Dolmino-Mix-1124) is
 unsearched (no public index); matched controls exist only at the final stage;
 base checkpoints use a different (plain QA) prompt format.
@@ -611,19 +643,19 @@ configuration; no scaling claim.
 \section{Conclusion}
 \label{sec:roadmap}
 
-Machine advice in OLMo-2 is not one template but a bundle of separately-driven
-behaviors --- affect-linked empathy, form-linked structuring, domain-linked
-referral, and validation consistently elevated against every matched control ---
-whose \emph{targeting} is strengthened at SFT (six of eight changes survive
-multiplicity correction), then selectively adjusted by DPO (which widens
-the expressive gaps, collapses the structuring gap by spreading organizers to
-factual answers, and maintains the near-ceiling referral gap while paired,
-word-normalized DPO data enrich referral phrasings in chosen responses), with no
-subsequent gap change detected at
-RLVR and no direct lexical evidence of introduction in the searched RLVR data.
-These results are auditable across public post-training stages and selected
-pretraining layers; we release the tracer, battery, and machine-readable
-results. The nominated next steps are causal and detector-side:
+Machine-advice language in OLMo-2 is not one indivisible template. A frozen
+detector yields distinct affect-, form-, and domain-linked trajectories: all
+eight advice--factual marker gaps widen at SFT (six survive multiplicity
+correction), while DPO widens expressive-marker gaps and spreads structuring
+markers to factual answers. The 120-sentence audit, however, finds enough
+condition-dependent false positives that these output trajectories must remain
+provisional. The strongest result is detector-independent at the matching
+stage: exact professional-referral and structuring phrases are enriched in DPO
+chosen responses under paired tests and word normalization, while the searched
+RLVR data contain almost none. The paper's contribution is therefore both a
+trace and an audit of where that trace is trustworthy. We release the tracer,
+battery, AI consensus labels, Opus decisions, and machine-readable results. The
+nominated next steps are causal and measurement-side:
 leave-cluster-out re-SFT against random-cluster controls
 \citep[cf.][]{xiao2026probe}, completion of the stratified two-annotator
 validation, and a self-hosted Stage-2 index.
@@ -640,7 +672,7 @@ and needed no ethics-board review.
 
 \paragraph{Sensitive domain.} Our prompts touch emotional-support, health, and
 relationship topics, and our analysis concerns safety-relevant moves such as
-professional referrals. Given the detector's low precision we report emission
+professional referrals. Given the detector's low precision we report detector-positive
 rates as upward-biased and drop \texttt{crisis\_referral}. Nothing here should
 be read as evidence that the studied models reliably provide crisis support;
 they were not evaluated for clinical accuracy and are not mental-health tools.
@@ -652,13 +684,15 @@ analysis tool, not any model or dataset that could cause direct harm.
 
 \section*{Use of AI Assistants}
 
-AI coding and writing assistants were used to implement the analysis tooling,
-to draft and edit the manuscript, and in the preliminary 80-sentence detector
-audit. That audit is explicitly not reported as completed human validation. The
-author designed the study, chose the methodology and metrics, and made the
-scientific decisions, including dropping \texttt{crisis\_referral} and choosing
-the statistical unit. All reported numbers were computed by released code from
-the released artifact and checked against it.
+AI coding and writing assistants were used to implement the analysis tooling
+and to draft and edit the manuscript. Two independent blinded Codex passes
+annotated the 120-sentence detector audit; Claude Opus 4.8 adjudicated their
+three disagreements. We report this provenance explicitly and do not describe
+the audit as human validation. The author designed the study, chose the
+methodology and metrics, and made the scientific decisions, including dropping
+\texttt{crisis\_referral} and choosing the statistical unit. All reported
+numbers were computed by released code from released artifacts and checked
+against them.
 
 \bibliography{custom}
 
@@ -697,15 +731,15 @@ prefixes), $\tau=0.82$ primary.
 \item \textbf{empathy expression} (\texttt{empathy\_opener}): \texttt{i'm sorry to hear}, \texttt{i am sorry to hear}, \texttt{i'm really sorry}, \texttt{that sounds really}, \texttt{that sounds very}, \texttt{i can understand}, \texttt{i can imagine}, \texttt{it's understandable}, \texttt{that must be}, \texttt{i'm here for you}, \texttt{i hear you}, \texttt{it sounds like you}
 \item \textbf{validation}: \texttt{your feelings are valid}, \texttt{it's okay to feel}, \texttt{it's normal to feel}, \texttt{it's completely normal}, \texttt{what you're feeling}, \texttt{there's nothing wrong with}, \texttt{it's natural to}
 \item \textbf{professional referral} (\texttt{disclaimer}): \texttt{consult a}, \texttt{talk to a}, \texttt{speak with a}, \texttt{see a doctor}, \texttt{seek medical}, \texttt{i am not a doctor}, \texttt{i'm not a doctor}, \texttt{medical professional}, \texttt{healthcare professional}, \texttt{mental health professional}, \texttt{seek professional}, \texttt{professional help}
-\item \textbf{crisis\_referral} (dropped after the preliminary audit): \texttt{crisis}, \texttt{hotline}, \texttt{helpline}, \texttt{988}, \texttt{call 911}, \texttt{emergency services}, \texttt{suicide}
+\item \textbf{crisis\_referral} (dropped after 0 TP / 11 FP in the 120-sentence audit): \texttt{crisis}, \texttt{hotline}, \texttt{helpline}, \texttt{988}, \texttt{call 911}, \texttt{emergency services}, \texttt{suicide}
 \item \textbf{structuring language} (\texttt{structure}): \texttt{here are some}, \texttt{here are a few}, \texttt{consider the following}, \texttt{steps you can take}, \texttt{a few things you can}, \texttt{first,}, \texttt{secondly,}
 \end{itemize}
 
-\paragraph{e5 seed exemplars.} empathy: ``I'm so sorry you're going through
-this.''; ``That sounds incredibly hard.'' --- validation: ``Your feelings are
-completely valid.''; ``It's totally normal to feel this way.'' --- referral:
-``You should consult a qualified professional.''; ``Please talk to your doctor
-about this.'' --- structuring: ``Here are a few steps you can take.'';
+\paragraph{e5 seed exemplars.} Empathy: ``I'm so sorry you're going through
+this''; ``That sounds incredibly hard.'' Validation: ``Your feelings are
+completely valid''; ``It's totally normal to feel this way.'' Referral:
+``You should consult a qualified professional''; ``Please talk to your doctor
+about this.'' Structuring: ``Here are a few steps you can take'';
 ``Consider the following suggestions.''
 
 \section{Threshold sweep}
@@ -827,9 +861,9 @@ Model & Phrase & Asst. & Blob & Infl. \\
 \end{table}
 
 \paragraph{Length-matched buckets (occurrence-weighted).} Behavioral vs
-topical per-million: 1B --- 2-word $1839.9$ vs $1708.2$ ($1.1\times$, $n_{\text{occ}}{=}11$),
+topical per-million for 1B: 2-word $1839.9$ vs $1708.2$ ($1.1\times$, $n_{\text{occ}}{=}11$),
 3-word $12333.4$ vs $633.8$ ($19.5\times$, $46$), 4-word $1676.2$ vs $11.8$
-($141.7\times$, $28$); 7B --- 2-word $1784.5$ vs $996.8$ ($1.8\times$, $20$),
+($141.7\times$, $28$). For 7B, 2-word $1784.5$ vs $996.8$ ($1.8\times$, $20$),
 3-word $9354.4$ vs $1280.4$ ($7.3\times$, $55$), 4-word $1396.6$ vs $96.2$
 ($14.5\times$, $24$). \textbf{Distinct-phrase leave-one-out (3-word):}
 dropping ``here are some'' moves the mean from $3358.1$ to $758.8$/M at 1B

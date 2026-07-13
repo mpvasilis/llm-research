@@ -1,0 +1,39 @@
+{
+  "status": "complete_ai_only_adjudication",
+  "model": "claude-opus-4-8",
+  "role": "adjudicator_of_two_independent_blinded_ai_passes",
+  "n_disagreements": 3,
+  "decisions": [
+    {
+      "key": "7B__instruct__advice_54__s0",
+      "label": "empathy_opener,validation",
+      "reason": "The sentence directly acknowledges the person's difficult emotional experience and also frames distress as an understandable reaction."
+    },
+    {
+      "key": "7B__instruct__advice_21__s0",
+      "label": "validation",
+      "reason": "The sentence normalizes nervousness but makes a generic claim rather than directly acknowledging the reader's own felt experience."
+    },
+    {
+      "key": "1B__instruct__factual_23__s0",
+      "label": "none",
+      "reason": "The ordered colors are a factual sequence inside a sentence, not a preamble organizing the response."
+    }
+  ],
+  "run": {
+    "session_id": "dc722d3a-a971-4859-83b7-cca6d8b1f579",
+    "total_cost_usd": 0.0826695,
+    "duration_ms": 16280,
+    "model_usage": {
+      "claude-opus-4-8": {
+        "input_tokens": 2721,
+        "output_tokens": 1009,
+        "cache_read_input_tokens": 35804,
+        "cache_creation_input_tokens": 2935,
+        "cost_usd": 0.07507575
+      }
+    }
+  },
+  "human_validation": false,
+  "note": "AI-only diagnostic adjudication; not human validation."
+}

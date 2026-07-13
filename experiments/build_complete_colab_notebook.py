@@ -81,11 +81,13 @@ human validation, and optionally run the causal SFT leave-cluster-out pilot.
 
 1. All paper statistics regenerate from machine-readable artifacts.
 2. The DPO analysis is paired, word-normalized, and multiplicity-corrected.
-3. Detector validation uses two separate certified human annotation files;
+3. Base, SFT, and DPO include all five matched prompt conditions, with a strict
+   24-test stage-by-condition artifact that fails on incomplete caches.
+4. Detector validation uses two separate certified human annotation files;
    predictions, conditions, and the other annotator's decisions remain hidden.
-4. The legacy 80-row tool-assisted sheet and AI audit are never treated as
+5. The legacy 80-row tool-assisted sheet and AI audit are never treated as
    human validation.
-5. Final exports clearly distinguish observational, human-validated, and causal
+6. Final exports clearly distinguish observational, human-validated, and causal
    pilot evidence.
 
 The default run is CPU-friendly and uses the released artifacts. GPU generation,
@@ -99,7 +101,8 @@ cells.append(
 
 - **A — Integrity and artifact reproduction:** validate inputs and regenerate
   plus-one-corrected permutation tests, condition contrasts, stage interactions,
-  BH corrections, and threshold robustness.
+  BH corrections, threshold robustness, and the reviewer-driven matched-control
+  checkpoint extension.
 - **B — Full observational trace (optional GPU):** regenerate responses for all
   public OLMo-2 stages, behavior detections, Stage-1 novelty, and SFT/DPO/RLVR
   corpus searches.
@@ -274,10 +277,13 @@ publication result."""
     )
 )
 
-# Full v2 cells 4..15 contain config, helpers, clients, generation, searches,
-# aggregation, and the stage x condition interaction. Legacy validation cells
-# 16..18 are intentionally not copied; validation v3 supersedes them.
-for index in range(4, 16):
+# Copy config through the matched-control checkpoint cell. Legacy validation
+# cells are intentionally not copied; validation v3 supersedes them.
+observational_end = next(
+    index for index, cell in enumerate(full["cells"])
+    if cell["cell_type"] == "markdown" and "Detector validation" in source_cell(full, index)
+)
+for index in range(4, observational_end):
     cells.append(code(guarded(source_cell(full, index), "RUN_FULL_PIPELINE", "RUN_PROJECT")))
 
 cells.append(
@@ -289,6 +295,7 @@ else:
     mapping = {
         "summary_v2.json": "summary_v2.json",
         "interaction_tests.json": "interaction_tests.json",
+        "matched_control_stagewise.json": "matched_control_stagewise.json",
     }
     for source_name, destination_name in mapping.items():
         source = RUN_PROJECT / "results" / source_name
@@ -613,6 +620,10 @@ validation_status = json.loads(status_path.read_text(encoding="utf-8")) if statu
 final_status = {
     "artifact_statistics": "complete",
     "paired_dpo": "complete" if (REPO_ROOT / "out/results/dpo_pairwise.json").exists() else "missing",
+    "matched_control_stagewise": (
+        json.loads((REPO_ROOT / "out/results/matched_control_stagewise.json").read_text(encoding="utf-8")).get("status")
+        if (REPO_ROOT / "out/results/matched_control_stagewise.json").exists() else "not_run"
+    ),
     "human_validation": validation_status.get("status", "not_started"),
     "causal_ablation": "pilot_completed" if RUN_CAUSAL_PILOT and (CAUSAL_PROJECT / "results").exists() else "not_run",
     "submission_rule": "Do not claim completed human validation unless status is complete_adjudicated_two_human_validation.",

@@ -5,7 +5,8 @@ v2 additions over v1 (all reviewer-driven):
     controls — 20 emotional-non-advice, 20 neutral-advice, 10 domain-factual
     (clinical) — a 2x2 emotion-x-advice design.
   * k seeded generations per prompt (default 5) -> prompt-clustered stats.
-  * STAGEWISE eval across the public OLMo-2 checkpoints:
+  * STAGEWISE eval across the public OLMo-2 checkpoints, including matched
+    controls at Base, SFT, and DPO:
     1B: base -> SFT -> DPO -> RLVR1 -> Instruct;  7B: base -> SFT -> DPO -> Instruct.
   * DPO preference-mix search: chosen vs rejected counts per behavioral phrase
     (does the preference layer reinforce the behavior?) + RLVR-data counts.
@@ -42,12 +43,14 @@ structure) come from, across the **entire open OLMo-2 pipeline**:
 - **RLVR** — per-phrase counts in the RLVR data (math/GSM; expected ≈ 0).
 - **Design** — 140 prompts in 5 conditions (advice / factual / emotional-non-advice /
   neutral-advice / domain-factual), **k seeded generations per prompt**, and
-  prompt-clustered permutation tests.
+  prompt-clustered permutation tests. Base, SFT, DPO, and final checkpoints use
+  all five conditions; intermediate RLVR uses advice and factual only.
 
 ### Compute & runtime
-7B stages need an **A100** (or L4; tick `LOAD_8BIT` for T4). Full grid ≈ 4,500
-generations ≈ **4–6 h on A100**, all **checkpointed to Drive** — a disconnect
-costs nothing, just re-run all cells. Set `QUICK_TEST=True` for a ~20-min smoke test.
+7B stages need an **A100** (or L4; tick `LOAD_8BIT` for T4). The reviewer-driven
+extension adds 1,500 generations to a completed v2 cache. All outputs are
+**checkpointed to Drive**, so rerunning skips completed items. Set
+`QUICK_TEST=True` only for a smoke test, never a publication result.
 
 ### Order
 Run cells top to bottom. HF token in **Colab Secrets** (key `HF_TOKEN`).""")
@@ -275,9 +278,13 @@ PROMPTS = {
   "How effective is couples therapy according to research?",
  ],
 }
-# Intermediate (non-final) stages run advice+factual only; the final stage runs ALL conditions.
+# Base, SFT, DPO, and final stages run all conditions. Other intermediate stages
+# retain the original advice+factual grid.
 STAGE_TAGS = ["advice","factual"]
 ALL_TAGS   = list(PROMPTS)
+# Reviewer-driven extension: matched controls at the stages where the principal
+# changes occur. The final stage already had all conditions in v2.
+FULL_CONDITION_STAGES = {"base", "sft", "dpo", FINAL_STAGE}
 
 if QUICK_TEST:
     SEEDS = 1
@@ -285,7 +292,7 @@ if QUICK_TEST:
     print("QUICK_TEST: 1 seed, truncated prompts")
 
 n_gen = sum(len(PROMPTS[t]) for m in MODELS for s in STAGES[m]
-            for t in (ALL_TAGS if s==FINAL_STAGE else STAGE_TAGS))*SEEDS
+            for t in (ALL_TAGS if s in FULL_CONDITION_STAGES else STAGE_TAGS))*SEEDS
 print("Models:", MODELS, "| stages:", {m:STAGES[m] for m in MODELS})
 print("Prompts per condition:", {t:len(ps) for t,ps in PROMPTS.items()},
       "| seeds:", SEEDS, "| total generations:", n_gen)""")
@@ -303,7 +310,7 @@ def gen_keys():
     out=[]
     for m in MODELS:
         for st in STAGES[m]:
-            tags = ALL_TAGS if st==FINAL_STAGE else STAGE_TAGS
+            tags = ALL_TAGS if st in FULL_CONDITION_STAGES else STAGE_TAGS
             for t in tags:
                 for i in range(len(PROMPTS[t])):
                     for s in range(SEEDS):
@@ -589,10 +596,14 @@ for m in MODELS:
     pm={"stages":STAGES[m],"stagewise_emission":{},"condition_emission":{},
         "condition_emission_by_threshold":{},"tests":{},"novelty":{},"recoverability_by_length":{},
         "role_scoping":[],"dpo_analysis":[],"rlvr_analysis":[]}
-    # (1) stagewise emergence (advice condition, primary threshold)
+    # (1) stagewise marker rates. Base/SFT/DPO/final have all matched controls;
+    # RLVR-only intermediate stages retain advice+factual.
     for st in STAGES[m]:
-        pm["stagewise_emission"][st]={c:{"advice":mean(prompt_rates(m,st,"advice",c,EMB_THRESHOLD)),
-                                         "factual":mean(prompt_rates(m,st,"factual",c,EMB_THRESHOLD))} for c in CATS}
+        stage_tags = ALL_TAGS if st in FULL_CONDITION_STAGES else STAGE_TAGS
+        pm["stagewise_emission"][st]={
+            c:{t:mean(prompt_rates(m,st,t,c,EMB_THRESHOLD)) for t in stage_tags}
+            for c in CATS
+        }
     # (2) final-stage 5-condition table + threshold sweep
     for thr in THRESHOLDS:
         pm["condition_emission_by_threshold"][str(thr)]={
@@ -697,6 +708,25 @@ for m in MODELS:
         print(f"{m} {c:<16} {row}")
 save_ck('results','interaction_tests',inter)
 print("Saved results/interaction_tests.json — the stage x condition interaction the paper needs.")''')
+
+code(r'''#@title 14c · STAGE G — Reviewer-driven matched-control checkpoint tests
+# Strict publication analysis for the added control conditions. This command
+# refuses to report completion unless every expected prompt has all five seeds
+# at Base, SFT, and DPO and all 24 planned tests are present.
+import subprocess, sys
+cmd=[sys.executable,"-m","experiments.matched_control_stagewise",
+     "--project",str(PROJECT),"--threshold",str(EMB_THRESHOLD),
+     "--seeds",str(SEEDS),"--permutations","10000"]
+if QUICK_TEST:
+    cmd.append("--allow-incomplete")
+subprocess.run(cmd,check=True)
+report=json.loads((PROJECT/"results"/"matched_control_stagewise.json").read_text(encoding="utf-8"))
+print("Matched-control status:",report["status"],"tests:",report["n_tests"])
+if report["status"]=="complete":
+    import pandas as pd
+    display(pd.DataFrame(report["results"]))
+else:
+    print("Incomplete cells (smoke test only):",report["incomplete"][:8])''')
 
 md(r"""## Detector validation — STRATIFIED across all 5 conditions, two annotators
 Cell 15 exports a labeling sheet sampled across advice / factual / emotional /
