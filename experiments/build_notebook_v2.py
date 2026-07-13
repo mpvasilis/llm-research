@@ -712,17 +712,34 @@ print("Saved results/interaction_tests.json — the stage x condition interactio
 code(r'''#@title 14c · STAGE G — Reviewer-driven matched-control checkpoint tests
 # Strict publication analysis for the added control conditions. This command
 # refuses to report completion unless every expected prompt has all five seeds
-# at Base, SFT, and DPO and all 24 planned tests are present.
+# at Base, SFT, and DPO and all 24 planned tests are present. The frozen primary
+# threshold is 0.82; 0.80 and 0.84 are sensitivity analyses on the same outputs.
 import subprocess, sys
-cmd=[sys.executable,"-m","experiments.matched_control_stagewise",
-     "--project",str(PROJECT),"--threshold",str(EMB_THRESHOLD),
-     "--seeds",str(SEEDS),"--permutations","10000"]
-if QUICK_TEST:
-    cmd.append("--allow-incomplete")
-subprocess.run(cmd,check=True)
-report=json.loads((PROJECT/"results"/"matched_control_stagewise.json").read_text(encoding="utf-8"))
-print("Matched-control status:",report["status"],"tests:",report["n_tests"])
+matched_reports={}
+for threshold in THRESHOLDS:
+    threshold_key=str(threshold)
+    threshold_output=PROJECT/"results"/f"matched_control_stagewise_tau_{int(round(threshold*100)):02d}.json"
+    cmd=[sys.executable,"-m","experiments.matched_control_stagewise",
+         "--project",str(PROJECT),"--output",str(threshold_output),
+         "--threshold",threshold_key,"--seeds",str(SEEDS),"--permutations","10000"]
+    if QUICK_TEST:
+        cmd.append("--allow-incomplete")
+    subprocess.run(cmd,check=True)
+    matched_reports[threshold_key]=json.loads(threshold_output.read_text(encoding="utf-8"))
+report=matched_reports[str(EMB_THRESHOLD)]
+(PROJECT/"results"/"matched_control_stagewise.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+sweep={"status":"complete" if all(r["status"]=="complete" for r in matched_reports.values()) else "incomplete",
+       "primary_threshold":EMB_THRESHOLD,"reports":matched_reports}
+(PROJECT/"results"/"matched_control_threshold_sweep.json").write_text(json.dumps(sweep,indent=2),encoding="utf-8")
+print("Matched-control status:",report["status"],"tests:",report["n_tests"],
+      "| threshold sweep:",sweep["status"])
 if report["status"]=="complete":
+    subprocess.run([
+        sys.executable,"-m","experiments.render_matched_control_results",
+        "--report",str(PROJECT/"results"/"matched_control_stagewise.json"),
+        "--markdown",str(PROJECT/"results"/"matched_control_stagewise.md"),
+        "--latex",str(PROJECT/"results"/"matched_control_stagewise.tex"),
+    ],check=True)
     import pandas as pd
     display(pd.DataFrame(report["results"]))
 else:

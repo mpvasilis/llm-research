@@ -212,7 +212,7 @@ print({
 
 cells.append(
     code(
-        r"""#@title 4 · Hugging Face token (requested only for network/GPU sections)
+        r"""#@title 4 · Optional Hugging Face token
 HF_TOKEN = os.environ.get("HF_TOKEN", "").strip()
 if IN_COLAB and not HF_TOKEN:
     try:
@@ -220,12 +220,11 @@ if IN_COLAB and not HF_TOKEN:
         HF_TOKEN = (userdata.get("HF_TOKEN") or "").strip()
     except Exception:
         pass
-if (RUN_FULL_PIPELINE or RUN_REMOTE_DPO_SCAN or RUN_CAUSAL_PILOT) and not HF_TOKEN:
-    from getpass import getpass
-    HF_TOKEN = getpass("Hugging Face read token (leave blank for ungated public artifacts): ").strip()
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
-print("HF token available:", bool(HF_TOKEN))"""
+    print("HF token available: True")
+else:
+    print("No HF token configured; public artifacts will be accessed anonymously.")"""
     )
 )
 
@@ -302,6 +301,9 @@ else:
         "summary_v2.json": "summary_v2.json",
         "interaction_tests.json": "interaction_tests.json",
         "matched_control_stagewise.json": "matched_control_stagewise.json",
+        "matched_control_threshold_sweep.json": "matched_control_threshold_sweep.json",
+        "matched_control_stagewise.md": "matched_control_stagewise.md",
+        "matched_control_stagewise.tex": "matched_control_stagewise.tex",
     }
     for source_name, destination_name in mapping.items():
         source = RUN_PROJECT / "results" / source_name

@@ -43,6 +43,16 @@ The notebook checkpoints to Google Drive and writes a single results archive.
 Its validation UI never exposes the condition, detector prediction, or the
 other annotator's decisions.
 
+For the reviewer-requested publication extension, connect an A100 runtime, set
+`RUN_FULL_PIPELINE=True`, leave `FULL_QUICK_TEST=False`, and then choose
+**Runtime > Run all**. The persistent Drive cache skips the released 4,550
+checkpoint generations and adds the 1,500 missing Base/SFT/DPO matched-control
+generations. The analysis then requires all five seeds for every prompt, runs
+24 prompt-clustered difference-in-differences tests at the frozen 0.82 detector
+threshold, repeats them at 0.80 and 0.84, applies Benjamini-Hochberg correction,
+and emits machine-readable JSON plus paper-ready Markdown and LaTeX tables. An
+incomplete cache is labeled as a smoke test and cannot produce the tables.
+
 The older `colab_*_v2.ipynb` notebooks are retained for provenance. Do not use
 their shared-column validation cells for final results; validation v3 in the
 complete notebook supersedes them.
