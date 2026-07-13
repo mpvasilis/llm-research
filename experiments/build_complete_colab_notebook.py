@@ -137,22 +137,28 @@ from pathlib import Path
 
 IN_COLAB = "google.colab" in sys.modules
 REPO_URL = "https://github.com/mpvasilis/llm-research.git"  #@param {type:"string"}
+REPO_REF = "main"  #@param {type:"string"}
 DRIVE_REPO = "/content/drive/MyDrive/llm-research"  #@param {type:"string"}
 DRIVE_REPO_ZIP = "/content/drive/MyDrive/llm-research.zip"  #@param {type:"string"}
 
 if IN_COLAB:
     from google.colab import drive
     drive.mount("/content/drive")
-    candidates = [Path(DRIVE_REPO), Path("/content/llm-research")]
-    REPO_ROOT = next((p for p in candidates if (p / "experiments").exists()), None)
-    if REPO_ROOT is None and Path(DRIVE_REPO_ZIP).exists():
+    # Code is refreshed in ephemeral storage; only large checkpoint caches live
+    # on Drive. This prevents a stale Drive clone from silently running old cells.
+    REPO_ROOT = Path("/content/llm-research")
+    if (REPO_ROOT / ".git").exists():
+        subprocess.run(["git", "fetch", "origin", REPO_REF], cwd=REPO_ROOT, check=True)
+        subprocess.run(["git", "checkout", REPO_REF], cwd=REPO_ROOT, check=True)
+        subprocess.run(["git", "pull", "--ff-only", "origin", REPO_REF], cwd=REPO_ROOT, check=True)
+    elif REPO_URL.strip():
+        subprocess.run(["git", "clone", "--branch", REPO_REF, REPO_URL, str(REPO_ROOT)], check=True)
+    elif Path(DRIVE_REPO_ZIP).exists():
         shutil.unpack_archive(DRIVE_REPO_ZIP, "/content")
-        REPO_ROOT = next((p for p in Path("/content").glob("**/llm-research") if (p / "experiments").exists()), None)
-    if REPO_ROOT is None and REPO_URL.strip():
-        subprocess.run(["git", "clone", REPO_URL, "/content/llm-research"], check=True)
-        REPO_ROOT = Path("/content/llm-research")
-    if REPO_ROOT is None:
-        raise FileNotFoundError("Put the repository at DRIVE_REPO, upload DRIVE_REPO_ZIP, or set REPO_URL.")
+    elif Path(DRIVE_REPO).exists():
+        REPO_ROOT = Path(DRIVE_REPO)
+    if not (REPO_ROOT / "experiments").exists():
+        raise FileNotFoundError("Set REPO_URL/REPO_REF or provide DRIVE_REPO_ZIP/DRIVE_REPO.")
     RUN_PROJECT = Path("/content/drive/MyDrive/llm-research-experiments-v3")
 else:
     REPO_ROOT = Path.cwd()
