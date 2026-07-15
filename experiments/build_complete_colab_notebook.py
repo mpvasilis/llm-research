@@ -50,6 +50,11 @@ def guarded(source: str, flag: str, project_name: str | None = None) -> str:
         body = re.sub(r"\bPROJECT\b", project_name, body)
     body = body.replace("QUICK_TEST = False", "QUICK_TEST = FULL_QUICK_TEST")
     body = body.replace("LOAD_8BIT  = False", "LOAD_8BIT  = FULL_LOAD_8BIT")
+    body = body.replace("MATCHED_CONTROL_SEEDS = 4", "MATCHED_CONTROL_SEEDS = FULL_MATCHED_CONTROL_SEEDS")
+    body = body.replace("GENERATION_BATCH_SIZE = 4", "GENERATION_BATCH_SIZE = FULL_GENERATION_BATCH_SIZE")
+    body = body.replace("EMBEDDING_BATCH_SIZE = 64", "EMBEDDING_BATCH_SIZE = FULL_EMBEDDING_BATCH_SIZE")
+    body = body.replace("POSTPROCESS_WORKERS = 4", "POSTPROCESS_WORKERS = FULL_POSTPROCESS_WORKERS")
+    body = body.replace("ANALYSIS_WORKERS = 3", "ANALYSIS_WORKERS = FULL_ANALYSIS_WORKERS")
     return (
         f"{title}\n"
         f"if not {flag}:\n"
@@ -188,6 +193,11 @@ cells.append(
 RUN_FULL_PIPELINE = False       #@param {type:"boolean"}
 FULL_QUICK_TEST = False         #@param {type:"boolean"}
 FULL_LOAD_8BIT = False          #@param {type:"boolean"}
+FULL_MATCHED_CONTROL_SEEDS = 4  #@param [4, 5] {type:"raw"}
+FULL_GENERATION_BATCH_SIZE = 4  #@param {type:"integer"}
+FULL_EMBEDDING_BATCH_SIZE = 64  #@param {type:"integer"}
+FULL_POSTPROCESS_WORKERS = 4    #@param {type:"integer"}
+FULL_ANALYSIS_WORKERS = 3       #@param {type:"integer"}
 RUN_REMOTE_DPO_SCAN = False     #@param {type:"boolean"}
 RUN_CAUSAL_PILOT = False        #@param {type:"boolean"}
 
@@ -202,6 +212,9 @@ I_AM_A_HUMAN_ANNOTATOR = False     #@param {type:"boolean"}
 VALIDATION_DIR = RUN_PROJECT / "validation_v3"
 print({
     "full_pipeline": RUN_FULL_PIPELINE,
+    "matched_control_seeds": FULL_MATCHED_CONTROL_SEEDS,
+    "generation_batch_size": FULL_GENERATION_BATCH_SIZE,
+    "embedding_batch_size": FULL_EMBEDDING_BATCH_SIZE,
     "remote_dpo": RUN_REMOTE_DPO_SCAN,
     "causal_pilot": RUN_CAUSAL_PILOT,
     "validation_mode": VALIDATION_MODE,
@@ -276,9 +289,13 @@ from the comprehensive v2 run. It uses the exact 1B/7B OLMo-2 checkpoints and
 model-specific SFT/DPO/RLVR datasets. Outputs are checkpointed under
 `RUN_PROJECT`, so rerunning skips completed items.
 
-Set `RUN_FULL_PIPELINE=True`. The full 7B grid requires a suitable GPU and may
-take several hours. `FULL_QUICK_TEST=True` provides a smoke test but is not a
-publication result."""
+Set `RUN_FULL_PIPELINE=True`. The default reviewer extension uses four seeds,
+fixed GPU batches of four prompts, vectorized embedding scoring, and parallel
+threshold analyses. It reuses every existing Drive checkpoint and adds only
+1,200 missing generations to the released 4,550-item cache. Setting
+`FULL_MATCHED_CONTROL_SEEDS=5` later adds only the remaining 300 generations.
+The full 7B grid requires a suitable GPU. `FULL_QUICK_TEST=True` is only a smoke
+test, not a publication result."""
     )
 )
 

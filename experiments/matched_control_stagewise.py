@@ -6,7 +6,8 @@ specific to emotion, advice form, or health domain. It consumes the checkpointed
 machine-readable family of prompt-clustered difference-in-differences tests.
 
 The publication run is intentionally strict: every required prompt must have
-five generations at both stages. Use ``--allow-incomplete`` only for smoke tests.
+the configured number of generations at both stages. Use ``--allow-incomplete``
+only for smoke tests.
 """
 
 from __future__ import annotations
@@ -137,7 +138,7 @@ def benjamini_hochberg(p_values: list[float]) -> list[float]:
 def analyze(
     behavior_dir: Path,
     threshold: float = 0.82,
-    seeds: int = 5,
+    seeds: int = 4,
     permutations: int = 10_000,
     random_seed: int = 20260713,
 ) -> dict[str, Any]:
@@ -216,7 +217,7 @@ def main() -> None:
     parser.add_argument("--project", type=Path, required=True, help="Run project containing behavior/")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--threshold", type=float, default=0.82)
-    parser.add_argument("--seeds", type=int, default=5)
+    parser.add_argument("--seeds", type=int, default=4)
     parser.add_argument("--permutations", type=int, default=10_000)
     parser.add_argument("--allow-incomplete", action="store_true")
     args = parser.parse_args()

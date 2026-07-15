@@ -34,9 +34,11 @@ Direct-submission deadline: July 17, 2026, 23:59 Anywhere on Earth.
 
 ## Remaining submission gate
 
-- [ ] Run the 1,500 missing Base/SFT/DPO matched-control generations on the
+- [ ] Run the 1,200 missing four-seed Base/SFT/DPO matched-control generations on the
   signed-in Colab A100 runtime and require the strict 24-test result to report
   `status=complete`.
+- [ ] If time permits, set `FULL_MATCHED_CONTROL_SEEDS=5`; the cache will add only
+  the remaining 300 controls for a five-seed sensitivity run.
 - [ ] Incorporate those verified numbers, rebuild the PDF and anonymous ZIP,
   and obtain a final independent review.
 - [ ] Make the identifiable public development repository private for the

@@ -4,7 +4,9 @@ v2 additions over v1 (all reviewer-driven):
   * Expanded prompt battery (140 prompts): 60 advice + 30 factual + matched
     controls — 20 emotional-non-advice, 20 neutral-advice, 10 domain-factual
     (clinical) — a 2x2 emotion-x-advice design.
-  * k seeded generations per prompt (default 5) -> prompt-clustered stats.
+  * k seeded generations per prompt -> prompt-clustered stats. Canonical released
+    cells retain five seeds; the reviewer-driven matched-control extension uses
+    four by default and can be upgraded to five without repeating cached work.
   * STAGEWISE eval across the public OLMo-2 checkpoints, including matched
     controls at Base, SFT, and DPO:
     1B: base -> SFT -> DPO -> RLVR1 -> Instruct;  7B: base -> SFT -> DPO -> Instruct.
@@ -48,8 +50,10 @@ structure) come from, across the **entire open OLMo-2 pipeline**:
 
 ### Compute & runtime
 7B stages need an **A100** (or L4; tick `LOAD_8BIT` for T4). The reviewer-driven
-extension adds 1,500 generations to a completed v2 cache. All outputs are
-**checkpointed to Drive**, so rerunning skips completed items. Set
+extension adds 1,200 generations to a completed v2 cache. A later five-seed
+upgrade adds only the remaining 300. Generation and detector scoring use fixed
+batches, while all outputs are **checkpointed to Drive**, so rerunning skips
+completed items. Set
 `QUICK_TEST=True` only for a smoke test, never a publication result.
 
 ### Order
@@ -91,6 +95,11 @@ MODELS = ["1B", "7B"]  #@param {type:"raw"}
 LOAD_8BIT  = False     #@param {type:"boolean"}
 QUICK_TEST = False     #@param {type:"boolean"}
 SEEDS = 5              #@param {type:"integer"}
+MATCHED_CONTROL_SEEDS = 4  #@param [4, 5] {type:"raw"}
+GENERATION_BATCH_SIZE = 4  #@param {type:"integer"}
+EMBEDDING_BATCH_SIZE = 64  #@param {type:"integer"}
+POSTPROCESS_WORKERS = 4    #@param {type:"integer"}
+ANALYSIS_WORKERS = 3       #@param {type:"integer"}
 
 # --- Stagewise checkpoints (all public, ungated) ---
 STAGES = {"1B": ["base","sft","dpo","rlvr","instruct"],
@@ -285,17 +294,33 @@ ALL_TAGS   = list(PROMPTS)
 # Reviewer-driven extension: matched controls at the stages where the principal
 # changes occur. The final stage already had all conditions in v2.
 FULL_CONDITION_STAGES = {"base", "sft", "dpo", FINAL_STAGE}
+MATCHED_CONTROL_STAGES = {"base", "sft", "dpo"}
+MATCHED_CONTROL_TAGS = {"emotional", "neutral_advice", "domain_factual"}
+
+def seeds_for(stage, tag):
+    # Keep released five-seed cells; use the selected count only for new controls.
+    if stage in MATCHED_CONTROL_STAGES and tag in MATCHED_CONTROL_TAGS:
+        return MATCHED_CONTROL_SEEDS
+    return SEEDS
 
 if QUICK_TEST:
     SEEDS = 1
+    MATCHED_CONTROL_SEEDS = 1
     PROMPTS = {t:(ps[:6] if t=="advice" else ps[:3]) for t,ps in PROMPTS.items()}
     print("QUICK_TEST: 1 seed, truncated prompts")
 
 n_gen = sum(len(PROMPTS[t]) for m in MODELS for s in STAGES[m]
-            for t in (ALL_TAGS if s in FULL_CONDITION_STAGES else STAGE_TAGS))*SEEDS
+            for t in (ALL_TAGS if s in FULL_CONDITION_STAGES else STAGE_TAGS)
+            for _ in range(seeds_for(s,t)))
+extension_gen = sum(len(PROMPTS[t])*MATCHED_CONTROL_SEEDS for m in MODELS
+                    for s in STAGES[m] if s in MATCHED_CONTROL_STAGES
+                    for t in MATCHED_CONTROL_TAGS)
 print("Models:", MODELS, "| stages:", {m:STAGES[m] for m in MODELS})
 print("Prompts per condition:", {t:len(ps) for t,ps in PROMPTS.items()},
-      "| seeds:", SEEDS, "| total generations:", n_gen)""")
+      "| canonical seeds:", SEEDS, "| matched-control seeds:", MATCHED_CONTROL_SEEDS,
+      "| total generations:", n_gen, "| extension generations:", extension_gen)
+print("Batching:", {"generation":GENERATION_BATCH_SIZE,"embedding":EMBEDDING_BATCH_SIZE,
+                    "postprocess_workers":POSTPROCESS_WORKERS,"analysis_workers":ANALYSIS_WORKERS})""")
 
 code(r"""#@title 5 · Checkpoint helpers (one file per item; resume = skip existing)
 import json
@@ -313,7 +338,7 @@ def gen_keys():
             tags = ALL_TAGS if st in FULL_CONDITION_STAGES else STAGE_TAGS
             for t in tags:
                 for i in range(len(PROMPTS[t])):
-                    for s in range(SEEDS):
+                    for s in range(seeds_for(st,t)):
                         out.append(f"{m}__{st}__{t}_{i:02d}__s{s}")
     return out
 def key_meta(key):
@@ -323,7 +348,24 @@ def key_meta(key):
 def final_seed0_keys(tags=None):
     tags = tags or ALL_TAGS
     return [k for k in gen_keys() if key_meta(k)[1]==FINAL_STAGE
-            and key_meta(k)[2] in tags and key_meta(k)[4]==0]""")
+            and key_meta(k)[2] in tags and key_meta(k)[4]==0]
+
+def generation_cache_status():
+    rows=[]
+    for m in MODELS:
+        for st in STAGES[m]:
+            expected=[k for k in gen_keys() if k.startswith(f"{m}__{st}__")]
+            cached=sum(have('answers',k) for k in expected)
+            rows.append({"model":m,"stage":st,"expected":len(expected),
+                         "cached":cached,"missing":len(expected)-cached})
+    return rows
+
+print("Generation cache plan (existing files are always reused):")
+try:
+    import pandas as pd
+    display(pd.DataFrame(generation_cache_status()))
+except Exception:
+    print(*generation_cache_status(),sep="\n")""")
 
 # ---------------------------------------------------------------- inlined tracer
 code(r'''#@title 6 · infini-gram client (exact Stage-1 pretraining corpus, free API)
@@ -389,7 +431,9 @@ def lexicon_categories(text): return sorted({h["category"] for h in find_behavio
 from sentence_transformers import SentenceTransformer
 import numpy as np
 _emb=SentenceTransformer("intfloat/multilingual-e5-small")
-def _enc(texts,prefix): return _emb.encode([f"{prefix}: {t}" for t in texts],normalize_embeddings=True)
+def _enc(texts,prefix,batch_size=64,show_progress_bar=False):
+    return _emb.encode([f"{prefix}: {t}" for t in texts],normalize_embeddings=True,
+                       batch_size=batch_size,show_progress_bar=show_progress_bar)
 EXEMPLARS={
  "empathy_opener":["I'm so sorry you're going through this.","That sounds incredibly hard.","I can only imagine how painful this is."],
  "validation":["Your feelings are completely valid.","It's totally normal to feel this way.","There's nothing wrong with feeling upset."],
@@ -403,7 +447,20 @@ def embedding_max_sims(text):
     sents=_sents(text)
     if not sents: return {c:0.0 for c in _EX_VECS}
     sv=_enc(sents,"query")
-    return {c: float((sv@ev.T).max()) for c,ev in _EX_VECS.items()}''')
+    return {c: float((sv@ev.T).max()) for c,ev in _EX_VECS.items()}
+def embedding_max_sims_batch(texts,batch_size=64):
+    """Vectorize all pending sentences in one encoder pass, then restore responses."""
+    flat=[]; spans=[]
+    for text in texts:
+        sents=_sents(text); start=len(flat); flat.extend(sents); spans.append((start,len(flat)))
+    if not flat: return [{c:0.0 for c in _EX_VECS} for _ in texts]
+    vecs=_enc(flat,"query",batch_size=batch_size,show_progress_bar=True)
+    out=[]
+    for start,end in spans:
+        if start==end: out.append({c:0.0 for c in _EX_VECS}); continue
+        sv=vecs[start:end]
+        out.append({c:float((sv@ev.T).max()) for c,ev in _EX_VECS.items()})
+    return out''')
 
 code(r'''#@title 9 · Corpus search: SFT (assistant-only) + DPO (chosen/rejected) + RLVR — schema-adaptive DuckDB
 import duckdb
@@ -472,46 +529,70 @@ def recoverability(phrase, model):
     return {"phrase":phrase,"recoverability_permil":round(r["per_million"] or 0.0,2),"detail":[r]}''')
 
 # ---------------------------------------------------------------- stages
-code(r'''#@title 10 · STAGE A — Stagewise generation grid (GPU) · checkpointed
+code(r'''#@title 10 · STAGE A — Batched stagewise generation grid (GPU) · checkpointed
 import torch, gc
+from collections import defaultdict
 from transformers import AutoModelForCausalLM, AutoTokenizer
-def gen_with(model, tok, q, seed, is_chat):
+def gen_batch_with(model, tok, questions, seed, is_chat):
+    """Generate a fixed same-seed prompt batch; fixed membership makes resume deterministic."""
     torch.manual_seed(1000+seed)
+    if torch.cuda.is_available(): torch.cuda.manual_seed_all(1000+seed)
     if is_chat:
-        enc=tok.apply_chat_template([{"role":"user","content":q}],add_generation_prompt=True,
-                                    return_tensors="pt",return_dict=True).to(model.device)
-        prompt_len=enc["input_ids"].shape[-1]
-        with torch.no_grad():
-            out=model.generate(**enc,max_new_tokens=MAX_NEW_TOKENS,do_sample=TEMPERATURE>0,
-                               temperature=TEMPERATURE,top_p=0.9,pad_token_id=tok.eos_token_id)
+        texts=[tok.apply_chat_template([{"role":"user","content":q}],
+                    add_generation_prompt=True,tokenize=False) for q in questions]
     else:
         # base checkpoints ship no chat template -> plain QA format (comparison caveat noted in results)
-        enc=tok(f"Question: {q}\nAnswer:",return_tensors="pt").to(model.device)
-        prompt_len=enc["input_ids"].shape[-1]
-        with torch.no_grad():
-            out=model.generate(**enc,max_new_tokens=MAX_NEW_TOKENS,do_sample=TEMPERATURE>0,
-                               temperature=TEMPERATURE,top_p=0.9,pad_token_id=tok.eos_token_id)
-    return tok.decode(out[0][prompt_len:],skip_special_tokens=True).strip()
+        texts=[f"Question: {q}\nAnswer:" for q in questions]
+    enc=tok(texts,return_tensors="pt",padding=True).to(model.device)
+    prompt_len=enc["input_ids"].shape[-1]
+    with torch.no_grad():
+        out=model.generate(**enc,max_new_tokens=MAX_NEW_TOKENS,do_sample=TEMPERATURE>0,
+                           temperature=TEMPERATURE,top_p=0.9,pad_token_id=tok.pad_token_id)
+    return [x.strip() for x in tok.batch_decode(out[:,prompt_len:],skip_special_tokens=True)]
+
+def fixed_batches(keys,batch_size):
+    """Group by condition and seed; batch membership never depends on cache state."""
+    groups=defaultdict(list)
+    for key in keys:
+        _m,_st,tag,_i,seed=key_meta(key); groups[(tag,seed)].append(key)
+    for group in groups.values():
+        for start in range(0,len(group),batch_size): yield group[start:start+batch_size]
 
 for m in MODELS:
     for st in STAGES[m]:
-        pend=[k for k in gen_keys() if k.startswith(f"{m}__{st}__") and not have('answers',k)]
+        stage_keys=[k for k in gen_keys() if k.startswith(f"{m}__{st}__")]
+        pend=[k for k in stage_keys if not have('answers',k)]
         if not pend: print(m,st,'all cached'); continue
-        mid=STAGE_IDS[m][st]; print('loading',mid,'…',flush=True)
+        mid=STAGE_IDS[m][st]
+        print('loading',mid,'| cached',len(stage_keys)-len(pend),'| missing',len(pend),flush=True)
         tok=AutoTokenizer.from_pretrained(mid)
         is_chat=tok.chat_template is not None
+        tok.padding_side="left"
+        if tok.pad_token_id is None: tok.pad_token=tok.eos_token
         if LOAD_8BIT:
             from transformers import BitsAndBytesConfig
             kw=dict(quantization_config=BitsAndBytesConfig(load_in_8bit=True),device_map="auto")
         else:
             kw=dict(torch_dtype="auto",device_map="auto")
         model=AutoModelForCausalLM.from_pretrained(mid,**kw); model.eval()
-        for key in pend:
-            _m,_st,t,i,s=key_meta(key); q=PROMPTS[t][i]
-            print('  gen',key,flush=True)
-            save_ck('answers',key,{"key":key,"model":m,"stage":st,"model_id":mid,"tag":t,"i":i,
-                                   "seed":s,"is_chat":is_chat,"question":q,
-                                   "answer":gen_with(model,tok,q,s,is_chat)})
+        for batch in fixed_batches(stage_keys,max(1,int(GENERATION_BATCH_SIZE))):
+            missing={key for key in batch if not have('answers',key)}
+            if not missing: continue
+            meta=[key_meta(key) for key in batch]
+            questions=[PROMPTS[t][i] for _m,_st,t,i,s in meta]
+            seed=meta[0][4]
+            print('  batch',batch[0],'..',batch[-1],'| writing',len(missing),flush=True)
+            try:
+                answers=gen_batch_with(model,tok,questions,seed,is_chat)
+            except torch.cuda.OutOfMemoryError:
+                torch.cuda.empty_cache()
+                print('  batch OOM; falling back to single-item generation for this batch')
+                answers=[gen_batch_with(model,tok,[q],seed,is_chat)[0] for q in questions]
+            for key,answer,(_m,_st,t,i,s),q in zip(batch,answers,meta,questions):
+                if key not in missing: continue
+                save_ck('answers',key,{"key":key,"model":m,"stage":st,"model_id":mid,"tag":t,"i":i,
+                    "seed":s,"rng_seed":1000+s,"generation_batch_size":len(batch),
+                    "is_chat":is_chat,"question":q,"answer":answer})
         del model,tok; gc.collect(); torch.cuda.empty_cache()
 print('Stage A done:',len(list((PROJECT/"answers").glob("*.json"))),'answers')''')
 
@@ -522,13 +603,22 @@ for key in final_seed0_keys(["advice","factual"]):
     save_ck('attribution',key,{"key":key,**attribute(PRETRAIN_INDEX,a["answer"],max_calls=70)})
 print('Stage B done.')''')
 
-code(r'''#@title 12 · STAGE C — Behavior detection on EVERY generation · checkpointed
-for key in gen_keys():
-    if have('behavior',key): continue
-    a=load_ck('answers',key); ans=a["answer"]
-    save_ck('behavior',key,{"key":key,"lexicon_categories":lexicon_categories(ans),
-        "embedding_max_sims":{c:round(s,4) for c,s in embedding_max_sims(ans).items()}})
-print('Stage C done.')''')
+code(r'''#@title 12 · STAGE C — Batched behavior detection on EVERY generation · checkpointed
+from concurrent.futures import ThreadPoolExecutor
+pending=[key for key in gen_keys() if not have('behavior',key)]
+print('Behavior cache:',len(gen_keys())-len(pending),'cached |',len(pending),'missing')
+if pending:
+    answer_records=[load_ck('answers',key) for key in pending]
+    answers=[record["answer"] for record in answer_records]
+    similarities=embedding_max_sims_batch(answers,batch_size=max(1,int(EMBEDDING_BATCH_SIZE)))
+    def _save_behavior(item):
+        key,ans,sims=item
+        return save_ck('behavior',key,{"key":key,"lexicon_categories":lexicon_categories(ans),
+            "embedding_max_sims":{c:round(score,4) for c,score in sims.items()}})
+    workers=max(1,min(int(POSTPROCESS_WORKERS),len(pending)))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        list(pool.map(_save_behavior,zip(pending,answers,similarities)))
+print('Stage C done:',len(list((PROJECT/'behavior').glob('*.json'))),'behavior checkpoints')''')
 
 code(r'''#@title 13 · STAGE D — SFT recoverability + DPO chosen/rejected + RLVR counts
 # Surfaced phrases = behavioral phrases in the FINAL-stage seed-0 ADVICE answers, per model.
@@ -575,7 +665,7 @@ def prompt_rates(model,stage,tag,cat,thr):
     out=[]
     for i in range(len(PROMPTS[tag])):
         vals=[]
-        for s in range(SEEDS):
+        for s in range(seeds_for(stage,tag)):
             key=f"{model}__{stage}__{tag}_{i:02d}__s{s}"
             if have('behavior',key): vals.append(1.0 if emits(load_ck('behavior',key),cat,thr) else 0.0)
         if vals: out.append(sum(vals)/len(vals))
@@ -591,7 +681,8 @@ def perm_test(a,b,n=10000,seed=0):
 
 summary={"detector":"lexicon+e5-embedding","pretrain_index":PRETRAIN_INDEX,
          "sft_by_model":SFT_BY_MODEL,"dpo_by_model":DPO_BY_MODEL,"rlvr_by_model":RLVR_BY_MODEL,
-         "seeds":SEEDS,"n_prompts":{t:len(ps) for t,ps in PROMPTS.items()},"per_model":{}}
+         "seeds":SEEDS,"matched_control_seeds":MATCHED_CONTROL_SEEDS,
+         "n_prompts":{t:len(ps) for t,ps in PROMPTS.items()},"per_model":{}}
 for m in MODELS:
     pm={"stages":STAGES[m],"stagewise_emission":{},"condition_emission":{},
         "condition_emission_by_threshold":{},"tests":{},"novelty":{},"recoverability_by_length":{},
@@ -673,7 +764,7 @@ def _prompt_traj(model, tag, cat, thr):
         st_rates={}
         for st in STAGES[model]:
             vals=[]
-            for s in range(SEEDS):
+            for s in range(seeds_for(st,tag)):
                 key=f"{model}__{st}__{tag}_{i:02d}__s{s}"
                 if have('behavior',key): vals.append(1.0 if _emits(load_ck('behavior',key),cat,thr) else 0.0)
             if vals: st_rates[st]=sum(vals)/len(vals)
@@ -709,23 +800,26 @@ for m in MODELS:
 save_ck('results','interaction_tests',inter)
 print("Saved results/interaction_tests.json — the stage x condition interaction the paper needs.")''')
 
-code(r'''#@title 14c · STAGE G — Reviewer-driven matched-control checkpoint tests
+code(r'''#@title 14c · STAGE G — Parallel reviewer-driven matched-control checkpoint tests
 # Strict publication analysis for the added control conditions. This command
-# refuses to report completion unless every expected prompt has all five seeds
+# refuses to report completion unless every expected prompt has all selected seeds
 # at Base, SFT, and DPO and all 24 planned tests are present. The frozen primary
 # threshold is 0.82; 0.80 and 0.84 are sensitivity analyses on the same outputs.
-import subprocess, sys
-matched_reports={}
-for threshold in THRESHOLDS:
+import subprocess, sys, os
+from concurrent.futures import ThreadPoolExecutor
+def _run_matched(threshold):
     threshold_key=str(threshold)
     threshold_output=PROJECT/"results"/f"matched_control_stagewise_tau_{int(round(threshold*100)):02d}.json"
     cmd=[sys.executable,"-m","experiments.matched_control_stagewise",
          "--project",str(PROJECT),"--output",str(threshold_output),
-         "--threshold",threshold_key,"--seeds",str(SEEDS),"--permutations","10000"]
+         "--threshold",threshold_key,"--seeds",str(MATCHED_CONTROL_SEEDS),"--permutations","10000"]
     if QUICK_TEST:
         cmd.append("--allow-incomplete")
     subprocess.run(cmd,check=True)
-    matched_reports[threshold_key]=json.loads(threshold_output.read_text(encoding="utf-8"))
+    return threshold_key,json.loads(threshold_output.read_text(encoding="utf-8"))
+workers=max(1,min(int(ANALYSIS_WORKERS),len(THRESHOLDS),os.cpu_count() or 1))
+with ThreadPoolExecutor(max_workers=workers) as pool:
+    matched_reports=dict(pool.map(_run_matched,THRESHOLDS))
 report=matched_reports[str(EMB_THRESHOLD)]
 (PROJECT/"results"/"matched_control_stagewise.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
 sweep={"status":"complete" if all(r["status"]=="complete" for r in matched_reports.values()) else "incomplete",
