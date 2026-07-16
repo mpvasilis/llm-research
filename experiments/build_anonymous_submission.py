@@ -52,6 +52,9 @@ RESULT_FILES = (
     "out/results/stage_condition_gaps.json",
     "out/results/multiple_testing.json",
     "out/results/threshold_robustness.json",
+    "out/results/matched_control_stagewise.json",
+    "out/results/matched_control_threshold_sweep.json",
+    "out/results/colab_bundle_manifest_20260716.json",
     "out/results/dpo_pairwise.json",
     "out/results/sft_recount_olmo2.json",
     "out/results/ai_consensus_validation_v3.json",
@@ -89,12 +92,14 @@ python -m experiments.between_condition_stats
 python -m experiments.stage_condition_gaps
 python -m experiments.multiple_testing
 python -m experiments.threshold_robustness
+python -m experiments.recount_sft_olmo2
 python -m experiments.audit_cluster_bootstrap
 ```
 
-The pending GPU matched-control extension is included as executable analysis
-code but must not be interpreted as a completed result without its strict
-24-test `status=complete` artifact.
+The completed four-seed matched-control extension is included with its strict
+24-test `status=complete` artifact and three-threshold sensitivity sweep. The
+dated bundle manifest records the incoming aggregate archive hash and the
+boundary of the independent checks performed on it.
 """
 
 
@@ -128,7 +133,7 @@ def audit_pdf(path: Path) -> None:
     leaks = [marker for marker in FORBIDDEN if marker in combined]
     if leaks:
         raise SystemExit(f"Anonymous PDF audit failed: {leaks}")
-    if len(reader.pages) != 11:
+    if len(reader.pages) != 12:
         raise SystemExit(f"Unexpected PDF page count: {len(reader.pages)}")
 
 

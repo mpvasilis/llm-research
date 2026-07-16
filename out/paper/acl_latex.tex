@@ -7,8 +7,9 @@
 %   swap the anonymous \author block.
 %
 %   DATA: stagewise, matched-control, and corpus numbers come from
-%   out/results/summary_v3.json (plus-one-corrected v2 run, 5 seeds, 140
-%   prompts); audit numbers come from ai_consensus_validation_v3.json. Derived stats via experiments/monte_carlo_correction.py,
+%   out/results/summary_v3.json (plus-one-corrected run, 5 canonical seeds,
+%   4 matched-extension seeds, 140 prompts) and matched_control_stagewise.json;
+%   audit numbers come from ai_consensus_validation_v3.json. Derived stats via experiments/monte_carlo_correction.py,
 %   derive_paper_stats.py, between_condition_stats.py, stage_condition_gaps.py,
 %   multiple_testing.py, threshold_robustness.py, audit_cluster_bootstrap.py,
 %   and dpo_pairwise.py. Primary inference =
@@ -49,21 +50,19 @@ Stagewise Dynamics, and a Measurement Audit}
 Instruction-tuned models often combine empathy, validation, professional
 referral, and structuring when giving personal advice. We trace these four
 markers across OLMo-2's public Base, SFT, DPO, and RLVR checkpoints and exact
-training data. The evaluation contains 140 prompts in five conditions and five
-generations per prompt; its 90 advice and factual prompts support checkpoint
-comparisons. Matched controls decompose the apparent template: empathy tracks
-emotional content, structuring tracks how-to form, referral also fires on
-clinical questions, and only validation is elevated on advice against every
-control. Across two model sizes, all eight advice-minus-factual gaps widen at
-SFT, with six surviving multiplicity correction. DPO widens validation in both
-sizes and empathy at 1B, but spreads structuring to factual answers; no later
-gap change is significant. Exact searches find referral and structuring phrases
-significantly more common in DPO chosen-only than rejected-only pairs; descriptive
-per-word ratios agree. Searched RLVR data contain almost no referral, empathy,
-or validation phrases, although generic structuring markers remain. A separate 120-sentence AI consensus audit
-finds macro precision $0.28$ and recall $0.72$, making checkpoint rates
-provisional. The strongest result is therefore paired DPO phrase enrichment,
-not semantic behavior prevalence across checkpoints.
+training data. We evaluate 140 prompts in five conditions with five final-model
+generations per prompt and add four-generation matched controls at Base, SFT,
+and DPO. Final-model controls decompose the apparent template: empathy tracks
+emotion, structuring tracks how-to form, referral tracks advice and health, and
+only validation is elevated on advice against every control. Six of eight
+advice-minus-factual gap increases at SFT survive correction. The stricter
+matched-stage analysis leaves four of 24 interactions significant: 7B SFT makes
+empathy more advice-specific, DPO reverses this in both sizes, and 7B SFT shifts
+structuring toward neutral advice. Only the two 7B empathy effects persist
+across all detector thresholds. Exact searches find referral and structuring
+phrases enriched in DPO chosen-only pairs. A separate 120-sentence AI consensus
+audit finds macro precision $0.28$ and recall $0.72$, so checkpoint rates remain
+provisional and paired phrase enrichment is the strongest evidence.
 \end{abstract}
 
 \section{Introduction}
@@ -97,7 +96,7 @@ not searched.
 \begin{enumerate}\itemsep2pt
 \item \textbf{An auditable behavior-level tracer on exact open data.} A
 140-prompt battery in five matched conditions (advice, factual, emotional
-non-advice, neutral advice, domain factual), five generations per prompt, a
+non-advice, neutral advice, domain factual), five final-model generations per prompt, a
 released lexicon$+$e5 detector, role-scoped corpus search, and a separate
 120-sentence AI consensus audit.
 \item \textbf{A controlled decomposition of the ``advice template.''} At the
@@ -106,13 +105,12 @@ language tracks the how-to form, referral markers track advice/health,
 and the validation marker alone is elevated against every matched control;
 the threshold sweep identifies which distinctions are detector-sensitive
 (Section~\ref{sec:decomposition}).
-\item \textbf{A stagewise difference-in-differences with significance.} A
-prompt-clustered permutation test on per-prompt trajectories across
- Base$\to$SFT$\to$DPO$\to$RLVR checkpoints shows every detector gap widens at SFT (six
- of eight changes survive multiplicity correction), DPO significantly widens
- the expressive gaps and \emph{collapses}
-the structuring gap (generalizing lists to non-advice) but not the near-ceiling
-referral gap, with no later-stage gap change detected
+\item \textbf{Stagewise difference-in-differences with matched specificity tests.}
+Advice-minus-factual trajectories show six of eight SFT gap increases survive
+correction; DPO widens validation in both sizes and referral at 1B while
+collapsing the structuring gap. A new 24-test Base/SFT/DPO matched-control
+extension identifies which changes are specific to emotion, advice form, or
+health domain
 (Section~\ref{sec:stagewise}).
 \item \textbf{A measurement audit rather than an assumed oracle.} Two
 independent blinded AI passes agree exactly on 117/120 sentences; Claude Opus
@@ -199,19 +197,21 @@ Five conditions isolate the axes the ``advice template'' conflates:
 knowledge questions), \textbf{emotional non-advice} (20 descriptive prompts
 about emotional topics, no help request), \textbf{neutral advice} (20 how-to
 requests with no emotional stakes), and \textbf{domain factual} (10 impersonal
-clinical-information questions). Each prompt is answered with \textbf{five
-sampled generations} (temperature $0.7$, top-$p$ $0.9$, 256 new tokens,
-distinct seeds).
+clinical-information questions). The final-model battery and the canonical
+advice/factual checkpoint trajectories use \textbf{five sampled generations}
+per prompt (temperature $0.7$, top-$p$ $0.9$, 256 new tokens, distinct seeds).
+The reviewer-driven Base/SFT/DPO matched-control extension uses four; its
+balanced comparisons use seeds 0--3 for every condition.
 
 \subsection{Statistical unit}
 \label{sec:method-stats}
 The clustering unit is the \textbf{prompt}: each prompt contributes its mean
-detector-positive indicator over five generations, and condition rates are means over
+detector-positive indicator over its four or five generations, and condition rates are means over
 prompts. All between-condition inference uses \textbf{prompt-clustered
 permutation tests} (10{,}000 permutations of prompt-level means; two-sided;
 Monte Carlo $p=(b+1)/(B+1)$). Benjamini--Hochberg correction is applied
-separately to the 24 matched-control, 28 adjacent-stage, and 8 DPO pairwise
-families.
+separately to the 24 final-condition contrasts, 28 advice/factual adjacent-stage
+interactions, 24 matched-control stage interactions, and 8 DPO pairwise tests.
 We do \emph{not} treat generations as independent Bernoulli trials:
 Fisher/Wilson statistics computed on ``equivalent counts'' are reported only
 as an appendix sensitivity analysis with that caveat
@@ -223,8 +223,9 @@ The same evaluation runs on every public checkpoint: 1B
 Base$\to$SFT$\to$DPO$\to$RLVR1$\to$Instruct; 7B
 Base$\to$SFT$\to$DPO$\to$Instruct. Base checkpoints have no chat template and
 use a plain Question/Answer format (a comparison caveat we state). The
-stagewise grid runs the 90 advice$+$factual prompts; all five conditions run on the final
-models. For each stage's available indexed data we search: the exact Stage-1 corpus
+stagewise grid runs the 90 advice$+$factual prompts at every checkpoint. All five
+conditions run on the final models and, in the four-seed specificity extension,
+at Base, SFT, and DPO. For each stage's available indexed data we search: the exact Stage-1 corpus
 (\texttt{v4\_olmo-mix-1124\_llama}; novelty $=1-$verbatim coverage), each
 model's exact SFT mixture (\texttt{tulu-3-sft-olmo-2-mixture-0225} for 1B;
 \texttt{tulu-3-sft-olmo-2-mixture} for 7B) in DuckDB with \textbf{assistant-only} scoping
@@ -250,8 +251,10 @@ consensus labels, Opus decisions, and reasons released alongside it.
 the apparent advice bundle decomposes into affect-linked empathy, form-linked
 structuring, domain-linked referral, and a validation marker consistently
 elevated on advice. Second, all eight advice-minus-factual detector gaps widen
-at SFT (six survive correction), while DPO selectively widens expressive gaps
-and spreads structuring to factual answers. Third, exact phrase searches find
+at SFT (six survive correction), while matched-stage controls show that only a
+subset of these changes is advice-specific. DPO widens validation gaps but
+spreads structuring to factual answers and empathy toward emotional non-advice.
+Third, exact phrase searches find
 referral and structuring enrichment in DPO chosen-only pairs; searched RLVR data
 have near-zero expressive and referral counts but retain generic structuring markers. Fourth, the separate 120-sentence audit finds low
 detector precision, so the checkpoint results are marker trajectories rather
@@ -263,27 +266,27 @@ than estimates of semantic behavior prevalence.
 Table~\ref{tab:conditions} gives mean prompt-level detector-positive rates per condition on
 the final models; Table~\ref{tab:contrasts} tests advice against each matched
 control. Against \emph{plain factual} controls every detector category separates
-sharply in both models (all prompt-clustered $p<10^{-4}$; referral $0.927$
-vs $0.073$ at 1B, $0.913$ vs $0.060$ at 7B). But the matched controls show
+sharply in both models (all prompt-clustered $p\leq.0002$; referral $0.900$
+vs $0.080$ at 1B, $0.913$ vs $0.060$ at 7B). But the matched controls show
 this is \textbf{not one advice-specific template}:
 
 \begin{itemize}\itemsep2pt
 \item \textbf{Empathy expression tracks emotional content at $\tau=.82$.} It
 fires \emph{more} on emotional non-advice descriptions than on advice ($0.79$ vs
-$0.587$ at 1B, $p=.005$; $0.76$ vs $0.617$ at 7B, $p=.098$), and near-zero on
-neutral advice ($0.03$--$0.07$).
+$0.590$ at 1B, $p=.010$; $0.76$ vs $0.617$ at 7B, $p=.098$), and near-zero on
+neutral advice ($0.02$--$0.07$).
 \item \textbf{Structuring language tracks the how-to form.} It is at
 ceiling on \emph{neutral} advice exactly as on personal advice (diff $0.00$,
 $p=1.0$ at 1B; $-0.03$, $p=.57$ at 7B).
 \item \textbf{Professional referral tracks the advice/health domain at
 $\tau=.82$.} It fires on
-$0.66$--$0.72$ of neutral-advice and $0.80$--$0.82$ of clinical-information
+$0.72$--$0.74$ of neutral-advice and $0.82$ of clinical-information
 prompts; its advice increment over domain-factual is small and not significant
-($+0.127$, $p=.053$ at 1B; $+0.093$, $p=.159$ at 7B).
+($+0.080$, $p=.352$ at 1B; $+0.093$, $p=.159$ at 7B).
 \item \textbf{The validation marker is the only detector category consistently elevated on
 personal advice relative to every matched control}: higher on advice than
-\emph{every} control in \emph{both} models (all unadjusted $p\leq.02$; all
-BH-adjusted $q\leq.028$), including emotional non-advice ($0.36$ vs $0.16$, $p=.008$;
+\emph{every} control in \emph{both} models (all unadjusted $p\leq.0044$; all
+BH-adjusted $q\leq.0082$), including emotional non-advice ($0.363$ vs $0.120$, $p=.0027$;
 $0.383$ vs $0.13$, $p=.003$).
 \end{itemize}
 
@@ -302,13 +305,13 @@ mixed; we make no scaling claim.
 \toprule
 Behavior & Model & Advice & Factual & Emotional & Neutral adv. & Domain fact. \\
 \midrule
-empathy expr.   & 1B & 0.587 & 0.033 & \textbf{0.790} & 0.030 & 0.340 \\
+empathy expr.   & 1B & 0.590 & 0.040 & \textbf{0.790} & 0.020 & 0.340 \\
                 & 7B & 0.617 & 0.027 & \textbf{0.760} & 0.070 & 0.360 \\
-validation      & 1B & \textbf{0.360} & 0.000 & 0.160 & 0.000 & 0.120 \\
+validation      & 1B & \textbf{0.363} & 0.007 & 0.120 & 0.000 & 0.040 \\
                 & 7B & \textbf{0.383} & 0.013 & 0.130 & 0.030 & 0.060 \\
-referral        & 1B & 0.927 & 0.073 & 0.510 & 0.660 & 0.800 \\
+referral        & 1B & 0.900 & 0.080 & 0.510 & 0.740 & 0.820 \\
                 & 7B & 0.913 & 0.060 & 0.540 & 0.720 & 0.820 \\
-structuring     & 1B & 1.000 & 0.587 & 0.820 & \textbf{1.000} & 0.940 \\
+structuring     & 1B & 1.000 & 0.580 & 0.820 & \textbf{1.000} & 0.920 \\
                 & 7B & 0.970 & 0.547 & 0.830 & \textbf{1.000} & 0.840 \\
 \bottomrule
 \end{tabular}
@@ -330,24 +333,24 @@ excluded (0 TP / 11 FP in the 120-sentence audit).}
 \toprule
 Behavior & M & $-$Emot. & $-$Neut.adv. & $-$Dom.fact. \\
 \midrule
-empathy    & 1B & $-.203$ (.005) & $.557$ ($<$$10^{-4}$) & $.247$ (.010) \\
-           & 7B & $-.143$ (.098) & $.547$ ($<$$10^{-4}$) & $.257$ (.031) \\
-validation & 1B & $.200$ (.008)  & $.360$ ($<$$10^{-4}$) & $.240$ (.020) \\
-           & 7B & $.253$ (.003)  & $.353$ (.0001)        & $.323$ (.004) \\
-referral   & 1B & $.417$ ($<$$10^{-4}$) & $.267$ ($<$$10^{-4}$) & $.127$ (.053) \\
-           & 7B & $.373$ ($<$$10^{-4}$) & $.193$ (.001)  & $.093$ (.159) \\
-structuring & 1B & $.180$ ($<$$10^{-4}$) & $.000$ (1.0)   & $.060$ (.017) \\
-           & 7B & $.140$ (.004)  & $-.030$ (.574) & $.130$ (.026) \\
+empathy    & 1B & $-.200$ (.010) & $.570$ (.0002) & $.250$ (.016) \\
+           & 7B & $-.143$ (.098) & $.547$ (.0002) & $.257$ (.031) \\
+validation & 1B & $.243$ (.003)  & $.363$ (.0002) & $.323$ (.003) \\
+           & 7B & $.253$ (.003)  & $.353$ (.0003) & $.323$ (.004) \\
+referral   & 1B & $.390$ (.0002) & $.160$ (.006) & $.080$ (.352) \\
+           & 7B & $.373$ (.0002) & $.193$ (.001) & $.093$ (.159) \\
+structuring & 1B & $.180$ (.0002) & $.000$ (1.0) & $.080$ (.018) \\
+           & 7B & $.140$ (.004) & $-.030$ (.574) & $.130$ (.026) \\
 \bottomrule
 \end{tabular}
 \caption{Advice minus each matched control (prompt-clustered permutation $p$,
 10k draws). Benjamini--Hochberg correction across the 24 displayed tests leaves
-the validation conclusion unchanged (all $q\leq.028$); non-significant and
+the validation conclusion unchanged (all $q\leq.0082$); non-significant and
 negative cells carry the decomposition (Section~\ref{sec:decomposition}).}
 \label{tab:contrasts}
 \end{table}
 
-\subsection{Stagewise marker dynamics: every gap widens at SFT}
+\subsection{Stagewise marker dynamics and matched specificity}
 \label{sec:stagewise}
 
 Raw advice-side rates rising across stages would be ambiguous because post-training
@@ -359,28 +362,27 @@ permutation test on per-prompt stage trajectories (Table~\ref{tab:interaction};
 10k permutations, $n{=}60$ advice/$30$ factual). Three findings.
 
 \begin{itemize}\itemsep2pt
-\item \textbf{SFT widens every gap.} All eight base$\to$SFT changes are positive
-(raw $p<0.05$; referral $+0.33$/$+0.28$, structuring $+0.39$/$+0.23$). BH
-correction across all 28 adjacent-stage$\times$behavior tests preserves six;
-validation is marginal ($q=.087$/$.055$). Every detector category is already nonzero at
+\item \textbf{All SFT gap estimates are positive.} Six of eight base$\to$SFT
+changes survive BH correction (referral $+0.25$/$+0.24$, structuring
+$+0.34$/$+0.23$); validation does not ($q=.137$/$.121$). Every detector category is already nonzero at
 base, so SFT widens advice-minus-factual marker gaps for categories already
 detected at Base.
 \item \textbf{DPO acts marker-specifically.} It significantly further widens
-the \emph{expressive-marker} gaps (validation $+0.16$/$+0.15$, $p\leq0.008$; 1B empathy
-$+0.15$, $p=0.005$) but \emph{not} the referral gap ($+0.10$/$+0.08$,
-$p=0.067$/$0.109$), which is already near ceiling on advice after SFT. Its
+validation ($+0.21$/$+0.15$, $q=.002$/$.021$) and 1B referral
+($+0.19$, $q=.002$), while 1B empathy is only a tendency ($+0.12$,
+$q=.121$) and 7B empathy/referral do not change significantly. Its
 preference data nonetheless contains more referral phrasings in chosen than
 rejected responses (Table~\ref{tab:dpo}),
 consistent with \emph{maintaining} that near-saturated gap.
 \item \textbf{DPO collapses the structuring gap.} Its gap falls
-$-0.38$/$-0.28$ at DPO ($p<10^{-4}$), not because advice-side structuring drops
+$-0.37$/$-0.28$ at DPO ($p=.0002$), not because advice-side structuring drops
 (it is at ceiling) but because DPO raises structuring on \emph{factual} answers
 from $0.07$ to $0.54$--$0.59$. Preference tuning spreads structuring language
 everywhere while leaving the other advice-minus-factual detector gaps positive.
 \end{itemize}
 
 \textbf{RLVR and the final merge move no gap significantly} (every
-dpo$\to$rlvr and final-merge transition has $p\geq0.21$), consistent with RLVR's
+dpo$\to$rlvr and final-merge transition has $p\geq0.168$), consistent with RLVR's
 math-only data (Section~\ref{sec:datalayers}). These significance tests are
 internally valid for the frozen detector outputs; because the audit finds
 condition-dependent false positives and does not span checkpoints, they do not
@@ -394,23 +396,36 @@ by themselves establish changes in human-judged behavior prevalence.
 \toprule
 Model & Behavior & base$\to$SFT & SFT$\to$DPO \\
 \midrule
-1B & empathy    & $+0.197$ ($<$$10^{-3}$) & $+0.153$ (.005) \\
-1B & validation & $+0.110$ (.040)         & $+0.157$ (.007) \\
-1B & referral   & $+0.333$ ($<$$10^{-4}$) & $+0.097$ (.067) \\
-1B & structuring & $+0.393$ ($<$$10^{-4}$) & $-0.377$ ($<$$10^{-4}$) \\
+1B & empathy    & $+0.190$ (.002) & $+0.117$ (.055) \\
+1B & validation & $+0.093$ (.068) & $+0.213$ (.0003) \\
+1B & referral   & $+0.253$ (.0004) & $+0.190$ (.0006) \\
+1B & structuring & $+0.337$ (.0002) & $-0.367$ (.0002) \\
 \midrule
-7B & empathy    & $+0.277$ ($<$$10^{-3}$) & $+0.070$ (.251) \\
-7B & validation & $+0.120$ (.024)         & $+0.147$ (.008) \\
-7B & referral   & $+0.277$ ($<$$10^{-4}$) & $+0.083$ (.109) \\
-7B & structuring & $+0.233$ ($<$$10^{-3}$) & $-0.277$ ($<$$10^{-4}$) \\
+7B & empathy    & $+0.263$ (.0007) & $+0.070$ (.251) \\
+7B & validation & $+0.103$ (.056) & $+0.147$ (.008) \\
+7B & referral   & $+0.243$ (.0003) & $+0.083$ (.109) \\
+7B & structuring & $+0.227$ (.0005) & $-0.277$ (.0002) \\
 \bottomrule
 \end{tabular}
 \caption{Change in the advice-minus-factual gap across transitions
 (plus-one-corrected prompt-clustered permutation $p$, 10k draws). BH correction across all 28
 adjacent-stage$\times$behavior tests preserves six of eight SFT effects
-(validation: $q=.087$/$.055$) and all stated DPO effects; later raw $p\geq.21$.}
+(validation: $q=.137$/$.121$), both DPO validation effects, 1B referral, and
+both structuring collapses; later raw $p\geq.168$.}
 \label{tab:interaction}
 \end{table}
+
+\paragraph{Matched controls qualify advice specificity.} The four-seed
+Base/SFT/DPO extension tests 24 planned stage$\times$control interactions
+(Appendix~\ref{app:matched-stage}). Four survive BH correction at $\tau=.82$.
+For empathy relative to emotional non-advice, 7B SFT increases the advice gap
+($+0.358$, $q=.016$), but DPO reverses it at both 1B ($-0.467$, $q=.001$) and
+7B ($-0.642$, $q=.001$). At 7B, SFT also shifts structuring toward neutral
+advice ($-0.208$, $q=.026$). No validation or referral interaction survives
+$q<.05$; 1B DPO validation tendencies have $q=.059$--$.095$. The threshold
+sweep yields 3/4/5 significant interactions at $.80/.82/.84$; only the two 7B
+empathy transitions survive at all three thresholds. Thus the broad
+advice-minus-factual changes cannot all be read as advice-specific.
 
 \begin{table*}[t]
 \centering
@@ -420,13 +435,13 @@ adjacent-stage$\times$behavior tests preserves six of eight SFT effects
 \toprule
 Model & Stage & Empathy & Validation & Referral & Structuring \\
 \midrule
-1B & base     & .207 (.194) & .073 (.073) & .473 (.413) & .730 (.397) \\
-1B & sft      & .390 (.390) & .183 (.183) & .753 (.746) & .857 (.790) \\
-1B & dpo      & .590 (.543) & .353 (.340) & .917 (.844) & 1.000 (.413) \\
-1B & rlvr     & .597 (.550) & .373 (.373) & .903 (.816) & 1.000 (.400) \\
-1B & instruct & .587 (.554) & .360 (.360) & .927 (.854) & 1.000 (.413) \\
+1B & base     & .217 (.204) & .073 (.073) & .483 (.430) & .757 (.430) \\
+1B & sft      & .393 (.393) & .167 (.167) & .697 (.684) & .847 (.767) \\
+1B & dpo      & .550 (.510) & .380 (.380) & .933 (.873) & 1.000 (.400) \\
+1B & rlvr     & .567 (.507) & .410 (.410) & .923 (.836) & 1.000 (.440) \\
+1B & instruct & .590 (.550) & .363 (.356) & .900 (.820) & 1.000 (.420) \\
 \midrule
-7B & base     & .217 (.217) & .070 (.063) & .543 (.490) & .847 (.480) \\
+7B & base     & .230 (.230) & .087 (.080) & .577 (.524) & .853 (.486) \\
 7B & sft      & .493 (.493) & .183 (.183) & .767 (.767) & .787 (.714) \\
 7B & dpo      & .597 (.564) & .330 (.330) & .923 (.850) & .977 (.437) \\
 7B & instruct & .617 (.590) & .383 (.370) & .913 (.853) & .970 (.423) \\
@@ -434,8 +449,8 @@ Model & Stage & Empathy & Validation & Referral & Structuring \\
 \end{tabular}
 \caption{Stagewise advice detector-positive rate with the \textbf{advice-minus-factual gap
 in parentheses} ($\tau=0.82$). The referral gap widens at SFT
-($+0.33$/$+0.28$, $p<10^{-4}$; interaction tests in Table~\ref{tab:interaction})
-and is not significantly changed thereafter; the structuring gap collapses at DPO
+($+0.25$/$+0.24$, $p<.001$; interaction tests in Table~\ref{tab:interaction});
+at 1B it widens again at DPO. The structuring gap collapses at DPO
 because factual answers become listy too. Base checkpoints use a plain QA format
 (no chat template).}
 \label{tab:stagewise}
@@ -450,13 +465,13 @@ assistant turns containing referral phrases: ``healthcare professional'' ($3075$
 1B/7B), ``mental health professional'' ($2109$/$2120$), ``professional help''
 ($1765$/$1774$), ``seek professional'' ($1353$/$1355$). Length-matched
 recoverability is above topical controls at $\geq 3$ words (3-word:
-$19.5\times$ at 1B, $7.3\times$ at 7B; 4-word: $141.7\times$/$14.5\times$) but
-\textbf{phrase-sparse}: only 5/6 distinct 3-word types, dominated by the list
+$20.5\times$ at 1B, $7.3\times$ at 7B; 4-word: $136.9\times$/$14.5\times$) but
+\textbf{phrase-sparse}: only 3/6 distinct 3-word types, dominated by the list
 preamble ``here are some.'' The distinct-phrase leave-one-out is the honest
-figure: dropping that one phrase lowers the 3-word mean from $3358.1$ to
-$\mathbf{758.8}$/M (1B) and $3026.0$ to $\mathbf{1065.9}$/M (7B)
-(Appendix~\ref{app:perphrase}). Any inference must use the 5--6 distinct types
-as its unit, not the $46$/$55$ occurrences. Role-scoping remains necessary:
+figure: dropping that one phrase lowers the 3-word mean from $5455.2$ to
+$\mathbf{1305.2}$/M (1B) and $3026.0$ to $\mathbf{1065.9}$/M (7B)
+(Appendix~\ref{app:perphrase}). Any inference must use the 3--6 distinct types
+as its unit, not the $45$/$55$ occurrences. Role-scoping remains necessary:
 blob search inflates ``talk to a'' $1.41$--$1.43\times$ via user turns.
 
 \paragraph{DPO: paired inference and descriptive length normalization.}
@@ -510,7 +525,7 @@ retention rather than new introduction at RLVR.
 
 \paragraph{Pretraining: not a verbatim echo (secondary, hedged).} Against the
 exact Stage-1 corpus, advice answers are more novel than factual ones
-($0.559$ vs $0.383$ at 1B; $0.525$ vs $0.379$ at 7B). This is verbatim-only,
+($0.556$ vs $0.365$ at 1B; $0.518$ vs $0.371$ at 7B). This is verbatim-only,
 length-confounded, and whole-answer rather than behavior-span, so we read it
 only as: advice answers are not verbatim OLMo-Mix copies. The base
 checkpoints' nonzero detector rates are the stronger evidence that the
@@ -586,9 +601,10 @@ intervals are released with the artifact. \texttt{crisis\_referral}: 0 TP / 11 F
 detector-positive decomposition and stagewise gaps nominate a testable account:
 relevant language is already detected at Base; SFT widens every
 advice-minus-factual marker gap (six of eight changes survive correction); DPO then acts
-selectively by widening validation in both sizes and empathy at 1B, and by collapsing the
-structuring gap (spreading organizers to factual answers) while leaving the
-already-saturated referral gap unmoved, even as referral phrasings show strong
+selectively by widening validation in both sizes and referral at 1B, and by collapsing the
+structuring gap (spreading organizers to factual answers). Matched-stage controls
+further show a robust 7B SFT increase and DPO reversal in empathy specificity,
+while referral phrasings show strong
 chosen-only versus rejected-only pair enrichment and descriptive per-word
 ratios in the same direction; no RLVR-stage gap change is
 detected. The output trajectory remains provisional because of measurement
@@ -631,15 +647,17 @@ trajectories remain provisional. Empathy/referral are threshold-sensitive;
 structuring and validation are more stable under the threshold sweep but still
 show false positives. A provenance-safe two-human workflow is released.
 \item \textbf{Coverage gaps.} Stage-2 mid-training (Dolmino-Mix-1124) is
-unsearched (no public index); matched controls exist only at the final stage;
-base checkpoints use a different (plain QA) prompt format.
-\item \textbf{Phrase sparsity.} The SFT co-occurrence rests on 5--6 distinct
+unsearched (no public index); matched controls cover Base, SFT, DPO, and final
+checkpoints but not the intermediate RLVR checkpoint; base checkpoints use a
+different (plain QA) prompt format.
+\item \textbf{Phrase sparsity.} The SFT co-occurrence rests on 3--6 distinct
 3-word types dominated by one list marker; use the leave-one-out figures.
 \item \textbf{Statistical scope.} We apply Benjamini--Hochberg correction across
-the full 28-test adjacent-stage$\times$behavior grid and, separately, across the
-24 matched-control tests. Six of eight Base$\to$SFT changes survive; the two
-validation changes are marginal. Five seeds bound but do not eliminate sampling
-variance; prompt counts are modest; one model family, two sizes, one decoding
+the full 28-test advice/factual adjacent-stage$\times$behavior grid and,
+separately, across the 24 final-condition and 24 matched-stage tests. Six of
+eight Base$\to$SFT advice/factual changes survive; no matched-stage validation
+effect survives at $q<.05$. Five canonical seeds and four extension seeds bound
+but do not eliminate sampling variance; prompt counts are modest; one model family, two sizes, one decoding
 configuration; no scaling claim.
 \item \textbf{Novelty} is verbatim-only, length-confounded, and whole-answer.
 \end{itemize}
@@ -650,8 +668,10 @@ configuration; no scaling claim.
 Machine-advice language in OLMo-2 is not one indivisible template. A frozen
 detector yields distinct affect-, form-, and domain-linked trajectories: all
 eight advice--factual marker gaps widen at SFT (six survive multiplicity
-correction), while DPO widens validation in both sizes and empathy at 1B, and
-spreads structuring markers to factual answers. The 120-sentence audit, however, finds enough
+correction), while DPO widens validation in both sizes and referral at 1B, and
+spreads structuring markers to factual answers. Matched-stage controls show
+that the most threshold-robust specificity result is a 7B SFT increase followed
+by a DPO reversal in advice-versus-emotional empathy. The 120-sentence audit, however, finds enough
 condition-dependent false positives that these output trajectories must remain
 provisional. The strongest result is embedding-threshold-independent exact
 matching at the DPO stage: professional-referral and structuring phrases are
@@ -711,9 +731,10 @@ against them.
 All answers use nucleus sampling (temperature $0.7$, top-$p$ $0.9$,
 \texttt{max\_new\_tokens}${=}256$, \texttt{do\_sample=True}), the chat
 template where available (plain \texttt{Question:/Answer:} for base
-checkpoints), and five seeds per prompt. The battery: 60 advice, 30 factual,
+checkpoints), and five seeds per prompt in the canonical grid. The battery: 60 advice, 30 factual,
 20 emotional non-advice, 20 neutral advice, 10 domain factual; the complete
-lists ship with the artifact.
+lists ship with the artifact. The Base/SFT/DPO matched-control extension uses
+four seeds; all balanced matched-stage tests use seeds 0--3 for every condition.
 
 \paragraph{Examples.}
 \begin{itemize}\itemsep1pt
@@ -754,8 +775,8 @@ about this.'' Structuring: ``Here are a few steps you can take'';
 
 Table~\ref{tab:threshold} reports the exact contrasts underlying the
 decomposition at $\tau=0.80/0.82/0.84$. Structuring is stable: advice and
-neutral-advice remain within $.07$ in every cell. Validation exceeds its
-strongest control in five of six cells (the exception is 1B at $.80$, $-.02$).
+neutral-advice remain within $.05$ in every cell. Validation exceeds its
+strongest control in all six cells.
 Empathy's emotional-minus-advice contrast reverses at $.84$, while referral's
 advice-minus-domain contrast changes magnitude. The primary $\tau=.82$ was
 frozen before the 140-prompt battery, but its qualitative decomposition should
@@ -769,13 +790,13 @@ not be generalized across detector thresholds.
 \toprule
 M & Contrast & $.80$ & $.82$ & $.84$ \\
 \midrule
-1B & empathy: emot.$-$adv. & $.013$ & $.203$ & $-.127$ \\
+1B & empathy: emot.$-$adv. & $.030$ & $.200$ & $-.107$ \\
 7B &                         & $.030$ & $.143$ & $-.280$ \\
-1B & validation: adv.$-$max ctrl. & $-.020$ & $.200$ & $.083$ \\
+1B & validation: adv.$-$max ctrl. & $.030$ & $.243$ & $.107$ \\
 7B &                                & $.047$ & $.253$ & $.170$ \\
-1B & referral: adv.$-$domain & $-.003$ & $.127$ & $.163$ \\
+1B & referral: adv.$-$domain & $-.003$ & $.080$ & $.093$ \\
 7B &                          & $.017$ & $.093$ & $.280$ \\
-1B & structuring: adv.$-$neutral & $.000$ & $.000$ & $.067$ \\
+1B & structuring: adv.$-$neutral & $.000$ & $.000$ & $.047$ \\
 7B &                             & $.000$ & $-.030$ & $-.010$ \\
 \bottomrule
 \end{tabular}
@@ -784,6 +805,45 @@ values support the primary-threshold reading except for structuring, where
 values near zero indicate the same rate on advice and neutral advice.}
 \label{tab:threshold}
 \end{table}
+
+\section{Matched-control checkpoint interactions}
+\label{app:matched-stage}
+
+Table~\ref{tab:matched-stage} reports every planned interaction in the
+four-seed Base/SFT/DPO extension. Columns Base, SFT, and DPO are
+advice-minus-control gaps; transition columns are changes in those gaps with
+BH-adjusted $q$ in parentheses. The family contains all 24 displayed
+transition tests.
+
+\begin{table*}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lllrrrrr}
+\toprule
+M & Marker & Control & Base & SFT & DPO & Base$\to$SFT & SFT$\to$DPO \\
+\midrule
+1B & referral & domain factual & .188 & .308 & .167 & $+.121$ (.414) & $-.142$ (.296) \\
+1B & empathy & emotional & .017 & .225 & $-.242$ & $+.208$ (.095) & $-.467$ (.001) \\
+1B & structuring & neutral advice & $-.013$ & $-.050$ & .000 & $-.037$ (.653) & $+.050$ (.475) \\
+1B & validation & domain factual & .071 & .146 & .375 & $+.075$ (.475) & $+.229$ (.095) \\
+1B & validation & emotional & .021 & .121 & .225 & $+.100$ (.293) & $+.104$ (.296) \\
+1B & validation & neutral advice & .058 & .171 & .350 & $+.113$ (.189) & $+.179$ (.059) \\
+\midrule
+7B & referral & domain factual & .321 & .067 & .200 & $-.254$ (.166) & $+.133$ (.293) \\
+7B & empathy & emotional & .108 & .467 & $-.175$ & $+.358$ (.016) & $-.642$ (.001) \\
+7B & structuring & neutral advice & .050 & $-.158$ & $-.025$ & $-.208$ (.026) & $+.133$ (.095) \\
+7B & validation & domain factual & .092 & .175 & .317 & $+.083$ (.475) & $+.142$ (.296) \\
+7B & validation & emotional & .054 & .125 & .179 & $+.071$ (.414) & $+.054$ (.537) \\
+7B & validation & neutral advice & .092 & .163 & .292 & $+.071$ (.414) & $+.129$ (.189) \\
+\bottomrule
+\end{tabular}
+\caption{Complete matched-control stage interactions at $\tau=.82$ (10k
+prompt-clustered permutations). Four of 24 transition tests have $q<.05$.
+Only the 7B empathy Base$\to$SFT and SFT$\to$DPO effects retain $q<.05$ at
+all three detector thresholds.}
+\label{tab:matched-stage}
+\end{table*}
 
 \section{Equivalent-count sensitivity analysis}
 \label{app:sensitivity}
@@ -806,8 +866,8 @@ M & Behavior & Advice & Factual & OR & Fisher $p$ \\
 \midrule
 1B & empathy    & 35/60 & 1/30 & 27.4  & $1.4{\times}10^{-7}$ \\
 1B & validation & 22/60 & 0/30 & 35.6  & $4.2{\times}10^{-5}$ \\
-1B & referral   & 56/60 & 2/30 & 143.1 & $8.9{\times}10^{-17}$ \\
-1B & structuring & 60/60 & 18/30 & 81.8 & $3.2{\times}10^{-7}$ \\
+1B & referral   & 54/60 & 2/30 & 95.6 & $3.1{\times}10^{-15}$ \\
+1B & structuring & 60/60 & 17/30 & 93.3 & $7.3{\times}10^{-8}$ \\
 \midrule
 7B & empathy    & 37/60 & 1/30 & 31.4  & $2.2{\times}10^{-8}$ \\
 7B & validation & 23/60 & 0/30 & 38.2  & $1.9{\times}10^{-5}$ \\
@@ -844,9 +904,9 @@ Model & Phrase & Asst. & Blob & Infl. \\
 1B & professional help          & 1765  & 1825  & 1.03 \\
 1B & seek professional          & 1353  & 1377  & 1.02 \\
 1B & it sounds like you         & 1130  & 1164  & 1.03 \\
-1B & talk to a                  & 290   & 410   & 1.41 \\
+1B & consult a                  & 891   & 978   & 1.10 \\
+1B & it's understandable       & 218   & 227   & 1.04 \\
 1B & it's natural to            & 152   & 157   & 1.03 \\
-1B & it's completely normal     & 78    & 103   & 1.32 \\
 \midrule
 7B & here are some              & 12049 & 13432 & 1.11 \\
 7B & here are a few             & 5511  & 6156  & 1.12 \\
@@ -861,20 +921,20 @@ Model & Phrase & Asst. & Blob & Infl. \\
 7B & it's completely normal     & 78    & 103   & 1.32 \\
 \bottomrule
 \end{tabular}
-\caption{Per-phrase SFT-assistant recoverability (representative rows). The 5
+\caption{Per-phrase SFT-assistant recoverability (representative rows). The 3
 (1B) / 6 (7B) distinct 3-word types drive Section~\ref{sec:datalayers};
 ``here are some'' dominates the 3-word mean.}
 \label{tab:perphrase}
 \end{table}
 
 \paragraph{Length-matched buckets (occurrence-weighted).} Behavioral vs
-topical per-million for 1B: 2-word $1839.9$ vs $1708.2$ ($1.1\times$, $n_{\text{occ}}{=}11$),
-3-word $12333.4$ vs $633.8$ ($19.5\times$, $46$), 4-word $1676.2$ vs $11.8$
-($141.7\times$, $28$). For 7B, 2-word $1784.5$ vs $996.8$ ($1.8\times$, $20$),
+topical per-million for 1B: 2-word $1884.3$ vs $1760.2$ ($1.1\times$, $n_{\text{occ}}{=}14$),
+3-word $12900.2$ vs $629.8$ ($20.5\times$, $45$), 4-word $1596.9$ vs $11.7$
+($136.9\times$, $30$). For 7B, 2-word $1784.5$ vs $996.8$ ($1.8\times$, $20$),
 3-word $9354.4$ vs $1280.4$ ($7.3\times$, $55$), 4-word $1396.6$ vs $96.2$
 ($14.5\times$, $24$). \textbf{Distinct-phrase leave-one-out (3-word):}
-dropping ``here are some'' moves the mean from $3358.1$ to $758.8$/M at 1B
-(5 types) and from $3026.0$ to $1065.9$/M at 7B (6 types).
+dropping ``here are some'' moves the mean from $5455.2$ to $1305.2$/M at 1B
+(3 types) and from $3026.0$ to $1065.9$/M at 7B (6 types).
 
 \section{Response-cluster audit uncertainty}
 \label{app:audit-bootstrap}

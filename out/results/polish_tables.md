@@ -6,9 +6,9 @@ Source: `out/results/summary_v3.json`
 |---|---|---|---|
 | 1B | empathy_opener | 35/60 (0.583, [0.457,0.699]) | 1/30 (0.033, [0.006,0.167]) |
 | 1B | validation | 22/60 (0.367, [0.256,0.493]) | 0/30 (0.0, [0,0.114]) |
-| 1B | disclaimer | 56/60 (0.933, [0.841,0.974]) | 2/30 (0.067, [0.018,0.213]) |
+| 1B | disclaimer | 54/60 (0.9, [0.799,0.953]) | 2/30 (0.067, [0.018,0.213]) |
 | 1B | crisis_referral | 52/60 (0.867, [0.758,0.931]) | 0/30 (0.0, [0,0.114]) |
-| 1B | structure | 60/60 (1.0, [0.94,1.0]) | 18/30 (0.6, [0.423,0.754]) |
+| 1B | structure | 60/60 (1.0, [0.94,1.0]) | 17/30 (0.567, [0.392,0.726]) |
 | 7B | empathy_opener | 37/60 (0.617, [0.49,0.729]) | 1/30 (0.033, [0.006,0.167]) |
 | 7B | validation | 23/60 (0.383, [0.271,0.51]) | 0/30 (0.0, [0,0.114]) |
 | 7B | disclaimer | 55/60 (0.917, [0.819,0.964]) | 2/30 (0.067, [0.018,0.213]) |
@@ -19,10 +19,10 @@ Source: `out/results/summary_v3.json`
 
 | model | behavior | 0.80 | 0.82 | 0.84 |
 |---|---|---|---|---|
-| 1B | empathy_opener | 0.927 | 0.587 | 0.297 |
-| 1B | validation | 0.86 | 0.36 | 0.093 |
-| 1B | disclaimer | 0.997 | 0.927 | 0.463 |
-| 1B | crisis_referral | 0.997 | 0.867 | 0.41 |
+| 1B | empathy_opener | 0.94 | 0.59 | 0.297 |
+| 1B | validation | 0.85 | 0.363 | 0.107 |
+| 1B | disclaimer | 0.997 | 0.9 | 0.473 |
+| 1B | crisis_referral | 0.997 | 0.867 | 0.4 |
 | 1B | structure | 1.0 | 1.0 | 0.997 |
 | 7B | empathy_opener | 0.94 | 0.617 | 0.37 |
 | 7B | validation | 0.817 | 0.383 | 0.18 |
@@ -34,12 +34,12 @@ Source: `out/results/summary_v3.json`
 
 | model | stage | empathy | validation | disclaimer | crisis_referral | structure |
 |---|---|---|---|---|---|---|
-| 1B | base | 0.207 | 0.073 | 0.473 | 0.41 | 0.73 |
-| 1B | sft | 0.39 | 0.183 | 0.753 | 0.71 | 0.857 |
-| 1B | dpo | 0.59 | 0.353 | 0.917 | 0.857 | 1.0 |
-| 1B | rlvr | 0.597 | 0.373 | 0.903 | 0.87 | 1.0 |
-| 1B | instruct | 0.587 | 0.36 | 0.927 | 0.867 | 1.0 |
-| 7B | base | 0.217 | 0.07 | 0.543 | 0.48 | 0.847 |
+| 1B | base | 0.217 | 0.073 | 0.483 | 0.42 | 0.757 |
+| 1B | sft | 0.393 | 0.167 | 0.697 | 0.717 | 0.847 |
+| 1B | dpo | 0.55 | 0.38 | 0.933 | 0.87 | 1.0 |
+| 1B | rlvr | 0.567 | 0.41 | 0.923 | 0.867 | 1.0 |
+| 1B | instruct | 0.59 | 0.363 | 0.9 | 0.867 | 1.0 |
+| 7B | base | 0.23 | 0.087 | 0.577 | 0.477 | 0.853 |
 | 7B | sft | 0.493 | 0.183 | 0.767 | 0.74 | 0.787 |
 | 7B | dpo | 0.597 | 0.33 | 0.923 | 0.877 | 0.977 |
 | 7B | instruct | 0.617 | 0.383 | 0.913 | 0.86 | 0.97 |
@@ -48,11 +48,11 @@ Source: `out/results/summary_v3.json`
 
 | model | behavior | advice | factual | emotional | neutral_advice | domain_factual |
 |---|---|---|---|---|---|---|
-| 1B | empathy_opener | 0.587 | 0.033 | 0.79 | 0.03 | 0.34 |
-| 1B | validation | 0.36 | 0.0 | 0.16 | 0.0 | 0.12 |
-| 1B | disclaimer | 0.927 | 0.073 | 0.51 | 0.66 | 0.8 |
-| 1B | crisis_referral | 0.867 | 0.0 | 0.63 | 0.31 | 0.38 |
-| 1B | structure | 1.0 | 0.587 | 0.82 | 1.0 | 0.94 |
+| 1B | empathy_opener | 0.59 | 0.04 | 0.79 | 0.02 | 0.34 |
+| 1B | validation | 0.363 | 0.007 | 0.12 | 0.0 | 0.04 |
+| 1B | disclaimer | 0.9 | 0.08 | 0.51 | 0.74 | 0.82 |
+| 1B | crisis_referral | 0.867 | 0.0 | 0.7 | 0.33 | 0.38 |
+| 1B | structure | 1.0 | 0.58 | 0.82 | 1.0 | 0.92 |
 | 7B | empathy_opener | 0.617 | 0.027 | 0.76 | 0.07 | 0.36 |
 | 7B | validation | 0.383 | 0.013 | 0.13 | 0.03 | 0.06 |
 | 7B | disclaimer | 0.913 | 0.06 | 0.54 | 0.72 | 0.82 |
@@ -63,46 +63,46 @@ Source: `out/results/summary_v3.json`
 
 | model | behavior | control | diff | perm_p |
 |---|---|---|---|---|
-| 1B | empathy_opener | factual | 0.553 | 9.999000099990002e-05 |
-| 1B | empathy_opener | emotional | -0.203 | 0.0051994800519948 |
-| 1B | empathy_opener | neutral_advice | 0.557 | 9.999000099990002e-05 |
-| 1B | empathy_opener | domain_factual | 0.247 | 0.010198980101989802 |
-| 1B | validation | factual | 0.36 | 9.999000099990002e-05 |
-| 1B | validation | emotional | 0.2 | 0.0082991700829917 |
-| 1B | validation | neutral_advice | 0.36 | 9.999000099990002e-05 |
-| 1B | validation | domain_factual | 0.24 | 0.0197980201979802 |
-| 1B | disclaimer | factual | 0.853 | 9.999000099990002e-05 |
-| 1B | disclaimer | emotional | 0.417 | 9.999000099990002e-05 |
-| 1B | disclaimer | neutral_advice | 0.267 | 9.999000099990002e-05 |
-| 1B | disclaimer | domain_factual | 0.127 | 0.05299470052994701 |
-| 1B | crisis_referral | factual | 0.867 | 9.999000099990002e-05 |
-| 1B | crisis_referral | emotional | 0.237 | 0.0011998800119988001 |
-| 1B | crisis_referral | neutral_advice | 0.557 | 9.999000099990002e-05 |
-| 1B | crisis_referral | domain_factual | 0.487 | 9.999000099990002e-05 |
-| 1B | structure | factual | 0.413 | 9.999000099990002e-05 |
-| 1B | structure | emotional | 0.18 | 9.999000099990002e-05 |
+| 1B | empathy_opener | factual | 0.55 | 0.00019998000199980003 |
+| 1B | empathy_opener | emotional | -0.2 | 0.0096990300969903 |
+| 1B | empathy_opener | neutral_advice | 0.57 | 0.00019998000199980003 |
+| 1B | empathy_opener | domain_factual | 0.25 | 0.015898410158984102 |
+| 1B | validation | factual | 0.357 | 0.00019998000199980003 |
+| 1B | validation | emotional | 0.243 | 0.0026997300269973002 |
+| 1B | validation | neutral_advice | 0.363 | 0.00019998000199980003 |
+| 1B | validation | domain_factual | 0.323 | 0.0034996500349965005 |
+| 1B | disclaimer | factual | 0.82 | 0.00019998000199980003 |
+| 1B | disclaimer | emotional | 0.39 | 0.00019998000199980003 |
+| 1B | disclaimer | neutral_advice | 0.16 | 0.006199380061993801 |
+| 1B | disclaimer | domain_factual | 0.08 | 0.3524647535246475 |
+| 1B | crisis_referral | factual | 0.867 | 0.00019998000199980003 |
+| 1B | crisis_referral | emotional | 0.167 | 0.0112988701129887 |
+| 1B | crisis_referral | neutral_advice | 0.537 | 0.00019998000199980003 |
+| 1B | crisis_referral | domain_factual | 0.487 | 0.00019998000199980003 |
+| 1B | structure | factual | 0.42 | 0.00019998000199980003 |
+| 1B | structure | emotional | 0.18 | 0.00019998000199980003 |
 | 1B | structure | neutral_advice | 0.0 | 1.0 |
-| 1B | structure | domain_factual | 0.06 | 0.017298270172982702 |
-| 7B | empathy_opener | factual | 0.59 | 9.999000099990002e-05 |
-| 7B | empathy_opener | emotional | -0.143 | 0.09779022097790221 |
-| 7B | empathy_opener | neutral_advice | 0.547 | 9.999000099990002e-05 |
-| 7B | empathy_opener | domain_factual | 0.257 | 0.030596940305969402 |
-| 7B | validation | factual | 0.37 | 9.999000099990002e-05 |
-| 7B | validation | emotional | 0.253 | 0.0026997300269973002 |
-| 7B | validation | neutral_advice | 0.353 | 0.00019998000199980003 |
-| 7B | validation | domain_factual | 0.323 | 0.004299570042995701 |
-| 7B | disclaimer | factual | 0.853 | 9.999000099990002e-05 |
-| 7B | disclaimer | emotional | 0.373 | 9.999000099990002e-05 |
-| 7B | disclaimer | neutral_advice | 0.193 | 0.0010998900109989002 |
-| 7B | disclaimer | domain_factual | 0.093 | 0.1586841315868413 |
-| 7B | crisis_referral | factual | 0.853 | 9.999000099990002e-05 |
-| 7B | crisis_referral | emotional | 0.25 | 0.00039996000399960006 |
-| 7B | crisis_referral | neutral_advice | 0.52 | 9.999000099990002e-05 |
-| 7B | crisis_referral | domain_factual | 0.58 | 9.999000099990002e-05 |
-| 7B | structure | factual | 0.423 | 9.999000099990002e-05 |
-| 7B | structure | emotional | 0.14 | 0.0040995900409959 |
+| 1B | structure | domain_factual | 0.08 | 0.0183981601839816 |
+| 7B | empathy_opener | factual | 0.59 | 0.00019998000199980003 |
+| 7B | empathy_opener | emotional | -0.143 | 0.0978902109789021 |
+| 7B | empathy_opener | neutral_advice | 0.547 | 0.00019998000199980003 |
+| 7B | empathy_opener | domain_factual | 0.257 | 0.0306969303069693 |
+| 7B | validation | factual | 0.37 | 0.00019998000199980003 |
+| 7B | validation | emotional | 0.253 | 0.0027997200279972004 |
+| 7B | validation | neutral_advice | 0.353 | 0.00029997000299970003 |
+| 7B | validation | domain_factual | 0.323 | 0.004399560043995601 |
+| 7B | disclaimer | factual | 0.853 | 0.00019998000199980003 |
+| 7B | disclaimer | emotional | 0.373 | 0.00019998000199980003 |
+| 7B | disclaimer | neutral_advice | 0.193 | 0.0011998800119988001 |
+| 7B | disclaimer | domain_factual | 0.093 | 0.15878412158784122 |
+| 7B | crisis_referral | factual | 0.853 | 0.00019998000199980003 |
+| 7B | crisis_referral | emotional | 0.25 | 0.0004999500049995 |
+| 7B | crisis_referral | neutral_advice | 0.52 | 0.00019998000199980003 |
+| 7B | crisis_referral | domain_factual | 0.58 | 0.00019998000199980003 |
+| 7B | structure | factual | 0.423 | 0.00019998000199980003 |
+| 7B | structure | emotional | 0.14 | 0.004199580041995801 |
 | 7B | structure | neutral_advice | -0.03 | 0.573942605739426 |
-| 7B | structure | domain_factual | 0.13 | 0.025897410258974102 |
+| 7B | structure | domain_factual | 0.13 | 0.025997400259974 |
 
 ### Per-phrase SFT-assistant recoverability (role-scoped)
 
@@ -114,16 +114,16 @@ Per-million uses each model's exact SFT assistant-document count when available.
 | 1B | 2 | `healthcare professional` | 3075 | 3550.2 | 1.05 |
 | 1B | 2 | `professional help` | 1765 | 2037.8 | 1.03 |
 | 1B | 2 | `seek professional` | 1353 | 1562.1 | 1.02 |
+| 1B | 2 | `consult a` | 891 | 1028.7 | 1.1 |
 | 1B | 2 | `it's understandable` | 218 | 251.7 | 1.04 |
 | 1B | 3 | `here are some` | 11914 | 13755.3 | 1.11 |
 | 1B | 3 | `mental health professional` | 2109 | 2434.9 | 1.04 |
-| 1B | 3 | `talk to a` | 290 | 334.8 | 1.41 |
 | 1B | 3 | `it's natural to` | 152 | 175.5 | 1.03 |
-| 1B | 3 | `it's completely normal` | 78 | 90.1 | 1.32 |
 | 1B | 4 | `here are a few` | 5421 | 6258.8 | 1.12 |
 | 1B | 4 | `it sounds like you` | 1130 | 1304.6 | 1.03 |
 | 1B | 4 | `steps you can take` | 792 | 914.4 | 1.01 |
 | 1B | 4 | `it's okay to feel` | 159 | 183.6 | 1.02 |
+| 1B | 4 | `your feelings are valid` | 49 | 56.6 | 1.0 |
 | 1B | 4 | `it's normal to feel` | 33 | 38.1 | 1.03 |
 | 7B | 2 | `healthcare professional` | 3106 | 3306.6 | 1.07 |
 | 7B | 2 | `professional help` | 1774 | 1888.6 | 1.04 |
@@ -143,5 +143,5 @@ Per-million uses each model's exact SFT assistant-document count when available.
 | 7B | 4 | `it's normal to feel` | 33 | 35.1 | 1.03 |
 
 **Distinct-phrase leave-one-out (3-word behavioral phrases, per-model-denominator per-million):**
-- 1B: over 5 distinct 3-word phrases, dropping the top generic phrase `here are some` lowers the mean from 3358.1 to 758.8 per-million.
+- 1B: over 3 distinct 3-word phrases, dropping the top generic phrase `here are some` lowers the mean from 5455.2 to 1305.2 per-million.
 - 7B: over 6 distinct 3-word phrases, dropping the top generic phrase `here are some` lowers the mean from 3026.0 to 1065.9 per-million.

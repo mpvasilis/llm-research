@@ -7,55 +7,91 @@ trained on -- tulu-3-sft-olmo-2-mixture (7B line) and -0225 (1B line), with no
 separate oasst1 -- so the role-scoping table and the distinct-phrase 3-word
 leave-one-out become exact and per-model.
 
-Downloads ~2.7 GB of parquet once (cached in out/cache/), then all search is
-local DuckDB. Corpus-search only: needs no model outputs.
+By default this materializes the exact counts already produced by the canonical
+Colab DuckDB scan in ``summary_v3.json`` so the phrase inventory cannot drift.
+Pass ``--verify-corpus`` for an independent local parquet recount. That check
+uses the ~2.7 GB cache and can be slow on nested message columns.
 
 Run:  python -m experiments.recount_sft_olmo2
 """
-import glob
+import argparse
 import json
-from pathlib import Path
 
 import duckdb
 from config import ROOT, load_token
-from trace.parquet_search import count_roles, _ensure_cached
+from trace.parquet_search import _ensure_cached
 
 MIX = {
     "1B": "allenai/tulu-3-sft-olmo-2-mixture-0225",
     "7B": "allenai/tulu-3-sft-olmo-2-mixture",
 }
+N_DOCS = {"1B": 866_138, "7B": 939_344}
 _con = duckdb.connect(); _con.execute("SET enable_progress_bar=false;")
 
 
-def phrases_from_summary():
-    s = json.loads((ROOT / "out" / "results" / "summary.json").read_text())
-    out = {}
-    for m in ("1B", "7B"):
-        out[m] = [r["phrase"] for r in s["per_model"][m]["role_scoping"]]
-    return out
+def load_summary():
+    # summary.json is a frozen legacy artifact. The surfaced phrase inventory
+    # must follow the current canonical generation run.
+    return json.loads((ROOT / "out" / "results" / "summary_v3.json").read_text())
 
 
-def ndocs(dataset: str) -> int:
-    files = glob.glob(str(ROOT / "out" / "cache" / dataset.replace("/", "__") / "*.parquet"))
-    return _con.execute("SELECT count(*) FROM read_parquet($f)", {"f": files}).fetchone()[0]
+def count_roles_batch(paths, phrases):
+    """Count every phrase in one parquet scan instead of two scans per phrase."""
+    columns = ["count(*) AS ndocs"]
+    params = {"f": [str(path) for path in paths]}
+    for index, phrase in enumerate(phrases):
+        key = f"q{index}"
+        params[key] = f"%{phrase}%"
+        columns.append(
+            f"sum(CASE WHEN to_json(messages) ILIKE ${key} THEN 1 ELSE 0 END)"
+        )
+        columns.append(
+            "sum(CASE WHEN len(list_filter(messages, m -> "
+            f"m.role = 'assistant' AND m.content ILIKE ${key})) > 0 "
+            "THEN 1 ELSE 0 END)"
+        )
+    row = _con.execute(
+        f"SELECT {', '.join(columns)} FROM read_parquet($f)", params
+    ).fetchone()
+    counts = {
+        phrase: {"blob": int(row[1 + 2 * index]), "assistant": int(row[2 + 2 * index])}
+        for index, phrase in enumerate(phrases)
+    }
+    return int(row[0]), counts
 
 
-def main():
-    token = load_token()
-    surfaced = phrases_from_summary()
-    result = {"mixtures": MIX, "per_model": {}}
+def main(verify_corpus=False):
+    summary = load_summary()
+    surfaced_rows = {
+        model: summary["per_model"][model]["role_scoping"]
+        for model in ("1B", "7B")
+    }
+    result = {
+        "source": "summary_v3.json canonical Colab DuckDB counts",
+        "independent_corpus_verification": bool(verify_corpus),
+        "mixtures": MIX,
+        "per_model": {},
+    }
+    token = load_token() if verify_corpus else None
 
     for model, ds in MIX.items():
         print(f"\n=== {model}: {ds} ===")
-        print("  ensuring parquet cached (downloads once) ...")
-        _ensure_cached(ds, token)
-        nd = ndocs(ds)
+        phrases = [row["phrase"] for row in surfaced_rows[model]]
+        if verify_corpus:
+            print("  ensuring parquet cached (downloads once) ...")
+            paths, _, _ = _ensure_cached(ds, token)
+            nd, counts = count_roles_batch(paths, phrases)
+        else:
+            nd = N_DOCS[model]
+            counts = {
+                row["phrase"]: {"assistant": row["assistant"], "blob": row["blob"]}
+                for row in surfaced_rows[model]
+            }
         print(f"  NDOCS (rows/conversations) = {nd:,}")
         rows = []
-        for p in surfaced[model]:
-            r = count_roles(ds, p)
-            a = r.get("assistant_matches")
-            b = r.get("blob_matches")
+        for p in phrases:
+            a = counts[p]["assistant"]
+            b = counts[p]["blob"]
             permil = round(1e6 * a / nd, 1) if a is not None else None
             infl = round(b / a, 2) if a else None
             rows.append({"phrase": p, "len": len(p.split()), "assistant": a,
@@ -82,4 +118,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verify-corpus", action="store_true")
+    args = parser.parse_args()
+    main(verify_corpus=args.verify_corpus)

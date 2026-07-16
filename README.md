@@ -6,18 +6,21 @@ It also includes a small interactive tracer for inspecting individual answers.
 
 ## Paper artifacts
 
-The authoritative result bundle is `out/results/summary_v3.json`; it differs
-from the original v2 artifact only by applying the standard plus-one correction
-to Monte Carlo permutation p-values. The paper
-uses 140 prompts in five conditions, five generations per prompt, OLMo-2 1B and
-7B checkpoints, and the exact public SFT, DPO, and RLVR datasets associated with
-those checkpoints.
+The authoritative result bundle is `out/results/summary_v3.json`, supplemented
+by the completed strict matched-stage report. The paper uses 140 prompts in five
+conditions, five canonical final-model generations per prompt, a four-seed
+Base/SFT/DPO matched-control extension, OLMo-2 1B and 7B checkpoints, and the
+exact public SFT, DPO, and RLVR datasets associated with those checkpoints.
 
 Important outputs:
 
 - `out/paper/acl_latex.pdf`: current anonymous manuscript.
 - `out/results/summary_v3.json`: canonical behavioral results.
 - `out/results/interaction_tests_v3.json`: stage-by-condition permutation tests.
+- `out/results/matched_control_stagewise.json`: complete 24-test matched-stage
+  extension at the frozen primary threshold.
+- `out/results/matched_control_threshold_sweep.json`: matched-stage sensitivity
+  reports at 0.80, 0.82, and 0.84.
 - `out/results/multiple_testing.json`: Benjamini-Hochberg corrections.
 - `out/results/dpo_pairwise.json`: paired McNemar DPO analysis with descriptive
   per-word normalization.
@@ -48,7 +51,8 @@ The notebook checkpoints to Google Drive and writes a single results archive.
 Its validation UI never exposes the condition, detector prediction, or the
 other annotator's decisions.
 
-For the reviewer-requested publication extension, connect an A100 runtime, set
+The reviewer-requested four-seed publication extension is complete. To rerun or
+extend it, connect an A100 runtime, set
 `RUN_FULL_PIPELINE=True`, leave `FULL_QUICK_TEST=False`, and then choose
 **Runtime > Run all**. The persistent Drive cache skips the released 4,550
 checkpoint generations and, with `FULL_MATCHED_CONTROL_SEEDS=4`, adds the 1,200

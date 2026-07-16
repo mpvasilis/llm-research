@@ -2,160 +2,160 @@
   "1B": {
     "empathy_opener": {
       "base->sft": {
-        "did": 0.1967,
-        "perm_p": 0.0007999200079992001,
+        "did": 0.19,
+        "perm_p": 0.0015998400159984002,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1533,
-        "perm_p": 0.005499450054994501,
+        "did": 0.1167,
+        "perm_p": 0.054594540545945404,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0067,
-        "perm_p": 0.9147085291470853,
-        "n_advice": 60,
-        "n_factual": 30
-      },
-      "rlvr->instruct": {
-        "did": 0.0033,
+        "did": -0.0033,
         "perm_p": 1.0,
         "n_advice": 60,
         "n_factual": 30
       },
+      "rlvr->instruct": {
+        "did": 0.0433,
+        "perm_p": 0.3701629837016298,
+        "n_advice": 60,
+        "n_factual": 30
+      },
       "base->instruct": {
-        "did": 0.36,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.3467,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "validation": {
       "base->sft": {
-        "did": 0.11,
-        "perm_p": 0.040495950404959506,
+        "did": 0.0933,
+        "perm_p": 0.06829317068293171,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1567,
-        "perm_p": 0.007399260073992601,
+        "did": 0.2133,
+        "perm_p": 0.00029997000299970003,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0333,
-        "perm_p": 0.5009499050094991,
+        "did": 0.03,
+        "perm_p": 0.5276472352764724,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": -0.0133,
-        "perm_p": 0.817918208179182,
+        "did": -0.0533,
+        "perm_p": 0.32116788321167883,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.2867,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.2833,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "disclaimer": {
       "base->sft": {
-        "did": 0.3333,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.2533,
+        "perm_p": 0.00039996000399960006,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.0967,
-        "perm_p": 0.0670932906709329,
+        "did": 0.19,
+        "perm_p": 0.0005999400059994001,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": -0.0267,
-        "perm_p": 0.5121487851214879,
+        "did": -0.0367,
+        "perm_p": 0.1999800019998,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": 0.0367,
-        "perm_p": 0.21347865213478653,
+        "did": -0.0167,
+        "perm_p": 0.638936106389361,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.44,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.39,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "crisis_referral": {
       "base->sft": {
-        "did": 0.3067,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.3033,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1467,
-        "perm_p": 0.0032996700329967,
+        "did": 0.1533,
+        "perm_p": 0.0022997700229977,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0133,
-        "perm_p": 0.7605239476052394,
-        "n_advice": 60,
-        "n_factual": 30
-      },
-      "rlvr->instruct": {
         "did": -0.0033,
         "perm_p": 1.0,
         "n_advice": 60,
         "n_factual": 30
       },
+      "rlvr->instruct": {
+        "did": 0.0,
+        "perm_p": 1.0,
+        "n_advice": 60,
+        "n_factual": 30
+      },
       "base->instruct": {
-        "did": 0.4633,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.4533,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "structure": {
       "base->sft": {
-        "did": 0.3933,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.3367,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": -0.3767,
-        "perm_p": 9.999000099990002e-05,
+        "did": -0.3667,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": -0.0133,
-        "perm_p": 0.6982301769823017,
+        "did": 0.04,
+        "perm_p": 0.1675832416758324,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": 0.0133,
-        "perm_p": 0.6031396860313969,
+        "did": -0.02,
+        "perm_p": 0.3835616438356164,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.0167,
-        "perm_p": 0.8384161583841616,
+        "did": -0.01,
+        "perm_p": 0.9447055294470553,
         "n_advice": 60,
         "n_factual": 30
       }
@@ -164,14 +164,14 @@
   "7B": {
     "empathy_opener": {
       "base->sft": {
-        "did": 0.2767,
-        "perm_p": 0.00029997000299970003,
+        "did": 0.2633,
+        "perm_p": 0.0006999300069993001,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.07,
-        "perm_p": 0.2512748725127487,
+        "perm_p": 0.25137486251374863,
         "n_advice": 60,
         "n_factual": 30
       },
@@ -182,48 +182,48 @@
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3733,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.36,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "validation": {
       "base->sft": {
-        "did": 0.12,
-        "perm_p": 0.0235976402359764,
+        "did": 0.1033,
+        "perm_p": 0.05629437056294371,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.1467,
-        "perm_p": 0.007999200079992,
+        "perm_p": 0.008099190080991902,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->instruct": {
         "did": 0.04,
-        "perm_p": 0.2625737426257374,
+        "perm_p": 0.2626737326267373,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3067,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.29,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "disclaimer": {
       "base->sft": {
-        "did": 0.2767,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.2433,
+        "perm_p": 0.00029997000299970003,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.0833,
-        "perm_p": 0.10868913108689131,
+        "perm_p": 0.10878912108789121,
         "n_advice": 60,
         "n_factual": 30
       },
@@ -234,22 +234,22 @@
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3633,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.33,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "crisis_referral": {
       "base->sft": {
-        "did": 0.3133,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.3167,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.1233,
-        "perm_p": 0.024897510248975102,
+        "perm_p": 0.024997500249975,
         "n_advice": 60,
         "n_factual": 30
       },
@@ -260,22 +260,22 @@
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.4267,
-        "perm_p": 9.999000099990002e-05,
+        "did": 0.43,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "structure": {
       "base->sft": {
-        "did": 0.2333,
-        "perm_p": 0.00029997000299970003,
+        "did": 0.2267,
+        "perm_p": 0.0004999500049995,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": -0.2767,
-        "perm_p": 9.999000099990002e-05,
+        "perm_p": 0.00019998000199980003,
         "n_advice": 60,
         "n_factual": 30
       },
@@ -286,8 +286,8 @@
         "n_factual": 30
       },
       "base->instruct": {
-        "did": -0.0567,
-        "perm_p": 0.5158484151584841,
+        "did": -0.0633,
+        "perm_p": 0.461053894610539,
         "n_advice": 60,
         "n_factual": 30
       }

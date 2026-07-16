@@ -8,8 +8,10 @@ Direct-submission deadline: July 17, 2026, 23:59 Anywhere on Earth.
 - 140-prompt, five-condition final-model evaluation with five seeds per prompt.
 - Base-to-SFT-to-DPO-to-RLVR/Instruct checkpoint trajectories.
 - Prompt-level stage-by-condition difference-in-differences tests.
-- Benjamini-Hochberg correction across the 24 matched-control tests, 28
-  adjacent-stage tests, and 8 DPO pairwise tests.
+- Complete four-seed Base/SFT/DPO matched-control extension: all 24 planned
+  tests complete at 0.82 and in the 0.80/0.84 sensitivity runs.
+- Benjamini-Hochberg correction across the 24 final-condition tests, 28
+  advice/factual adjacent-stage tests, 24 matched-stage tests, and 8 DPO pairwise tests.
 - Plus-one correction for all Monte Carlo permutation p-values
   (`summary_v3.json`, `interaction_tests_v3.json`).
 - Exact SFT assistant-only search with topical controls and distinct-phrase
@@ -27,20 +29,18 @@ Direct-submission deadline: July 17, 2026, 23:59 Anywhere on Earth.
 - Complete 120-sentence AI-only consensus audit, explicitly not described as
   human validation, plus a 10,000-draw Bayesian response-cluster bootstrap over
   its 97 source responses (`audit_cluster_bootstrap.json`).
-- Anonymous eleven-page PDF: eight content/ethics pages, references beginning
-  on page 8, and appendix continuing through page 11.
+- Anonymous twelve-page PDF: eight content/ethics pages, references beginning
+  on page 8, and appendix continuing through page 12.
 - Identity-scanned, self-contained anonymous review package that recompiles
   cleanly (`output/submission/blackboxnlp_anonymous_submission.zip`).
 
 ## Remaining submission gate
 
-- [ ] Run the 1,200 missing four-seed Base/SFT/DPO matched-control generations on the
-  signed-in Colab A100 runtime and require the strict 24-test result to report
-  `status=complete`.
+- [x] Run the 1,200 missing four-seed Base/SFT/DPO matched-control generations;
+  the strict 24-test result reports `status=complete` at all three thresholds.
 - [ ] If time permits, set `FULL_MATCHED_CONTROL_SEEDS=5`; the cache will add only
   the remaining 300 controls for a five-seed sensitivity run.
-- [ ] Incorporate those verified numbers, rebuild the PDF and anonymous ZIP,
-  and obtain a final independent review.
+- [ ] Obtain a final independent review of the rebuilt PDF and anonymous ZIP.
 - [ ] Make the identifiable public development repository private for the
   double-blind review period. Do not link it in the submission. Git history,
   repository ownership, notebook URLs, and the searchable title reveal author

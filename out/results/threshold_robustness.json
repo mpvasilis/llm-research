@@ -3,22 +3,22 @@
   "models": {
     "1B": {
       "0.8": {
-        "empathy_emotional_minus_advice": 0.013,
-        "validation_advice_minus_max_control": -0.02,
+        "empathy_emotional_minus_advice": 0.03,
+        "validation_advice_minus_max_control": 0.03,
         "referral_advice_minus_domain_factual": -0.003,
         "structuring_advice_minus_neutral_advice": 0.0
       },
       "0.82": {
-        "empathy_emotional_minus_advice": 0.203,
-        "validation_advice_minus_max_control": 0.2,
-        "referral_advice_minus_domain_factual": 0.127,
+        "empathy_emotional_minus_advice": 0.2,
+        "validation_advice_minus_max_control": 0.243,
+        "referral_advice_minus_domain_factual": 0.08,
         "structuring_advice_minus_neutral_advice": 0.0
       },
       "0.84": {
-        "empathy_emotional_minus_advice": -0.127,
-        "validation_advice_minus_max_control": 0.083,
-        "referral_advice_minus_domain_factual": 0.163,
-        "structuring_advice_minus_neutral_advice": 0.067
+        "empathy_emotional_minus_advice": -0.107,
+        "validation_advice_minus_max_control": 0.107,
+        "referral_advice_minus_domain_factual": 0.093,
+        "structuring_advice_minus_neutral_advice": 0.047
       }
     },
     "7B": {

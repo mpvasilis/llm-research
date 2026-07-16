@@ -8,169 +8,169 @@
         "model": "1B",
         "behavior": "empathy_opener",
         "transition": "base->sft",
-        "p": 0.0007999200079992001,
-        "q": 0.0027997200279972004
+        "p": 0.0015998400159984002,
+        "q": 0.004479552044795521
       },
       {
         "model": "1B",
         "behavior": "empathy_opener",
         "transition": "sft->dpo",
-        "p": 0.005499450054994501,
-        "q": 0.017109400171094004
+        "p": 0.054594540545945404,
+        "q": 0.12124941352018645
       },
       {
         "model": "1B",
         "behavior": "empathy_opener",
         "transition": "dpo->rlvr",
-        "p": 0.9147085291470853,
-        "q": 0.9850707236968611
-      },
-      {
-        "model": "1B",
-        "behavior": "empathy_opener",
-        "transition": "rlvr->instruct",
         "p": 1.0,
         "q": 1.0
       },
       {
         "model": "1B",
-        "behavior": "validation",
-        "transition": "base->sft",
-        "p": 0.040495950404959506,
-        "q": 0.08722204702606663
-      },
-      {
-        "model": "1B",
-        "behavior": "validation",
-        "transition": "sft->dpo",
-        "p": 0.007399260073992601,
-        "q": 0.020361600203616003
-      },
-      {
-        "model": "1B",
-        "behavior": "validation",
-        "transition": "dpo->rlvr",
-        "p": 0.5009499050094991,
-        "q": 0.6828650468286506
-      },
-      {
-        "model": "1B",
-        "behavior": "validation",
-        "transition": "rlvr->instruct",
-        "p": 0.817918208179182,
-        "q": 0.9160683931606839
-      },
-      {
-        "model": "1B",
-        "behavior": "disclaimer",
-        "transition": "base->sft",
-        "p": 9.999000099990002e-05,
-        "q": 0.0005599440055994401
-      },
-      {
-        "model": "1B",
-        "behavior": "disclaimer",
-        "transition": "sft->dpo",
-        "p": 0.0670932906709329,
-        "q": 0.1341865813418658
-      },
-      {
-        "model": "1B",
-        "behavior": "disclaimer",
-        "transition": "dpo->rlvr",
-        "p": 0.5121487851214879,
-        "q": 0.6828650468286506
-      },
-      {
-        "model": "1B",
-        "behavior": "disclaimer",
-        "transition": "rlvr->instruct",
-        "p": 0.21347865213478653,
-        "q": 0.37358764123587646
-      },
-      {
-        "model": "1B",
-        "behavior": "structure",
-        "transition": "base->sft",
-        "p": 9.999000099990002e-05,
-        "q": 0.0005599440055994401
-      },
-      {
-        "model": "1B",
-        "behavior": "structure",
-        "transition": "sft->dpo",
-        "p": 9.999000099990002e-05,
-        "q": 0.0005599440055994401
-      },
-      {
-        "model": "1B",
-        "behavior": "structure",
-        "transition": "dpo->rlvr",
-        "p": 0.6982301769823017,
-        "q": 0.8146018731460187
-      },
-      {
-        "model": "1B",
-        "behavior": "structure",
-        "transition": "rlvr->instruct",
-        "p": 0.6031396860313969,
-        "q": 0.7342570090817006
-      },
-      {
-        "model": "7B",
         "behavior": "empathy_opener",
+        "transition": "rlvr->instruct",
+        "p": 0.3701629837016298,
+        "q": 0.48816936488169366
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
         "transition": "base->sft",
+        "p": 0.06829317068293171,
+        "q": 0.13658634136586342
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "sft->dpo",
         "p": 0.00029997000299970003,
-        "q": 0.0011998800119988001
+        "q": 0.0016798320167983201
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "dpo->rlvr",
+        "p": 0.5276472352764724,
+        "q": 0.6155884411558844
+      },
+      {
+        "model": "1B",
+        "behavior": "validation",
+        "transition": "rlvr->instruct",
+        "p": 0.32116788321167883,
+        "q": 0.44963503649635034
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "base->sft",
+        "p": 0.00039996000399960006,
+        "q": 0.0018664800186648002
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "sft->dpo",
+        "p": 0.0005999400059994001,
+        "q": 0.0020997900209979003
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "dpo->rlvr",
+        "p": 0.1999800019998,
+        "q": 0.3293788268232
+      },
+      {
+        "model": "1B",
+        "behavior": "disclaimer",
+        "transition": "rlvr->instruct",
+        "p": 0.638936106389361,
+        "q": 0.6880850376500812
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "base->sft",
+        "p": 0.00019998000199980003,
+        "q": 0.0016798320167983201
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "sft->dpo",
+        "p": 0.00019998000199980003,
+        "q": 0.0016798320167983201
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "dpo->rlvr",
+        "p": 0.1675832416758324,
+        "q": 0.2932706729327067
+      },
+      {
+        "model": "1B",
+        "behavior": "structure",
+        "transition": "rlvr->instruct",
+        "p": 0.3835616438356164,
+        "q": 0.48816936488169366
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "transition": "base->sft",
+        "p": 0.0006999300069993001,
+        "q": 0.0021775600217756002
       },
       {
         "model": "7B",
         "behavior": "empathy_opener",
         "transition": "sft->dpo",
-        "p": 0.2512748725127487,
-        "q": 0.4084480440844804
+        "p": 0.25137486251374863,
+        "q": 0.38709813229203394
       },
       {
         "model": "7B",
         "behavior": "empathy_opener",
         "transition": "dpo->instruct",
         "p": 0.5064493550644935,
-        "q": 0.6828650468286506
+        "q": 0.6155884411558844
       },
       {
         "model": "7B",
         "behavior": "validation",
         "transition": "base->sft",
-        "p": 0.0235976402359764,
-        "q": 0.0550611605506116
+        "p": 0.05629437056294371,
+        "q": 0.12124941352018645
       },
       {
         "model": "7B",
         "behavior": "validation",
         "transition": "sft->dpo",
-        "p": 0.007999200079992,
-        "q": 0.020361600203616003
+        "p": 0.008099190080991902,
+        "q": 0.020616120206161204
       },
       {
         "model": "7B",
         "behavior": "validation",
         "transition": "dpo->instruct",
-        "p": 0.2625737426257374,
-        "q": 0.4084480440844804
+        "p": 0.2626737326267373,
+        "q": 0.38709813229203394
       },
       {
         "model": "7B",
         "behavior": "disclaimer",
         "transition": "base->sft",
-        "p": 9.999000099990002e-05,
-        "q": 0.0005599440055994401
+        "p": 0.00029997000299970003,
+        "q": 0.0016798320167983201
       },
       {
         "model": "7B",
         "behavior": "disclaimer",
         "transition": "sft->dpo",
-        "p": 0.10868913108689131,
-        "q": 0.20288637802886378
+        "p": 0.10878912108789121,
+        "q": 0.20307302603073027
       },
       {
         "model": "7B",
@@ -183,22 +183,22 @@
         "model": "7B",
         "behavior": "structure",
         "transition": "base->sft",
-        "p": 0.00029997000299970003,
-        "q": 0.0011998800119988001
+        "p": 0.0004999500049995,
+        "q": 0.001999800019998
       },
       {
         "model": "7B",
         "behavior": "structure",
         "transition": "sft->dpo",
-        "p": 9.999000099990002e-05,
-        "q": 0.0005599440055994401
+        "p": 0.00019998000199980003,
+        "q": 0.0016798320167983201
       },
       {
         "model": "7B",
         "behavior": "structure",
         "transition": "dpo->instruct",
         "p": 0.5931406859314069,
-        "q": 0.7342570090817006
+        "q": 0.6643175682431758
       }
     ]
   },
@@ -211,71 +211,71 @@
         "model": "1B",
         "behavior": "empathy_opener",
         "control": "emotional",
-        "p": 0.0051994800519948,
-        "q": 0.009599040095990401
+        "p": 0.0096990300969903,
+        "q": 0.015518448155184479
       },
       {
         "model": "1B",
         "behavior": "empathy_opener",
         "control": "neutral_advice",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.00019998000199980003,
+        "q": 0.0007999200079992001
       },
       {
         "model": "1B",
         "behavior": "empathy_opener",
         "control": "domain_factual",
-        "p": 0.010198980101989802,
-        "q": 0.01631836816318368
+        "p": 0.015898410158984102,
+        "q": 0.02384761523847615
       },
       {
         "model": "1B",
         "behavior": "validation",
         "control": "emotional",
-        "p": 0.0082991700829917,
-        "q": 0.014227148713700058
+        "p": 0.0026997300269973002,
+        "q": 0.0067193280671932806
       },
       {
         "model": "1B",
         "behavior": "validation",
         "control": "neutral_advice",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.00019998000199980003,
+        "q": 0.0007999200079992001
       },
       {
         "model": "1B",
         "behavior": "validation",
         "control": "domain_factual",
-        "p": 0.0197980201979802,
-        "q": 0.0279501461618544
+        "p": 0.0034996500349965005,
+        "q": 0.007635600076356001
       },
       {
         "model": "1B",
         "behavior": "disclaimer",
         "control": "emotional",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.00019998000199980003,
+        "q": 0.0007999200079992001
       },
       {
         "model": "1B",
         "behavior": "disclaimer",
         "control": "neutral_advice",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.006199380061993801,
+        "q": 0.01062750867770366
       },
       {
         "model": "1B",
         "behavior": "disclaimer",
         "control": "domain_factual",
-        "p": 0.05299470052994701,
-        "q": 0.06359364063593641
+        "p": 0.3524647535246475,
+        "q": 0.38450700384507003
       },
       {
         "model": "1B",
         "behavior": "structure",
         "control": "emotional",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.00019998000199980003,
+        "q": 0.0007999200079992001
       },
       {
         "model": "1B",
@@ -288,78 +288,78 @@
         "model": "1B",
         "behavior": "structure",
         "control": "domain_factual",
-        "p": 0.017298270172982702,
-        "q": 0.025947405259474053
+        "p": 0.0183981601839816,
+        "q": 0.0259738732009152
       },
       {
         "model": "7B",
         "behavior": "empathy_opener",
         "control": "emotional",
-        "p": 0.09779022097790221,
-        "q": 0.11176025254617394
+        "p": 0.0978902109789021,
+        "q": 0.11746825317468253
       },
       {
         "model": "7B",
         "behavior": "empathy_opener",
-        "control": "neutral_advice",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
-      },
-      {
-        "model": "7B",
-        "behavior": "empathy_opener",
-        "control": "domain_factual",
-        "p": 0.030596940305969402,
-        "q": 0.03864876670227714
-      },
-      {
-        "model": "7B",
-        "behavior": "validation",
-        "control": "emotional",
-        "p": 0.0026997300269973002,
-        "q": 0.00647935206479352
-      },
-      {
-        "model": "7B",
-        "behavior": "validation",
         "control": "neutral_advice",
         "p": 0.00019998000199980003,
-        "q": 0.0005999400059994001
+        "q": 0.0007999200079992001
+      },
+      {
+        "model": "7B",
+        "behavior": "empathy_opener",
+        "control": "domain_factual",
+        "p": 0.0306969303069693,
+        "q": 0.03877506986143491
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "control": "emotional",
+        "p": 0.0027997200279972004,
+        "q": 0.0067193280671932806
+      },
+      {
+        "model": "7B",
+        "behavior": "validation",
+        "control": "neutral_advice",
+        "p": 0.00029997000299970003,
+        "q": 0.0010284685817132573
       },
       {
         "model": "7B",
         "behavior": "validation",
         "control": "domain_factual",
-        "p": 0.004299570042995701,
-        "q": 0.008599140085991401
+        "p": 0.004399560043995601,
+        "q": 0.008122264696607264
       },
       {
         "model": "7B",
         "behavior": "disclaimer",
         "control": "emotional",
-        "p": 9.999000099990002e-05,
-        "q": 0.00034282286057108575
+        "p": 0.00019998000199980003,
+        "q": 0.0007999200079992001
       },
       {
         "model": "7B",
         "behavior": "disclaimer",
         "control": "neutral_advice",
-        "p": 0.0010998900109989002,
-        "q": 0.0029330400293304006
+        "p": 0.0011998800119988001,
+        "q": 0.0035996400359964006
       },
       {
         "model": "7B",
         "behavior": "disclaimer",
         "control": "domain_factual",
-        "p": 0.1586841315868413,
-        "q": 0.1731099617310996
+        "p": 0.15878412158784122,
+        "q": 0.1814675675289614
       },
       {
         "model": "7B",
         "behavior": "structure",
         "control": "emotional",
-        "p": 0.0040995900409959,
-        "q": 0.008599140085991401
+        "p": 0.004199580041995801,
+        "q": 0.008122264696607264
       },
       {
         "model": "7B",
@@ -372,8 +372,8 @@
         "model": "7B",
         "behavior": "structure",
         "control": "domain_factual",
-        "p": 0.025897410258974102,
-        "q": 0.0345298803452988
+        "p": 0.025997400259974,
+        "q": 0.034663200346632
       }
     ]
   },

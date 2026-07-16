@@ -2,142 +2,142 @@
   "1B": {
     "empathy_opener": {
       "gap_by_stage": {
-        "base": 0.194,
-        "sft": 0.39,
-        "dpo": 0.543,
-        "rlvr": 0.55,
-        "instruct": 0.554
+        "base": 0.204,
+        "sft": 0.393,
+        "dpo": 0.51,
+        "rlvr": 0.507,
+        "instruct": 0.55
       },
       "gap_deltas": {
-        "base->sft": 0.196,
-        "sft->dpo": 0.153,
-        "dpo->rlvr": 0.007,
-        "rlvr->instruct": 0.004
+        "base->sft": 0.189,
+        "sft->dpo": 0.117,
+        "dpo->rlvr": -0.003,
+        "rlvr->instruct": 0.043
       }
     },
     "validation": {
       "gap_by_stage": {
         "base": 0.073,
-        "sft": 0.183,
-        "dpo": 0.34,
-        "rlvr": 0.373,
-        "instruct": 0.36
+        "sft": 0.167,
+        "dpo": 0.38,
+        "rlvr": 0.41,
+        "instruct": 0.356
       },
       "gap_deltas": {
-        "base->sft": 0.11,
-        "sft->dpo": 0.157,
-        "dpo->rlvr": 0.033,
-        "rlvr->instruct": -0.013
+        "base->sft": 0.094,
+        "sft->dpo": 0.213,
+        "dpo->rlvr": 0.03,
+        "rlvr->instruct": -0.054
       }
     },
     "disclaimer": {
       "gap_by_stage": {
-        "base": 0.413,
-        "sft": 0.746,
-        "dpo": 0.844,
-        "rlvr": 0.816,
-        "instruct": 0.854
+        "base": 0.43,
+        "sft": 0.684,
+        "dpo": 0.873,
+        "rlvr": 0.836,
+        "instruct": 0.82
       },
       "gap_deltas": {
-        "base->sft": 0.333,
-        "sft->dpo": 0.098,
-        "dpo->rlvr": -0.028,
-        "rlvr->instruct": 0.038
+        "base->sft": 0.254,
+        "sft->dpo": 0.189,
+        "dpo->rlvr": -0.037,
+        "rlvr->instruct": -0.016
       }
     },
     "crisis_referral": {
       "gap_by_stage": {
-        "base": 0.403,
-        "sft": 0.71,
-        "dpo": 0.857,
-        "rlvr": 0.87,
+        "base": 0.413,
+        "sft": 0.717,
+        "dpo": 0.87,
+        "rlvr": 0.867,
         "instruct": 0.867
       },
       "gap_deltas": {
-        "base->sft": 0.307,
-        "sft->dpo": 0.147,
-        "dpo->rlvr": 0.013,
-        "rlvr->instruct": -0.003
+        "base->sft": 0.304,
+        "sft->dpo": 0.153,
+        "dpo->rlvr": -0.003,
+        "rlvr->instruct": 0.0
       }
     },
     "structure": {
       "gap_by_stage": {
-        "base": 0.397,
-        "sft": 0.79,
-        "dpo": 0.413,
-        "rlvr": 0.4,
-        "instruct": 0.413
+        "base": 0.43,
+        "sft": 0.767,
+        "dpo": 0.4,
+        "rlvr": 0.44,
+        "instruct": 0.42
       },
       "gap_deltas": {
-        "base->sft": 0.393,
-        "sft->dpo": -0.377,
-        "dpo->rlvr": -0.013,
-        "rlvr->instruct": 0.013
+        "base->sft": 0.337,
+        "sft->dpo": -0.367,
+        "dpo->rlvr": 0.04,
+        "rlvr->instruct": -0.02
       }
     }
   },
   "7B": {
     "empathy_opener": {
       "gap_by_stage": {
-        "base": 0.217,
+        "base": 0.23,
         "sft": 0.493,
         "dpo": 0.564,
         "instruct": 0.59
       },
       "gap_deltas": {
-        "base->sft": 0.276,
+        "base->sft": 0.263,
         "sft->dpo": 0.071,
         "dpo->instruct": 0.026
       }
     },
     "validation": {
       "gap_by_stage": {
-        "base": 0.063,
+        "base": 0.08,
         "sft": 0.183,
         "dpo": 0.33,
         "instruct": 0.37
       },
       "gap_deltas": {
-        "base->sft": 0.12,
+        "base->sft": 0.103,
         "sft->dpo": 0.147,
         "dpo->instruct": 0.04
       }
     },
     "disclaimer": {
       "gap_by_stage": {
-        "base": 0.49,
+        "base": 0.524,
         "sft": 0.767,
         "dpo": 0.85,
         "instruct": 0.853
       },
       "gap_deltas": {
-        "base->sft": 0.277,
+        "base->sft": 0.243,
         "sft->dpo": 0.083,
         "dpo->instruct": 0.003
       }
     },
     "crisis_referral": {
       "gap_by_stage": {
-        "base": 0.427,
+        "base": 0.424,
         "sft": 0.74,
         "dpo": 0.864,
         "instruct": 0.853
       },
       "gap_deltas": {
-        "base->sft": 0.313,
+        "base->sft": 0.316,
         "sft->dpo": 0.124,
         "dpo->instruct": -0.011
       }
     },
     "structure": {
       "gap_by_stage": {
-        "base": 0.48,
+        "base": 0.486,
         "sft": 0.714,
         "dpo": 0.437,
         "instruct": 0.423
       },
       "gap_deltas": {
-        "base->sft": 0.234,
+        "base->sft": 0.228,
         "sft->dpo": -0.277,
         "dpo->instruct": -0.014
       }

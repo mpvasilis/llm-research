@@ -1,4 +1,6 @@
 {
+  "source": "summary_v3.json canonical Colab DuckDB counts",
+  "independent_corpus_verification": false,
   "mixtures": {
     "1B": "allenai/tulu-3-sft-olmo-2-mixture-0225",
     "7B": "allenai/tulu-3-sft-olmo-2-mixture"
@@ -33,6 +35,14 @@
           "inflation": 1.12
         },
         {
+          "phrase": "healthcare professional",
+          "len": 2,
+          "assistant": 3075,
+          "blob": 3216,
+          "permil": 3550.2,
+          "inflation": 1.05
+        },
+        {
           "phrase": "mental health professional",
           "len": 3,
           "assistant": 2109,
@@ -65,6 +75,14 @@
           "inflation": 1.03
         },
         {
+          "phrase": "consult a",
+          "len": 2,
+          "assistant": 891,
+          "blob": 978,
+          "permil": 1028.7,
+          "inflation": 1.1
+        },
+        {
           "phrase": "steps you can take",
           "len": 4,
           "assistant": 792,
@@ -73,36 +91,28 @@
           "inflation": 1.01
         },
         {
-          "phrase": "talk to a",
-          "len": 3,
-          "assistant": 290,
-          "blob": 410,
-          "permil": 334.8,
-          "inflation": 1.41
+          "phrase": "it's understandable",
+          "len": 2,
+          "assistant": 218,
+          "blob": 227,
+          "permil": 251.7,
+          "inflation": 1.04
         },
         {
-          "phrase": "it's completely normal",
-          "len": 3,
-          "assistant": 78,
-          "blob": 103,
-          "permil": 90.1,
-          "inflation": 1.32
-        },
-        {
-          "phrase": "i'm here for you",
+          "phrase": "it's okay to feel",
           "len": 4,
-          "assistant": 90,
-          "blob": 97,
-          "permil": 103.9,
-          "inflation": 1.08
+          "assistant": 159,
+          "blob": 162,
+          "permil": 183.6,
+          "inflation": 1.02
         },
         {
-          "phrase": "what you're feeling",
+          "phrase": "it's natural to",
           "len": 3,
-          "assistant": 50,
-          "blob": 53,
-          "permil": 57.7,
-          "inflation": 1.06
+          "assistant": 152,
+          "blob": 157,
+          "permil": 175.5,
+          "inflation": 1.03
         },
         {
           "phrase": "your feelings are valid",
@@ -122,24 +132,16 @@
         }
       ],
       "leave_one_out_3word": {
-        "n_distinct_3word": 5,
+        "n_distinct_3word": 3,
         "dropped": "here are some",
-        "mean_permil_all": 3334.6,
-        "mean_permil_drop_top": 729.4
+        "mean_permil_all": 5455.2,
+        "mean_permil_drop_top": 1305.2
       }
     },
     "7B": {
       "dataset": "allenai/tulu-3-sft-olmo-2-mixture",
       "ndocs": 939344,
       "phrases": [
-        {
-          "phrase": "first,",
-          "len": 1,
-          "assistant": 67285,
-          "blob": 75653,
-          "permil": 71629.8,
-          "inflation": 1.12
-        },
         {
           "phrase": "here are some",
           "len": 3,
@@ -155,6 +157,14 @@
           "blob": 6156,
           "permil": 5866.9,
           "inflation": 1.12
+        },
+        {
+          "phrase": "healthcare professional",
+          "len": 2,
+          "assistant": 3106,
+          "blob": 3309,
+          "permil": 3306.6,
+          "inflation": 1.07
         },
         {
           "phrase": "i'm really sorry",
@@ -197,6 +207,14 @@
           "inflation": 1.04
         },
         {
+          "phrase": "consult a",
+          "len": 2,
+          "assistant": 927,
+          "blob": 1031,
+          "permil": 986.9,
+          "inflation": 1.11
+        },
+        {
           "phrase": "steps you can take",
           "len": 4,
           "assistant": 803,
@@ -221,12 +239,12 @@
           "inflation": 1.05
         },
         {
-          "phrase": "it's okay to feel",
-          "len": 4,
-          "assistant": 161,
-          "blob": 164,
-          "permil": 171.4,
-          "inflation": 1.02
+          "phrase": "it's natural to",
+          "len": 3,
+          "assistant": 153,
+          "blob": 158,
+          "permil": 162.9,
+          "inflation": 1.03
         },
         {
           "phrase": "it's completely normal",
@@ -237,19 +255,27 @@
           "inflation": 1.32
         },
         {
-          "phrase": "i'm not a doctor",
+          "phrase": "your feelings are valid",
           "len": 4,
-          "assistant": 25,
-          "blob": 26,
-          "permil": 26.6,
-          "inflation": 1.04
+          "assistant": 50,
+          "blob": 50,
+          "permil": 53.2,
+          "inflation": 1.0
+        },
+        {
+          "phrase": "it's normal to feel",
+          "len": 4,
+          "assistant": 33,
+          "blob": 34,
+          "permil": 35.1,
+          "inflation": 1.03
         }
       ],
       "leave_one_out_3word": {
-        "n_distinct_3word": 5,
+        "n_distinct_3word": 6,
         "dropped": "here are some",
-        "mean_permil_all": 3598.7,
-        "mean_permil_drop_top": 1291.6
+        "mean_permil_all": 3026.0,
+        "mean_permil_drop_top": 1065.9
       }
     }
   }

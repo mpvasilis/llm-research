@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "received_date": "2026-07-16",
+  "source_archive": "blackboxnlp_results_bundle (1).zip",
+  "source_archive_sha256": "6355A5DBD2A73057DA4FB634A675A1B917912F3D7AC2FC8A9BD52D396859CB8F",
+  "matched_control_extension": {
+    "status": "complete",
+    "primary_threshold": 0.82,
+    "sensitivity_thresholds": [
+      0.8,
+      0.82,
+      0.84
+    ],
+    "seeds": 4,
+    "planned_tests": 24,
+    "incomplete_tests": []
+  },
+  "bundle_contains_raw_generation_checkpoints": false,
+  "validation_scope": "Aggregate artifacts were checked for schema, expected cells, sample sizes, Benjamini-Hochberg q-values, and cross-file consistency. Raw generation recounting requires the cached answer and behavior checkpoints retained by the Colab pipeline."
+}

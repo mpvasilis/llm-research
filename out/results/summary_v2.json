@@ -19,6 +19,7 @@
     ]
   },
   "seeds": 5,
+  "matched_control_seeds": 4,
   "n_prompts": {
     "advice": 60,
     "factual": 30,
@@ -38,104 +39,127 @@
       "stagewise_emission": {
         "base": {
           "empathy_opener": {
-            "advice": 0.207,
-            "factual": 0.013
+            "advice": 0.217,
+            "factual": 0.013,
+            "emotional": 0.212,
+            "neutral_advice": 0.013,
+            "domain_factual": 0.025
           },
           "validation": {
             "advice": 0.073,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.05,
+            "neutral_advice": 0.013,
+            "domain_factual": 0.0
           },
           "disclaimer": {
-            "advice": 0.473,
-            "factual": 0.06
+            "advice": 0.483,
+            "factual": 0.053,
+            "emotional": 0.212,
+            "neutral_advice": 0.225,
+            "domain_factual": 0.3
           },
           "crisis_referral": {
-            "advice": 0.41,
-            "factual": 0.007
+            "advice": 0.42,
+            "factual": 0.007,
+            "emotional": 0.287,
+            "neutral_advice": 0.15,
+            "domain_factual": 0.125
           },
           "structure": {
-            "advice": 0.73,
-            "factual": 0.333
+            "advice": 0.757,
+            "factual": 0.327,
+            "emotional": 0.35,
+            "neutral_advice": 0.775,
+            "domain_factual": 0.425
           }
         },
         "sft": {
           "empathy_opener": {
-            "advice": 0.39,
-            "factual": 0.0
+            "advice": 0.393,
+            "factual": 0.0,
+            "emotional": 0.237,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
           },
           "validation": {
-            "advice": 0.183,
-            "factual": 0.0
+            "advice": 0.167,
+            "factual": 0.0,
+            "emotional": 0.05,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.025
           },
           "disclaimer": {
-            "advice": 0.753,
-            "factual": 0.007
+            "advice": 0.697,
+            "factual": 0.013,
+            "emotional": 0.263,
+            "neutral_advice": 0.263,
+            "domain_factual": 0.4
           },
           "crisis_referral": {
-            "advice": 0.71,
-            "factual": 0.0
+            "advice": 0.717,
+            "factual": 0.0,
+            "emotional": 0.312,
+            "neutral_advice": 0.125,
+            "domain_factual": 0.15
           },
           "structure": {
-            "advice": 0.857,
-            "factual": 0.067
+            "advice": 0.847,
+            "factual": 0.08,
+            "emotional": 0.388,
+            "neutral_advice": 0.875,
+            "domain_factual": 0.25
           }
         },
         "dpo": {
           "empathy_opener": {
-            "advice": 0.59,
-            "factual": 0.047
+            "advice": 0.55,
+            "factual": 0.04,
+            "emotional": 0.825,
+            "neutral_advice": 0.037,
+            "domain_factual": 0.35
           },
           "validation": {
-            "advice": 0.353,
-            "factual": 0.013
+            "advice": 0.38,
+            "factual": 0.0,
+            "emotional": 0.15,
+            "neutral_advice": 0.025,
+            "domain_factual": 0.0
           },
           "disclaimer": {
-            "advice": 0.917,
-            "factual": 0.073
+            "advice": 0.933,
+            "factual": 0.06,
+            "emotional": 0.487,
+            "neutral_advice": 0.812,
+            "domain_factual": 0.775
           },
           "crisis_referral": {
-            "advice": 0.857,
-            "factual": 0.0
+            "advice": 0.87,
+            "factual": 0.0,
+            "emotional": 0.738,
+            "neutral_advice": 0.338,
+            "domain_factual": 0.325
           },
           "structure": {
             "advice": 1.0,
-            "factual": 0.587
+            "factual": 0.6,
+            "emotional": 0.875,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.95
           }
         },
         "rlvr": {
           "empathy_opener": {
-            "advice": 0.597,
-            "factual": 0.047
+            "advice": 0.567,
+            "factual": 0.06
           },
           "validation": {
-            "advice": 0.373,
+            "advice": 0.41,
             "factual": 0.0
           },
           "disclaimer": {
-            "advice": 0.903,
+            "advice": 0.923,
             "factual": 0.087
-          },
-          "crisis_referral": {
-            "advice": 0.87,
-            "factual": 0.0
-          },
-          "structure": {
-            "advice": 1.0,
-            "factual": 0.6
-          }
-        },
-        "instruct": {
-          "empathy_opener": {
-            "advice": 0.587,
-            "factual": 0.033
-          },
-          "validation": {
-            "advice": 0.36,
-            "factual": 0.0
-          },
-          "disclaimer": {
-            "advice": 0.927,
-            "factual": 0.073
           },
           "crisis_referral": {
             "advice": 0.867,
@@ -143,76 +167,113 @@
           },
           "structure": {
             "advice": 1.0,
-            "factual": 0.587
+            "factual": 0.56
+          }
+        },
+        "instruct": {
+          "empathy_opener": {
+            "advice": 0.59,
+            "factual": 0.04,
+            "emotional": 0.79,
+            "neutral_advice": 0.02,
+            "domain_factual": 0.34
+          },
+          "validation": {
+            "advice": 0.363,
+            "factual": 0.007,
+            "emotional": 0.12,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.04
+          },
+          "disclaimer": {
+            "advice": 0.9,
+            "factual": 0.08,
+            "emotional": 0.51,
+            "neutral_advice": 0.74,
+            "domain_factual": 0.82
+          },
+          "crisis_referral": {
+            "advice": 0.867,
+            "factual": 0.0,
+            "emotional": 0.7,
+            "neutral_advice": 0.33,
+            "domain_factual": 0.38
+          },
+          "structure": {
+            "advice": 1.0,
+            "factual": 0.58,
+            "emotional": 0.82,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.92
           }
         }
       },
       "condition_emission": {
         "empathy_opener": {
-          "advice": 0.587,
-          "factual": 0.033,
+          "advice": 0.59,
+          "factual": 0.04,
           "emotional": 0.79,
-          "neutral_advice": 0.03,
+          "neutral_advice": 0.02,
           "domain_factual": 0.34
         },
         "validation": {
-          "advice": 0.36,
-          "factual": 0.0,
-          "emotional": 0.16,
+          "advice": 0.363,
+          "factual": 0.007,
+          "emotional": 0.12,
           "neutral_advice": 0.0,
-          "domain_factual": 0.12
+          "domain_factual": 0.04
         },
         "disclaimer": {
-          "advice": 0.927,
-          "factual": 0.073,
+          "advice": 0.9,
+          "factual": 0.08,
           "emotional": 0.51,
-          "neutral_advice": 0.66,
-          "domain_factual": 0.8
+          "neutral_advice": 0.74,
+          "domain_factual": 0.82
         },
         "crisis_referral": {
           "advice": 0.867,
           "factual": 0.0,
-          "emotional": 0.63,
-          "neutral_advice": 0.31,
+          "emotional": 0.7,
+          "neutral_advice": 0.33,
           "domain_factual": 0.38
         },
         "structure": {
           "advice": 1.0,
-          "factual": 0.587,
+          "factual": 0.58,
           "emotional": 0.82,
           "neutral_advice": 1.0,
-          "domain_factual": 0.94
+          "domain_factual": 0.92
         }
       },
       "condition_emission_by_threshold": {
         "0.8": {
           "empathy_opener": {
-            "advice": 0.927,
-            "factual": 0.387,
-            "emotional": 0.94,
-            "neutral_advice": 0.46,
+            "advice": 0.94,
+            "factual": 0.347,
+            "emotional": 0.97,
+            "neutral_advice": 0.54,
             "domain_factual": 0.92
           },
           "validation": {
-            "advice": 0.86,
-            "factual": 0.293,
-            "emotional": 0.88,
-            "neutral_advice": 0.39,
-            "domain_factual": 0.58
+            "advice": 0.85,
+            "factual": 0.253,
+            "emotional": 0.82,
+            "neutral_advice": 0.37,
+            "domain_factual": 0.6
           },
           "disclaimer": {
             "advice": 0.997,
-            "factual": 0.433,
+            "factual": 0.44,
             "emotional": 0.98,
-            "neutral_advice": 0.98,
+            "neutral_advice": 0.99,
             "domain_factual": 1.0
           },
           "crisis_referral": {
             "advice": 0.997,
-            "factual": 0.187,
+            "factual": 0.153,
             "emotional": 0.98,
-            "neutral_advice": 0.89,
-            "domain_factual": 0.92
+            "neutral_advice": 0.92,
+            "domain_factual": 0.96
           },
           "structure": {
             "advice": 1.0,
@@ -224,203 +285,203 @@
         },
         "0.82": {
           "empathy_opener": {
-            "advice": 0.587,
-            "factual": 0.033,
+            "advice": 0.59,
+            "factual": 0.04,
             "emotional": 0.79,
-            "neutral_advice": 0.03,
+            "neutral_advice": 0.02,
             "domain_factual": 0.34
           },
           "validation": {
-            "advice": 0.36,
-            "factual": 0.0,
-            "emotional": 0.16,
+            "advice": 0.363,
+            "factual": 0.007,
+            "emotional": 0.12,
             "neutral_advice": 0.0,
-            "domain_factual": 0.12
+            "domain_factual": 0.04
           },
           "disclaimer": {
-            "advice": 0.927,
-            "factual": 0.073,
+            "advice": 0.9,
+            "factual": 0.08,
             "emotional": 0.51,
-            "neutral_advice": 0.66,
-            "domain_factual": 0.8
+            "neutral_advice": 0.74,
+            "domain_factual": 0.82
           },
           "crisis_referral": {
             "advice": 0.867,
             "factual": 0.0,
-            "emotional": 0.63,
-            "neutral_advice": 0.31,
+            "emotional": 0.7,
+            "neutral_advice": 0.33,
             "domain_factual": 0.38
           },
           "structure": {
             "advice": 1.0,
-            "factual": 0.587,
+            "factual": 0.58,
             "emotional": 0.82,
             "neutral_advice": 1.0,
-            "domain_factual": 0.94
+            "domain_factual": 0.92
           }
         },
         "0.84": {
           "empathy_opener": {
             "advice": 0.297,
             "factual": 0.0,
-            "emotional": 0.17,
+            "emotional": 0.19,
             "neutral_advice": 0.0,
-            "domain_factual": 0.0
+            "domain_factual": 0.02
           },
           "validation": {
-            "advice": 0.093,
+            "advice": 0.107,
             "factual": 0.0,
-            "emotional": 0.01,
+            "emotional": 0.0,
             "neutral_advice": 0.0,
             "domain_factual": 0.0
           },
           "disclaimer": {
-            "advice": 0.463,
+            "advice": 0.473,
             "factual": 0.007,
-            "emotional": 0.06,
-            "neutral_advice": 0.05,
-            "domain_factual": 0.3
+            "emotional": 0.09,
+            "neutral_advice": 0.09,
+            "domain_factual": 0.38
           },
           "crisis_referral": {
-            "advice": 0.41,
+            "advice": 0.4,
             "factual": 0.0,
-            "emotional": 0.02,
-            "neutral_advice": 0.0,
+            "emotional": 0.03,
+            "neutral_advice": 0.04,
             "domain_factual": 0.06
           },
           "structure": {
             "advice": 0.997,
-            "factual": 0.253,
-            "emotional": 0.54,
-            "neutral_advice": 0.93,
-            "domain_factual": 0.62
+            "factual": 0.287,
+            "emotional": 0.59,
+            "neutral_advice": 0.95,
+            "domain_factual": 0.66
           }
         }
       },
       "tests": {
         "empathy_opener": {
           "factual": {
-            "diff": 0.553,
-            "perm_p": 0.0
+            "diff": 0.55,
+            "perm_p": 0.0001
           },
           "emotional": {
-            "diff": -0.203,
-            "perm_p": 0.0051
+            "diff": -0.2,
+            "perm_p": 0.0096
           },
           "neutral_advice": {
-            "diff": 0.557,
-            "perm_p": 0.0
+            "diff": 0.57,
+            "perm_p": 0.0001
           },
           "domain_factual": {
-            "diff": 0.247,
-            "perm_p": 0.0101
+            "diff": 0.25,
+            "perm_p": 0.0158
           }
         },
         "validation": {
           "factual": {
-            "diff": 0.36,
-            "perm_p": 0.0
+            "diff": 0.357,
+            "perm_p": 0.0001
           },
           "emotional": {
-            "diff": 0.2,
-            "perm_p": 0.0082
+            "diff": 0.243,
+            "perm_p": 0.0026
           },
           "neutral_advice": {
-            "diff": 0.36,
-            "perm_p": 0.0
+            "diff": 0.363,
+            "perm_p": 0.0001
           },
           "domain_factual": {
-            "diff": 0.24,
-            "perm_p": 0.0197
+            "diff": 0.323,
+            "perm_p": 0.0034
           }
         },
         "disclaimer": {
           "factual": {
-            "diff": 0.853,
-            "perm_p": 0.0
+            "diff": 0.82,
+            "perm_p": 0.0001
           },
           "emotional": {
-            "diff": 0.417,
-            "perm_p": 0.0
+            "diff": 0.39,
+            "perm_p": 0.0001
           },
           "neutral_advice": {
-            "diff": 0.267,
-            "perm_p": 0.0
+            "diff": 0.16,
+            "perm_p": 0.0061
           },
           "domain_factual": {
-            "diff": 0.127,
-            "perm_p": 0.0529
+            "diff": 0.08,
+            "perm_p": 0.35236
           }
         },
         "crisis_referral": {
           "factual": {
             "diff": 0.867,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
-            "diff": 0.237,
-            "perm_p": 0.0011
+            "diff": 0.167,
+            "perm_p": 0.0112
           },
           "neutral_advice": {
-            "diff": 0.557,
-            "perm_p": 0.0
+            "diff": 0.537,
+            "perm_p": 0.0001
           },
           "domain_factual": {
             "diff": 0.487,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           }
         },
         "structure": {
           "factual": {
-            "diff": 0.413,
-            "perm_p": 0.0
+            "diff": 0.42,
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": 0.18,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "neutral_advice": {
             "diff": 0.0,
             "perm_p": 1.0
           },
           "domain_factual": {
-            "diff": 0.06,
-            "perm_p": 0.0172
+            "diff": 0.08,
+            "perm_p": 0.0183
           }
         }
       },
       "novelty": {
-        "advice": 0.559,
-        "factual": 0.383
+        "advice": 0.556,
+        "factual": 0.365
       },
       "recoverability_by_length": {
         "1": {
           "behavioral_permil": 51287.44,
-          "topical_permil": 35096.409,
-          "ratio": 1.5,
+          "topical_permil": 40239.803,
+          "ratio": 1.3,
           "n_beh": 3,
           "n_top": 9
         },
         "2": {
-          "behavioral_permil": 1839.934,
-          "topical_permil": 1708.155,
+          "behavioral_permil": 1884.309,
+          "topical_permil": 1760.188,
           "ratio": 1.1,
-          "n_beh": 11,
-          "n_top": 24
+          "n_beh": 14,
+          "n_top": 30
         },
         "3": {
-          "behavioral_permil": 12333.431,
-          "topical_permil": 633.829,
-          "ratio": 19.5,
-          "n_beh": 46,
-          "n_top": 126
+          "behavioral_permil": 12900.199,
+          "topical_permil": 629.842,
+          "ratio": 20.5,
+          "n_beh": 45,
+          "n_top": 132
         },
         "4": {
-          "behavioral_permil": 1676.24,
-          "topical_permil": 11.833,
-          "ratio": 141.7,
-          "n_beh": 28,
-          "n_top": 72
+          "behavioral_permil": 1596.856,
+          "topical_permil": 11.668,
+          "ratio": 136.9,
+          "n_beh": 30,
+          "n_top": 75
         }
       },
       "role_scoping": [
@@ -473,16 +534,16 @@
           "inflation": 1.03
         },
         {
+          "phrase": "consult a",
+          "assistant": 891,
+          "blob": 978,
+          "inflation": 1.1
+        },
+        {
           "phrase": "steps you can take",
           "assistant": 792,
           "blob": 797,
           "inflation": 1.01
-        },
-        {
-          "phrase": "talk to a",
-          "assistant": 290,
-          "blob": 410,
-          "inflation": 1.41
         },
         {
           "phrase": "it's understandable",
@@ -503,10 +564,10 @@
           "inflation": 1.03
         },
         {
-          "phrase": "it's completely normal",
-          "assistant": 78,
-          "blob": 103,
-          "inflation": 1.32
+          "phrase": "your feelings are valid",
+          "assistant": 49,
+          "blob": 49,
+          "inflation": 1.0
         },
         {
           "phrase": "it's normal to feel",
@@ -554,6 +615,16 @@
           "chosen_per_million": 3325.39,
           "rejected_per_million": 3074.27,
           "chosen_over_rejected": 1.08,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "consult a",
+          "chosen": 848,
+          "rejected": 741,
+          "chosen_per_million": 2241.6,
+          "rejected_per_million": 1958.76,
+          "chosen_over_rejected": 1.14,
           "n_docs": 378301
         },
         {
@@ -608,16 +679,6 @@
         },
         {
           "dataset": "allenai/olmo-2-0425-1b-preference-mix",
-          "phrase": "talk to a",
-          "chosen": 165,
-          "rejected": 191,
-          "chosen_per_million": 436.16,
-          "rejected_per_million": 504.89,
-          "chosen_over_rejected": 0.86,
-          "n_docs": 378301
-        },
-        {
-          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
           "phrase": "it's understandable",
           "chosen": 136,
           "rejected": 119,
@@ -648,22 +709,22 @@
         },
         {
           "dataset": "allenai/olmo-2-0425-1b-preference-mix",
-          "phrase": "it's completely normal",
-          "chosen": 35,
-          "rejected": 35,
-          "chosen_per_million": 92.52,
-          "rejected_per_million": 92.52,
-          "chosen_over_rejected": 1.0,
-          "n_docs": 378301
-        },
-        {
-          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
           "phrase": "it's normal to feel",
           "chosen": 22,
           "rejected": 14,
           "chosen_per_million": 58.15,
           "rejected_per_million": 37.01,
           "chosen_over_rejected": 1.57,
+          "n_docs": 378301
+        },
+        {
+          "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+          "phrase": "your feelings are valid",
+          "chosen": 12,
+          "rejected": 6,
+          "chosen_per_million": 31.72,
+          "rejected_per_million": 15.86,
+          "chosen_over_rejected": 2.0,
           "n_docs": 378301
         }
       ],
@@ -700,6 +761,25 @@
             {
               "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
               "phrase": "steps you can take",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "consult a",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "consult a",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "consult a",
               "count": 0,
               "per_million": 0.0,
               "n_docs": 29946
@@ -783,44 +863,6 @@
           ]
         },
         {
-          "phrase": "mental health professional",
-          "counts": [
-            {
-              "dataset": "allenai/RLVR-MATH",
-              "phrase": "mental health professional",
-              "count": 0,
-              "per_million": 0.0,
-              "n_docs": 7500
-            },
-            {
-              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
-              "phrase": "mental health professional",
-              "count": 0,
-              "per_million": 0.0,
-              "n_docs": 29946
-            }
-          ]
-        },
-        {
-          "phrase": "talk to a",
-          "counts": [
-            {
-              "dataset": "allenai/RLVR-MATH",
-              "phrase": "talk to a",
-              "count": 0,
-              "per_million": 0.0,
-              "n_docs": 7500
-            },
-            {
-              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
-              "phrase": "talk to a",
-              "count": 1,
-              "per_million": 33.39,
-              "n_docs": 29946
-            }
-          ]
-        },
-        {
           "phrase": "here are a few",
           "counts": [
             {
@@ -835,6 +877,25 @@
               "phrase": "here are a few",
               "count": 8,
               "per_million": 267.15,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
+          "phrase": "mental health professional",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "mental health professional",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "mental health professional",
+              "count": 0,
+              "per_million": 0.0,
               "n_docs": 29946
             }
           ]
@@ -878,6 +939,25 @@
           ]
         },
         {
+          "phrase": "it's natural to",
+          "counts": [
+            {
+              "dataset": "allenai/RLVR-MATH",
+              "phrase": "it's natural to",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 7500
+            },
+            {
+              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
+              "phrase": "it's natural to",
+              "count": 0,
+              "per_million": 0.0,
+              "n_docs": 29946
+            }
+          ]
+        },
+        {
           "phrase": "it's normal to feel",
           "counts": [
             {
@@ -897,18 +977,18 @@
           ]
         },
         {
-          "phrase": "it's completely normal",
+          "phrase": "your feelings are valid",
           "counts": [
             {
               "dataset": "allenai/RLVR-MATH",
-              "phrase": "it's completely normal",
+              "phrase": "your feelings are valid",
               "count": 0,
               "per_million": 0.0,
               "n_docs": 7500
             },
             {
               "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
-              "phrase": "it's completely normal",
+              "phrase": "your feelings are valid",
               "count": 0,
               "per_million": 0.0,
               "n_docs": 29946
@@ -933,25 +1013,6 @@
               "n_docs": 29946
             }
           ]
-        },
-        {
-          "phrase": "it's natural to",
-          "counts": [
-            {
-              "dataset": "allenai/RLVR-MATH",
-              "phrase": "it's natural to",
-              "count": 0,
-              "per_million": 0.0,
-              "n_docs": 7500
-            },
-            {
-              "dataset": "allenai/RLVR-GSM-MATH-IF-Mixed-Constraints",
-              "phrase": "it's natural to",
-              "count": 0,
-              "per_million": 0.0,
-              "n_docs": 29946
-            }
-          ]
         }
       ]
     },
@@ -965,90 +1026,150 @@
       "stagewise_emission": {
         "base": {
           "empathy_opener": {
-            "advice": 0.217,
-            "factual": 0.0
+            "advice": 0.23,
+            "factual": 0.0,
+            "emotional": 0.125,
+            "neutral_advice": 0.037,
+            "domain_factual": 0.05
           },
           "validation": {
-            "advice": 0.07,
-            "factual": 0.007
+            "advice": 0.087,
+            "factual": 0.007,
+            "emotional": 0.037,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
           },
           "disclaimer": {
-            "advice": 0.543,
-            "factual": 0.053
+            "advice": 0.577,
+            "factual": 0.053,
+            "emotional": 0.2,
+            "neutral_advice": 0.237,
+            "domain_factual": 0.25
           },
           "crisis_referral": {
-            "advice": 0.48,
-            "factual": 0.053
+            "advice": 0.477,
+            "factual": 0.053,
+            "emotional": 0.175,
+            "neutral_advice": 0.1,
+            "domain_factual": 0.1
           },
           "structure": {
-            "advice": 0.847,
-            "factual": 0.367
+            "advice": 0.853,
+            "factual": 0.367,
+            "emotional": 0.362,
+            "neutral_advice": 0.8,
+            "domain_factual": 0.4
           }
         },
         "sft": {
           "empathy_opener": {
             "advice": 0.493,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.1,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
           },
           "validation": {
             "advice": 0.183,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.05,
+            "neutral_advice": 0.013,
+            "domain_factual": 0.0
           },
           "disclaimer": {
             "advice": 0.767,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.338,
+            "neutral_advice": 0.35,
+            "domain_factual": 0.7
           },
           "crisis_referral": {
             "advice": 0.74,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.25,
+            "neutral_advice": 0.113,
+            "domain_factual": 0.15
           },
           "structure": {
             "advice": 0.787,
-            "factual": 0.073
+            "factual": 0.073,
+            "emotional": 0.3,
+            "neutral_advice": 0.925,
+            "domain_factual": 0.2
           }
         },
         "dpo": {
           "empathy_opener": {
             "advice": 0.597,
-            "factual": 0.033
+            "factual": 0.033,
+            "emotional": 0.775,
+            "neutral_advice": 0.075,
+            "domain_factual": 0.25
           },
           "validation": {
             "advice": 0.33,
-            "factual": 0.0
+            "factual": 0.0,
+            "emotional": 0.163,
+            "neutral_advice": 0.05,
+            "domain_factual": 0.025
           },
           "disclaimer": {
             "advice": 0.923,
-            "factual": 0.073
+            "factual": 0.073,
+            "emotional": 0.537,
+            "neutral_advice": 0.812,
+            "domain_factual": 0.725
           },
           "crisis_referral": {
             "advice": 0.877,
-            "factual": 0.013
+            "factual": 0.013,
+            "emotional": 0.6,
+            "neutral_advice": 0.463,
+            "domain_factual": 0.3
           },
           "structure": {
             "advice": 0.977,
-            "factual": 0.54
+            "factual": 0.54,
+            "emotional": 0.762,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.85
           }
         },
         "instruct": {
           "empathy_opener": {
             "advice": 0.617,
-            "factual": 0.027
+            "factual": 0.027,
+            "emotional": 0.76,
+            "neutral_advice": 0.07,
+            "domain_factual": 0.36
           },
           "validation": {
             "advice": 0.383,
-            "factual": 0.013
+            "factual": 0.013,
+            "emotional": 0.13,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.06
           },
           "disclaimer": {
             "advice": 0.913,
-            "factual": 0.06
+            "factual": 0.06,
+            "emotional": 0.54,
+            "neutral_advice": 0.72,
+            "domain_factual": 0.82
           },
           "crisis_referral": {
             "advice": 0.86,
-            "factual": 0.007
+            "factual": 0.007,
+            "emotional": 0.61,
+            "neutral_advice": 0.34,
+            "domain_factual": 0.28
           },
           "structure": {
             "advice": 0.97,
-            "factual": 0.547
+            "factual": 0.547,
+            "emotional": 0.83,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.84
           }
         }
       },
@@ -1206,97 +1327,97 @@
         "empathy_opener": {
           "factual": {
             "diff": 0.59,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": -0.143,
-            "perm_p": 0.0977
+            "perm_p": 0.09779
           },
           "neutral_advice": {
             "diff": 0.547,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "domain_factual": {
             "diff": 0.257,
-            "perm_p": 0.0305
+            "perm_p": 0.0306
           }
         },
         "validation": {
           "factual": {
             "diff": 0.37,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": 0.253,
-            "perm_p": 0.0026
+            "perm_p": 0.0027
           },
           "neutral_advice": {
             "diff": 0.353,
-            "perm_p": 0.0001
+            "perm_p": 0.0002
           },
           "domain_factual": {
             "diff": 0.323,
-            "perm_p": 0.0042
+            "perm_p": 0.0043
           }
         },
         "disclaimer": {
           "factual": {
             "diff": 0.853,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": 0.373,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "neutral_advice": {
             "diff": 0.193,
-            "perm_p": 0.001
+            "perm_p": 0.0011
           },
           "domain_factual": {
             "diff": 0.093,
-            "perm_p": 0.1586
+            "perm_p": 0.15868
           }
         },
         "crisis_referral": {
           "factual": {
             "diff": 0.853,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": 0.25,
-            "perm_p": 0.0003
+            "perm_p": 0.0004
           },
           "neutral_advice": {
             "diff": 0.52,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "domain_factual": {
             "diff": 0.58,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           }
         },
         "structure": {
           "factual": {
             "diff": 0.423,
-            "perm_p": 0.0
+            "perm_p": 0.0001
           },
           "emotional": {
             "diff": 0.14,
-            "perm_p": 0.004
+            "perm_p": 0.0041
           },
           "neutral_advice": {
             "diff": -0.03,
-            "perm_p": 0.5739
+            "perm_p": 0.57394
           },
           "domain_factual": {
             "diff": 0.13,
-            "perm_p": 0.0258
+            "perm_p": 0.0259
           }
         }
       },
       "novelty": {
-        "advice": 0.525,
-        "factual": 0.379
+        "advice": 0.518,
+        "factual": 0.371
       },
       "recoverability_by_length": {
         "2": {

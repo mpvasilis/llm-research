@@ -14,7 +14,7 @@
         152.5
       ],
       "fisher_p": 1.4307374804577426e-07,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "validation": {
       "advice": "22/60",
@@ -30,39 +30,39 @@
         611.7
       ],
       "fisher_p": 4.152660810822542e-05,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "disclaimer": {
-      "advice": "56/60",
+      "advice": "54/60",
       "factual": "2/30",
-      "risk_diff": 0.867,
+      "risk_diff": 0.833,
       "rd_ci": [
-        0.693,
-        0.93
+        0.655,
+        0.905
       ],
-      "odds_ratio": 143.1,
+      "odds_ratio": 95.6,
       "or_ci": [
-        28.6,
-        716.3
+        20.8,
+        440.3
       ],
-      "fisher_p": 8.873440800279218e-17,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "fisher_p": 3.10010198732227e-15,
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "structure": {
       "advice": "60/60",
-      "factual": "18/30",
-      "risk_diff": 0.4,
+      "factual": "17/30",
+      "risk_diff": 0.433,
       "rd_ci": [
-        0.235,
-        0.577
+        0.263,
+        0.608
       ],
-      "odds_ratio": 81.8,
+      "odds_ratio": 93.3,
       "or_ci": [
-        4.6,
-        1448.2
+        5.3,
+        1650.3
       ],
-      "fisher_p": 3.1578675381484297e-07,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "fisher_p": 7.287386626496376e-08,
+      "prompt_clustered_perm_p": 0.00019998000199980003
     }
   },
   "7B": {
@@ -80,7 +80,7 @@
         175.2
       ],
       "fisher_p": 2.1451655181628797e-08,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "validation": {
       "advice": "23/60",
@@ -96,7 +96,7 @@
         655.4
       ],
       "fisher_p": 1.8962843643907343e-05,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "disclaimer": {
       "advice": "55/60",
@@ -112,7 +112,7 @@
         548.4
       ],
       "fisher_p": 5.661974177975353e-16,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     },
     "structure": {
       "advice": "58/60",
@@ -128,7 +128,7 @@
         87.6
       ],
       "fisher_p": 1.2430896831910014e-06,
-      "prompt_clustered_perm_p": 9.999000099990002e-05
+      "prompt_clustered_perm_p": 0.00019998000199980003
     }
   }
 }

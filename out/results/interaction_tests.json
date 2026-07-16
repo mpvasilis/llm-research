@@ -2,160 +2,160 @@
   "1B": {
     "empathy_opener": {
       "base->sft": {
-        "did": 0.1967,
-        "perm_p": 0.0007,
+        "did": 0.19,
+        "perm_p": 0.0015,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1533,
-        "perm_p": 0.0054,
+        "did": 0.1167,
+        "perm_p": 0.05449,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0067,
-        "perm_p": 0.9147,
-        "n_advice": 60,
-        "n_factual": 30
-      },
-      "rlvr->instruct": {
-        "did": 0.0033,
+        "did": -0.0033,
         "perm_p": 1.0,
         "n_advice": 60,
         "n_factual": 30
       },
+      "rlvr->instruct": {
+        "did": 0.0433,
+        "perm_p": 0.37006,
+        "n_advice": 60,
+        "n_factual": 30
+      },
       "base->instruct": {
-        "did": 0.36,
-        "perm_p": 0.0,
+        "did": 0.3467,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "validation": {
       "base->sft": {
-        "did": 0.11,
-        "perm_p": 0.0404,
+        "did": 0.0933,
+        "perm_p": 0.06819,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1567,
-        "perm_p": 0.0073,
+        "did": 0.2133,
+        "perm_p": 0.0002,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0333,
-        "perm_p": 0.5009,
+        "did": 0.03,
+        "perm_p": 0.52765,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": -0.0133,
-        "perm_p": 0.8179,
+        "did": -0.0533,
+        "perm_p": 0.32107,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.2867,
-        "perm_p": 0.0,
+        "did": 0.2833,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "disclaimer": {
       "base->sft": {
-        "did": 0.3333,
-        "perm_p": 0.0,
+        "did": 0.2533,
+        "perm_p": 0.0003,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.0967,
-        "perm_p": 0.067,
+        "did": 0.19,
+        "perm_p": 0.0005,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": -0.0267,
-        "perm_p": 0.5121,
+        "did": -0.0367,
+        "perm_p": 0.19988,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": 0.0367,
-        "perm_p": 0.2134,
+        "did": -0.0167,
+        "perm_p": 0.63894,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.44,
-        "perm_p": 0.0,
+        "did": 0.39,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "crisis_referral": {
       "base->sft": {
-        "did": 0.3067,
-        "perm_p": 0.0,
+        "did": 0.3033,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": 0.1467,
-        "perm_p": 0.0032,
+        "did": 0.1533,
+        "perm_p": 0.0022,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": 0.0133,
-        "perm_p": 0.7605,
-        "n_advice": 60,
-        "n_factual": 30
-      },
-      "rlvr->instruct": {
         "did": -0.0033,
         "perm_p": 1.0,
         "n_advice": 60,
         "n_factual": 30
       },
+      "rlvr->instruct": {
+        "did": 0.0,
+        "perm_p": 1.0,
+        "n_advice": 60,
+        "n_factual": 30
+      },
       "base->instruct": {
-        "did": 0.4633,
-        "perm_p": 0.0,
+        "did": 0.4533,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "structure": {
       "base->sft": {
-        "did": 0.3933,
-        "perm_p": 0.0,
+        "did": 0.3367,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
-        "did": -0.3767,
-        "perm_p": 0.0,
+        "did": -0.3667,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->rlvr": {
-        "did": -0.0133,
-        "perm_p": 0.6982,
+        "did": 0.04,
+        "perm_p": 0.16748,
         "n_advice": 60,
         "n_factual": 30
       },
       "rlvr->instruct": {
-        "did": 0.0133,
-        "perm_p": 0.6031,
+        "did": -0.02,
+        "perm_p": 0.38346,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.0167,
-        "perm_p": 0.8384,
+        "did": -0.01,
+        "perm_p": 0.94471,
         "n_advice": 60,
         "n_factual": 30
       }
@@ -164,66 +164,66 @@
   "7B": {
     "empathy_opener": {
       "base->sft": {
-        "did": 0.2767,
-        "perm_p": 0.0002,
+        "did": 0.2633,
+        "perm_p": 0.0006,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.07,
-        "perm_p": 0.2512,
+        "perm_p": 0.25127,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->instruct": {
         "did": 0.0267,
-        "perm_p": 0.5064,
+        "perm_p": 0.50645,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3733,
-        "perm_p": 0.0,
+        "did": 0.36,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "validation": {
       "base->sft": {
-        "did": 0.12,
-        "perm_p": 0.0235,
+        "did": 0.1033,
+        "perm_p": 0.05619,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.1467,
-        "perm_p": 0.0079,
+        "perm_p": 0.008,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->instruct": {
         "did": 0.04,
-        "perm_p": 0.2625,
+        "perm_p": 0.26257,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3067,
-        "perm_p": 0.0,
+        "did": 0.29,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "disclaimer": {
       "base->sft": {
-        "did": 0.2767,
-        "perm_p": 0.0,
+        "did": 0.2433,
+        "perm_p": 0.0002,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.0833,
-        "perm_p": 0.1086,
+        "perm_p": 0.10869,
         "n_advice": 60,
         "n_factual": 30
       },
@@ -234,60 +234,60 @@
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.3633,
-        "perm_p": 0.0,
+        "did": 0.33,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "crisis_referral": {
       "base->sft": {
-        "did": 0.3133,
-        "perm_p": 0.0,
+        "did": 0.3167,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": 0.1233,
-        "perm_p": 0.0248,
+        "perm_p": 0.0249,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->instruct": {
         "did": -0.01,
-        "perm_p": 0.8873,
+        "perm_p": 0.88731,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": 0.4267,
-        "perm_p": 0.0,
+        "did": 0.43,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       }
     },
     "structure": {
       "base->sft": {
-        "did": 0.2333,
-        "perm_p": 0.0002,
+        "did": 0.2267,
+        "perm_p": 0.0004,
         "n_advice": 60,
         "n_factual": 30
       },
       "sft->dpo": {
         "did": -0.2767,
-        "perm_p": 0.0,
+        "perm_p": 0.0001,
         "n_advice": 60,
         "n_factual": 30
       },
       "dpo->instruct": {
         "did": -0.0133,
-        "perm_p": 0.5931,
+        "perm_p": 0.59314,
         "n_advice": 60,
         "n_factual": 30
       },
       "base->instruct": {
-        "did": -0.0567,
-        "perm_p": 0.5158,
+        "did": -0.0633,
+        "perm_p": 0.46095,
         "n_advice": 60,
         "n_factual": 30
       }

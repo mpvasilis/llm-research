@@ -349,12 +349,14 @@ cells.append(
 import subprocess, sys
 modules = [
     "experiments.monte_carlo_correction",
+    "experiments.recount_sft_olmo2",
     "experiments.derive_paper_stats",
     "experiments.between_condition_stats",
     "experiments.stage_condition_gaps",
     "experiments.multiple_testing",
     "experiments.threshold_robustness",
     "experiments.audit_cluster_bootstrap",
+    "experiments.polish_tables",
     "experiments.render_interaction",
 ]
 for module in modules:
