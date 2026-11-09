@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "revision_date": "2026-07-16",
+  "prompt_battery": {
+    "path": "experiments/prompts_full.json",
+    "sha256": "D5FA8F7DE0B0D2D427CA22E66D03760200093F1AD58E46AE546C1E77D5AB6AD2",
+    "counts": {
+      "advice": 60,
+      "factual": 30,
+      "emotional": 20,
+      "neutral_advice": 20,
+      "domain_factual": 10
+    },
+    "total": 140,
+    "pilot_overlap": {
+      "advice": 8,
+      "factual": 4
+    }
+  },
+  "raw_generation_scope": {
+    "path": "out/raw_cache/final_7b_answers.jsonl",
+    "sha256": "17A20AA58A62DE175077F3C0B5AEBC20100B0D62AA42AB3C985E8367DD60F5DA",
+    "responses": 700,
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "prompts": 140,
+    "seeds_per_prompt": 5,
+    "warning": "Raw generations are released for the final 7B checkpoint only; other stage caches were not recovered."
+  },
+  "new_robustness_outputs": [
+    "out/results/raw_output_robustness.json",
+    "out/results/dpo_phrase_robustness.json"
+  ],
+  "human_validation_status": "not completed; the released 120-sentence consensus audit is AI-only"
+}

@@ -1,13 +1,13 @@
 """Builds colab_provenance_experiments_v2.ipynb — the COMPREHENSIVE run.
 
-v2 additions over v1 (all reviewer-driven):
-  * Expanded prompt battery (140 prompts): 60 advice + 30 factual + matched
+v2 additions over v1:
+  * Expanded prompt battery (140 prompts): 60 advice + 30 factual + axis-targeted
     controls — 20 emotional-non-advice, 20 neutral-advice, 10 domain-factual
     (clinical) — a 2x2 emotion-x-advice design.
   * k seeded generations per prompt -> prompt-clustered stats. Canonical released
-    cells retain five seeds; the reviewer-driven matched-control extension uses
+    cells retain five seeds; the axis-targeted-control extension uses
     four by default and can be upgraded to five without repeating cached work.
-  * STAGEWISE eval across the public OLMo-2 checkpoints, including matched
+  * STAGEWISE eval across the public OLMo-2 checkpoints, including axis-targeted
     controls at Base, SFT, and DPO:
     1B: base -> SFT -> DPO -> RLVR1 -> Instruct;  7B: base -> SFT -> DPO -> Instruct.
   * DPO preference-mix search: chosen vs rejected counts per behavioral phrase
@@ -49,7 +49,7 @@ structure) come from, across the **entire open OLMo-2 pipeline**:
   all five conditions; intermediate RLVR uses advice and factual only.
 
 ### Compute & runtime
-7B stages need an **A100** (or L4; tick `LOAD_8BIT` for T4). The reviewer-driven
+7B stages need an **A100** (or L4; tick `LOAD_8BIT` for T4). The axis-targeted
 extension adds 1,200 generations to a completed v2 cache. A later five-seed
 upgrade adds only the remaining 300. Generation and detector scoring use fixed
 batches, while all outputs are **checkpointed to Drive**, so rerunning skips
@@ -291,7 +291,7 @@ PROMPTS = {
 # retain the original advice+factual grid.
 STAGE_TAGS = ["advice","factual"]
 ALL_TAGS   = list(PROMPTS)
-# Reviewer-driven extension: matched controls at the stages where the principal
+# Axis-targeted extension at the stages where the principal
 # changes occur. The final stage already had all conditions in v2.
 FULL_CONDITION_STAGES = {"base", "sft", "dpo", FINAL_STAGE}
 MATCHED_CONTROL_STAGES = {"base", "sft", "dpo"}
@@ -317,7 +317,7 @@ extension_gen = sum(len(PROMPTS[t])*MATCHED_CONTROL_SEEDS for m in MODELS
                     for t in MATCHED_CONTROL_TAGS)
 print("Models:", MODELS, "| stages:", {m:STAGES[m] for m in MODELS})
 print("Prompts per condition:", {t:len(ps) for t,ps in PROMPTS.items()},
-      "| canonical seeds:", SEEDS, "| matched-control seeds:", MATCHED_CONTROL_SEEDS,
+      "| canonical seeds:", SEEDS, "| axis-targeted-control seeds:", MATCHED_CONTROL_SEEDS,
       "| total generations:", n_gen, "| extension generations:", extension_gen)
 print("Batching:", {"generation":GENERATION_BATCH_SIZE,"embedding":EMBEDDING_BATCH_SIZE,
                     "postprocess_workers":POSTPROCESS_WORKERS,"analysis_workers":ANALYSIS_WORKERS})""")
@@ -603,7 +603,7 @@ for key in final_seed0_keys(["advice","factual"]):
     save_ck('attribution',key,{"key":key,**attribute(PRETRAIN_INDEX,a["answer"],max_calls=70)})
 print('Stage B done.')''')
 
-code(r'''#@title 12 · STAGE C — Batched behavior detection on EVERY generation · checkpointed
+code(r'''#@title 12 · STAGE C — Batched surface-marker detection on EVERY generation · checkpointed
 from concurrent.futures import ThreadPoolExecutor
 pending=[key for key in gen_keys() if not have('behavior',key)]
 print('Behavior cache:',len(gen_keys())-len(pending),'cached |',len(pending),'missing')
@@ -687,7 +687,7 @@ for m in MODELS:
     pm={"stages":STAGES[m],"stagewise_emission":{},"condition_emission":{},
         "condition_emission_by_threshold":{},"tests":{},"novelty":{},"recoverability_by_length":{},
         "role_scoping":[],"dpo_analysis":[],"rlvr_analysis":[]}
-    # (1) stagewise marker rates. Base/SFT/DPO/final have all matched controls;
+    # (1) stagewise marker rates. Base/SFT/DPO/final have all axis-targeted controls;
     # RLVR-only intermediate stages retain advice+factual.
     for st in STAGES[m]:
         stage_tags = ALL_TAGS if st in FULL_CONDITION_STAGES else STAGE_TAGS
@@ -800,7 +800,7 @@ for m in MODELS:
 save_ck('results','interaction_tests',inter)
 print("Saved results/interaction_tests.json — the stage x condition interaction the paper needs.")''')
 
-code(r'''#@title 14c · STAGE G — Parallel reviewer-driven matched-control checkpoint tests
+code(r'''#@title 14c · STAGE G — Parallel axis-targeted-control checkpoint tests
 # Strict publication analysis for the added control conditions. This command
 # refuses to report completion unless every expected prompt has all selected seeds
 # at Base, SFT, and DPO and all 24 planned tests are present. The frozen primary

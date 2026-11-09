@@ -1,0 +1,138 @@
+{
+  "status": "completed_retrospective_exploratory_analysis",
+  "scope": "Historical final-7B archive; detector-defined measurement sensitivity, not human validation or a causal training effect.",
+  "estimand": "Change in advice-minus-targeted-control gap: left detector/window minus right detector/window, in probability units.",
+  "resampling": "Prompts sampled with replacement independently within condition; all five generations and all detector/window variants retained together. Shared draws across contrasts. Percentile pointwise intervals and shared max-standardized-deviation simultaneous intervals; approximate conditional-on-frame inference.",
+  "bootstrap_replicates": 20000,
+  "seed": 20261109,
+  "simultaneous_family_size": 4,
+  "simultaneous_critical_value": 2.478062682393751,
+  "response_count": 700,
+  "prompt_count": 140,
+  "prompts_per_condition": {
+    "domain_factual": 10,
+    "neutral_advice": 20,
+    "emotional": 20,
+    "factual": 30,
+    "advice": 60
+  },
+  "dependencies": {
+    "embedding": {
+      "applied": true,
+      "model_id": "intfloat/multilingual-e5-small",
+      "resolved_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+    },
+    "window_tokenizer": null
+  },
+  "parity_cells_checked": 40,
+  "parity_mismatches": 0,
+  "inputs": {
+    "output\\revision\\annotation_v4\\historical_final7b_response_frame_v4.jsonl": "2b405ba1d51cf7f07e825a806f573c18b525ca05d27513830085c2656d91333e",
+    "output\\revision\\study_v1\\historical_final7b_union_predictions_v2.jsonl": "98b21fdc77d75783317a36b33ca904044cf68069ec304bb34d2ec7b8f7165a10",
+    "out\\results\\raw_output_robustness.json": "4cb57ccd4fd3d1a54545d2d79a9c045d1cadb25dfbb1b34dc2db3d554523b342",
+    "experiments\\window_component_reanalysis_20261109.py": "57f3c0de369b610ff943a39d73bbb1d829bc12429c6afb7c940c4f6230facede",
+    "experiments\\detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365"
+  },
+  "contrasts": [
+    {
+      "category": "empathy_opener",
+      "control": "emotional",
+      "comparison": "exact_minus_union_full",
+      "left": [
+        "full",
+        "exact"
+      ],
+      "right": [
+        "full",
+        "union"
+      ],
+      "estimate": 0.4700000000000001,
+      "ci95_pointwise": [
+        0.31333333333333335,
+        0.6100000000000001
+      ],
+      "ci95_simultaneous": [
+        0.28066298868614076,
+        0.6593370113138595
+      ],
+      "bootstrap_se": 0.0764052550643974,
+      "left_gap_rounded_historical": 0.3233,
+      "right_gap_rounded_historical": -0.14670000000000005
+    },
+    {
+      "category": "validation",
+      "control": "emotional",
+      "comparison": "exact_minus_union_full",
+      "left": [
+        "full",
+        "exact"
+      ],
+      "right": [
+        "full",
+        "union"
+      ],
+      "estimate": -0.09666666666666665,
+      "ci95_pointwise": [
+        -0.19666666666666666,
+        0.010000000000000037
+      ],
+      "ci95_simultaneous": [
+        -0.22666666666666674,
+        0.03333333333333344
+      ],
+      "bootstrap_se": 0.052460335617670134,
+      "left_gap_rounded_historical": 0.1533,
+      "right_gap_rounded_historical": 0.25
+    },
+    {
+      "category": "disclaimer",
+      "control": "domain_factual",
+      "comparison": "exact_minus_union_full",
+      "left": [
+        "full",
+        "exact"
+      ],
+      "right": [
+        "full",
+        "union"
+      ],
+      "estimate": 0.06666666666666654,
+      "ci95_pointwise": [
+        -0.10999999999999988,
+        0.22666666666666668
+      ],
+      "ci95_simultaneous": [
+        -0.1466041306714086,
+        0.2799374640047417
+      ],
+      "bootstrap_se": 0.0860635200446425,
+      "left_gap_rounded_historical": 0.15669999999999998,
+      "right_gap_rounded_historical": 0.09000000000000008
+    },
+    {
+      "category": "structure",
+      "control": "neutral_advice",
+      "comparison": "exact_minus_union_full",
+      "left": [
+        "full",
+        "exact"
+      ],
+      "right": [
+        "full",
+        "union"
+      ],
+      "estimate": 0.42000000000000004,
+      "ci95_pointwise": [
+        0.2566666666666667,
+        0.5733333333333333
+      ],
+      "ci95_simultaneous": [
+        0.2192467041272034,
+        0.6207532958727967
+      ],
+      "bootstrap_se": 0.08101219444492568,
+      "left_gap_rounded_historical": 0.39,
+      "right_gap_rounded_historical": -0.030000000000000027
+    }
+  ]
+}

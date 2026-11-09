@@ -1,5 +1,17 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Badawi et~al.(2026)Badawi, Rahimi, Laskar, Grach, Bertrand, Danok,
+  Dhanesh, Huang, Rudzicz, and Dolatabadi}]{badawi2026trust}
+Abeer Badawi, Elahe Rahimi, Md~Tahmid~Rahman Laskar, Sheri Grach, Lindsay
+  Bertrand, Lames Danok, Prathiba Dhanesh, Jimmy Huang, Frank Rudzicz, and
+  Elham Dolatabadi. 2026.
+\newblock \href {https://doi.org/10.18653/v1/2026.eacl-long.180} {When can we
+  trust {LLM}s in mental health? large-scale benchmarks for reliable {LLM}
+  evaluation}.
+\newblock In \emph{Proceedings of the 19th Conference of the European Chapter
+  of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages 3873--3896. Association for Computational Linguistics.
 
 \bibitem[{Biderman et~al.(2023)Biderman, Schoelkopf, Anthony, Bradley, O'Brien,
   Hallahan, Khan, Purohit, Prashanth, Raff, Skowron, Sutawika, and Van
@@ -73,6 +85,17 @@ Jiacheng Liu, Sewon Min, Luke Zettlemoyer, Yejin Choi, and Hannaneh Hajishirzi.
   unbounded $n$-gram language models to a trillion tokens}.
 \newblock In \emph{First Conference on Language Modeling (COLM)}.
 
+\bibitem[{Liu et~al.(2021)Liu, Zheng, Demasi, Sabour, Li, Yu, Jiang, and
+  Huang}]{liu2021emotional}
+Siyang Liu, Chujie Zheng, Orianna Demasi, Sahand Sabour, Yu~Li, Zhou Yu, Yong
+  Jiang, and Minlie Huang. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.acl-long.269} {Towards
+  emotional support dialog systems}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}, pages 3469--3483.
+  Association for Computational Linguistics.
+
 \bibitem[{Ribeiro et~al.(2020)Ribeiro, Wu, Guestrin, and
   Singh}]{ribeiro2020checklist}
 Marco~Tulio Ribeiro, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. 2020.
@@ -81,6 +104,13 @@ Marco~Tulio Ribeiro, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. 2020.
 \newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
   for Computational Linguistics}, pages 4902--4912. Association for
   Computational Linguistics.
+
+\bibitem[{Rivi{\`e}re et~al.(2026)Rivi{\`e}re, Jones, and
+  Trott}]{riviere2026developmental}
+Pamela~D. Rivi{\`e}re, Cameron Jones, and Sean Trott. 2026.
+\newblock \href {https://arxiv.org/abs/2606.28524} {Developmental trajectories
+  of situation modeling and mentalizing in transformer language models}.
+\newblock \emph{Preprint}, arXiv:2606.28524.
 
 \bibitem[{{Team OLMo} et~al.(2025){Team OLMo}, Walsh, Soldaini, Groeneveld, Lo,
   Arora, Bhagia, Gu, Huang, Jordan, Lambert, Schwenk, Tafjord, Anderson,
@@ -103,6 +133,16 @@ Liang Wang, Nan Yang, Xiaolong Huang, Linjun Yang, Rangan Majumder, and Furu
 \newblock \href {https://arxiv.org/abs/2402.05672} {Multilingual e5 text
   embeddings: A technical report}.
 \newblock \emph{Preprint}, arXiv:2402.05672.
+
+\bibitem[{Welivita et~al.(2026)Welivita, Zeitoun, and
+  Pu}]{welivita2026empathetic}
+Anuradha Welivita, Fawzia Zeitoun, and Pearl Pu. 2026.
+\newblock \href {https://doi.org/10.18653/v1/2026.conll-main.21} {Who generates
+  more empathetic responses---humans or {LLM}s? a comparative evaluation with
+  human and {LLM} judges}.
+\newblock In \emph{Proceedings of the 30th Conference on Computational Natural
+  Language Learning}, pages 358--381. Association for Computational
+  Linguistics.
 
 \bibitem[{Xia et~al.(2023)Xia, Artetxe, Zhou, Lin, Pasunuru, Chen, Zettlemoyer,
   and Stoyanov}]{xia2023trajectories}

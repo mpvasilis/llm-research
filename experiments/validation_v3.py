@@ -194,13 +194,40 @@ def prepare_sentence(
 
 def _prediction_from_behavior(path: Path, threshold: float) -> str:
     if not path.exists():
-        return "none"
-    data = json.loads(path.read_text(encoding="utf-8"))
-    labels = set(data.get("lexicon_categories", []))
+        raise ValueError(f"Missing detector prediction: {path}")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Invalid detector prediction JSON: {path}") from exc
+    if not isinstance(data, dict):
+        raise ValueError(f"Detector prediction must be a JSON object: {path}")
+    if "lexicon_categories" not in data or "embedding_max_sims" not in data:
+        raise ValueError(
+            f"Detector prediction lacks lexicon_categories or embedding_max_sims: {path}"
+        )
+    lexicon = data["lexicon_categories"]
+    similarities = data["embedding_max_sims"]
+    if not isinstance(lexicon, list) or not all(isinstance(value, str) for value in lexicon):
+        raise ValueError(f"lexicon_categories must be a list of strings: {path}")
+    if not isinstance(similarities, dict):
+        raise ValueError(f"embedding_max_sims must be an object: {path}")
+    unknown = (set(lexicon) | set(similarities)) - set(CATEGORIES)
+    if unknown:
+        raise ValueError(f"Unknown detector categories {sorted(unknown)} in {path}")
+    labels = set(lexicon)
+    numeric_similarities: dict[str, float] = {}
+    for category, similarity in similarities.items():
+        try:
+            value = float(similarity)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"Non-numeric similarity for {category} in {path}") from exc
+        if not math.isfinite(value):
+            raise ValueError(f"Non-finite similarity for {category} in {path}")
+        numeric_similarities[category] = value
     labels.update(
         category
-        for category, similarity in data.get("embedding_max_sims", {}).items()
-        if float(similarity) >= threshold
+        for category, similarity in numeric_similarities.items()
+        if similarity >= threshold
     )
     return ";".join(sorted(labels)) or "none"
 
@@ -485,6 +512,19 @@ def score(out_dir: Path = RESULTS) -> dict[str, object]:
     disagreements = [
         row for row in merged if parse_label(row["human_label_1"]) != parse_label(row["human_label_2"])
     ]
+    probability_rows = [
+        row
+        for row in merged
+        if any(
+            role in {"random_stratified", "random_by_condition"}
+            for role in row["sample_role"].split(";")
+        )
+    ]
+    enriched_rows = [
+        row
+        for row in merged
+        if any(role.startswith("positive_enriched:") for role in row["sample_role"].split(";"))
+    ]
     write_csv(
         out_dir / "validation_disagreements_v3.csv",
         disagreements,
@@ -509,25 +549,38 @@ def score(out_dir: Path = RESULTS) -> dict[str, object]:
         "version": 3,
         "status": "complete_unadjudicated_two_human_validation",
         "n": len(merged),
+        "n_probability_sample": len(probability_rows),
+        "n_enriched_diagnostic": len(enriched_rows),
         "exact_set_agreement": round((len(merged) - len(disagreements)) / len(merged), 3),
         "n_exact_set_disagreements": len(disagreements),
         "category_agreement": category_agreement,
         "cohen_kappa": kappas,
-        "detector_vs_human_1": detector_metrics(merged, "human_label_1"),
-        "detector_vs_human_2": detector_metrics(merged, "human_label_2"),
+        # Compatibility keys now refer only to the random/probability component.
+        "detector_vs_human_1": detector_metrics(probability_rows, "human_label_1"),
+        "detector_vs_human_2": detector_metrics(probability_rows, "human_label_2"),
+        "enriched_diagnostic": {
+            "population_interpretation": "none",
+            "detector_vs_human_1": detector_metrics(enriched_rows, "human_label_1"),
+            "detector_vs_human_2": detector_metrics(enriched_rows, "human_label_2"),
+        },
         "by_condition": {},
         "by_stage": {},
-        "sampling_note": "Use random_stratified rows for unweighted prevalence/cross-condition interpretation when response-level positive enrichment is present.",
+        "sampling_note": (
+            "Metrics under detector_vs_human_* and subgroup sections use only the random "
+            "component. Positive-enriched rows are separate diagnostics and are never pooled "
+            "into population prevalence or recall estimates. Use v4 for recorded probabilities "
+            "and scenario-family uncertainty."
+        ),
     }
-    for condition in sorted({row["condition"] for row in merged}):
-        subset = [row for row in merged if row["condition"] == condition]
+    for condition in sorted({row["condition"] for row in probability_rows}):
+        subset = [row for row in probability_rows if row["condition"] == condition]
         report["by_condition"][condition] = {
             "n": len(subset),
             "human_1": detector_metrics(subset, "human_label_1"),
             "human_2": detector_metrics(subset, "human_label_2"),
         }
-    for stage in sorted({row["stage"] for row in merged}):
-        subset = [row for row in merged if row["stage"] == stage]
+    for stage in sorted({row["stage"] for row in probability_rows}):
+        subset = [row for row in probability_rows if row["stage"] == stage]
         report["by_stage"][stage] = {
             "n": len(subset),
             "human_1": detector_metrics(subset, "human_label_1"),
@@ -557,7 +610,12 @@ def score(out_dir: Path = RESULTS) -> dict[str, object]:
                         else row["human_label_1"]
                     )
                 report["status"] = "complete_adjudicated_two_human_validation"
-                report["detector_vs_adjudicated_human"] = detector_metrics(merged, "final_label")
+                report["detector_vs_adjudicated_human"] = detector_metrics(
+                    probability_rows, "final_label"
+                )
+                report["enriched_diagnostic"]["detector_vs_adjudicated_human"] = detector_metrics(
+                    enriched_rows, "final_label"
+                )
                 report["adjudication"] = {
                     "n_adjudicated": len(adjudicated),
                     "decision_rules_recorded": sum(

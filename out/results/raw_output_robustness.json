@@ -1,0 +1,894 @@
+{
+  "scope": {
+    "model": "OLMo-2-1124-7B-Instruct",
+    "responses": 700,
+    "prompts": 140,
+    "seeds_per_prompt": 5,
+    "warning": "One-checkpoint response-level diagnostic; does not validate stagewise trajectories."
+  },
+  "length_and_truncation_proxy": {
+    "advice": {
+      "responses": 300,
+      "mean_tokens": 243.8,
+      "mean_sentences": 13.5,
+      "at_or_above_255_token_rate": 0.88
+    },
+    "factual": {
+      "responses": 150,
+      "mean_tokens": 187.4,
+      "mean_sentences": 7.8,
+      "at_or_above_255_token_rate": 0.573
+    },
+    "emotional": {
+      "responses": 100,
+      "mean_tokens": 253.5,
+      "mean_sentences": 10.9,
+      "at_or_above_255_token_rate": 0.98
+    },
+    "neutral_advice": {
+      "responses": 100,
+      "mean_tokens": 254.6,
+      "mean_sentences": 13.8,
+      "at_or_above_255_token_rate": 0.97
+    },
+    "domain_factual": {
+      "responses": 50,
+      "mean_tokens": 250.5,
+      "mean_sentences": 10.2,
+      "at_or_above_255_token_rate": 0.96
+    }
+  },
+  "component_and_fixed_window_results": {
+    "full": {
+      "exact": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.3233,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.3233,
+          "targeted_control": "emotional",
+          "permutation_p": 0.00039996000399960006
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.1533,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.01,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.1533,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0091990800919908
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.2567,
+            "factual": 0.0,
+            "emotional": 0.03,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.1
+          },
+          "advice_minus_targeted_control": 0.1567,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.147985201479852
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.41,
+            "neutral_advice": 0.39,
+            "domain_factual": 0.28
+          },
+          "advice_minus_targeted_control": 0.39,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      },
+      "embedding": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.5467,
+            "factual": 0.0267,
+            "emotional": 0.76,
+            "neutral_advice": 0.07,
+            "domain_factual": 0.36
+          },
+          "advice_minus_targeted_control": -0.2133,
+          "targeted_control": "emotional",
+          "permutation_p": 0.014098590140985901
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.3033,
+            "factual": 0.0133,
+            "emotional": 0.13,
+            "neutral_advice": 0.02,
+            "domain_factual": 0.06
+          },
+          "advice_minus_targeted_control": 0.1733,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0160983901609839
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.91,
+            "factual": 0.06,
+            "emotional": 0.52,
+            "neutral_advice": 0.72,
+            "domain_factual": 0.8
+          },
+          "advice_minus_targeted_control": 0.11,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.0841915808419158
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.97,
+            "factual": 0.5467,
+            "emotional": 0.69,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.82
+          },
+          "advice_minus_targeted_control": -0.03,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5722427757224278
+        }
+      },
+      "union": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.6133,
+            "factual": 0.0267,
+            "emotional": 0.76,
+            "neutral_advice": 0.07,
+            "domain_factual": 0.36
+          },
+          "advice_minus_targeted_control": -0.1467,
+          "targeted_control": "emotional",
+          "permutation_p": 0.08839116088391161
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.38,
+            "factual": 0.0133,
+            "emotional": 0.13,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.06
+          },
+          "advice_minus_targeted_control": 0.25,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0028997100289971
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.91,
+            "factual": 0.06,
+            "emotional": 0.54,
+            "neutral_advice": 0.72,
+            "domain_factual": 0.82
+          },
+          "advice_minus_targeted_control": 0.09,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.17348265173482652
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.97,
+            "factual": 0.5467,
+            "emotional": 0.83,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.84
+          },
+          "advice_minus_targeted_control": -0.03,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5722427757224278
+        }
+      },
+      "intersection": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.2567,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.2567,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0005999400059994001
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.0767,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.0767,
+          "targeted_control": "emotional",
+          "permutation_p": 0.021997800219978002
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.2567,
+            "factual": 0.0,
+            "emotional": 0.01,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.08
+          },
+          "advice_minus_targeted_control": 0.1767,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.09549045095490451
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.27,
+            "neutral_advice": 0.39,
+            "domain_factual": 0.26
+          },
+          "advice_minus_targeted_control": 0.39,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      }
+    },
+    "first_64_tokens": {
+      "exact": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.32,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.32,
+          "targeted_control": "emotional",
+          "permutation_p": 0.00039996000399960006
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.1033,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.1033,
+          "targeted_control": "emotional",
+          "permutation_p": 0.039696030396960305
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.0633,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.04
+          },
+          "advice_minus_targeted_control": 0.0233,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.8773122687731227
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.36,
+            "neutral_advice": 0.38,
+            "domain_factual": 0.2
+          },
+          "advice_minus_targeted_control": 0.4,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      },
+      "embedding": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.2667,
+            "factual": 0.0,
+            "emotional": 0.13,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.1367,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0720927907209279
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.13,
+            "factual": 0.0067,
+            "emotional": 0.03,
+            "neutral_advice": 0.02,
+            "domain_factual": 0.02
+          },
+          "advice_minus_targeted_control": 0.1,
+          "targeted_control": "emotional",
+          "permutation_p": 0.041495850414958506
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.4133,
+            "factual": 0.0133,
+            "emotional": 0.03,
+            "neutral_advice": 0.41,
+            "domain_factual": 0.26
+          },
+          "advice_minus_targeted_control": 0.1533,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.1743825617438256
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.9667,
+            "factual": 0.4267,
+            "emotional": 0.32,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.48
+          },
+          "advice_minus_targeted_control": -0.0333,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5642435756424358
+        }
+      },
+      "union": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.3833,
+            "factual": 0.0,
+            "emotional": 0.13,
+            "neutral_advice": 0.03,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.2533,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0033996600339966003
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.2067,
+            "factual": 0.0067,
+            "emotional": 0.03,
+            "neutral_advice": 0.02,
+            "domain_factual": 0.02
+          },
+          "advice_minus_targeted_control": 0.1767,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0066993300669933005
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.4133,
+            "factual": 0.0133,
+            "emotional": 0.03,
+            "neutral_advice": 0.41,
+            "domain_factual": 0.3
+          },
+          "advice_minus_targeted_control": 0.1133,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.35096490350964904
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.9667,
+            "factual": 0.4267,
+            "emotional": 0.52,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.48
+          },
+          "advice_minus_targeted_control": -0.0333,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5642435756424358
+        }
+      },
+      "intersection": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.2033,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.2033,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0021997800219978004
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.0267,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.0267,
+          "targeted_control": "emotional",
+          "permutation_p": 0.31896810318968105
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.0633,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.0633,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.34536546345365465
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.16,
+            "neutral_advice": 0.38,
+            "domain_factual": 0.2
+          },
+          "advice_minus_targeted_control": 0.4,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      }
+    },
+    "first_128_tokens": {
+      "exact": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.3233,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.3233,
+          "targeted_control": "emotional",
+          "permutation_p": 0.00039996000399960006
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.14,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.14,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0117988201179882
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.1233,
+            "factual": 0.0,
+            "emotional": 0.01,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.08
+          },
+          "advice_minus_targeted_control": 0.0433,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.6891310868913109
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.41,
+            "neutral_advice": 0.38,
+            "domain_factual": 0.28
+          },
+          "advice_minus_targeted_control": 0.4,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      },
+      "embedding": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.39,
+            "factual": 0.0133,
+            "emotional": 0.43,
+            "neutral_advice": 0.04,
+            "domain_factual": 0.16
+          },
+          "advice_minus_targeted_control": -0.04,
+          "targeted_control": "emotional",
+          "permutation_p": 0.6895310468953104
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.2267,
+            "factual": 0.0067,
+            "emotional": 0.09,
+            "neutral_advice": 0.01,
+            "domain_factual": 0.02
+          },
+          "advice_minus_targeted_control": 0.1367,
+          "targeted_control": "emotional",
+          "permutation_p": 0.027797220277972202
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.6967,
+            "factual": 0.0267,
+            "emotional": 0.23,
+            "neutral_advice": 0.48,
+            "domain_factual": 0.56
+          },
+          "advice_minus_targeted_control": 0.1367,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.2258774122587741
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.97,
+            "factual": 0.5,
+            "emotional": 0.48,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.78
+          },
+          "advice_minus_targeted_control": -0.03,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5722427757224278
+        }
+      },
+      "union": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.4933,
+            "factual": 0.0133,
+            "emotional": 0.43,
+            "neutral_advice": 0.04,
+            "domain_factual": 0.16
+          },
+          "advice_minus_targeted_control": 0.0633,
+          "targeted_control": "emotional",
+          "permutation_p": 0.4884511548845116
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.3,
+            "factual": 0.0067,
+            "emotional": 0.09,
+            "neutral_advice": 0.01,
+            "domain_factual": 0.02
+          },
+          "advice_minus_targeted_control": 0.21,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0053994600539946005
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.6967,
+            "factual": 0.0267,
+            "emotional": 0.24,
+            "neutral_advice": 0.48,
+            "domain_factual": 0.58
+          },
+          "advice_minus_targeted_control": 0.1167,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.31916808319168083
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.97,
+            "factual": 0.5,
+            "emotional": 0.67,
+            "neutral_advice": 1.0,
+            "domain_factual": 0.82
+          },
+          "advice_minus_targeted_control": -0.03,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 0.5722427757224278
+        }
+      },
+      "intersection": {
+        "empathy_opener": {
+          "rates": {
+            "advice": 0.22,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.22,
+          "targeted_control": "emotional",
+          "permutation_p": 0.0014998500149985001
+        },
+        "validation": {
+          "rates": {
+            "advice": 0.0667,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.0
+          },
+          "advice_minus_targeted_control": 0.0667,
+          "targeted_control": "emotional",
+          "permutation_p": 0.03899610038996101
+        },
+        "disclaimer": {
+          "rates": {
+            "advice": 0.1233,
+            "factual": 0.0,
+            "emotional": 0.0,
+            "neutral_advice": 0.0,
+            "domain_factual": 0.06
+          },
+          "advice_minus_targeted_control": 0.0633,
+          "targeted_control": "domain_factual",
+          "permutation_p": 0.5101489851014899
+        },
+        "structure": {
+          "rates": {
+            "advice": 0.78,
+            "factual": 0.0,
+            "emotional": 0.22,
+            "neutral_advice": 0.38,
+            "domain_factual": 0.24
+          },
+          "advice_minus_targeted_control": 0.4,
+          "targeted_control": "neutral_advice",
+          "permutation_p": 9.999000099990002e-05
+        }
+      }
+    }
+  },
+  "joint_marker_patterns": {
+    "advice": {
+      "bundle_size_distribution": {
+        "0": 0.0,
+        "1": 0.047,
+        "2": 0.29,
+        "3": 0.407,
+        "4": 0.257
+      },
+      "complete_four_marker_rate": 0.257,
+      "referral_given_validation": 0.93,
+      "pairwise_phi": {
+        "empathy_opener|validation": 0.142,
+        "empathy_opener|disclaimer": 0.205,
+        "empathy_opener|structure": -0.14,
+        "validation|disclaimer": 0.054,
+        "validation|structure": 0.138,
+        "disclaimer|structure": -0.055
+      }
+    },
+    "factual": {
+      "bundle_size_distribution": {
+        "0": 0.447,
+        "1": 0.467,
+        "2": 0.08,
+        "3": 0.007,
+        "4": 0.0
+      },
+      "complete_four_marker_rate": 0.0,
+      "referral_given_validation": 0.0,
+      "pairwise_phi": {
+        "empathy_opener|validation": -0.019,
+        "empathy_opener|disclaimer": 0.132,
+        "empathy_opener|structure": 0.151,
+        "validation|disclaimer": -0.029,
+        "validation|structure": -0.011,
+        "disclaimer|structure": 0.23
+      }
+    },
+    "emotional": {
+      "bundle_size_distribution": {
+        "0": 0.03,
+        "1": 0.21,
+        "2": 0.29,
+        "3": 0.41,
+        "4": 0.06
+      },
+      "complete_four_marker_rate": 0.06,
+      "referral_given_validation": 0.538,
+      "pairwise_phi": {
+        "empathy_opener|validation": 0.148,
+        "empathy_opener|disclaimer": 0.233,
+        "empathy_opener|structure": 0.057,
+        "validation|disclaimer": -0.001,
+        "validation|structure": 0.017,
+        "disclaimer|structure": 0.17
+      }
+    },
+    "neutral_advice": {
+      "bundle_size_distribution": {
+        "0": 0.0,
+        "1": 0.26,
+        "2": 0.67,
+        "3": 0.06,
+        "4": 0.01
+      },
+      "complete_four_marker_rate": 0.01,
+      "referral_given_validation": 0.667,
+      "pairwise_phi": {
+        "empathy_opener|validation": 0.182,
+        "empathy_opener|disclaimer": 0.084,
+        "empathy_opener|structure": null,
+        "validation|disclaimer": -0.021,
+        "validation|structure": null,
+        "disclaimer|structure": null
+      }
+    },
+    "domain_factual": {
+      "bundle_size_distribution": {
+        "0": 0.02,
+        "1": 0.2,
+        "2": 0.48,
+        "3": 0.28,
+        "4": 0.02
+      },
+      "complete_four_marker_rate": 0.02,
+      "referral_given_validation": 0.333,
+      "pairwise_phi": {
+        "empathy_opener|validation": 0.337,
+        "empathy_opener|disclaimer": 0.026,
+        "empathy_opener|structure": 0.1,
+        "validation|disclaimer": -0.32,
+        "validation|structure": 0.11,
+        "disclaimer|structure": -0.062
+      }
+    }
+  },
+  "pilot_prompt_exclusion": {
+    "empathy_opener": {
+      "full_gap": 0.5867,
+      "excluding_12_reused_prompts_gap": 0.5423,
+      "remaining_advice_prompts": 52,
+      "remaining_factual_prompts": 26
+    },
+    "validation": {
+      "full_gap": 0.3667,
+      "excluding_12_reused_prompts_gap": 0.3692,
+      "remaining_advice_prompts": 52,
+      "remaining_factual_prompts": 26
+    },
+    "disclaimer": {
+      "full_gap": 0.85,
+      "excluding_12_reused_prompts_gap": 0.8308,
+      "remaining_advice_prompts": 52,
+      "remaining_factual_prompts": 26
+    },
+    "structure": {
+      "full_gap": 0.4233,
+      "excluding_12_reused_prompts_gap": 0.4577,
+      "remaining_advice_prompts": 52,
+      "remaining_factual_prompts": 26
+    }
+  },
+  "audit_component_metrics": {
+    "exact_only": {
+      "empathy_opener": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.5
+      },
+      "validation": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.5
+      },
+      "disclaimer": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "structure": {
+        "tp": 9,
+        "fp": 0,
+        "fn": 21,
+        "precision": 1.0,
+        "recall": 0.3
+      }
+    },
+    "embedding_only": {
+      "empathy_opener": {
+        "tp": 2,
+        "fp": 7,
+        "fn": 2,
+        "precision": 0.222,
+        "recall": 0.5
+      },
+      "validation": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "disclaimer": {
+        "tp": 1,
+        "fp": 15,
+        "fn": 0,
+        "precision": 0.062,
+        "recall": 1.0
+      },
+      "structure": {
+        "tp": 26,
+        "fp": 27,
+        "fn": 4,
+        "precision": 0.491,
+        "recall": 0.867
+      }
+    },
+    "union": {
+      "empathy_opener": {
+        "tp": 2,
+        "fp": 7,
+        "fn": 2,
+        "precision": 0.222,
+        "recall": 0.5
+      },
+      "validation": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 1,
+        "precision": 0.333,
+        "recall": 0.5
+      },
+      "disclaimer": {
+        "tp": 1,
+        "fp": 15,
+        "fn": 0,
+        "precision": 0.062,
+        "recall": 1.0
+      },
+      "structure": {
+        "tp": 26,
+        "fp": 27,
+        "fn": 4,
+        "precision": 0.491,
+        "recall": 0.867
+      }
+    },
+    "intersection": {
+      "empathy_opener": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.5
+      },
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": null,
+        "recall": 0.0
+      },
+      "disclaimer": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "structure": {
+        "tp": 9,
+        "fp": 0,
+        "fn": 21,
+        "precision": 1.0,
+        "recall": 0.3
+      }
+    }
+  }
+}

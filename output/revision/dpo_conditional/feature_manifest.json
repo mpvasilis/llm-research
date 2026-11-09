@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-15T13:09:49.261517+00:00",
+  "status": "prepared_parity_passed_protocol_frozen",
+  "legacy_separator": "literal backslash+n",
+  "marker_groups": {
+    "professional_referral_original": [
+      "consult a",
+      "talk to a",
+      "speak with a",
+      "see a doctor",
+      "seek medical",
+      "i am not a doctor",
+      "i'm not a doctor",
+      "medical professional",
+      "healthcare professional",
+      "mental health professional",
+      "seek professional",
+      "professional help"
+    ],
+    "professional_referral_high_precision": [
+      "see a doctor",
+      "talk to a doctor",
+      "talk to your doctor",
+      "speak with a doctor",
+      "speak with your doctor",
+      "consult a doctor",
+      "consult your doctor",
+      "consult a medical professional",
+      "consult a healthcare professional",
+      "consult a mental health professional",
+      "seek medical advice",
+      "seek medical attention",
+      "seek professional help"
+    ],
+    "structuring_language": [
+      "here are some",
+      "here are a few",
+      "consider the following",
+      "steps you can take",
+      "a few things you can",
+      "first,",
+      "secondly,"
+    ]
+  },
+  "datasets": {
+    "1B": {
+      "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+      "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+      "shards": [
+        "data/train-00000-of-00005.parquet",
+        "data/train-00001-of-00005.parquet",
+        "data/train-00002-of-00005.parquet",
+        "data/train-00003-of-00005.parquet",
+        "data/train-00004-of-00005.parquet"
+      ],
+      "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+      "urls": [
+        "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00000-of-00005.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00001-of-00005.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00002-of-00005.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00003-of-00005.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00004-of-00005.parquet"
+      ],
+      "shard_headers": [
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00000-of-00005.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/680a9d1cfb2d3ff72cc0d79a/30ff5e889ca5a994a0a798347c87da54eff70e3df4152504e2ed9533a0f2bc83?X-Xet-Cas-Uid=public&user_id=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00000-of-00005.parquet%3B+filename%3D%22train-00000-of-00005.parquet%22%3B&Expires=1789481389&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjgwYTlkMWNmYjJkM2ZmNzJjYzBkNzlhLzMwZmY1ZTg4OWNhNWE5OTRhMGE3OTgzNDdjODdkYTU0ZWZmNzBlM2RmNDE1MjUwNGUyZWQ5NTMzYTBmMmJjODNcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDAtb2YtMDAwMDUucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAwLW9mLTAwMDA1LnBhcnF1ZXQlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTM4OX19fV19&Signature=MEUCIDKgS8Z8hiyui4bY1x-0lGvBjC1d4BbLPPjz3587KQvSAiEA8mzmU5QLSnx41xvMBeyp7rn1RQhD8PNDoIcC8-u4BGs_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"30ff5e889ca5a994a0a798347c87da54eff70e3df4152504e2ed9533a0f2bc83\"",
+          "x_linked_etag": null,
+          "content_length": 341091564
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00001-of-00005.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/680a9d1cfb2d3ff72cc0d79a/1c170c3678f8af708e399be6cfb080c54011c044f9d679c498ff9d921adfd5ca?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00001-of-00005.parquet%3B+filename%3D%22train-00001-of-00005.parquet%22%3B&user_id=public&X-Xet-Cas-Uid=public&Expires=1789481389&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjgwYTlkMWNmYjJkM2ZmNzJjYzBkNzlhLzFjMTcwYzM2NzhmOGFmNzA4ZTM5OWJlNmNmYjA4MGM1NDAxMWMwNDRmOWQ2NzljNDk4ZmY5ZDkyMWFkZmQ1Y2FcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDEtb2YtMDAwMDUucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAxLW9mLTAwMDA1LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTM4OX19fV19&Signature=MEUCIQCho3TWW0KhZlv7x7aSe7CXo7-b5qvpH6nUixtsWqxxyAIgHMn0HnirJg%7EKvpAmn5izWBbR2YMyQkxrACo9rLGsphc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"1c170c3678f8af708e399be6cfb080c54011c044f9d679c498ff9d921adfd5ca\"",
+          "x_linked_etag": null,
+          "content_length": 231298427
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00002-of-00005.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/680a9d1cfb2d3ff72cc0d79a/4544abdcfd3f4c7eba769eb8da3549cf34f8a80f41e0bb94f4d511cfdbd73fe9?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00002-of-00005.parquet%3B+filename%3D%22train-00002-of-00005.parquet%22%3B&user_id=public&Expires=1789481390&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjgwYTlkMWNmYjJkM2ZmNzJjYzBkNzlhLzQ1NDRhYmRjZmQzZjRjN2ViYTc2OWViOGRhMzU0OWNmMzRmOGE4MGY0MWUwYmI5NGY0ZDUxMWNmZGJkNzNmZTlcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDItb2YtMDAwMDUucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAyLW9mLTAwMDA1LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTM5MH19fV19&Signature=MEQCIGUxkNpvxXAFqs4lCUFpD8311c0mL-R2Cm7pUr9K70pnAiB%7Ex%7EKJQ-7i8SV2ZO25IyidL6dTEMLs9%7EEE3DO2X5TQug__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"4544abdcfd3f4c7eba769eb8da3549cf34f8a80f41e0bb94f4d511cfdbd73fe9\"",
+          "x_linked_etag": null,
+          "content_length": 252354771
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00003-of-00005.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/680a9d1cfb2d3ff72cc0d79a/2e6f53c3f8b68e4cdc05c2e3fb842e9a3f0a5b8f453ddeafcace64f19f0b12d7?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00003-of-00005.parquet%3B+filename%3D%22train-00003-of-00005.parquet%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1789481390&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjgwYTlkMWNmYjJkM2ZmNzJjYzBkNzlhLzJlNmY1M2MzZjhiNjhlNGNkYzA1YzJlM2ZiODQyZTlhM2YwYTViOGY0NTNkZGVhZmNhY2U2NGYxOWYwYjEyZDdcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDMtb2YtMDAwMDUucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAzLW9mLTAwMDA1LnBhcnF1ZXQlMjIlM0ImWC1YZXQtQ2FzLVVpZD1wdWJsaWMmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTM5MH19fV19&Signature=MEQCIC5QZwrKaiVOs571Xo7zvbOS3XDfqF9g-4GkO4HRZHQ6AiBDuQoJy4ngtWEiFiALCkTznig34wJ9k8sEDNke6cWvBQ__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"2e6f53c3f8b68e4cdc05c2e3fb842e9a3f0a5b8f453ddeafcace64f19f0b12d7\"",
+          "x_linked_etag": null,
+          "content_length": 205429466
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00004-of-00005.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/680a9d1cfb2d3ff72cc0d79a/5a1bd499cc98512f2f2a13964583d60d95b4e94e0b8b3185578f8d17e28c5842?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00004-of-00005.parquet%3B+filename%3D%22train-00004-of-00005.parquet%22%3B&user_id=public&X-Xet-Cas-Uid=public&Expires=1789481390&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjgwYTlkMWNmYjJkM2ZmNzJjYzBkNzlhLzVhMWJkNDk5Y2M5ODUxMmYyZjJhMTM5NjQ1ODNkNjBkOTViNGU5NGUwYjhiMzE4NTU3OGY4ZDE3ZTI4YzU4NDJcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDQtb2YtMDAwMDUucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDA0LW9mLTAwMDA1LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTM5MH19fV19&Signature=MEUCIQDzDScaf%7EHNlZkymsVlivpbhfiUtEYYSc%7EyOK5OzngJRAIgHN4fwkHj-IkVlhueJEiCyV9oGGjOfHKG2Mpitc45wZs_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"5a1bd499cc98512f2f2a13964583d60d95b4e94e0b8b3185578f8d17e28c5842\"",
+          "x_linked_etag": null,
+          "content_length": 199266481
+        }
+      ],
+      "completed_parts": [
+        {
+          "shard": "data/train-00000-of-00005.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00000-of-00005.parquet",
+          "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+          "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+          "file": "feature_parts/1b/part-00000.parquet",
+          "bytes": 8396093,
+          "sha256": "9b8912c616ef779e01c5b9fee4e04a3f7c9a3f72d6a81392b666150dceee2fe6"
+        },
+        {
+          "shard": "data/train-00001-of-00005.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00001-of-00005.parquet",
+          "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+          "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+          "file": "feature_parts/1b/part-00001.parquet",
+          "bytes": 8391252,
+          "sha256": "0e2f76f727ddb67383d4f2605c466319104419c385b1de117c087232ee700ae6"
+        },
+        {
+          "shard": "data/train-00002-of-00005.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00002-of-00005.parquet",
+          "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+          "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+          "file": "feature_parts/1b/part-00002.parquet",
+          "bytes": 8400677,
+          "sha256": "d46773878d2fb9cb8b567c52a13db3fcdb5634a02e5174b5db03b9b65e35a5c8"
+        },
+        {
+          "shard": "data/train-00003-of-00005.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00003-of-00005.parquet",
+          "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+          "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+          "file": "feature_parts/1b/part-00003.parquet",
+          "bytes": 8389144,
+          "sha256": "a9a632a019da8625f5e035f3f0688997494f23172b7033763ae8b3b926272323"
+        },
+        {
+          "shard": "data/train-00004-of-00005.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-0425-1b-preference-mix/resolve/c6454f3d364622718a8ecd3d307e524febbba569/data/train-00004-of-00005.parquet",
+          "revision": "c6454f3d364622718a8ecd3d307e524febbba569",
+          "query_sha256": "583142b0505de248521b738a7e2ca5f180b4f054c75fec454210969b3264d057",
+          "file": "feature_parts/1b/part-00004.parquet",
+          "bytes": 8390443,
+          "sha256": "3467e0ecda7f51140cf4971118677f39df531a1b6767017c676eb3daaea19bc5"
+        }
+      ],
+      "feature_file": "pair_features_1b.parquet",
+      "feature_file_bytes": 41831198,
+      "feature_file_sha256": "8d3f27abf0b4ff913880fcdb293c1d728376575fa06e99df0731b4656d384397",
+      "audit": {
+        "aggregate": {
+          "n_pairs": 378301,
+          "modeled_pairs": 378301,
+          "professional_referral_original_chosen_only": 2478,
+          "professional_referral_original_rejected_only": 2098,
+          "professional_referral_high_precision_chosen_only": 591,
+          "professional_referral_high_precision_rejected_only": 505,
+          "structuring_language_chosen_only": 27047,
+          "structuring_language_rejected_only": 21779,
+          "chosen_null": 0,
+          "rejected_null": 0,
+          "chosen_no_assistant": 0,
+          "rejected_no_assistant": 0,
+          "chosen_assistant_null_content": 0,
+          "rejected_assistant_null_content": 0,
+          "chosen_no_user": 0,
+          "rejected_no_user": 0,
+          "chosen_user_null_content": 0,
+          "rejected_user_null_content": 0,
+          "prompt_context_mismatch": 0,
+          "chosen_multiple_assistant": 0,
+          "rejected_multiple_assistant": 0,
+          "source_null": 0,
+          "id_null": 0
+        },
+        "length_bands": {
+          "chosen_longer_gt20": {
+            "n_pairs": 171170,
+            "professional_referral_original_chosen_only": 1615,
+            "professional_referral_original_rejected_only": 811,
+            "professional_referral_high_precision_chosen_only": 348,
+            "professional_referral_high_precision_rejected_only": 247,
+            "structuring_language_chosen_only": 17754,
+            "structuring_language_rejected_only": 7519
+          },
+          "chosen_shorter_gt20": {
+            "n_pairs": 134707,
+            "professional_referral_original_chosen_only": 668,
+            "professional_referral_original_rejected_only": 1085,
+            "professional_referral_high_precision_chosen_only": 181,
+            "professional_referral_high_precision_rejected_only": 208,
+            "structuring_language_chosen_only": 7020,
+            "structuring_language_rejected_only": 12120
+          },
+          "within_20_words": {
+            "n_pairs": 72424,
+            "professional_referral_original_chosen_only": 195,
+            "professional_referral_original_rejected_only": 202,
+            "professional_referral_high_precision_chosen_only": 62,
+            "professional_referral_high_precision_rejected_only": 50,
+            "structuring_language_chosen_only": 2273,
+            "structuring_language_rejected_only": 2140
+          }
+        },
+        "prompt_dependence": {
+          "distinct_prompt_hashes": 367082,
+          "duplicated_prompt_groups": 10332,
+          "rows_in_duplicated_groups": 21551,
+          "max_multiplicity": 15
+        },
+        "parity_checks": {
+          "n_pairs": true,
+          "aggregate::professional_referral_original::chosen_only": true,
+          "aggregate::professional_referral_original::rejected_only": true,
+          "aggregate::professional_referral_high_precision::chosen_only": true,
+          "aggregate::professional_referral_high_precision::rejected_only": true,
+          "aggregate::structuring_language::chosen_only": true,
+          "aggregate::structuring_language::rejected_only": true,
+          "band::chosen_longer_gt20::n_pairs": true,
+          "band::chosen_longer_gt20::professional_referral_original::chosen_only": true,
+          "band::chosen_longer_gt20::professional_referral_original::rejected_only": true,
+          "band::chosen_longer_gt20::professional_referral_high_precision::chosen_only": true,
+          "band::chosen_longer_gt20::professional_referral_high_precision::rejected_only": true,
+          "band::chosen_longer_gt20::structuring_language::chosen_only": true,
+          "band::chosen_longer_gt20::structuring_language::rejected_only": true,
+          "band::chosen_shorter_gt20::n_pairs": true,
+          "band::chosen_shorter_gt20::professional_referral_original::chosen_only": true,
+          "band::chosen_shorter_gt20::professional_referral_original::rejected_only": true,
+          "band::chosen_shorter_gt20::professional_referral_high_precision::chosen_only": true,
+          "band::chosen_shorter_gt20::professional_referral_high_precision::rejected_only": true,
+          "band::chosen_shorter_gt20::structuring_language::chosen_only": true,
+          "band::chosen_shorter_gt20::structuring_language::rejected_only": true,
+          "band::within_20_words::n_pairs": true,
+          "band::within_20_words::professional_referral_original::chosen_only": true,
+          "band::within_20_words::professional_referral_original::rejected_only": true,
+          "band::within_20_words::professional_referral_high_precision::chosen_only": true,
+          "band::within_20_words::professional_referral_high_precision::rejected_only": true,
+          "band::within_20_words::structuring_language::chosen_only": true,
+          "band::within_20_words::structuring_language::rejected_only": true,
+          "prompt_dependence": true
+        },
+        "all_parity_checks_pass": true
+      }
+    },
+    "7B": {
+      "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+      "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+      "shards": [
+        "data/train-00000-of-00006.parquet",
+        "data/train-00001-of-00006.parquet",
+        "data/train-00002-of-00006.parquet",
+        "data/train-00003-of-00006.parquet",
+        "data/train-00004-of-00006.parquet",
+        "data/train-00005-of-00006.parquet"
+      ],
+      "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+      "urls": [
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00000-of-00006.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00001-of-00006.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00002-of-00006.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00003-of-00006.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00004-of-00006.parquet",
+        "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00005-of-00006.parquet"
+      ],
+      "shard_headers": [
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00000-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/2dafba375e34818248014c10f257fcb14ac942ad0fc56b11a68e7b62b9e49162?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00000-of-00006.parquet%3B+filename%3D%22train-00000-of-00006.parquet%22%3B&user_id=public&Expires=1789481531&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1LzJkYWZiYTM3NWUzNDgxODI0ODAxNGMxMGYyNTdmY2IxNGFjOTQyYWQwZmM1NmIxMWE2OGU3YjYyYjllNDkxNjJcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDAtb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAwLW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzMX19fV19&Signature=MEUCICQGQ1L3qiiKdx1jo5wXsysrWz2g1Xh37xV9JAo1b8dQAiEA6OMDRCsTvFNn4il8%7EYgHB3R-b7ejXVYjbCL%7Eb6g15Bc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"2dafba375e34818248014c10f257fcb14ac942ad0fc56b11a68e7b62b9e49162\"",
+          "x_linked_etag": null,
+          "content_length": 229594592
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00001-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/ec48052f5153dfc80c77f06dcc71e06d64a68383b9c331ec0b61b8589e7698db?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00001-of-00006.parquet%3B+filename%3D%22train-00001-of-00006.parquet%22%3B&user_id=public&X-Xet-Cas-Uid=public&Expires=1789481531&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1L2VjNDgwNTJmNTE1M2RmYzgwYzc3ZjA2ZGNjNzFlMDZkNjRhNjgzODNiOWMzMzFlYzBiNjFiODU4OWU3Njk4ZGJcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDEtb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAxLW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzMX19fV19&Signature=MEYCIQDvumKVLqbhijyUibBrSs8F%7EYRjdLXRy3OzEibv703KZQIhAIDy6UXENTb4BcKZyLkd9B8HMmyog08p8pzbPj5W9h7E&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"ec48052f5153dfc80c77f06dcc71e06d64a68383b9c331ec0b61b8589e7698db\"",
+          "x_linked_etag": null,
+          "content_length": 204845274
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00002-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/347f84c07776cec7127eb3c9bc473337deb59304e545a24d35d557dea3845c75?user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00002-of-00006.parquet%3B+filename%3D%22train-00002-of-00006.parquet%22%3B&Expires=1789481532&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1LzM0N2Y4NGMwNzc3NmNlYzcxMjdlYjNjOWJjNDczMzM3ZGViNTkzMDRlNTQ1YTI0ZDM1ZDU1N2RlYTM4NDVjNzVcXD91c2VyX2lkPXB1YmxpYyZYLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDItb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAyLW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzMn19fV19&Signature=MEYCIQDVVtIuY7zejXDpE54ZfhhqwneYF-z%7EwJ%7EvfZvD2MR5bwIhAOegxlDNgLBI1e3P5G3XQqsYh3jWn-qY8Arkqd6gCJKH&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"347f84c07776cec7127eb3c9bc473337deb59304e545a24d35d557dea3845c75\"",
+          "x_linked_etag": null,
+          "content_length": 202213867
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00003-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/fc5f3dd19aeb0ef86559a3369f3c7bf7caaa3dfdfaea6387d80729fb9fe3c8d5?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00003-of-00006.parquet%3B+filename%3D%22train-00003-of-00006.parquet%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1789481532&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1L2ZjNWYzZGQxOWFlYjBlZjg2NTU5YTMzNjlmM2M3YmY3Y2FhYTNkZmRmYWVhNjM4N2Q4MDcyOWZiOWZlM2M4ZDVcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDMtb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDAzLW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0ImWC1YZXQtQ2FzLVVpZD1wdWJsaWMmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzMn19fV19&Signature=MEYCIQD7UUwWQZREiv74H4eX44EKmE1PLxtITNaEMrTmgsQmAgIhANa3XDqtms7GoMfThl88VwaRllO6SumEqmZXxbnqZYsf&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"fc5f3dd19aeb0ef86559a3369f3c7bf7caaa3dfdfaea6387d80729fb9fe3c8d5\"",
+          "x_linked_etag": null,
+          "content_length": 201710818
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00004-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/2d8b91a93eb9e3c7b129b260eae8270cdf0ee8b64be1130998ff31a92e1b681e?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00004-of-00006.parquet%3B+filename%3D%22train-00004-of-00006.parquet%22%3B&user_id=public&X-Xet-Cas-Uid=public&Expires=1789481532&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1LzJkOGI5MWE5M2ViOWUzYzdiMTI5YjI2MGVhZTgyNzBjZGYwZWU4YjY0YmUxMTMwOTk4ZmYzMWE5MmUxYjY4MWVcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDQtb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDA0LW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzMn19fV19&Signature=MEYCIQDLXO5qb7P51wNBiosVCJ2Rfz51p4FFNBe2aK4sAEmIGAIhAKf2ICRiFh7BhR3nj50Wndajtc5sPT6sHmhTmXfceTBz&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"2d8b91a93eb9e3c7b129b260eae8270cdf0ee8b64be1130998ff31a92e1b681e\"",
+          "x_linked_etag": null,
+          "content_length": 332551399
+        },
+        {
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00005-of-00006.parquet",
+          "resolved_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6744e20acf7006ca4305f125/a720c63e01106079f134b13e9f0a2721e505c2e0bdfd5a834090cfa10f264055?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27train-00005-of-00006.parquet%3B+filename%3D%22train-00005-of-00006.parquet%22%3B&user_id=public&Expires=1789481533&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc0NGUyMGFjZjcwMDZjYTQzMDVmMTI1L2E3MjBjNjNlMDExMDYwNzlmMTM0YjEzZTlmMGEyNzIxZTUwNWMyZTBiZGZkNWE4MzQwOTBjZmExMGYyNjQwNTVcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dHJhaW4tMDAwMDUtb2YtMDAwMDYucGFycXVldCUzQitmaWxlbmFtZSUzRCUyMnRyYWluLTAwMDA1LW9mLTAwMDA2LnBhcnF1ZXQlMjIlM0ImdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4OTQ4MTUzM319fV19&Signature=MEUCIQC36fhxL5Rw0AxOYmtyf5GAWbHgkXSeXCmGfrkFYle0AgIgZqt3BobpKPuLMPw5xoznbnRtRptmYoidu-E1XMdk45I_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F",
+          "etag": "\"a720c63e01106079f134b13e9f0a2721e505c2e0bdfd5a834090cfa10f264055\"",
+          "x_linked_etag": null,
+          "content_length": 284143067
+        }
+      ],
+      "completed_parts": [
+        {
+          "shard": "data/train-00000-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00000-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00000.parquet",
+          "bytes": 6993094,
+          "sha256": "48fa9632d9dfb096afc422aca7c2926dbf78dcbc704974a8e09416b6cfe3ae64"
+        },
+        {
+          "shard": "data/train-00001-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00001-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00001.parquet",
+          "bytes": 7001393,
+          "sha256": "c6cec0d09980ad552fae3e533c8a0d669e62e3620ad1c5a26e6473e77e710a5f"
+        },
+        {
+          "shard": "data/train-00002-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00002-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00002.parquet",
+          "bytes": 6993677,
+          "sha256": "dbc687aff60c015f91fbd250442be7d02dd3098d9eba6a9fd4a155a932bd64bf"
+        },
+        {
+          "shard": "data/train-00003-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00003-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00003.parquet",
+          "bytes": 6946482,
+          "sha256": "25d45d86b85da406627b55697d476419cb23391ae5523edb08fb4fce0937dce6"
+        },
+        {
+          "shard": "data/train-00004-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00004-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00004.parquet",
+          "bytes": 7008234,
+          "sha256": "62c69d572fb48f8b5510c4c5d03638d7d2dbea056981e35956cbc6ca6553d843"
+        },
+        {
+          "shard": "data/train-00005-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/allenai/olmo-2-1124-7b-preference-mix/resolve/316c96f092e87bc07b30d04116280bb80d70a0fb/data/train-00005-of-00006.parquet",
+          "revision": "316c96f092e87bc07b30d04116280bb80d70a0fb",
+          "query_sha256": "9ba75fa5bb447c4665be72966f769fcf8f07da16a0d447309b2daa2ca94f8c13",
+          "file": "feature_parts/7b/part-00005.parquet",
+          "bytes": 7007851,
+          "sha256": "ed1fb0fa73d2c8fcb59b9a98f7cc7825f9d2e147242db8e63188333c0ea9100b"
+        }
+      ],
+      "feature_file": "pair_features_7b.parquet",
+      "feature_file_bytes": 41720227,
+      "feature_file_sha256": "8b209b38a38925bbef6bb5d0cbd57065ba57fbe599a41b8baf51fb66a301ee5a",
+      "audit": {
+        "aggregate": {
+          "n_pairs": 378341,
+          "modeled_pairs": 378341,
+          "professional_referral_original_chosen_only": 2602,
+          "professional_referral_original_rejected_only": 1925,
+          "professional_referral_high_precision_chosen_only": 649,
+          "professional_referral_high_precision_rejected_only": 486,
+          "structuring_language_chosen_only": 28466,
+          "structuring_language_rejected_only": 19838,
+          "chosen_null": 0,
+          "rejected_null": 0,
+          "chosen_no_assistant": 0,
+          "rejected_no_assistant": 0,
+          "chosen_assistant_null_content": 0,
+          "rejected_assistant_null_content": 0,
+          "chosen_no_user": 0,
+          "rejected_no_user": 0,
+          "chosen_user_null_content": 0,
+          "rejected_user_null_content": 0,
+          "prompt_context_mismatch": 0,
+          "chosen_multiple_assistant": 0,
+          "rejected_multiple_assistant": 0,
+          "source_null": 19890,
+          "id_null": 0
+        },
+        "length_bands": {
+          "chosen_longer_gt20": {
+            "n_pairs": 187201,
+            "professional_referral_original_chosen_only": 1740,
+            "professional_referral_original_rejected_only": 801,
+            "professional_referral_high_precision_chosen_only": 423,
+            "professional_referral_high_precision_rejected_only": 240,
+            "structuring_language_chosen_only": 19913,
+            "structuring_language_rejected_only": 7629
+          },
+          "chosen_shorter_gt20": {
+            "n_pairs": 120381,
+            "professional_referral_original_chosen_only": 643,
+            "professional_referral_original_rejected_only": 911,
+            "professional_referral_high_precision_chosen_only": 170,
+            "professional_referral_high_precision_rejected_only": 188,
+            "structuring_language_chosen_only": 6341,
+            "structuring_language_rejected_only": 10240
+          },
+          "within_20_words": {
+            "n_pairs": 70759,
+            "professional_referral_original_chosen_only": 219,
+            "professional_referral_original_rejected_only": 213,
+            "professional_referral_high_precision_chosen_only": 56,
+            "professional_referral_high_precision_rejected_only": 58,
+            "structuring_language_chosen_only": 2212,
+            "structuring_language_rejected_only": 1969
+          }
+        },
+        "prompt_dependence": {
+          "distinct_prompt_hashes": 367110,
+          "duplicated_prompt_groups": 10343,
+          "rows_in_duplicated_groups": 21574,
+          "max_multiplicity": 15
+        },
+        "parity_checks": {
+          "n_pairs": true,
+          "aggregate::professional_referral_original::chosen_only": true,
+          "aggregate::professional_referral_original::rejected_only": true,
+          "aggregate::professional_referral_high_precision::chosen_only": true,
+          "aggregate::professional_referral_high_precision::rejected_only": true,
+          "aggregate::structuring_language::chosen_only": true,
+          "aggregate::structuring_language::rejected_only": true,
+          "band::chosen_longer_gt20::n_pairs": true,
+          "band::chosen_longer_gt20::professional_referral_original::chosen_only": true,
+          "band::chosen_longer_gt20::professional_referral_original::rejected_only": true,
+          "band::chosen_longer_gt20::professional_referral_high_precision::chosen_only": true,
+          "band::chosen_longer_gt20::professional_referral_high_precision::rejected_only": true,
+          "band::chosen_longer_gt20::structuring_language::chosen_only": true,
+          "band::chosen_longer_gt20::structuring_language::rejected_only": true,
+          "band::chosen_shorter_gt20::n_pairs": true,
+          "band::chosen_shorter_gt20::professional_referral_original::chosen_only": true,
+          "band::chosen_shorter_gt20::professional_referral_original::rejected_only": true,
+          "band::chosen_shorter_gt20::professional_referral_high_precision::chosen_only": true,
+          "band::chosen_shorter_gt20::professional_referral_high_precision::rejected_only": true,
+          "band::chosen_shorter_gt20::structuring_language::chosen_only": true,
+          "band::chosen_shorter_gt20::structuring_language::rejected_only": true,
+          "band::within_20_words::n_pairs": true,
+          "band::within_20_words::professional_referral_original::chosen_only": true,
+          "band::within_20_words::professional_referral_original::rejected_only": true,
+          "band::within_20_words::professional_referral_high_precision::chosen_only": true,
+          "band::within_20_words::professional_referral_high_precision::rejected_only": true,
+          "band::within_20_words::structuring_language::chosen_only": true,
+          "band::within_20_words::structuring_language::rejected_only": true,
+          "prompt_dependence": true
+        },
+        "all_parity_checks_pass": true
+      }
+    }
+  },
+  "cross_mixture_content_overlap": {
+    "hash_definition": "SHA-256(literal-separator join of chosen user prompt, chosen assistant text, rejected assistant text)",
+    "distinct_shared_content_pairs": 21508,
+    "multiplicity_matched_rows": 21515,
+    "distinct_content_pairs_1b": 378284,
+    "distinct_content_pairs_7b": 378331
+  },
+  "spline": {
+    "transform": "log1p(word_count)",
+    "quantile_probabilities": [
+      0.05,
+      0.275,
+      0.5,
+      0.725,
+      0.95
+    ],
+    "quantile_method": "numpy linear empirical interpolation",
+    "pooled_response_count": 1513284,
+    "knots": [
+      2.0794415416798357,
+      4.3694478524670215,
+      5.3230099791384085,
+      5.926926025970411,
+      6.606650186198215
+    ],
+    "word_count_equivalents": [
+      6.999999999999998,
+      78.0,
+      204.00000000000006,
+      373.99999999999994,
+      738.9999999999998
+    ],
+    "numeric_knots_frozen_at_utc": "2026-09-15T13:14:19.583086+00:00"
+  },
+  "protocol": {
+    "file": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\out\\paper\\DPO_CONDITIONAL_ANALYSIS_PROTOCOL_2026-09-15.md",
+    "sha256": "89cdd519b7a17ef6fbde162371a914fdde3cf71166fd4231787d4646a731fb1f",
+    "frozen_at_utc": "2026-09-15T13:15:13.131814+00:00"
+  }
+}

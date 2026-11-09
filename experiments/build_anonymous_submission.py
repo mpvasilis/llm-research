@@ -24,12 +24,15 @@ PAPER_FILES = (
     "out/paper/custom.bib",
     "out/paper/acl.sty",
     "out/paper/acl_natbib.bst",
+    "out/paper/ANNOTATION_GUIDE.md",
 )
 CODE_FILES = (
     "config.py",
     "requirements-paper.txt",
     "experiments/__init__.py",
     "experiments/prompts.json",
+    "experiments/prompts_full.json",
+    "experiments/build_notebook_v2.py",
     "experiments/summary_adapter.py",
     "experiments/monte_carlo_correction.py",
     "experiments/derive_paper_stats.py",
@@ -39,9 +42,13 @@ CODE_FILES = (
     "experiments/threshold_robustness.py",
     "experiments/audit_cluster_bootstrap.py",
     "experiments/dpo_pairwise.py",
+    "experiments/dpo_phrase_robustness.py",
+    "experiments/raw_output_robustness.py",
     "experiments/recount_sft_olmo2.py",
     "experiments/matched_control_stagewise.py",
     "experiments/render_matched_control_results.py",
+    "experiments/validation_v3.py",
+    "experiments/finalize_ai_consensus_v3.py",
 )
 RESULT_FILES = (
     "out/results/summary_v2.json",
@@ -55,7 +62,10 @@ RESULT_FILES = (
     "out/results/matched_control_stagewise.json",
     "out/results/matched_control_threshold_sweep.json",
     "out/results/colab_bundle_manifest_20260716.json",
+    "out/results/revision_artifact_manifest_20260716.json",
     "out/results/dpo_pairwise.json",
+    "out/results/dpo_phrase_robustness.json",
+    "out/results/raw_output_robustness.json",
     "out/results/sft_recount_olmo2.json",
     "out/results/ai_consensus_validation_v3.json",
     "out/results/ai_consensus_annotations_v3.csv",
@@ -66,6 +76,7 @@ RESULT_FILES = (
     "out/results/validation_items_v3.csv",
     "out/results/validation_key_v3.csv",
     "out/results/audit_cluster_bootstrap.json",
+    "out/raw_cache/final_7b_answers.jsonl",
 )
 FORBIDDEN = (
     "vasilis",
@@ -77,12 +88,17 @@ FORBIDDEN = (
 )
 README = """# Anonymous BlackboxNLP supplementary package
 
-This package contains the anonymous review PDF and source, deterministic
-analysis scripts, prompt battery, and machine-readable result artifacts.
+This package contains the anonymous review PDF and source, analysis and
+generation scripts, the complete prompt battery, the recovered final-7B raw
+responses, and machine-readable result artifacts.
 
 The 140-prompt evaluation, 90-prompt stagewise subset, and separate
 120-sentence AI-only audit are distinct samples. The AI audit is not human
-validation. Run the commands below from this directory after installing
+validation. `experiments/prompts.json` is the reused 12-prompt pilot;
+`experiments/prompts_full.json` is the complete 140-prompt battery. Raw
+generations are available only for the final 7B checkpoint (700 responses);
+stagewise raw caches were not recovered. Run the commands below from this
+directory after installing
 `requirements-paper.txt`:
 
 ```text
@@ -94,12 +110,19 @@ python -m experiments.multiple_testing
 python -m experiments.threshold_robustness
 python -m experiments.recount_sft_olmo2
 python -m experiments.audit_cluster_bootstrap
+python -m experiments.raw_output_robustness
+python -m experiments.dpo_phrase_robustness
 ```
 
-The completed four-seed matched-control extension is included with its strict
+The final two commands load the e5 model and remotely scan the public DPO
+parquet mixtures, respectively. Their released JSON outputs include detector
+component/fixed-window tests and phrase/source/within-pair-length DPO checks.
+
+The completed four-seed axis-targeted-control extension is included with its strict
 24-test `status=complete` artifact and three-threshold sensitivity sweep. The
 dated bundle manifest records the incoming aggregate archive hash and the
-boundary of the independent checks performed on it.
+boundary of the independent checks performed on it. The revision manifest
+separately records hashes and the exact scope of newly recovered raw data.
 """
 
 
@@ -133,7 +156,7 @@ def audit_pdf(path: Path) -> None:
     leaks = [marker for marker in FORBIDDEN if marker in combined]
     if leaks:
         raise SystemExit(f"Anonymous PDF audit failed: {leaks}")
-    if len(reader.pages) != 12:
+    if not 9 <= len(reader.pages) <= 16:
         raise SystemExit(f"Unexpected PDF page count: {len(reader.pages)}")
 
 

@@ -1,0 +1,1850 @@
+{
+  "1B": {
+    "dataset": "allenai/olmo-2-0425-1b-preference-mix",
+    "n_pairs": 378301,
+    "prompt_dependence": {
+      "distinct_prompt_texts": 367082,
+      "duplicated_prompt_groups": 10332,
+      "rows_in_duplicated_groups": 21551,
+      "max_multiplicity": 15
+    },
+    "groups": {
+      "professional_referral_original": {
+        "chosen_only": 2478,
+        "rejected_only": 2098,
+        "matched_odds_ratio": 1.1811,
+        "matched_odds_ratio_95ci": [
+          1.1144,
+          1.2518
+        ],
+        "paired_risk_difference": 0.0010045,
+        "paired_risk_difference_95ci": [
+          0.000654,
+          0.001355
+        ],
+        "exact_mcnemar_p": 2.0730316802228153e-08
+      },
+      "professional_referral_high_precision": {
+        "chosen_only": 591,
+        "rejected_only": 505,
+        "matched_odds_ratio": 1.1701,
+        "matched_odds_ratio_95ci": [
+          1.0391,
+          1.3176
+        ],
+        "paired_risk_difference": 0.0002273,
+        "paired_risk_difference_95ci": [
+          5.58e-05,
+          0.0003989
+        ],
+        "exact_mcnemar_p": 0.010210646238448706
+      },
+      "structuring_language": {
+        "chosen_only": 27047,
+        "rejected_only": 21779,
+        "matched_odds_ratio": 1.2419,
+        "matched_odds_ratio_95ci": [
+          1.2199,
+          1.2642
+        ],
+        "paired_risk_difference": 0.0139254,
+        "paired_risk_difference_95ci": [
+          0.0127814,
+          0.0150694
+        ],
+        "exact_mcnemar_p": 8.087135875807119e-126
+      }
+    },
+    "per_phrase": {
+      "a few things you can": {
+        "chosen_only": 47,
+        "rejected_only": 60,
+        "matched_odds_ratio": 0.7851,
+        "matched_odds_ratio_95ci": [
+          0.5369,
+          1.148
+        ],
+        "paired_risk_difference": -3.44e-05,
+        "paired_risk_difference_95ci": [
+          -8.8e-05,
+          1.92e-05
+        ],
+        "exact_mcnemar_p": 0.24589131461268435
+      },
+      "consider the following": {
+        "chosen_only": 1094,
+        "rejected_only": 1042,
+        "matched_odds_ratio": 1.0499,
+        "matched_odds_ratio_95ci": [
+          0.9645,
+          1.1428
+        ],
+        "paired_risk_difference": 0.0001375,
+        "paired_risk_difference_95ci": [
+          -0.000102,
+          0.0003769
+        ],
+        "exact_mcnemar_p": 0.26980910608088676
+      },
+      "consult a": {
+        "chosen_only": 707,
+        "rejected_only": 596,
+        "matched_odds_ratio": 1.1861,
+        "matched_odds_ratio_95ci": [
+          1.0637,
+          1.3226
+        ],
+        "paired_risk_difference": 0.0002934,
+        "paired_risk_difference_95ci": [
+          0.0001064,
+          0.0004804
+        ],
+        "exact_mcnemar_p": 0.002296381308266904
+      },
+      "first,": {
+        "chosen_only": 15364,
+        "rejected_only": 11843,
+        "matched_odds_ratio": 1.2973,
+        "matched_odds_ratio_95ci": [
+          1.2666,
+          1.3288
+        ],
+        "paired_risk_difference": 0.0093074,
+        "paired_risk_difference_95ci": [
+          0.0084533,
+          0.0101615
+        ],
+        "exact_mcnemar_p": 2.5266034674385986e-101
+      },
+      "healthcare professional": {
+        "chosen_only": 899,
+        "rejected_only": 798,
+        "matched_odds_ratio": 1.1265,
+        "matched_odds_ratio_95ci": [
+          1.0241,
+          1.2391
+        ],
+        "paired_risk_difference": 0.000267,
+        "paired_risk_difference_95ci": [
+          5.36e-05,
+          0.0004804
+        ],
+        "exact_mcnemar_p": 0.015178867926924395
+      },
+      "here are a few": {
+        "chosen_only": 3648,
+        "rejected_only": 3230,
+        "matched_odds_ratio": 1.1294,
+        "matched_odds_ratio_95ci": [
+          1.0772,
+          1.1842
+        ],
+        "paired_risk_difference": 0.0011049,
+        "paired_risk_difference_95ci": [
+          0.0006753,
+          0.0015346
+        ],
+        "exact_mcnemar_p": 4.91520690633478e-07
+      },
+      "here are some": {
+        "chosen_only": 9127,
+        "rejected_only": 7844,
+        "matched_odds_ratio": 1.1636,
+        "matched_odds_ratio_95ci": [
+          1.129,
+          1.1992
+        ],
+        "paired_risk_difference": 0.0033915,
+        "paired_risk_difference_95ci": [
+          0.0027166,
+          0.0040663
+        ],
+        "exact_mcnemar_p": 7.166102008685145e-23
+      },
+      "i am not a doctor": {
+        "chosen_only": 2,
+        "rejected_only": 2,
+        "matched_odds_ratio": 1.0,
+        "matched_odds_ratio_95ci": [
+          0.1732,
+          5.7723
+        ],
+        "paired_risk_difference": 0.0,
+        "paired_risk_difference_95ci": [
+          -1.04e-05,
+          1.04e-05
+        ],
+        "exact_mcnemar_p": 1.0
+      },
+      "i'm not a doctor": {
+        "chosen_only": 4,
+        "rejected_only": 7,
+        "matched_odds_ratio": 0.6,
+        "matched_odds_ratio_95ci": [
+          0.1865,
+          1.9307
+        ],
+        "paired_risk_difference": -7.9e-06,
+        "paired_risk_difference_95ci": [
+          -2.51e-05,
+          9.3e-06
+        ],
+        "exact_mcnemar_p": 0.548828125
+      },
+      "medical professional": {
+        "chosen_only": 444,
+        "rejected_only": 410,
+        "matched_odds_ratio": 1.0828,
+        "matched_odds_ratio_95ci": [
+          0.9469,
+          1.2383
+        ],
+        "paired_risk_difference": 8.99e-05,
+        "paired_risk_difference_95ci": [
+          -6.15e-05,
+          0.0002413
+        ],
+        "exact_mcnemar_p": 0.25878524800488156
+      },
+      "mental health professional": {
+        "chosen_only": 448,
+        "rejected_only": 343,
+        "matched_odds_ratio": 1.3057,
+        "matched_odds_ratio_95ci": [
+          1.1345,
+          1.5027
+        ],
+        "paired_risk_difference": 0.0002776,
+        "paired_risk_difference_95ci": [
+          0.0001318,
+          0.0004233
+        ],
+        "exact_mcnemar_p": 0.0002132475604578578
+      },
+      "professional help": {
+        "chosen_only": 573,
+        "rejected_only": 442,
+        "matched_odds_ratio": 1.296,
+        "matched_odds_ratio_95ci": [
+          1.1449,
+          1.4672
+        ],
+        "paired_risk_difference": 0.0003463,
+        "paired_risk_difference_95ci": [
+          0.0001812,
+          0.0005113
+        ],
+        "exact_mcnemar_p": 4.3935481974303836e-05
+      },
+      "secondly,": {
+        "chosen_only": 561,
+        "rejected_only": 634,
+        "matched_odds_ratio": 0.8849,
+        "matched_odds_ratio_95ci": [
+          0.7899,
+          0.9914
+        ],
+        "paired_risk_difference": -0.000193,
+        "paired_risk_difference_95ci": [
+          -0.0003721,
+          -1.39e-05
+        ],
+        "exact_mcnemar_p": 0.03722479444639264
+      },
+      "see a doctor": {
+        "chosen_only": 36,
+        "rejected_only": 34,
+        "matched_odds_ratio": 1.058,
+        "matched_odds_ratio_95ci": [
+          0.6643,
+          1.685
+        ],
+        "paired_risk_difference": 5.3e-06,
+        "paired_risk_difference_95ci": [
+          -3.81e-05,
+          4.86e-05
+        ],
+        "exact_mcnemar_p": 0.9049745264594622
+      },
+      "seek medical": {
+        "chosen_only": 145,
+        "rejected_only": 106,
+        "matched_odds_ratio": 1.3662,
+        "matched_odds_ratio_95ci": [
+          1.0641,
+          1.7541
+        ],
+        "paired_risk_difference": 0.0001031,
+        "paired_risk_difference_95ci": [
+          2.1e-05,
+          0.0001852
+        ],
+        "exact_mcnemar_p": 0.016289988896692063
+      },
+      "seek professional": {
+        "chosen_only": 487,
+        "rejected_only": 401,
+        "matched_odds_ratio": 1.2142,
+        "matched_odds_ratio_95ci": [
+          1.064,
+          1.3857
+        ],
+        "paired_risk_difference": 0.0002273,
+        "paired_risk_difference_95ci": [
+          7.29e-05,
+          0.0003817
+        ],
+        "exact_mcnemar_p": 0.004312775351893997
+      },
+      "speak with a": {
+        "chosen_only": 80,
+        "rejected_only": 101,
+        "matched_odds_ratio": 0.7931,
+        "matched_odds_ratio_95ci": [
+          0.592,
+          1.0626
+        ],
+        "paired_risk_difference": -5.55e-05,
+        "paired_risk_difference_95ci": [
+          -0.0001252,
+          1.42e-05
+        ],
+        "exact_mcnemar_p": 0.1369050613428057
+      },
+      "steps you can take": {
+        "chosen_only": 576,
+        "rejected_only": 447,
+        "matched_odds_ratio": 1.2883,
+        "matched_odds_ratio_95ci": [
+          1.1386,
+          1.4576
+        ],
+        "paired_risk_difference": 0.000341,
+        "paired_risk_difference_95ci": [
+          0.0001753,
+          0.0005067
+        ],
+        "exact_mcnemar_p": 6.152675435875464e-05
+      },
+      "talk to a": {
+        "chosen_only": 113,
+        "rejected_only": 137,
+        "matched_odds_ratio": 0.8255,
+        "matched_odds_ratio_95ci": [
+          0.6438,
+          1.0584
+        ],
+        "paired_risk_difference": -6.34e-05,
+        "paired_risk_difference_95ci": [
+          -0.0001454,
+          1.85e-05
+        ],
+        "exact_mcnemar_p": 0.14561715799903982
+      }
+    },
+    "by_source": {
+      "allenai/olmo2-1b-sft-used-p2-on-policy": {
+        "professional_referral_original": {
+          "chosen_only": 678,
+          "rejected_only": 593,
+          "matched_odds_ratio": 1.1432,
+          "matched_odds_ratio_95ci": [
+            1.024,
+            1.2764
+          ],
+          "paired_risk_difference": 0.0008705,
+          "paired_risk_difference_95ci": [
+            0.0001549,
+            0.0015861
+          ],
+          "exact_mcnemar_p": 0.018429521613953066
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 208,
+          "rejected_only": 188,
+          "matched_odds_ratio": 1.1061,
+          "matched_odds_ratio_95ci": [
+            0.9083,
+            1.3469
+          ],
+          "paired_risk_difference": 0.0002048,
+          "paired_risk_difference_95ci": [
+            -0.0001946,
+            0.0006043
+          ],
+          "exact_mcnemar_p": 0.33969529358437395
+        },
+        "structuring_language": {
+          "chosen_only": 10220,
+          "rejected_only": 7905,
+          "matched_odds_ratio": 1.2928,
+          "matched_odds_ratio_95ci": [
+            1.2554,
+            1.3313
+          ],
+          "paired_risk_difference": 0.0237091,
+          "paired_risk_difference_95ci": [
+            0.0210107,
+            0.0264074
+          ],
+          "exact_mcnemar_p": 2.1822772038044187e-66
+        }
+      },
+      "allenai/olmo2-1b-wildchat-unused-on-policy": {
+        "professional_referral_original": {
+          "chosen_only": 570,
+          "rejected_only": 433,
+          "matched_odds_ratio": 1.316,
+          "matched_odds_ratio_95ci": [
+            1.1615,
+            1.4911
+          ],
+          "paired_risk_difference": 0.0016269,
+          "paired_risk_difference_95ci": [
+            0.0008899,
+            0.002364
+          ],
+          "exact_mcnemar_p": 1.7039370239251418e-05
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 141,
+          "rejected_only": 90,
+          "matched_odds_ratio": 1.5635,
+          "matched_odds_ratio_95ci": [
+            1.201,
+            2.0355
+          ],
+          "paired_risk_difference": 0.0006056,
+          "paired_risk_difference_95ci": [
+            0.0002519,
+            0.0009594
+          ],
+          "exact_mcnemar_p": 0.0009612969507813345
+        },
+        "structuring_language": {
+          "chosen_only": 5307,
+          "rejected_only": 4042,
+          "matched_odds_ratio": 1.3129,
+          "matched_odds_ratio_95ci": [
+            1.2603,
+            1.3678
+          ],
+          "paired_risk_difference": 0.0150223,
+          "paired_risk_difference_95ci": [
+            0.0127741,
+            0.0172706
+          ],
+          "exact_mcnemar_p": 3.629478420505797e-39
+        }
+      },
+      "allenai/olmo2-1b-sft-if": {
+        "professional_referral_original": {
+          "chosen_only": 230,
+          "rejected_only": 175,
+          "matched_odds_ratio": 1.3134,
+          "matched_odds_ratio_95ci": [
+            1.0792,
+            1.5983
+          ],
+          "paired_risk_difference": 0.0008349,
+          "paired_risk_difference_95ci": [
+            0.0002362,
+            0.0014336
+          ],
+          "exact_mcnemar_p": 0.007215612536843206
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 48,
+          "rejected_only": 26,
+          "matched_odds_ratio": 1.8302,
+          "matched_odds_ratio_95ci": [
+            1.1399,
+            2.9385
+          ],
+          "paired_risk_difference": 0.000334,
+          "paired_risk_difference_95ci": [
+            7.8e-05,
+            0.0005899
+          ],
+          "exact_mcnemar_p": 0.014079981429530049
+        },
+        "structuring_language": {
+          "chosen_only": 2584,
+          "rejected_only": 1795,
+          "matched_odds_ratio": 1.4394,
+          "matched_odds_ratio_95ci": [
+            1.3553,
+            1.5288
+          ],
+          "paired_risk_difference": 0.011977,
+          "paired_risk_difference_95ci": [
+            0.0100103,
+            0.0139438
+          ],
+          "exact_mcnemar_p": 7.29751803464506e-33
+        }
+      },
+      "allenai/olmo2-1b-ultrafeedback-cleaned": {
+        "professional_referral_original": {
+          "chosen_only": 528,
+          "rejected_only": 473,
+          "matched_odds_ratio": 1.1162,
+          "matched_odds_ratio_95ci": [
+            0.986,
+            1.2635
+          ],
+          "paired_risk_difference": 0.0009043,
+          "paired_risk_difference_95ci": [
+            -0.0001153,
+            0.0019239
+          ],
+          "exact_mcnemar_p": 0.08781299663215453
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 100,
+          "rejected_only": 95,
+          "matched_odds_ratio": 1.0524,
+          "matched_odds_ratio_95ci": [
+            0.7953,
+            1.3925
+          ],
+          "paired_risk_difference": 8.22e-05,
+          "paired_risk_difference_95ci": [
+            -0.0003678,
+            0.0005322
+          ],
+          "exact_mcnemar_p": 0.7746233321773475
+        },
+        "structuring_language": {
+          "chosen_only": 4808,
+          "rejected_only": 4070,
+          "matched_odds_ratio": 1.1813,
+          "matched_odds_ratio_95ci": [
+            1.133,
+            1.2317
+          ],
+          "paired_risk_difference": 0.0121344,
+          "paired_risk_difference_95ci": [
+            0.0090994,
+            0.0151693
+          ],
+          "exact_mcnemar_p": 5.024881641948941e-15
+        }
+      },
+      "allenai/tulu-3-pref-personas-instruction-following": {
+        "professional_referral_original": {
+          "chosen_only": 131,
+          "rejected_only": 121,
+          "matched_odds_ratio": 1.0823,
+          "matched_odds_ratio_95ci": [
+            0.8457,
+            1.385
+          ],
+          "paired_risk_difference": 0.0005028,
+          "paired_risk_difference_95ci": [
+            -0.0010615,
+            0.0020671
+          ],
+          "exact_mcnemar_p": 0.5708375672009757
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 8,
+          "rejected_only": 15,
+          "matched_odds_ratio": 0.5484,
+          "matched_odds_ratio_95ci": [
+            0.2376,
+            1.2659
+          ],
+          "paired_risk_difference": -0.0003519,
+          "paired_risk_difference_95ci": [
+            -0.0008245,
+            0.0001206
+          ],
+          "exact_mcnemar_p": 0.21003961563110352
+        },
+        "structuring_language": {
+          "chosen_only": 403,
+          "rejected_only": 665,
+          "matched_odds_ratio": 0.6063,
+          "matched_odds_ratio_95ci": [
+            0.5358,
+            0.6861
+          ],
+          "paired_risk_difference": -0.0131724,
+          "paired_risk_difference_95ci": [
+            -0.0163876,
+            -0.0099573
+          ],
+          "exact_mcnemar_p": 1.0032324272355187e-15
+        }
+      },
+      "allenai/olmo2-1b-sft-used-p1-on-policy": {
+        "professional_referral_original": {
+          "chosen_only": 124,
+          "rejected_only": 124,
+          "matched_odds_ratio": 1.0,
+          "matched_odds_ratio_95ci": [
+            0.78,
+            1.282
+          ],
+          "paired_risk_difference": 0.0,
+          "paired_risk_difference_95ci": [
+            -0.0015609,
+            0.0015609
+          ],
+          "exact_mcnemar_p": 1.0
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 37,
+          "rejected_only": 46,
+          "matched_odds_ratio": 0.8065,
+          "matched_odds_ratio_95ci": [
+            0.5245,
+            1.24
+          ],
+          "paired_risk_difference": -0.0004551,
+          "paired_risk_difference_95ci": [
+            -0.0013581,
+            0.0004478
+          ],
+          "exact_mcnemar_p": 0.37999939641191804
+        },
+        "structuring_language": {
+          "chosen_only": 1972,
+          "rejected_only": 1624,
+          "matched_odds_ratio": 1.2142,
+          "matched_odds_ratio_95ci": [
+            1.137,
+            1.2966
+          ],
+          "paired_risk_difference": 0.017598,
+          "paired_risk_difference_95ci": [
+            0.0116594,
+            0.0235365
+          ],
+          "exact_mcnemar_p": 7.000203791046621e-09
+        }
+      },
+      "allenai/olmo2-1b-wildchat-used-on-policy": {
+        "professional_referral_original": {
+          "chosen_only": 108,
+          "rejected_only": 96,
+          "matched_odds_ratio": 1.1244,
+          "matched_odds_ratio_95ci": [
+            0.8547,
+            1.4791
+          ],
+          "paired_risk_difference": 0.0006788,
+          "paired_risk_difference_95ci": [
+            -0.0009047,
+            0.0022624
+          ],
+          "exact_mcnemar_p": 0.44128575924792757
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 29,
+          "rejected_only": 24,
+          "matched_odds_ratio": 1.2041,
+          "matched_odds_ratio_95ci": [
+            0.7047,
+            2.0574
+          ],
+          "paired_risk_difference": 0.0002828,
+          "paired_risk_difference_95ci": [
+            -0.0005243,
+            0.00109
+          ],
+          "exact_mcnemar_p": 0.5831321542611763
+        },
+        "structuring_language": {
+          "chosen_only": 956,
+          "rejected_only": 953,
+          "matched_odds_ratio": 1.0031,
+          "matched_odds_ratio_95ci": [
+            0.9171,
+            1.0973
+          ],
+          "paired_risk_difference": 0.0001697,
+          "paired_risk_difference_95ci": [
+            -0.0046745,
+            0.0050139
+          ],
+          "exact_mcnemar_p": 0.9634912865655224
+        }
+      },
+      "allenai/olmo2-1b-wildchat-if": {
+        "professional_referral_original": {
+          "chosen_only": 78,
+          "rejected_only": 62,
+          "matched_odds_ratio": 1.256,
+          "matched_odds_ratio_95ci": [
+            0.9009,
+            1.751
+          ],
+          "paired_risk_difference": 0.0014822,
+          "paired_risk_difference_95ci": [
+            -0.000666,
+            0.0036303
+          ],
+          "exact_mcnemar_p": 0.2047319763305933
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 15,
+          "rejected_only": 13,
+          "matched_odds_ratio": 1.1481,
+          "matched_odds_ratio_95ci": [
+            0.5535,
+            2.3817
+          ],
+          "paired_risk_difference": 0.0001853,
+          "paired_risk_difference_95ci": [
+            -0.0007755,
+            0.001146
+          ],
+          "exact_mcnemar_p": 0.8505540192127228
+        },
+        "structuring_language": {
+          "chosen_only": 707,
+          "rejected_only": 646,
+          "matched_odds_ratio": 1.0944,
+          "matched_odds_ratio_95ci": [
+            0.9837,
+            1.2175
+          ],
+          "paired_risk_difference": 0.0056508,
+          "paired_risk_difference_95ci": [
+            -0.0010269,
+            0.0123285
+          ],
+          "exact_mcnemar_p": 0.10281677746189466
+        }
+      },
+      "allenai/olmo2-1b-daring-anteater": {
+        "professional_referral_original": {
+          "chosen_only": 31,
+          "rejected_only": 21,
+          "matched_odds_ratio": 1.4651,
+          "matched_odds_ratio_95ci": [
+            0.8467,
+            2.5351
+          ],
+          "paired_risk_difference": 0.0061805,
+          "paired_risk_difference_95ci": [
+            -0.0025497,
+            0.0149106
+          ],
+          "exact_mcnemar_p": 0.21160856876151612
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 5,
+          "rejected_only": 8,
+          "matched_odds_ratio": 0.6471,
+          "matched_odds_ratio_95ci": [
+            0.2214,
+            1.8913
+          ],
+          "paired_risk_difference": -0.0018541,
+          "paired_risk_difference_95ci": [
+            -0.0062209,
+            0.0025126
+          ],
+          "exact_mcnemar_p": 0.5810546875
+        },
+        "structuring_language": {
+          "chosen_only": 90,
+          "rejected_only": 79,
+          "matched_odds_ratio": 1.1384,
+          "matched_odds_ratio_95ci": [
+            0.8422,
+            1.5386
+          ],
+          "paired_risk_difference": 0.0067985,
+          "paired_risk_difference_95ci": [
+            -0.0089458,
+            0.0225429
+          ],
+          "exact_mcnemar_p": 0.44185016848818237
+        }
+      }
+    },
+    "by_length_delta": {
+      "chosen_longer_gt20": {
+        "n_pairs": 171170,
+        "mean_word_delta": 190.0,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 1615,
+            "rejected_only": 811,
+            "matched_odds_ratio": 1.9908,
+            "matched_odds_ratio_95ci": [
+              1.8298,
+              2.1659
+            ],
+            "paired_risk_difference": 0.0046971,
+            "paired_risk_difference_95ci": [
+              0.0041335,
+              0.0052606
+            ],
+            "exact_mcnemar_p": 7.401737322887064e-61
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 348,
+            "rejected_only": 247,
+            "matched_odds_ratio": 1.4081,
+            "matched_odds_ratio_95ci": [
+              1.1964,
+              1.6572
+            ],
+            "paired_risk_difference": 0.0005901,
+            "paired_risk_difference_95ci": [
+              0.0003108,
+              0.0008694
+            ],
+            "exact_mcnemar_p": 3.9777201283482336e-05
+          },
+          "structuring_language": {
+            "chosen_only": 17754,
+            "rejected_only": 7519,
+            "matched_odds_ratio": 2.3611,
+            "matched_odds_ratio_95ci": [
+              2.2983,
+              2.4257
+            ],
+            "paired_risk_difference": 0.0597944,
+            "paired_risk_difference_95ci": [
+              0.0579962,
+              0.0615925
+            ],
+            "exact_mcnemar_p": 0.0
+          }
+        }
+      },
+      "chosen_shorter_gt20": {
+        "n_pairs": 134707,
+        "mean_word_delta": -249.9,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 668,
+            "rejected_only": 1085,
+            "matched_odds_ratio": 0.6158,
+            "matched_odds_ratio_95ci": [
+              0.5593,
+              0.6781
+            ],
+            "paired_risk_difference": -0.0030956,
+            "paired_risk_difference_95ci": [
+              -0.0037046,
+              -0.0024866
+            ],
+            "exact_mcnemar_p": 1.8108217033843148e-23
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 181,
+            "rejected_only": 208,
+            "matched_odds_ratio": 0.8705,
+            "matched_odds_ratio_95ci": [
+              0.7134,
+              1.0621
+            ],
+            "paired_risk_difference": -0.0002004,
+            "paired_risk_difference_95ci": [
+              -0.0004874,
+              8.65e-05
+            ],
+            "exact_mcnemar_p": 0.18734966127950944
+          },
+          "structuring_language": {
+            "chosen_only": 7020,
+            "rejected_only": 12120,
+            "matched_odds_ratio": 0.5792,
+            "matched_odds_ratio_95ci": [
+              0.5624,
+              0.5965
+            ],
+            "paired_risk_difference": -0.0378599,
+            "paired_risk_difference_95ci": [
+              -0.0398627,
+              -0.0358572
+            ],
+            "exact_mcnemar_p": 5.8869850619173415e-301
+          }
+        }
+      },
+      "within_20_words": {
+        "n_pairs": 72424,
+        "mean_word_delta": 0.5,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 195,
+            "rejected_only": 202,
+            "matched_odds_ratio": 0.9654,
+            "matched_odds_ratio_95ci": [
+              0.7932,
+              1.1751
+            ],
+            "paired_risk_difference": -9.67e-05,
+            "paired_risk_difference_95ci": [
+              -0.0006359,
+              0.0004426
+            ],
+            "exact_mcnemar_p": 0.7633583256200583
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 62,
+            "rejected_only": 50,
+            "matched_odds_ratio": 1.2376,
+            "matched_odds_ratio_95ci": [
+              0.8541,
+              1.7933
+            ],
+            "paired_risk_difference": 0.0001657,
+            "paired_risk_difference_95ci": [
+              -0.0001207,
+              0.0004521
+            ],
+            "exact_mcnemar_p": 0.29859285283284664
+          },
+          "structuring_language": {
+            "chosen_only": 2273,
+            "rejected_only": 2140,
+            "matched_odds_ratio": 1.0621,
+            "matched_odds_ratio_95ci": [
+              1.0013,
+              1.1267
+            ],
+            "paired_risk_difference": 0.0018364,
+            "paired_risk_difference_95ci": [
+              3.87e-05,
+              0.0036342
+            ],
+            "exact_mcnemar_p": 0.04690552273256991
+          }
+        }
+      }
+    }
+  },
+  "7B": {
+    "dataset": "allenai/olmo-2-1124-7b-preference-mix",
+    "n_pairs": 378341,
+    "prompt_dependence": {
+      "distinct_prompt_texts": 367110,
+      "duplicated_prompt_groups": 10343,
+      "rows_in_duplicated_groups": 21574,
+      "max_multiplicity": 15
+    },
+    "groups": {
+      "professional_referral_original": {
+        "chosen_only": 2602,
+        "rejected_only": 1925,
+        "matched_odds_ratio": 1.3516,
+        "matched_odds_ratio_95ci": [
+          1.2743,
+          1.4336
+        ],
+        "paired_risk_difference": 0.0017894,
+        "paired_risk_difference_95ci": [
+          0.0014409,
+          0.0021379
+        ],
+        "exact_mcnemar_p": 7.828739638059652e-24
+      },
+      "professional_referral_high_precision": {
+        "chosen_only": 649,
+        "rejected_only": 486,
+        "matched_odds_ratio": 1.335,
+        "matched_odds_ratio_95ci": [
+          1.187,
+          1.5015
+        ],
+        "paired_risk_difference": 0.0004308,
+        "paired_risk_difference_95ci": [
+          0.0002563,
+          0.0006054
+        ],
+        "exact_mcnemar_p": 1.4613394238772842e-06
+      },
+      "structuring_language": {
+        "chosen_only": 28466,
+        "rejected_only": 19838,
+        "matched_odds_ratio": 1.4349,
+        "matched_odds_ratio_95ci": [
+          1.4091,
+          1.4612
+        ],
+        "paired_risk_difference": 0.0228048,
+        "paired_risk_difference_95ci": [
+          0.0216686,
+          0.0239411
+        ],
+        "exact_mcnemar_p": 0.0
+      }
+    },
+    "per_phrase": {
+      "a few things you can": {
+        "chosen_only": 34,
+        "rejected_only": 51,
+        "matched_odds_ratio": 0.6699,
+        "matched_odds_ratio_95ci": [
+          0.4352,
+          1.0311
+        ],
+        "paired_risk_difference": -4.49e-05,
+        "paired_risk_difference_95ci": [
+          -9.27e-05,
+          2.8e-06
+        ],
+        "exact_mcnemar_p": 0.08205429958748713
+      },
+      "consider the following": {
+        "chosen_only": 1077,
+        "rejected_only": 955,
+        "matched_odds_ratio": 1.1277,
+        "matched_odds_ratio_95ci": [
+          1.0336,
+          1.2303
+        ],
+        "paired_risk_difference": 0.0003225,
+        "paired_risk_difference_95ci": [
+          8.89e-05,
+          0.000556
+        ],
+        "exact_mcnemar_p": 0.007254339899986066
+      },
+      "consult a": {
+        "chosen_only": 692,
+        "rejected_only": 571,
+        "matched_odds_ratio": 1.2117,
+        "matched_odds_ratio_95ci": [
+          1.0847,
+          1.3537
+        ],
+        "paired_risk_difference": 0.0003198,
+        "paired_risk_difference_95ci": [
+          0.0001357,
+          0.0005039
+        ],
+        "exact_mcnemar_p": 0.000727699880447745
+      },
+      "first,": {
+        "chosen_only": 15892,
+        "rejected_only": 10666,
+        "matched_odds_ratio": 1.4899,
+        "matched_odds_ratio_95ci": [
+          1.4538,
+          1.527
+        ],
+        "paired_risk_difference": 0.0138129,
+        "paired_risk_difference_95ci": [
+          0.0129698,
+          0.014656
+        ],
+        "exact_mcnemar_p": 5.170960722471512e-227
+      },
+      "healthcare professional": {
+        "chosen_only": 982,
+        "rejected_only": 739,
+        "matched_odds_ratio": 1.3286,
+        "matched_odds_ratio_95ci": [
+          1.2077,
+          1.4616
+        ],
+        "paired_risk_difference": 0.0006423,
+        "paired_risk_difference_95ci": [
+          0.0004274,
+          0.0008572
+        ],
+        "exact_mcnemar_p": 5.1318490920485534e-09
+      },
+      "here are a few": {
+        "chosen_only": 3658,
+        "rejected_only": 3119,
+        "matched_odds_ratio": 1.1728,
+        "matched_odds_ratio_95ci": [
+          1.1181,
+          1.2302
+        ],
+        "paired_risk_difference": 0.0014246,
+        "paired_risk_difference_95ci": [
+          0.0009982,
+          0.0018511
+        ],
+        "exact_mcnemar_p": 6.208513744009045e-11
+      },
+      "here are some": {
+        "chosen_only": 10037,
+        "rejected_only": 7254,
+        "matched_odds_ratio": 1.3836,
+        "matched_odds_ratio_95ci": [
+          1.3425,
+          1.4261
+        ],
+        "paired_risk_difference": 0.0073558,
+        "paired_risk_difference_95ci": [
+          0.006675,
+          0.0080366
+        ],
+        "exact_mcnemar_p": 9.03175217196851e-100
+      },
+      "i am not a doctor": {
+        "chosen_only": 2,
+        "rejected_only": 2,
+        "matched_odds_ratio": 1.0,
+        "matched_odds_ratio_95ci": [
+          0.1732,
+          5.7723
+        ],
+        "paired_risk_difference": 0.0,
+        "paired_risk_difference_95ci": [
+          -1.04e-05,
+          1.04e-05
+        ],
+        "exact_mcnemar_p": 1.0
+      },
+      "i'm not a doctor": {
+        "chosen_only": 8,
+        "rejected_only": 7,
+        "matched_odds_ratio": 1.1333,
+        "matched_odds_ratio_95ci": [
+          0.4245,
+          3.0255
+        ],
+        "paired_risk_difference": 2.6e-06,
+        "paired_risk_difference_95ci": [
+          -1.74e-05,
+          2.27e-05
+        ],
+        "exact_mcnemar_p": 1.0
+      },
+      "medical professional": {
+        "chosen_only": 453,
+        "rejected_only": 405,
+        "matched_odds_ratio": 1.1184,
+        "matched_odds_ratio_95ci": [
+          0.9782,
+          1.2787
+        ],
+        "paired_risk_difference": 0.0001269,
+        "paired_risk_difference_95ci": [
+          -2.49e-05,
+          0.0002786
+        ],
+        "exact_mcnemar_p": 0.10853804719008839
+      },
+      "mental health professional": {
+        "chosen_only": 500,
+        "rejected_only": 306,
+        "matched_odds_ratio": 1.633,
+        "matched_odds_ratio_95ci": [
+          1.4166,
+          1.8824
+        ],
+        "paired_risk_difference": 0.0005128,
+        "paired_risk_difference_95ci": [
+          0.0003657,
+          0.0006598
+        ],
+        "exact_mcnemar_p": 8.456505633168613e-12
+      },
+      "professional help": {
+        "chosen_only": 613,
+        "rejected_only": 434,
+        "matched_odds_ratio": 1.412,
+        "matched_odds_ratio_95ci": [
+          1.2487,
+          1.5966
+        ],
+        "paired_risk_difference": 0.0004731,
+        "paired_risk_difference_95ci": [
+          0.0003055,
+          0.0006407
+        ],
+        "exact_mcnemar_p": 3.507461030484868e-08
+      },
+      "secondly,": {
+        "chosen_only": 587,
+        "rejected_only": 576,
+        "matched_odds_ratio": 1.0191,
+        "matched_odds_ratio_95ci": [
+          0.9085,
+          1.1432
+        ],
+        "paired_risk_difference": 2.91e-05,
+        "paired_risk_difference_95ci": [
+          -0.0001476,
+          0.0002057
+        ],
+        "exact_mcnemar_p": 0.7693601537318834
+      },
+      "see a doctor": {
+        "chosen_only": 30,
+        "rejected_only": 37,
+        "matched_odds_ratio": 0.8133,
+        "matched_odds_ratio_95ci": [
+          0.5043,
+          1.3117
+        ],
+        "paired_risk_difference": -1.85e-05,
+        "paired_risk_difference_95ci": [
+          -6.09e-05,
+          2.39e-05
+        ],
+        "exact_mcnemar_p": 0.46381761789686937
+      },
+      "seek medical": {
+        "chosen_only": 156,
+        "rejected_only": 78,
+        "matched_odds_ratio": 1.9936,
+        "matched_odds_ratio_95ci": [
+          1.5203,
+          2.6144
+        ],
+        "paired_risk_difference": 0.0002062,
+        "paired_risk_difference_95ci": [
+          0.0001269,
+          0.0002854
+        ],
+        "exact_mcnemar_p": 3.7926151606213147e-07
+      },
+      "seek professional": {
+        "chosen_only": 520,
+        "rejected_only": 388,
+        "matched_odds_ratio": 1.3398,
+        "matched_odds_ratio_95ci": [
+          1.1748,
+          1.5279
+        ],
+        "paired_risk_difference": 0.0003489,
+        "paired_risk_difference_95ci": [
+          0.0001928,
+          0.000505
+        ],
+        "exact_mcnemar_p": 1.3331999263838904e-05
+      },
+      "speak with a": {
+        "chosen_only": 104,
+        "rejected_only": 91,
+        "matched_odds_ratio": 1.1421,
+        "matched_odds_ratio_95ci": [
+          0.8626,
+          1.512
+        ],
+        "paired_risk_difference": 3.44e-05,
+        "paired_risk_difference_95ci": [
+          -3.8e-05,
+          0.0001067
+        ],
+        "exact_mcnemar_p": 0.39020858409431625
+      },
+      "steps you can take": {
+        "chosen_only": 538,
+        "rejected_only": 388,
+        "matched_odds_ratio": 1.3861,
+        "matched_odds_ratio_95ci": [
+          1.2166,
+          1.5793
+        ],
+        "paired_risk_difference": 0.0003965,
+        "paired_risk_difference_95ci": [
+          0.0002388,
+          0.0005541
+        ],
+        "exact_mcnemar_p": 9.263870063312281e-07
+      },
+      "talk to a": {
+        "chosen_only": 135,
+        "rejected_only": 129,
+        "matched_odds_ratio": 1.0463,
+        "matched_odds_ratio_95ci": [
+          0.8224,
+          1.3313
+        ],
+        "paired_risk_difference": 1.59e-05,
+        "paired_risk_difference_95ci": [
+          -6.83e-05,
+          0.0001
+        ],
+        "exact_mcnemar_p": 0.7583560827169479
+      }
+    },
+    "by_source": {
+      "ai2-adapt-dev/sft_v3.9_used_on_policy_p1_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 729,
+          "rejected_only": 522,
+          "matched_odds_ratio": 1.3962,
+          "matched_odds_ratio_95ci": [
+            1.2478,
+            1.5622
+          ],
+          "paired_risk_difference": 0.0021196,
+          "paired_risk_difference_95ci": [
+            0.0014099,
+            0.0028294
+          ],
+          "exact_mcnemar_p": 5.3107636457458865e-09
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 220,
+          "rejected_only": 172,
+          "matched_odds_ratio": 1.2783,
+          "matched_odds_ratio_95ci": [
+            1.0474,
+            1.5601
+          ],
+          "paired_risk_difference": 0.0004915,
+          "paired_risk_difference_95ci": [
+            9.42e-05,
+            0.0008889
+          ],
+          "exact_mcnemar_p": 0.017491561093843946
+        },
+        "structuring_language": {
+          "chosen_only": 11009,
+          "rejected_only": 6843,
+          "matched_odds_ratio": 1.6088,
+          "matched_odds_ratio_95ci": [
+            1.5609,
+            1.658
+          ],
+          "paired_risk_difference": 0.0426586,
+          "paired_risk_difference_95ci": [
+            0.0399905,
+            0.0453268
+          ],
+          "exact_mcnemar_p": 2.774854869454548e-215
+        }
+      },
+      "ai2-adapt-dev/wildchat_v3.9_unused_on_policy_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 593,
+          "rejected_only": 422,
+          "matched_odds_ratio": 1.4047,
+          "matched_odds_ratio_95ci": [
+            1.24,
+            1.5914
+          ],
+          "paired_risk_difference": 0.0020312,
+          "paired_risk_difference_95ci": [
+            0.0012896,
+            0.0027728
+          ],
+          "exact_mcnemar_p": 8.885269760516417e-08
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 154,
+          "rejected_only": 96,
+          "matched_odds_ratio": 1.601,
+          "matched_odds_ratio_95ci": [
+            1.2415,
+            2.0647
+          ],
+          "paired_risk_difference": 0.0006889,
+          "paired_risk_difference_95ci": [
+            0.0003209,
+            0.001057
+          ],
+          "exact_mcnemar_p": 0.0002949579259471564
+        },
+        "structuring_language": {
+          "chosen_only": 5195,
+          "rejected_only": 3945,
+          "matched_odds_ratio": 1.3168,
+          "matched_odds_ratio_95ci": [
+            1.2634,
+            1.3725
+          ],
+          "paired_risk_difference": 0.0148479,
+          "paired_risk_difference_95ci": [
+            0.0126244,
+            0.0170714
+          ],
+          "exact_mcnemar_p": 4.025140542840119e-39
+        }
+      },
+      "ai2-adapt-dev/sft_v3.9_if_taxonomy_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 231,
+          "rejected_only": 169,
+          "matched_odds_ratio": 1.3658,
+          "matched_odds_ratio_95ci": [
+            1.1203,
+            1.6651
+          ],
+          "paired_risk_difference": 0.0009412,
+          "paired_risk_difference_95ci": [
+            0.0003461,
+            0.0015362
+          ],
+          "exact_mcnemar_p": 0.002248208104470811
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 43,
+          "rejected_only": 34,
+          "matched_odds_ratio": 1.2609,
+          "matched_odds_ratio_95ci": [
+            0.8065,
+            1.9712
+          ],
+          "paired_risk_difference": 0.0001366,
+          "paired_risk_difference_95ci": [
+            -0.0001245,
+            0.0003977
+          ],
+          "exact_mcnemar_p": 0.36203179773966154
+        },
+        "structuring_language": {
+          "chosen_only": 2424,
+          "rejected_only": 1819,
+          "matched_odds_ratio": 1.3325,
+          "matched_odds_ratio_95ci": [
+            1.2539,
+            1.416
+          ],
+          "paired_risk_difference": 0.0091839,
+          "paired_risk_difference_95ci": [
+            0.0072471,
+            0.0111207
+          ],
+          "exact_mcnemar_p": 1.5696861609962336e-20
+        }
+      },
+      "ai2-adapt-dev/ultrafeedback_cleaned_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 542,
+          "rejected_only": 429,
+          "matched_odds_ratio": 1.2631,
+          "matched_odds_ratio_95ci": [
+            1.1129,
+            1.4336
+          ],
+          "paired_risk_difference": 0.001858,
+          "paired_risk_difference_95ci": [
+            0.0008539,
+            0.0028621
+          ],
+          "exact_mcnemar_p": 0.00032074111001600427
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 126,
+          "rejected_only": 94,
+          "matched_odds_ratio": 1.3386,
+          "matched_odds_ratio_95ci": [
+            1.0255,
+            1.7474
+          ],
+          "paired_risk_difference": 0.0005262,
+          "paired_risk_difference_95ci": [
+            4.82e-05,
+            0.0010041
+          ],
+          "exact_mcnemar_p": 0.036375764721871616
+        },
+        "structuring_language": {
+          "chosen_only": 5271,
+          "rejected_only": 3659,
+          "matched_odds_ratio": 1.4405,
+          "matched_odds_ratio_95ci": [
+            1.381,
+            1.5025
+          ],
+          "paired_risk_difference": 0.0265049,
+          "paired_risk_difference_95ci": [
+            0.0234668,
+            0.029543
+          ],
+          "exact_mcnemar_p": 1.6314088669280082e-65
+        }
+      },
+      "null": {
+        "professional_referral_original": {
+          "chosen_only": 131,
+          "rejected_only": 121,
+          "matched_odds_ratio": 1.0823,
+          "matched_odds_ratio_95ci": [
+            0.8457,
+            1.385
+          ],
+          "paired_risk_difference": 0.0005028,
+          "paired_risk_difference_95ci": [
+            -0.0010615,
+            0.0020671
+          ],
+          "exact_mcnemar_p": 0.5708375672009757
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 8,
+          "rejected_only": 15,
+          "matched_odds_ratio": 0.5484,
+          "matched_odds_ratio_95ci": [
+            0.2376,
+            1.2659
+          ],
+          "paired_risk_difference": -0.0003519,
+          "paired_risk_difference_95ci": [
+            -0.0008245,
+            0.0001206
+          ],
+          "exact_mcnemar_p": 0.21003961563110352
+        },
+        "structuring_language": {
+          "chosen_only": 403,
+          "rejected_only": 665,
+          "matched_odds_ratio": 0.6063,
+          "matched_odds_ratio_95ci": [
+            0.5358,
+            0.6861
+          ],
+          "paired_risk_difference": -0.0131724,
+          "paired_risk_difference_95ci": [
+            -0.0163876,
+            -0.0099573
+          ],
+          "exact_mcnemar_p": 1.0032324272355187e-15
+        }
+      },
+      "ai2-adapt-dev/sft_v3.9_used_on_policy_p0_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 140,
+          "rejected_only": 112,
+          "matched_odds_ratio": 1.2489,
+          "matched_odds_ratio_95ci": [
+            0.9746,
+            1.6004
+          ],
+          "paired_risk_difference": 0.0014157,
+          "paired_risk_difference_95ci": [
+            -0.0001573,
+            0.0029888
+          ],
+          "exact_mcnemar_p": 0.08877284785792677
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 36,
+          "rejected_only": 44,
+          "matched_odds_ratio": 0.8202,
+          "matched_odds_ratio_95ci": [
+            0.5295,
+            1.2706
+          ],
+          "paired_risk_difference": -0.0004045,
+          "paired_risk_difference_95ci": [
+            -0.0012908,
+            0.0004819
+          ],
+          "exact_mcnemar_p": 0.43404225534547874
+        },
+        "structuring_language": {
+          "chosen_only": 2195,
+          "rejected_only": 1397,
+          "matched_odds_ratio": 1.571,
+          "matched_odds_ratio_95ci": [
+            1.4691,
+            1.68
+          ],
+          "paired_risk_difference": 0.0403479,
+          "paired_risk_difference_95ci": [
+            0.0344352,
+            0.0462606
+          ],
+          "exact_mcnemar_p": 1.132397378018138e-40
+        }
+      },
+      "ai2-adapt-dev/wildchat_v3.9_used_on_policy_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 119,
+          "rejected_only": 72,
+          "matched_odds_ratio": 1.6483,
+          "matched_odds_ratio_95ci": [
+            1.2312,
+            2.2067
+          ],
+          "paired_risk_difference": 0.0026525,
+          "paired_risk_difference_95ci": [
+            0.0011243,
+            0.0041808
+          ],
+          "exact_mcnemar_p": 0.0008276083957788162
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 37,
+          "rejected_only": 14,
+          "matched_odds_ratio": 2.5862,
+          "matched_odds_ratio_95ci": [
+            1.4107,
+            4.7413
+          ],
+          "paired_risk_difference": 0.001298,
+          "paired_risk_difference_95ci": [
+            0.0005083,
+            0.0020878
+          ],
+          "exact_mcnemar_p": 0.0017691971837869858
+        },
+        "structuring_language": {
+          "chosen_only": 1085,
+          "rejected_only": 843,
+          "matched_odds_ratio": 1.2869,
+          "matched_odds_ratio_95ci": [
+            1.1762,
+            1.408
+          ],
+          "paired_risk_difference": 0.0136577,
+          "paired_risk_difference_95ci": [
+            0.0088048,
+            0.0185105
+          ],
+          "exact_mcnemar_p": 3.894431314513108e-08
+        }
+      },
+      "ai2-adapt-dev/WildChat-prefs-280824_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 91,
+          "rejected_only": 65,
+          "matched_odds_ratio": 1.3969,
+          "matched_odds_ratio_95ci": [
+            1.0172,
+            1.9185
+          ],
+          "paired_risk_difference": 0.0024085,
+          "paired_risk_difference_95ci": [
+            0.0001412,
+            0.0046758
+          ],
+          "exact_mcnemar_p": 0.044980164189043735
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 21,
+          "rejected_only": 14,
+          "matched_odds_ratio": 1.4828,
+          "matched_odds_ratio_95ci": [
+            0.7617,
+            2.8862
+          ],
+          "paired_risk_difference": 0.0006484,
+          "paired_risk_difference_95ci": [
+            -0.0004256,
+            0.0017225
+          ],
+          "exact_mcnemar_p": 0.31050465907901537
+        },
+        "structuring_language": {
+          "chosen_only": 784,
+          "rejected_only": 593,
+          "matched_odds_ratio": 1.3218,
+          "matched_odds_ratio_95ci": [
+            1.1881,
+            1.4706
+          ],
+          "paired_risk_difference": 0.0176934,
+          "paired_risk_difference_95ci": [
+            0.0109641,
+            0.0244226
+          ],
+          "exact_mcnemar_p": 2.927362398488375e-07
+        }
+      },
+      "ai2-adapt-dev/DaringAnteater-prefs_olmo2_7b": {
+        "professional_referral_original": {
+          "chosen_only": 26,
+          "rejected_only": 13,
+          "matched_odds_ratio": 1.963,
+          "matched_odds_ratio_95ci": [
+            1.0193,
+            3.7804
+          ],
+          "paired_risk_difference": 0.0080346,
+          "paired_risk_difference_95ci": [
+            0.0004797,
+            0.0155895
+          ],
+          "exact_mcnemar_p": 0.05325191409792752
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 4,
+          "rejected_only": 3,
+          "matched_odds_ratio": 1.2857,
+          "matched_odds_ratio_95ci": [
+            0.318,
+            5.1976
+          ],
+          "paired_risk_difference": 0.000618,
+          "paired_risk_difference_95ci": [
+            -0.0025868,
+            0.0038229
+          ],
+          "exact_mcnemar_p": 1.0
+        },
+        "structuring_language": {
+          "chosen_only": 100,
+          "rejected_only": 74,
+          "matched_odds_ratio": 1.349,
+          "matched_odds_ratio_95ci": [
+            0.9997,
+            1.8203
+          ],
+          "paired_risk_difference": 0.0160692,
+          "paired_risk_difference_95ci": [
+            0.0001093,
+            0.0320291
+          ],
+          "exact_mcnemar_p": 0.05774745529642927
+        }
+      }
+    },
+    "by_length_delta": {
+      "chosen_longer_gt20": {
+        "n_pairs": 187201,
+        "mean_word_delta": 190.5,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 1740,
+            "rejected_only": 801,
+            "matched_odds_ratio": 2.1716,
+            "matched_odds_ratio_95ci": [
+              1.9973,
+              2.3611
+            ],
+            "paired_risk_difference": 0.005016,
+            "paired_risk_difference_95ci": [
+              0.0044887,
+              0.0055433
+            ],
+            "exact_mcnemar_p": 4.3022723154988755e-79
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 423,
+            "rejected_only": 240,
+            "matched_odds_ratio": 1.7609,
+            "matched_odds_ratio_95ci": [
+              1.5032,
+              2.0628
+            ],
+            "paired_risk_difference": 0.0009776,
+            "paired_risk_difference_95ci": [
+              0.000708,
+              0.0012471
+            ],
+            "exact_mcnemar_p": 1.1352983621630643e-12
+          },
+          "structuring_language": {
+            "chosen_only": 19913,
+            "rejected_only": 7629,
+            "matched_odds_ratio": 2.6101,
+            "matched_odds_ratio_95ci": [
+              2.5421,
+              2.6799
+            ],
+            "paired_risk_difference": 0.0656193,
+            "paired_risk_difference_95ci": [
+              0.0639073,
+              0.0673313
+            ],
+            "exact_mcnemar_p": 0.0
+          }
+        }
+      },
+      "chosen_shorter_gt20": {
+        "n_pairs": 120381,
+        "mean_word_delta": -299.7,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 643,
+            "rejected_only": 911,
+            "matched_odds_ratio": 0.706,
+            "matched_odds_ratio_95ci": [
+              0.6382,
+              0.7809
+            ],
+            "paired_risk_difference": -0.0022263,
+            "paired_risk_difference_95ci": [
+              -0.002868,
+              -0.0015846
+            ],
+            "exact_mcnemar_p": 1.1248557908483851e-11
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 170,
+            "rejected_only": 188,
+            "matched_odds_ratio": 0.9045,
+            "matched_odds_ratio_95ci": [
+              0.7353,
+              1.1127
+            ],
+            "paired_risk_difference": -0.0001495,
+            "paired_risk_difference_95ci": [
+              -0.0004576,
+              0.0001585
+            ],
+            "exact_mcnemar_p": 0.3689527238500436
+          },
+          "structuring_language": {
+            "chosen_only": 6341,
+            "rejected_only": 10240,
+            "matched_odds_ratio": 0.6193,
+            "matched_odds_ratio_95ci": [
+              0.6002,
+              0.639
+            ],
+            "paired_risk_difference": -0.0323888,
+            "paired_risk_difference_95ci": [
+              -0.0344774,
+              -0.0303003
+            ],
+            "exact_mcnemar_p": 3.610810047089114e-203
+          }
+        }
+      },
+      "within_20_words": {
+        "n_pairs": 70759,
+        "mean_word_delta": 0.7,
+        "groups": {
+          "professional_referral_original": {
+            "chosen_only": 219,
+            "rejected_only": 213,
+            "matched_odds_ratio": 1.0281,
+            "matched_odds_ratio_95ci": [
+              0.8516,
+              1.2412
+            ],
+            "paired_risk_difference": 8.48e-05,
+            "paired_risk_difference_95ci": [
+              -0.0004909,
+              0.0006605
+            ],
+            "exact_mcnemar_p": 0.8099281382860267
+          },
+          "professional_referral_high_precision": {
+            "chosen_only": 56,
+            "rejected_only": 58,
+            "matched_odds_ratio": 0.9658,
+            "matched_odds_ratio_95ci": [
+              0.6701,
+              1.3921
+            ],
+            "paired_risk_difference": -2.83e-05,
+            "paired_risk_difference_95ci": [
+              -0.000324,
+              0.0002675
+            ],
+            "exact_mcnemar_p": 0.9254349612567239
+          },
+          "structuring_language": {
+            "chosen_only": 2212,
+            "rejected_only": 1969,
+            "matched_odds_ratio": 1.1234,
+            "matched_odds_ratio_95ci": [
+              1.0572,
+              1.1937
+            ],
+            "paired_risk_difference": 0.0034342,
+            "paired_risk_difference_95ci": [
+              0.0016433,
+              0.0052251
+            ],
+            "exact_mcnemar_p": 0.00018141134539441178
+          }
+        }
+      }
+    }
+  }
+}

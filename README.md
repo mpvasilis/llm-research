@@ -1,29 +1,196 @@
-# Auditable machine-advice trace
+# Measuring advice-style language in OLMo-2
 
-This repository contains the code and artifacts for an observational study of
-where advice-response behaviors appear across OLMo-2's open training pipeline.
-It also includes a small interactive tracer for inspecting individual answers.
+This repository studies how detection rules and response length affect
+comparisons of advice-style language across OLMo-2 post-training. It contains
+the historical analyses, the current revision work, and a small interactive
+tracer for inspecting individual answers.
 
-## Paper artifacts
+## November 2026 submission review
 
-The authoritative result bundle is `out/results/summary_v3.json`, supplemented
-by the completed strict matched-stage report. The paper uses 140 prompts in five
+The [current revision PDF](output/pdf/advice_marker_revision_2026-11-09.pdf)
+organizes the paper around three questions: detector and text-window sensitivity,
+condition/checkpoint comparisons, and length-related DPO phrase associations.
+The [submission review and experiment roadmap](output/pdf/submission_review_2026-11-09.pdf)
+includes a critical evidence assessment and ten-paper literature comparison with
+primary sources and implementation resources. The editable manuscript remains
+in [out/paper/acl_latex.tex](out/paper/acl_latex.tex).
+
+A new retrospective paired analysis directly compares exact-only and union
+detector contrasts on the same 700 archived final-7B responses. It reproduces
+all 40 original rate cells and uses 20,000 shared prompt bootstrap draws, retaining
+all five generations and both detector outputs. Simultaneous intervals across
+the four categories support sensitivity to detector choice for empathy and
+structuring; they do not establish semantic empathy or fresh replication.
+See the [results](output/review_2026-11-09/component_reanalysis/paired_measurement_contrasts.json).
+
+Reproduce this analysis locally without model inference:
+
+```powershell
+python -m experiments.window_component_reanalysis_20261109
+```
+
+The paper remains a revision draft. Human validation and the prospective
+six-checkpoint evaluation remain pending. The September preparation and earlier
+snapshots below are preserved; no submission has been made.
+
+## September 2026 revision status
+
+The revision is an evidence-bounded work in progress. The revised manuscript
+clearly separates historical diagnostics from planned prospective evidence:
+
+- [revised PDF](output/pdf/advice_marker_revision_2026-09-15.pdf) and
+  [LaTeX source](out/paper/acl_latex.tex);
+- [plain-language explanation](out/paper/PAPER_EXPLAINED_2026-09-15.md),
+  [revision plan](out/paper/REVISION_AND_RESUBMISSION_PLAN_2026-09-14.md),
+  [review-response matrix](out/paper/REVIEW_RESPONSE_MATRIX_2026-09-15.md), and
+  current [revision progress report](out/paper/REVISION_PROGRESS_2026-09-15.md);
+- [completed exploratory DPO analysis](out/paper/DPO_CONDITIONAL_RESULTS_2026-09-15.md),
+  covering 756,642 preference pairs, with
+  [independent numerical verification](output/revision/verification/independent_dpo_numerical_check_20260915.json);
+- [v4 annotation guide](out/paper/ANNOTATION_GUIDE.md) and
+  [validation workflow](experiments/validation_v4.py);
+- [human prompt-review worksheet](output/revision/extended_study/prompt_review_worksheet.md)
+  and [blank successor review](output/revision/extended_study/human_prompt_review_template_v1.json),
+  covering the 40 fresh evaluation families;
+- [independent readability protocol](out/paper/EXTERNAL_READABILITY_PROTOCOL_2026-09-15.md)
+  and separate blank forms for [reader 1](output/revision/readability_v1/blank_reader_1.md)
+  and [reader 2](output/revision/readability_v1/blank_reader_2.md), bound to the
+  current PDF; both human readings remain pending;
+- [versioned detector specification](experiments/detector_spec.py),
+  [detector manifest](output/revision/study_v1/detector_manifest_v1.json), and
+  [historical-cache audit](output/revision/study_v1/historical_cache_audit_v1.json),
+  with [union-prediction parity audit](output/revision/study_v1/historical_union_prediction_audit_v2.json);
+- [draft prospective prompt blocks](experiments/prompts_revision_v1.json),
+  [preserved parent protocol v2](output/revision/full_study/protocol_v2.json),
+  [six-checkpoint calibration protocol](out/paper/CALIBRATION_PROTOCOL_2026-09-15.md),
+  [prospective human-validation protocol](out/paper/PROSPECTIVE_VALIDATION_PROTOCOL_2026-09-15.md),
+  [checkpoint-analysis protocol](out/paper/CHECKPOINT_ANALYSIS_PROTOCOL_2026-09-15.md), and
+  [resource inventory](output/revision/study_v1/resource_inventory_v1.json);
+- [historical final-7B response frame](output/revision/annotation_v4/historical_final7b_response_frame_v4.jsonl),
+  [full-response union predictions](output/revision/study_v1/historical_final7b_union_predictions_v2.jsonl),
+  and [112-item blank annotation packet](output/revision/annotation_v4/historical_packet_v2/validation_manifest_v4.json),
+  all diagnostic only with reused construction prompts flagged.
+
+Use the [extended study notebook](output/jupyter-notebook/advice_marker_extended_study.ipynb)
+with its [source bundle](output/jupyter-notebook/advice_marker_extended_study_bundle.zip)
+and the [frozen preparation companion](output/jupyter-notebook/advice_marker_frozen_preparation_bundle.zip).
+The [calibration guide](out/paper/FROZEN_CALIBRATION_GUIDE_2026-09-15.md) gives the
+extraction paths and explains how to load the existing design with all actions off.
+The [development decision](output/revision/extended_study/development_budget_decision_v1.json)
+records provisional caps of 1,024 and 2,048 tokens. Its [frozen successor](output/revision/extended_study/full_study/protocol_v1.json)
+and [exact 96-response calibration manifest](output/revision/extended_study/calibration_study/manifest.json)
+are verified preparation; calibration generation, human review, and the full evaluation remain pending.
+
+The unchanged notebook defaults leave both candidate-cap fields unset and all 21
+actions off. A relocated extraction of the source and preparation companions
+executed all 13 code cells without errors and loaded the frozen design. This
+checks preparation; it does not certify GPU execution, human validation, or
+scientific completion. Separately, the declared dependency ranges installed
+successfully in an isolated Windows Python 3.12.14 environment: package consistency
+and [imports/isolation](output/revision/environment_validation/import_check.json)
+passed with Transformers 4.57.6. In that clean environment, all six cached
+configuration/tokenizer checks passed and the unchanged notebook executed all
+13 code cells with no errors. The [independent verification](output/revision/verification/clean_environment_independent_verification_20260915.json)
+checks the retained execution, pins, and artifact hashes. This adds preparation
+evidence; the scientific work is blocked on suitable compute and genuine human
+participation. The separate [completed-probe companion](output/jupyter-notebook/advice_marker_completed_probe_bundle.zip)
+and [earlier extended guide](out/paper/EXTENDED_NOTEBOOK_GUIDE_2026-09-15.md) remain
+available as the preceding preparation snapshot.
+
+The preserved [v2 revision notebook](output/jupyter-notebook/advice_marker_revision_study.ipynb)
+runs from the accompanying [local source bundle](output/jupyter-notebook/advice_marker_revision_study_bundle.zip).
+Upload the notebook to Colab, then upload that exact bundle when prompted. It
+contains the preserved v2 workspace sources; cloning the public main
+branch is not a substitute. Generation and analysis start disabled. The full
+evaluation requires completed human prompt review, a sampling plan frozen from
+actual human development calibration and timing, and suitable compute. The
+notebook includes the fixed 1,024-token development probe and the separate
+96-response calibration workflow; neither creates human judgments.
+
+Validate the draft prompts with:
+
+```powershell
+python experiments/revision_study.py validate-prompts
+```
+
+The larger local development run uses two complete scenario families, four
+variants each, the pinned 1B Instruct model, and a proposed 256-token limit.
+The command resumes previously saved compatible answers. This is exploratory
+development, not the 2,880-response evaluation:
+
+```powershell
+python -m experiments.full_revision_study run `
+  --protocol output/revision/full_study/protocol_v2.json `
+  --mode development-256 `
+  --family-ids dev_health_hiking_blister dev_everyday_closet `
+  --output-root output/revision/full_study `
+  --device cpu --torch-threads 4 --local-files-only --execute
+```
+
+Both matched eight-response development runs completed and passed the saved-response
+and resume checks. All eight responses reached the 256-token cap; six reached the
+512-token cap and two stopped at EOS. The subsequent fixed 1,024-token probe
+also completed: all eight answers reached EOS at 454–744 tokens, and a true resume
+generated zero new responses while preserving every run-file hash. This supports
+considering 1,024 for broader six-checkpoint development calibration; it does not
+establish study-wide budget adequacy or semantic answer completeness. See the
+[budget comparison](out/paper/DEVELOPMENT_BUDGET_REPORT_2026-09-15.md),
+[fixed 1,024-token probe protocol](out/paper/DEVELOPMENT_BUDGET_PROBE_PROTOCOL_2026-09-15.md), and
+[progress report](out/paper/REVISION_PROGRESS_2026-09-15.md) for the evidence and
+remaining requirements.
+
+Prepare the historical diagnostic annotation packet from the frozen response
+frame and its versioned full-response predictions with:
+
+```powershell
+python -m experiments.validation_v4 prepare `
+  --responses output/revision/annotation_v4/historical_final7b_response_frame_v4.jsonl `
+  --predictions output/revision/study_v1/historical_final7b_union_predictions_v2.jsonl `
+  --split historical_diagnostic `
+  --out-dir output/revision/annotation_v4/historical_packet_v2 `
+  --random-per-stratum 8 --positive-per-category 20 --seed 0
+```
+
+Two independent human annotation passes and adjudication remain pending. The
+prospective multi-checkpoint generation also remains pending suitable compute.
+Until those are complete, the historical packet cannot establish a fresh test
+result or validate stagewise trajectories.
+
+The [resource manifest](output/revision/verification/checkpoint_download_resource_manifest_20260915.json)
+records 46.32 GiB of missing weights/indexes across the five unavailable checkpoints.
+No additional historical stagewise archive was found in the inspected Git history,
+reflogs, or unreachable objects; the advertised remote main commit is already local.
+The [completion audit](out/paper/GOAL_COMPLETION_AUDIT_2026-09-15.md) records the
+scope of these checks and the remaining human and compute dependencies.
+
+## Historical submitted-paper artifacts
+
+The artifacts in this section reproduce the prior submission and remain
+historical snapshots. Its result bundle is `out/results/summary_v3.json`, supplemented
+by the completed strict axis-targeted-control report. The paper uses 140 prompts in five
 conditions, five canonical final-model generations per prompt, a four-seed
-Base/SFT/DPO matched-control extension, OLMo-2 1B and 7B checkpoints, and the
-exact public SFT, DPO, and RLVR datasets associated with those checkpoints.
+Base/SFT/DPO axis-targeted-control extension, OLMo-2 1B and 7B checkpoints, the
+public post-training datasets, and indexed Stage-1 pretraining data.
 
 Important outputs:
 
-- `out/paper/acl_latex.pdf`: current anonymous manuscript.
-- `out/results/summary_v3.json`: canonical behavioral results.
+- `out/paper/acl_latex.pdf`: historical anonymous manuscript snapshot.
+- `out/results/summary_v3.json`: canonical frozen-proxy results.
 - `out/results/interaction_tests_v3.json`: stage-by-condition permutation tests.
-- `out/results/matched_control_stagewise.json`: complete 24-test matched-stage
+- `out/results/matched_control_stagewise.json`: complete 24-test axis-targeted
   extension at the frozen primary threshold.
-- `out/results/matched_control_threshold_sweep.json`: matched-stage sensitivity
+- `out/results/matched_control_threshold_sweep.json`: axis-targeted sensitivity
   reports at 0.80, 0.82, and 0.84.
 - `out/results/multiple_testing.json`: Benjamini-Hochberg corrections.
 - `out/results/dpo_pairwise.json`: paired McNemar DPO analysis with descriptive
   per-word normalization.
+- `out/results/dpo_phrase_robustness.json`: DPO effect intervals, high-precision
+  referral patterns, source/phrase checks, prompt duplication, and within-pair
+  length strata.
+- `out/results/raw_output_robustness.json`: final-7B detector components,
+  fixed-token windows, response lengths, joint patterns, and pilot exclusion.
+- `out/raw_cache/final_7b_answers.jsonl`: recovered 700-response final-7B cache;
+  raw generations for other checkpoints are not available here.
 - `out/results/threshold_robustness.json`: detector-threshold contrasts.
 - `out/results/audit_cluster_bootstrap.json`: response-cluster uncertainty for
   the AI-only 120-sentence detector audit.
@@ -31,8 +198,9 @@ Important outputs:
 - `output/jupyter-notebook/blackboxnlp_complete_pipeline.ipynb`: complete
   Google Colab pipeline, including regeneration, corrected statistics,
   validation v3, and the optional causal pilot.
-- `output/submission/blackboxnlp_anonymous_submission.zip`: identity-scanned,
-  self-contained review PDF, source, code, and machine-readable artifacts.
+- `output/submission/blackboxnlp_anonymous_submission.zip`: historical
+  identity-scanned submission snapshot with review PDF, source, code, and
+  machine-readable artifacts.
 
 ## Complete Google Colab workflow
 
@@ -51,12 +219,12 @@ The notebook checkpoints to Google Drive and writes a single results archive.
 Its validation UI never exposes the condition, detector prediction, or the
 other annotator's decisions.
 
-The reviewer-requested four-seed publication extension is complete. To rerun or
+The four-seed axis-targeted extension is complete. To rerun or
 extend it, connect an A100 runtime, set
 `RUN_FULL_PIPELINE=True`, leave `FULL_QUICK_TEST=False`, and then choose
 **Runtime > Run all**. The persistent Drive cache skips the released 4,550
 checkpoint generations and, with `FULL_MATCHED_CONTROL_SEEDS=4`, adds the 1,200
-missing Base/SFT/DPO matched-control generations. Fixed GPU prompt batches,
+missing Base/SFT/DPO axis-targeted-control generations. Fixed GPU prompt batches,
 vectorized detector scoring, and parallel threshold analyses reduce runtime.
 The analysis then requires all four selected seeds for every prompt, runs
 24 prompt-clustered difference-in-differences tests at the frozen 0.82 detector
@@ -89,12 +257,19 @@ python -m experiments.audit_cluster_bootstrap
 python -m experiments.render_interaction
 ```
 
-The stronger DPO analysis scans about 2.7 GB of public Hugging Face parquet data
+The DPO audits scan about 2.7 GB of public Hugging Face parquet data
 remotely with DuckDB and does not save those shards in the repository:
 
 ```powershell
 python -m experiments.dpo_pairwise
+python -m experiments.dpo_phrase_robustness
 python -m experiments.multiple_testing
+```
+
+Recompute the recovered final-7B response stress tests with:
+
+```powershell
+python -m experiments.raw_output_robustness
 ```
 
 To complete the human-validation gate, follow
@@ -118,13 +293,19 @@ python -m experiments.validation_v3 score
 tool-assisted diagnostic draft and are not human-validation evidence. The two
 AI annotation files are also diagnostic only and never enter validation v3.
 
-Compile the manuscript from `out/paper/` with the official ACL style:
+Compile the current manuscript from the repository root so its figure paths
+resolve correctly. Use a separate build directory to preserve the historical
+submitted PDF and bibliography:
 
 ```powershell
-pdflatex -interaction=nonstopmode -halt-on-error acl_latex.tex
+New-Item -ItemType Directory -Force output/revision/manuscript_build
+Copy-Item out/paper/acl.sty,out/paper/acl_natbib.bst,out/paper/custom.bib output/revision/manuscript_build
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=output/revision/manuscript_build out/paper/acl_latex.tex
+Push-Location output/revision/manuscript_build
 bibtex acl_latex
-pdflatex -interaction=nonstopmode -halt-on-error acl_latex.tex
-pdflatex -interaction=nonstopmode -halt-on-error acl_latex.tex
+Pop-Location
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=output/revision/manuscript_build out/paper/acl_latex.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=output/revision/manuscript_build out/paper/acl_latex.tex
 ```
 
 ## Individual-answer tracer
