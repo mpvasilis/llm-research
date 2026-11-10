@@ -1,0 +1,264 @@
+{
+  "status": "passed",
+  "at": "2026-09-15T17:56:37.742106+00:00",
+  "scope": "internal_metadata_consistency_of_all_completed_256_512_1024_rows",
+  "validated_rows": 24,
+  "producer_source": "experiments/full_revision_study.py",
+  "producer_source_sha256": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+  "producer_cap_rule": "output_tokens >= max_new_tokens and not eos_reached",
+  "file_sha256": {
+    "output/revision/full_study/exports/development_256_eight_responses.jsonl": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+    "output/revision/full_study/exports/development_512_eight_responses.jsonl": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4dd8728a238fe4414bc079535bad693d.json": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4b188d767b43ffd3eb750e3c7f9b10bd.json": "062baec7a4ff64123feab0a29bad6c6aa79b9194980faded879d70e9e755eb57",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_6115d86977355d4df6d5cfe0a35d111f.json": "ecbacf494d8614d29be249a7a579b040ec1b2071bffc62f8684aac353414a8d2",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_43dff3cd2c847545689f0e2a12e3cd7a.json": "de9dea6d1f5bd07ed66b827cc467204431700f31e731138e0bdd8c662469f550"
+  },
+  "checks": [
+    {
+      "response_id": "response_3aaa49cdce05c36921a699af8cdbebc1",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_50298e95e4e60c2dcab5aaa26b86da4a",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_5245f59f3574bf05b7adf533770e7bd9",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_77ed5bdb9a96cc1e720bc21049eda2ee",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_93d0e920acd47105b7910b8db671f076",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_99e24897f1d84380c13b5df203289e10",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_a6e77a65a62490ea83b9dffe6c044363",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_af5923b04512e9ef502133d7b8027e0b",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "cap": 256,
+      "output_tokens": 256,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_06233666a7e25fc64aa712eda1c19c7d",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_52cc6a8d31dbfb0f44e58817e3fd429b",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_60808ae7a6ce52b190e0504be72f08c7",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_6723f643c4abd791bf822093185d9af7",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_7f5ad912fa4cf4a47824d8fc41ac6a77",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "cap": 512,
+      "output_tokens": 461,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_843e2f1f61856de8e3c321e82e084169",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "cap": 512,
+      "output_tokens": 454,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_d121c2a62b597e2a1c3a72e9583257ac",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_f717d8011e4822010c62ec7cde7cab79",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "cap": 512,
+      "output_tokens": 512,
+      "cap_reached": true,
+      "eos_reached": false,
+      "reason": "max_new_tokens",
+      "consistent": true
+    },
+    {
+      "response_id": "response_322263f56de192300236c36fbb023a53",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "cap": 1024,
+      "output_tokens": 569,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "cap": 1024,
+      "output_tokens": 461,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "cap": 1024,
+      "output_tokens": 744,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "cap": 1024,
+      "output_tokens": 524,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "cap": 1024,
+      "output_tokens": 635,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_e48c6793e773ea143392927497495635",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "cap": 1024,
+      "output_tokens": 677,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_6115d86977355d4df6d5cfe0a35d111f",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "cap": 1024,
+      "output_tokens": 571,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    },
+    {
+      "response_id": "response_43dff3cd2c847545689f0e2a12e3cd7a",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "cap": 1024,
+      "output_tokens": 454,
+      "cap_reached": false,
+      "eos_reached": true,
+      "reason": "eos_token",
+      "consistent": true
+    }
+  ],
+  "limitation": "Checks internal metadata against frozen producer rules. Continuation token IDs were not retained, so actual final-token identity and semantic answer completeness are not established."
+}

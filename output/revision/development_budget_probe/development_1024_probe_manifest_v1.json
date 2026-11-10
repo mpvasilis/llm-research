@@ -1,0 +1,414 @@
+{
+  "manifest_schema_version": "revision-development-budget-probe-manifest-v1",
+  "probe_runner_version": "revision-development-budget-probe-runner-v1",
+  "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+  "purpose": "assess natural completion behavior after six of eight matched 512-token generations reached their cap",
+  "parent_protocol": {
+    "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+    "sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "runner_version": "revision-study-full-runner-v2",
+    "declared_source_sha256": {
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+      "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+    }
+  },
+  "source_sha256": {
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+  },
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "evidence": {
+    "artifacts": {
+      "development_256_responses": {
+        "path": "output/revision/full_study/exports/development_256_eight_responses.jsonl",
+        "sha256": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670"
+      },
+      "development_256_verification": {
+        "path": "output/revision/full_study/development_256_verification_20260915.json",
+        "sha256": "d39f77b6342f13d36000a526db48923bc7a49f5808f93720a8d19f174abc2abd"
+      },
+      "development_512_responses": {
+        "path": "output/revision/full_study/exports/development_512_eight_responses.jsonl",
+        "sha256": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9"
+      },
+      "development_512_verification": {
+        "path": "output/revision/full_study/development_512_verification_20260915.json",
+        "sha256": "ab2c0161b1390754d281a57f10b0e608181ae4989e09c55ef038bece8ecab2a7"
+      }
+    },
+    "validated_shared_execution_profile": {
+      "accelerator": null,
+      "cuda_runtime": null,
+      "device_class": "cpu",
+      "dtype": "float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+      "profile_schema_version": "revision-study-execution-profile-v1",
+      "python_version": "3.14.3",
+      "single_response_generation": true,
+      "torch_num_threads": 4,
+      "torch_version": "2.13.0+cpu",
+      "transformers_version": "5.5.4"
+    },
+    "validated_shared_execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "fixed_scope": {
+    "scenario_family_ids": [
+      "dev_health_hiking_blister",
+      "dev_everyday_closet"
+    ],
+    "checkpoint_alias": "1b_instruct",
+    "logical_seed": 0,
+    "max_new_tokens": 1024,
+    "expected_responses": 8
+  },
+  "checkpoint": {
+    "checkpoint_alias": "1b_instruct",
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+    "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+  },
+  "generation_config": {
+    "do_sample": true,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 1024
+  },
+  "grid": [
+    {
+      "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_01f2dd9289183cc9590e",
+        "prompt_text_sha256": "442000e92464bf502fca26c23da58cd37d2de0e4a3d1e287ed7c68dfa530cb7f",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 8933231524143871985,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+        "prompt_text_sha256": "80dc970f78828b72be57c03bb1e0a1398db527835c6ad4cce857ace11bdcfa9c",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 7685901955475228813,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_322263f56de192300236c36fbb023a53",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_37343c58848ceda69602",
+        "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 538954422983802219,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e48c6793e773ea143392927497495635",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_40d04e2b3122517b0182",
+        "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 2976021750472413337,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_46bc32ce20587f550b4f",
+        "prompt_text_sha256": "7360f27eb7be02c2f0c967efa97a3a8a85ebdf483f1f5fc54d4b3f2160311b13",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 8971794308151707630,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_5d34517bef1eac80859c",
+        "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 594045105949365461,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_6115d86977355d4df6d5cfe0a35d111f",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_723e9ae54014c790a7bd",
+        "prompt_text_sha256": "ae6fe829b0dc0c4cae0cac9abd9a2c05b0163546e7eda9238d86cb800c6ef8be",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 6365195081995441708,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_43dff3cd2c847545689f0e2a12e3cd7a",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_f604a2a97fc25ddb0159",
+        "prompt_text_sha256": "7069359f61ca14951101335bd278eb43c114e93303552652758a69d8e5262c85",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 1577440488323092923,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    }
+  ],
+  "expected_responses": 8,
+  "probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700"
+}

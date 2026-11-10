@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "Candidate portable notebook default-off local path only; no model generation, human completion, or empirical analysis. Final bundle awaits stable companion source.",
+  "bundle_sha256": "a7a6d9b2370ed503bbb48092b54eb0504fad6bc3f07449d40e8690dded3d3364",
+  "bundled_files": 19,
+  "total_cells": 26,
+  "executed_code_cells": 17,
+  "errors": 0
+}

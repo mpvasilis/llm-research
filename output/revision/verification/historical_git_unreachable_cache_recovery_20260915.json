@@ -1,0 +1,66 @@
+{
+  "audit_schema_version": "historical-git-unreachable-cache-recovery-addendum-v1",
+  "at": "2026-09-15T19:11:50.1746841Z",
+  "status": "complete_no_candidate_stagewise_raw_archive_found",
+  "classification": "read_only_local_reflog_and_unreachable_object_audit",
+  "extends": {
+    "path": "output/revision/verification/historical_git_cache_recovery_20260915.json",
+    "sha256": "a43b9c6bffde2d329e7c6d4ee22cfc8d92e755368628f2f57846170e4b31449b",
+    "preserved": true
+  },
+  "reflog": {
+    "unique_commit_ids": 9,
+    "reflog_only_commits": 0,
+    "all_reflog_commits_already_reachable_from_existing_refs": true
+  },
+  "object_database": {
+    "loose_objects_reported": 4302,
+    "loose_object_disk_size": "228.61 MiB",
+    "fsck_command_scope": "--unreachable --no-reflogs --no-progress",
+    "unreachable_objects": 141,
+    "unreachable_commits": 0,
+    "unreachable_trees": 93,
+    "unreachable_blobs": 48,
+    "unreachable_blob_total_bytes": 1830331,
+    "largest_unreachable_blob_bytes": 385705,
+    "bounded_scan_completed": true
+  },
+  "blob_structure_scan": {
+    "utf8_text_blobs": 45,
+    "pdf_blobs": 3,
+    "zip_blobs": 0,
+    "gzip_blobs": 0,
+    "zstd_blobs": 0,
+    "parquet_blobs": 0,
+    "pickle_blobs": 0,
+    "other_binary_blobs": 0,
+    "json_or_jsonl_blobs": 11,
+    "jsonl_event_logs": 4,
+    "json_status_or_audit_objects": 7,
+    "raw_answer_or_response_records": 0,
+    "plausible_stagewise_raw_archives": [],
+    "details": [
+      "The three largest blobs are PDFs (385705, 321540, and 321338 bytes).",
+      "JSONL blobs contain 3-6 generation progress events and no answer/response fields.",
+      "JSON objects are verification/status/QA records and contain no answer arrays or stagewise model-response records.",
+      "Other checkpoint/response terms occur in Python source or Markdown/TeX protocol and progress documents, not empirical archives."
+    ]
+  },
+  "conclusion": "No original stagewise raw-response cache or archive is recoverable from local reflogs or currently unreachable Git objects.",
+  "actions": {
+    "network_fetch": false,
+    "checkout": false,
+    "reset": false,
+    "lost_found_write": false,
+    "object_materialization_into_worktree": false,
+    "repository_files_changed": [
+      "output/revision/verification/historical_git_unreachable_cache_recovery_20260915.json"
+    ]
+  },
+  "limitations": [
+    "Objects already pruned from the local object database cannot be inspected.",
+    "External storage and other machines are outside scope.",
+    "Remote history was not fetched or expanded; separate root observations cover currently advertised refs."
+  ],
+  "scientific_boundary": "The recovered 700-response final-7B cache remains the only available historical raw archive. Fresh prospective generation and genuine human evidence remain required."
+}

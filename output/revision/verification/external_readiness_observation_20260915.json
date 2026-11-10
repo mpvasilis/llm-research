@@ -1,0 +1,86 @@
+{
+  "schema_version": "current-external-readiness-observation-v1",
+  "at": "2026-09-15T18:52:32.730417+00:00",
+  "current_goal_turn_id": "01a0a661-210c-7bd0-ba07-0bb01fd0357a",
+  "status": "external_resources_and_human_inputs_still_pending",
+  "checkpoint_weight_files": [
+    {
+      "checkpoint": "1b_sft",
+      "revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "weight_files": []
+    },
+    {
+      "checkpoint": "1b_dpo",
+      "revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "weight_files": []
+    },
+    {
+      "checkpoint": "1b_instruct",
+      "revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "weight_files": [
+        {
+          "file": "model.safetensors",
+          "bytes": 2969854224
+        }
+      ]
+    },
+    {
+      "checkpoint": "7b_sft",
+      "revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "weight_files": []
+    },
+    {
+      "checkpoint": "7b_dpo",
+      "revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "weight_files": []
+    },
+    {
+      "checkpoint": "7b_instruct",
+      "revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "weight_files": []
+    }
+  ],
+  "successor_human_review": {
+    "status": "PENDING_HUMAN_REVIEW",
+    "human_checks_completed": 0,
+    "reviewer_id": ""
+  },
+  "official_calibration_directory_entries": [
+    "manifest.json"
+  ],
+  "readability_directory_entries": [
+    "blank_reader_1.md",
+    "blank_reader_2.md",
+    "manifest.json"
+  ],
+  "resource_observations": {
+    "memory_observed_utc": "2026-09-15T18:44:00Z",
+    "total_visible_memory_kib": 33497812,
+    "free_physical_memory_kib": 15483268,
+    "display_adapter": "Microsoft Hyper-V Video",
+    "disk_free_bytes_approx_at_1845": {
+      "C": 80778412032,
+      "D": 61331681280
+    },
+    "D_disk_warning_path": "D:/DATALOSS_WARNING_README.txt",
+    "D_disk_warning_sha256": "4d6cdb5db29f981a7ad11f6f155197594a7574ef05d38231b9fcc3de2829cda4",
+    "D_marked_temporary_subject_to_data_loss": true,
+    "D_root_contains_research_directory": false,
+    "browser_inventory_at_1845": {
+      "available_browsers": 1,
+      "tabs": 0
+    },
+    "connected_gpu_or_cloud_storage_tool_found": false
+  },
+  "limits": [
+    "Memory and free-space values are time-specific observations, not runtime fit benchmarks.",
+    "Only exact pinned snapshot file sets and accessible local surfaces were checked.",
+    "No completed human files or new calibrated response archive were supplied in the accessible study directories."
+  ],
+  "local_work_continues": [
+    "clean isolated dependency/notebook/tokenizer validation",
+    "official pinned weight metadata sizing",
+    "local Git raw-archive recovery check"
+  ],
+  "goal_status_change_made": false
+}

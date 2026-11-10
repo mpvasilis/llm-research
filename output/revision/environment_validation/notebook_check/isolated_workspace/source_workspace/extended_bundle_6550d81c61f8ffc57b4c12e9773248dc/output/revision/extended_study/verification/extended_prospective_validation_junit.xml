@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="9" time="1211.987" timestamp="2026-09-15T20:35:49.998051+03:00" hostname="vmaqs2603230920"><testcase classname="tests.test_extended_prospective_validation" name="test_preview_freeze_and_validate_require_complete_human_bound_evidence" time="210.853" /><testcase classname="tests.test_extended_prospective_validation" name="test_freeze_rejects_partial_review_and_changed_guide" time="108.846" /><testcase classname="tests.test_extended_prospective_validation" name="test_length_allocation_edge_cases_and_exact_probabilities" time="0.004" /><testcase classname="tests.test_extended_prospective_validation" name="test_default_depth_extended_path_atomic_and_read_boundaries" time="0.348" /><testcase classname="tests.test_extended_prospective_validation" name="test_packet_is_deterministic_balanced_capped_and_records_all_probabilities" time="101.842" /><testcase classname="tests.test_extended_prospective_validation" name="test_prepare_delegates_strict_contract_and_rejects_family_leakage" time="104.666" /><testcase classname="tests.test_extended_prospective_validation" name="test_prediction_id_must_match_frozen_producer_identity" time="1.416" /><testcase classname="tests.test_extended_prospective_validation" name="test_two_human_passes_and_adjudication_are_bound_to_original_files" time="74.357" /><testcase classname="tests.test_extended_prospective_validation" name="test_real_strict_full_grid_roundtrip_and_uniform_wrong_run_id_rejection" time="604.990"><failure message="shutil.Error: [('\\\\?\\C:\\Users\\vasilis\\AppData\\Local\\Temp\\pytest-of-vasilis\\pytest-1137\\test_real_strict_full_grid_rou0\\full_output\\runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\readiness\\calibration_run_dir\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c', 'C:\\Users\\vasilis\\AppData\\Local\\Temp\\pytest-of-vasilis\\pytest-1137\\test_real_strict_full_grid_rou0\\relocated_complete_package\\evaluation_runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\readiness\\calibration_run_dir\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c', &quot;[WinError 3] The system cannot find the path specified: 'C:\\\\Users\\\\vasilis\\\\AppData\\\\Local\\\\Temp\\\\pytest-of-vasilis\\\\pytest-1137\\\\test_real_strict_full_grid_rou0\\\\relocated_complete_package\\\\evaluation_runs\\\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\\\readiness\\\\calibration_run_dir\\\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c'&quot;)]">frozen_inputs = {'evidence_path': WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1137/test_real_strict_...asilis/pytest-1137/test_real_strict_full_grid_rou0/copied_successor_validation_package_at_default_depth/cm.json'), ...}
+tmp_path = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1137/test_real_strict_full_grid_rou0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002BA55BF8F50&gt;
+
+    def test_real_strict_full_grid_roundtrip_and_uniform_wrong_run_id_rejection(
+        frozen_inputs: dict, tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        _freeze(frozen_inputs)
+        evaluation_run_dir, response_export, prediction_export, review_path = _strict_evaluation_archives(
+            frozen_inputs, tmp_path
+        )
+        readiness = {
+            "plan_path": frozen_inputs["plan_path"],
+            "calibration_manifest_path": frozen_inputs["manifest_path"],
+            "calibration_responses_path": frozen_inputs["responses_path"],
+            "calibration_run_dir": frozen_inputs["run_dir"],
+            "evidence_path": frozen_inputs["evidence_path"],
+            "guide_path": frozen_inputs["guide_path"],
+        }
+        before_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        execution = _execution()
+        monkeypatch.setattr(full, "execution_profile", lambda *_args: execution)
+    
+        def model_load_forbidden(*_args, **_kwargs):
+            raise AssertionError("A complete valid resume must not load a model")
+    
+        monkeypatch.setattr(full, "load_checkpoint", model_load_forbidden)
+        resumed = full.run_generation(
+            frozen_inputs["protocol_path"], "evaluation", evaluation_run_dir.parents[1],
+            None, review_path, "cpu", True, execution["torch_num_threads"],
+            readiness=readiness,
+        )
+        after_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        assert resumed["new_responses"] == 0 and resumed["completed"] == 2880
+        assert before_resume == after_resume
+        packet = tmp_path / "strict_packet"
+        manifest = prospective.prepare_packet(
+            frozen_inputs["plan_path"], frozen_inputs["protocol_path"], response_export,
+            prediction_export, frozen_inputs["manifest_path"], frozen_inputs["responses_path"],
+            frozen_inputs["run_dir"], frozen_inputs["evidence_path"], evaluation_run_dir,
+            packet, frozen_inputs["guide_path"],
+        )
+        assert manifest["n_pool"] == 2880
+        assert manifest["prediction_unit_counts_in_source"] == {
+            unit: 2880 for unit in revision_analysis.WINDOWS
+        }
+        assert manifest["n_probability_sample"] == 624
+        assert manifest["n_enriched_union"] &lt;= 120
+    
+        relocation = tmp_path / "relocated_complete_package"
+        relocated_protocol_root = relocation / "protocol_bundle"
+        shutil.copytree(frozen_inputs["protocol_path"].parent, relocated_protocol_root)
+        relocated_protocol = relocated_protocol_root / frozen_inputs["protocol_path"].name
+        relocated_manifest = relocation / "calibration_manifest.json"
+        relocated_calibration_responses = relocation / "calibration_responses.jsonl"
+        relocated_evidence = relocation / "human_evidence.json"
+        relocated_guide = relocation / "guide.md"
+        for source, destination in (
+            (frozen_inputs["manifest_path"], relocated_manifest),
+            (frozen_inputs["responses_path"], relocated_calibration_responses),
+            (frozen_inputs["evidence_path"], relocated_evidence),
+            (frozen_inputs["guide_path"], relocated_guide),
+        ):
+            shutil.copy2(source, destination)
+        relocated_plan = relocation / "sampling_plan.json"
+        shutil.copy2(frozen_inputs["plan_path"], relocated_plan)
+        relocated_calibration_run = relocation / "calibration_runs" / frozen_inputs["run_dir"].name
+        shutil.copytree(frozen_inputs["run_dir"], relocated_calibration_run)
+        relocated_evaluation_run = relocation / "evaluation_runs" / evaluation_run_dir.name
+&gt;       shutil.copytree(evaluation_run_dir, relocated_evaluation_run)
+
+tests\test_extended_prospective_validation.py:981: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\Python314\Lib\shutil.py:654: in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+entries = [&lt;DirEntry 'e.zip'&gt;, &lt;DirEntry 'human_review_manifest.json'&gt;, &lt;DirEntry 'protocol.json'&gt;, &lt;DirEntry 'readiness'&gt;, &lt;DirEntry 'responses'&gt;, &lt;DirEntry 'run_config.json'&gt;]
+src = WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1137/test_real_strict_full_grid_rou0/full_output/runs/extended_run_41c0438e65f5a04cc7d2b5e30180bb47')
+dst = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1137/test_real_strict_full_grid_rou0/relocated_complete_package/evaluation_runs/extended_run_41c0438e65f5a04cc7d2b5e30180bb47')
+symlinks = False, ignore = None
+copy_function = &lt;function copy2 at 0x000002BA3F6A9F30&gt;
+ignore_dangling_symlinks = False, dirs_exist_ok = False
+
+    def _copytree(entries, src, dst, symlinks, ignore, copy_function,
+                  ignore_dangling_symlinks, dirs_exist_ok=False):
+        if ignore is not None:
+            ignored_names = ignore(os.fspath(src), [x.name for x in entries])
+        else:
+            ignored_names = ()
+    
+        os.makedirs(dst, exist_ok=dirs_exist_ok)
+        errors = []
+        use_srcentry = copy_function is copy2 or copy_function is copy
+    
+        for srcentry in entries:
+            if srcentry.name in ignored_names:
+                continue
+            srcname = os.path.join(src, srcentry.name)
+            dstname = os.path.join(dst, srcentry.name)
+            srcobj = srcentry if use_srcentry else srcname
+            try:
+                is_symlink = srcentry.is_symlink()
+                if is_symlink and os.name == 'nt':
+                    # Special check for directory junctions, which appear as
+                    # symlinks but we want to recurse.
+                    lstat = srcentry.stat(follow_symlinks=False)
+                    if lstat.st_reparse_tag == stat.IO_REPARSE_TAG_MOUNT_POINT:
+                        is_symlink = False
+                if is_symlink:
+                    linkto = os.readlink(srcname)
+                    if symlinks:
+                        # We can't just leave it to `copy_function` because legacy
+                        # code with a custom `copy_function` may rely on copytree
+                        # doing the right thing.
+                        os.symlink(linkto, dstname)
+                        copystat(srcobj, dstname, follow_symlinks=not symlinks)
+                    else:
+                        # ignore dangling symlink if the flag is on
+                        if not os.path.exists(linkto) and ignore_dangling_symlinks:
+                            continue
+                        # otherwise let the copy occur. copy2 will raise an error
+                        if srcentry.is_dir():
+                            copytree(srcobj, dstname, symlinks, ignore,
+                                     copy_function, ignore_dangling_symlinks,
+                                     dirs_exist_ok)
+                        else:
+                            copy_function(srcobj, dstname)
+                elif srcentry.is_dir():
+                    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+                             ignore_dangling_symlinks, dirs_exist_ok)
+                else:
+                    # Will raise a SpecialFileError for unsupported file types
+                    copy_function(srcobj, dstname)
+            # catch the Error from the recursive copytree so that we can
+            # continue with other files
+            except Error as err:
+                errors.extend(err.args[0])
+            except OSError as why:
+                errors.append((srcname, dstname, str(why)))
+        try:
+            copystat(src, dst)
+        except OSError as why:
+            # Copying file access times may fail on Windows
+            if getattr(why, 'winerror', None) is None:
+                errors.append((src, dst, str(why)))
+        if errors:
+&gt;           raise Error(errors)
+E           shutil.Error: [('\\\\?\\C:\\Users\\vasilis\\AppData\\Local\\Temp\\pytest-of-vasilis\\pytest-1137\\test_real_strict_full_grid_rou0\\full_output\\runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\readiness\\calibration_run_dir\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c', 'C:\\Users\\vasilis\\AppData\\Local\\Temp\\pytest-of-vasilis\\pytest-1137\\test_real_strict_full_grid_rou0\\relocated_complete_package\\evaluation_runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\readiness\\calibration_run_dir\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c', "[WinError 3] The system cannot find the path specified: 'C:\\\\Users\\\\vasilis\\\\AppData\\\\Local\\\\Temp\\\\pytest-of-vasilis\\\\pytest-1137\\\\test_real_strict_full_grid_rou0\\\\relocated_complete_package\\\\evaluation_runs\\\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\\\readiness\\\\calibration_run_dir\\\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c'")]
+
+C:\Program Files\Python314\Lib\shutil.py:608: Error</failure></testcase></testsuite></testsuites>

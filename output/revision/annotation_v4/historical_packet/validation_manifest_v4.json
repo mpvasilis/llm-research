@@ -1,0 +1,98 @@
+{
+  "version": 4,
+  "status": "awaiting_two_independent_human_annotations",
+  "created_at": "2026-09-14T20:46:02.647959+00:00",
+  "split": "historical_diagnostic",
+  "scientific_scope": "historical diagnostic only; not a fresh test set or stagewise validation",
+  "human_targets": [
+    "empathy_expression",
+    "validation",
+    "professional_referral",
+    "professional_disclaimer",
+    "professional_mention",
+    "structuring"
+  ],
+  "empathy_location_definition": "opening means the first sentence, ending at the first . ! or ? boundary; the historical response-wide empathy_opener detector does not establish an opener claim",
+  "comparison_map": [
+    {
+      "original_category": "empathy_opener",
+      "human_target": "empathy_expression",
+      "alignment": "partial: historical prediction is response-wide, so its name does not support an opener claim"
+    },
+    {
+      "original_category": "validation",
+      "human_target": "validation",
+      "alignment": "aligned"
+    },
+    {
+      "original_category": "disclaimer",
+      "human_target": "professional_any",
+      "alignment": "combined comparison declared explicitly; component human targets remain separate"
+    },
+    {
+      "original_category": "crisis_referral",
+      "human_target": null,
+      "alignment": "not scored: v4 has no crisis-referral human target"
+    },
+    {
+      "original_category": "structure",
+      "human_target": "structuring",
+      "alignment": "aligned"
+    }
+  ],
+  "responses_source": "output/revision/annotation_v4/historical_final7b_response_frame_v4.jsonl",
+  "responses_sha256": "2b405ba1d51cf7f07e825a806f573c18b525ca05d27513830085c2656d91333e",
+  "predictions_source": "output/revision/study_v1/historical_final7b_union_predictions_v1.jsonl",
+  "predictions_sha256": "748c4a368a878513db9bd10505dc1c0afef4f9d1005ba65a4c84e0bba980aeed",
+  "detector_versions": [
+    "historical-raw-output-robustness-v1"
+  ],
+  "prediction_unit_used": "full_response",
+  "prediction_unit_counts_in_source": {
+    "full_response": 700
+  },
+  "prefix_rule": "full-response human labels never validate token-prefix predictions",
+  "n_pool": 700,
+  "n_items": 112,
+  "n_probability_sample": 40,
+  "n_enriched_union": 75,
+  "n_known_construction_prompt_items": 9,
+  "random_sampling": {
+    "seed": 0,
+    "without_replacement": true,
+    "stratum_fields": [
+      "condition",
+      "model_id",
+      "model_revision"
+    ],
+    "requested_per_stratum": 8,
+    "population_by_stratum": {
+      "{\"condition\":\"advice\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 300,
+      "{\"condition\":\"domain_factual\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 50,
+      "{\"condition\":\"emotional\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 100,
+      "{\"condition\":\"factual\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 150,
+      "{\"condition\":\"neutral_advice\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 100
+    },
+    "selected_by_stratum": {
+      "{\"condition\":\"advice\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 8,
+      "{\"condition\":\"domain_factual\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 8,
+      "{\"condition\":\"emotional\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 8,
+      "{\"condition\":\"factual\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 8,
+      "{\"condition\":\"neutral_advice\",\"model_id\":\"allenai/OLMo-2-1124-7B-Instruct\",\"model_revision\":\"unrecorded_historical\"}": 8
+    },
+    "inclusion_probabilities_recorded_in_key": true
+  },
+  "enrichment": {
+    "requested_per_original_category": 20,
+    "role": "separate detector-positive diagnostic",
+    "population_estimation": "forbidden unless a future analysis supplies justified design weights"
+  },
+  "uncertainty_unit": "scenario_family_id cluster",
+  "items_sha256": "3307ab82cc813490d8a0070cfe5f8392b105d4e8a7565d5f504dbd63f343bcaf",
+  "key_sha256": "909ef95977eca3f295bb6e8bbaf0039049f951f898620811c695927f701f0140",
+  "blank_annotation_template_sha256": {
+    "blank_human_annotations_1_v4.csv": "786c1f3a755fc915ce89439ff3d719b206f7711f8cc455c429d43635831bb3c6",
+    "blank_human_annotations_2_v4.csv": "786c1f3a755fc915ce89439ff3d719b206f7711f8cc455c429d43635831bb3c6"
+  },
+  "human_provenance": "not yet collected; AI labels are prohibited"
+}

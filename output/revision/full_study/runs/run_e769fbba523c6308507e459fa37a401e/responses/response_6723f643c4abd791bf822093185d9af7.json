@@ -1,0 +1,96 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_6723f643c4abd791bf822093185d9af7",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_723e9ae54014c790a7bd",
+    "prompt_text_sha256": "ae6fe829b0dc0c4cae0cac9abd9a2c05b0163546e7eda9238d86cb800c6ef8be",
+    "scenario_family_id": "dev_health_hiking_blister",
+    "split": "development",
+    "condition": {
+      "domain": "health",
+      "emotional_framing": false,
+      "request_type": "information"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 6365195081995441708,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 512
+    }
+  },
+  "prompt_id": "prompt_723e9ae54014c790a7bd",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "ae6fe829b0dc0c4cae0cac9abd9a2c05b0163546e7eda9238d86cb800c6ef8be",
+  "scenario_family_id": "dev_health_hiking_blister",
+  "split": "development",
+  "condition": {
+    "domain": "health",
+    "emotional_framing": false,
+    "request_type": "information"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 6365195081995441708,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "I sometimes get an ordinary foot blister during a day hike. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+    "serialized_prompt": "<|endoftext|><|user|>\nI sometimes get an ordinary foot blister during a day hike. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.\n<|assistant|>\n",
+    "response": "Foot blisters, also known as calluses, blisters, or simply blisters on the foot, can occur due to a variety of factors related to friction, moisture, and improper shoe fit. Understanding these causes can help you recognize and manage the problem more effectively.\n\n### Friction\n\n**Friction Causes:**\n- **Shoe Fit:** A poorly-fitting shoe can rub against your feet, especially during activities that cause more friction, such as hiking uphill or across varied terrains.\n- **Terrain:** Rough terrain or uneven surfaces can increase friction between your feet and the shoe.\n- **Hiking Gear:** Heavy packs or improper weight distribution in your boots can cause friction.\n\n**Prevention:**\n- Ensure your hiking shoes are well-fitted, with a snug but comfortable fit.\n- Choose shoes with adequate arch support and a cushioned sole to reduce friction.\n- Wear moisture-wicking socks that absorb sweat and reduce moisture in your shoes.\n\n### Moisture\n\n**Moisture Causes:**\n- **Swimming or Wet Hiking:** Direct exposure to water or wet conditions can increase the risk of blisters, as it causes the skin on the feet to swell and become more sensitive.\n- **Sweat:** High activity levels and prolonged periods of activity can lead to excessive moisture under the foot, which can irritate sensitive skin.\n\n**Prevention:**\n- Wear dry, breathable footwear, especially during swimming or when you're in wet conditions.\n- After hiking, dry your feet thoroughly, and consider wearing dry socks overnight.\n- Use moisture-wicking materials in your shoes to help keep your feet dry.\n\n### Shoe Fit\n\n**Shoe Fit Causes:**\n- **Irregular Shape:** Shoes that are not properly shaped or sized can rub against the feet, causing friction.\n- **Flat or Narrow Sole:** A narrow or flat sole can increase friction and cause blisters on the balls of the feet or the sides of the feet.\n\n**Prevention:**\n- Wear shoes that are properly sized and fit well, especially when the terrain is challenging.\n- Consider wearing inserts in your shoes to adjust the fit and provide additional cushioning.\n- Regularly check the fit of your shoes to ensure they are not too tight or too loose.\n\n### Summary\n\nFoot blisters are a combination of friction, moisture, and poor shoe fit. By addressing these factors, you can significantly reduce the likelihood of developing blisters during hikes.\n\n- **Fitting:** Ensure your shoes fit well and are not too tight or too loose.\n- **Moist",
+    "input_tokens": 44,
+    "output_tokens": 512,
+    "max_new_tokens": 512,
+    "stopping": {
+      "reason": "max_new_tokens",
+      "eos_reached": false,
+      "cap_reached": true
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 512,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 857.1406982999979,
+      "generated_tokens_per_second": 0.597334837810724,
+      "scope": "single model.generate call only"
+    }
+  }
+}

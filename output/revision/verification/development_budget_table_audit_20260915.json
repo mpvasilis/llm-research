@@ -1,0 +1,138 @@
+{
+  "status": "passed",
+  "at": "2026-09-15T16:03:44.087307+00:00",
+  "scope": "All eight rows and eleven columns of the256/512 report table, reconstructed by prompt identity from both saved response exports. This is not a review of clinical accuracy or semantic answer completeness.",
+  "report_sha256": "93fd1873abd3dbd049a81b13f956bb475d44a9e841705b6609c0370a69390d3f",
+  "rows": 8,
+  "columns": 11,
+  "table_cells_verified": 88,
+  "table": [
+    [
+      "hiking blister",
+      "health",
+      "emotional",
+      "advice",
+      "256",
+      "cap",
+      "104.88",
+      "512",
+      "cap",
+      "189.53",
+      "yes"
+    ],
+    [
+      "closet organization",
+      "everyday",
+      "neutral",
+      "advice",
+      "256",
+      "cap",
+      "114.13",
+      "512",
+      "cap",
+      "388.71",
+      "yes"
+    ],
+    [
+      "closet organization",
+      "everyday",
+      "emotional",
+      "information",
+      "256",
+      "cap",
+      "110.81",
+      "512",
+      "cap",
+      "968.67",
+      "yes"
+    ],
+    [
+      "closet organization",
+      "everyday",
+      "neutral",
+      "information",
+      "256",
+      "cap",
+      "108.42",
+      "512",
+      "cap",
+      "641.80",
+      "yes"
+    ],
+    [
+      "hiking blister",
+      "health",
+      "emotional",
+      "information",
+      "256",
+      "cap",
+      "94.61",
+      "512",
+      "cap",
+      "703.49",
+      "yes"
+    ],
+    [
+      "closet organization",
+      "everyday",
+      "emotional",
+      "advice",
+      "256",
+      "cap",
+      "90.65",
+      "461",
+      "EOS",
+      "769.47",
+      "yes"
+    ],
+    [
+      "hiking blister",
+      "health",
+      "neutral",
+      "information",
+      "256",
+      "cap",
+      "83.51",
+      "512",
+      "cap",
+      "857.14",
+      "yes"
+    ],
+    [
+      "hiking blister",
+      "health",
+      "neutral",
+      "advice",
+      "256",
+      "cap",
+      "88.28",
+      "454",
+      "EOS",
+      "695.73",
+      "yes"
+    ]
+  ],
+  "derived_generation_statistics": {
+    "256": {
+      "responses": 8,
+      "output_tokens": 2048,
+      "generation_seconds_total": 795.2774338999952,
+      "generation_seconds_mean": 99.4096792374994,
+      "generation_seconds_min": 83.50994730000093,
+      "generation_seconds_max": 114.13184139999794,
+      "cap_stops": 8,
+      "eos_stops": 0
+    },
+    "512": {
+      "responses": 8,
+      "output_tokens": 3987,
+      "generation_seconds_total": 5214.543871599999,
+      "generation_seconds_mean": 651.8179839499999,
+      "generation_seconds_min": 189.5294980000035,
+      "generation_seconds_max": 968.671540299998,
+      "cap_stops": 6,
+      "eos_stops": 2
+    }
+  },
+  "raw_token_identity_claimed": false
+}

@@ -1,0 +1,172 @@
+{
+  "audit_schema_version": "extended-development-freeze-independent-verification-v1",
+  "audit_date": "2026-09-15",
+  "status": "passed",
+  "classification": "independent_read_only_content_and_hash_audit_no_model_execution_no_human_judgments",
+  "audited_artifacts": {
+    "budget_decision": {
+      "path": "output/revision/extended_study/development_budget_decision_v1.json",
+      "sha256": "95af6e31285d74af1d26dd905399742c5b8da1c84090e1f9b2e6b4b4aaeb4bab",
+      "matches_freeze_record": true
+    },
+    "protocol": {
+      "path": "output/revision/extended_study/full_study/protocol_v1.json",
+      "sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+      "matches_freeze_record": true
+    },
+    "calibration_manifest": {
+      "path": "output/revision/extended_study/calibration_study/manifest.json",
+      "sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3",
+      "matches_freeze_record": true
+    },
+    "blank_human_review": {
+      "path": "output/revision/extended_study/human_prompt_review_template_v1.json",
+      "sha256": "82395ac0fae069cdd15e25aba8d4984b94b492e299e7e27d8701f0930540d102",
+      "matches_freeze_record": true
+    },
+    "prompt_review_worksheet": {
+      "path": "output/revision/extended_study/prompt_review_worksheet.md",
+      "sha256": "378161aa11c9ebd64057f9858ec6ee40cb1878b088e06dfead3a449cc623d2ee",
+      "matches_freeze_record": true
+    }
+  },
+  "identities": {
+    "budget_decision_id": true,
+    "protocol_id": true,
+    "calibration_manifest_id": true
+  },
+  "caps": {
+    "primary": 1024,
+    "sensitivity": 2048,
+    "checks_passed": {
+      "caps_1024_2048": true,
+      "primary_exact_2880": true,
+      "sensitivity_exact_192": true,
+      "grid_caps_bound": true,
+      "evaluation_only": true,
+      "primary_480_each_checkpoint": true,
+      "sensitivity_32_each_checkpoint": true
+    }
+  },
+  "freeze_evidence": {
+    "checks": {
+      "source_parent": true,
+      "probe_manifest": true,
+      "probe_export": true,
+      "budget_decision": true,
+      "probe_run_tree": true,
+      "prior_development_256_responses": true,
+      "prior_development_256_verification": true,
+      "prior_development_512_responses": true,
+      "prior_development_512_verification": true,
+      "parent_matches_declared": true,
+      "decision_copy_exact": true,
+      "probe_id_bound": true,
+      "probe_export_bound": true,
+      "probe_exact_8_eos_no_cap": true,
+      "probe_manifest_content_id": true,
+      "original_and_embedded_probe_manifest_exact": true,
+      "original_and_embedded_probe_export_exact": true
+    },
+    "all_passed": true,
+    "probe_rows": 8,
+    "probe_output_tokens_min": 454,
+    "probe_output_tokens_max": 744
+  },
+  "source_binding": {
+    "files_checked": 12,
+    "all_match": true
+  },
+  "calibration": {
+    "responses": 96,
+    "by_checkpoint": {
+      "1b_dpo": 16,
+      "1b_instruct": 16,
+      "1b_sft": 16,
+      "7b_dpo": 16,
+      "7b_instruct": 16,
+      "7b_sft": 16
+    },
+    "development_families": [
+      "dev_everyday_closet",
+      "dev_everyday_desk_cables",
+      "dev_everyday_grocery_plan",
+      "dev_everyday_laundry_colors",
+      "dev_everyday_reading_habit",
+      "dev_health_bedroom_light",
+      "dev_health_dry_eyes",
+      "dev_health_hiking_blister",
+      "dev_health_hoarse_voice",
+      "dev_health_sunscreen_labels"
+    ],
+    "checks": {
+      "exact_96_unique": true,
+      "six_checkpoints_16_each": true,
+      "ten_development_families": true,
+      "no_evaluation_overlap": true,
+      "four_families_four_variants_per_checkpoint": true,
+      "seed0_only": true,
+      "cap_1024": true,
+      "parent_bound": true
+    }
+  },
+  "blank_prompt_review": {
+    "families": 40,
+    "checks_total": 200,
+    "prompt_ids": 160,
+    "worksheet_prompt_blocks": 160,
+    "checks": {
+      "pending_blank_metadata": true,
+      "40_families_20_per_domain": true,
+      "200_null_checks": true,
+      "160_unique_evaluation_prompts": true,
+      "template_hashes_match_protocol": true,
+      "worksheet_160_exact_once": true,
+      "worksheet_matches_template_protocol": true,
+      "prompt_texts_unchanged_from_prior_worksheet": true,
+      "no_development_prompts": true
+    }
+  },
+  "budget_decision_boundary": {
+    "agent_decision_not_human": true,
+    "provisional_not_adequacy": true,
+    "zero_human_reviews_claimed": true,
+    "criterion_predeclared": true,
+    "manual_acceptance_boundary_explicit": true,
+    "failure_policy_preserves_failures": true
+  },
+  "no_empirical_execution": {
+    "no_new_run_config": true,
+    "no_new_empirical_output_paths": true,
+    "no_execution_profile_selected": true,
+    "freeze_record_zero_generation": true
+  },
+  "preserved_inputs": {
+    "files_checked": 42,
+    "missing": [],
+    "all_match": true
+  },
+  "material_issues": [],
+  "nonmaterial_documentation_observation": "Worksheet says “preserve the blank v2 file” although the named successor template and schema are v1; paths and blank fields are otherwise unambiguous.",
+  "interpretation": "The artifacts freeze a provisional development design only. They do not establish evaluation readiness, generation-cap adequacy, semantic completeness, empirical checkpoint results, or human approval.",
+  "budget_decision_supporting_evidence": {
+    "completed_probe_verification": {
+      "path": "output/revision/development_budget_probe/development_1024_verification_20260915.json",
+      "declared_sha256": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369",
+      "actual_sha256": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369",
+      "matches": true
+    },
+    "successor_implementation_verification": {
+      "path": "output/revision/verification/extended_workflow_verification_20260915.json",
+      "declared_sha256": "61160a39a3fc592373a66acf284376b4b26056259692393c75b16b0704e5fd2c",
+      "actual_sha256": "61160a39a3fc592373a66acf284376b4b26056259692393c75b16b0704e5fd2c",
+      "matches": true
+    },
+    "context_capacity_audit": {
+      "path": "output/revision/verification/checkpoint_context_capacity_audit_20260915.json",
+      "declared_sha256": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87",
+      "actual_sha256": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87",
+      "matches": true
+    }
+  }
+}

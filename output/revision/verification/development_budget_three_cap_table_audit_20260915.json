@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "at": "2026-09-15T17:59:29.214263+00:00",
+  "report_path": "out/paper/DEVELOPMENT_BUDGET_REPORT_2026-09-15.md",
+  "report_sha256": "56c24bc33c51de8a7cae0be9872c023fc46160f633d6eabdef085e2b7ef9c1ad",
+  "original_256_512_cells_checked": 88,
+  "new_1024_cells_checked": 64,
+  "total_cells_checked": 152,
+  "scope": "Every data cell in both Markdown tables independently reconstructed from the three raw exports by exact condition and prompt identity.",
+  "raw_exports_sha256": {
+    "256": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+    "512": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+    "1024": "961b98d914284fae5508c89e83ed6b39cf5fb0030cbfa6edf9f39880294da937"
+  }
+}

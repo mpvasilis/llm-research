@@ -1,0 +1,38 @@
+{
+  "run_schema_version": "revision-development-budget-probe-run-v1",
+  "probe_runner_version": "revision-development-budget-probe-runner-v1",
+  "probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "probe_manifest_sha256": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+  "parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "parent_protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+  "source_sha256": {
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+  },
+  "execution_profile": {
+    "accelerator": null,
+    "cuda_runtime": null,
+    "device_class": "cpu",
+    "dtype": "float32",
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "python_version": "3.14.3",
+    "single_response_generation": true,
+    "torch_num_threads": 4,
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4"
+  },
+  "response_ids": [
+    "response_5b0224d67050d24cbceac8b227c0c2da",
+    "response_5d9393621f8c0b300071743c37fc069b",
+    "response_322263f56de192300236c36fbb023a53",
+    "response_e48c6793e773ea143392927497495635",
+    "response_4dd8728a238fe4414bc079535bad693d",
+    "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+    "response_6115d86977355d4df6d5cfe0a35d111f",
+    "response_43dff3cd2c847545689f0e2a12e3cd7a"
+  ],
+  "expected_responses": 8,
+  "run_id": "budget_probe_run_9acdc0e5ce18effd34337b139ff53c24"
+}

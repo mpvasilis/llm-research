@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "bundle_sha256": "459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd",
+  "verified_bundle_files": 12,
+  "notebook_total_cells": 21,
+  "executed_code_cells": 14,
+  "errors": 0,
+  "scope": "Local default-off notebook path only. Dependency installation, GPU generation, prediction generation, empirical analysis, and human completion were not performed by this check."
+}

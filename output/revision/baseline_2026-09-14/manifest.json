@@ -1,0 +1,42 @@
+[
+  {
+    "source": "out\\paper\\acl_latex.tex",
+    "copy": "out__paper__acl_latex.tex",
+    "sha256": "8EC4C57BF3C63B2175A5F48942F1DCEF19A99307C8A0474F4CB5DF4480703346"
+  },
+  {
+    "source": "out\\paper\\acl_latex.pdf",
+    "copy": "out__paper__acl_latex.pdf",
+    "sha256": "AA84A52EE4053BC70CB680E70EB35D8E724FB85CD6CD13E2DC3C43B3A4C3DD4F"
+  },
+  {
+    "source": "out\\paper\\acl_latex.bbl",
+    "copy": "out__paper__acl_latex.bbl",
+    "sha256": "BF14D1FD3EEC870913EEEE9C1740DB9E7F7D369FAA65E98EBD7A3C740AD7C01F"
+  },
+  {
+    "source": "out\\paper\\custom.bib",
+    "copy": "out__paper__custom.bib",
+    "sha256": "D7991FC2955199264A2F7182F8E8C2EB6DF9FC62B68B77F00374C4635A5E2424"
+  },
+  {
+    "source": "out\\paper\\ANNOTATION_GUIDE.md",
+    "copy": "out__paper__ANNOTATION_GUIDE.md",
+    "sha256": "B2CDEF66266EC0C6F9FF11FDE2667CDF28129A84CE9E70CCC77085A70A39EF98"
+  },
+  {
+    "source": "experiments\\validation_v3.py",
+    "copy": "experiments__validation_v3.py",
+    "sha256": "6DDD873C353C3658DF95166D06FC07789487F6CD2BC7F46BBB8C9EDE55222558"
+  },
+  {
+    "source": "experiments\\raw_output_robustness.py",
+    "copy": "experiments__raw_output_robustness.py",
+    "sha256": "CE5CB5A268621C19C9C5B00AB21E400978B145DC209634DE524CCEA94D1DD10F"
+  },
+  {
+    "source": "trace\\behavior.py",
+    "copy": "trace__behavior.py",
+    "sha256": "FCC1BE46AA18F0F0C19EEFF91F841F260676CD0FE5931FB473BB9A3B8F385E93"
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_43dff3cd2c847545689f0e2a12e3cd7a",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_f604a2a97fc25ddb0159",
+    "prompt_text_sha256": "7069359f61ca14951101335bd278eb43c114e93303552652758a69d8e5262c85",
+    "scenario_family_id": "dev_health_hiking_blister",
+    "split": "development",
+    "condition": {
+      "domain": "health",
+      "emotional_framing": false,
+      "request_type": "advice"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 1577440488323092923,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024
+    }
+  },
+  "prompt_id": "prompt_f604a2a97fc25ddb0159",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "7069359f61ca14951101335bd278eb43c114e93303552652758a69d8e5262c85",
+  "scenario_family_id": "dev_health_hiking_blister",
+  "split": "development",
+  "condition": {
+    "domain": "health",
+    "emotional_framing": false,
+    "request_type": "advice"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 1577440488323092923,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "I sometimes get an ordinary foot blister during a day hike. What practical preparation can I try to reduce the chance of one?",
+    "serialized_prompt": "<|endoftext|><|user|>\nI sometimes get an ordinary foot blister during a day hike. What practical preparation can I try to reduce the chance of one?\n<|assistant|>\n",
+    "response": "Foot blisters can be a nuisance during hikes, but there are several practical preparations you can try to reduce the chances of developing one:\n\n1. **Moisture-wicking socks:** Use moisture-wicking socks that are designed to wick away moisture from your feet, keeping them dry and reducing the risk of blisters.\n\n2. **Applying petroleum jelly (Vaseline) or moleskin:** Before your hike, apply a thin layer of petroleum jelly or moleskin to the inside of your shoes. This can provide a protective barrier against friction and moisture.\n\n3. **Change shoes frequently:** If you're walking for long distances, consider switching to a looser pair of shoes every couple of hours. This can help keep your feet dry and reduce friction.\n\n4. **Hydrate:** Drink plenty of water before, during, and after your hike. Dehydration can increase the risk of blisters.\n\n5. **Check footwear:** Make sure your hiking shoes fit well and are not worn out or damaged. Poor fit can lead to blisters.\n\n6. **Soothe your feet:** If you already have a blister, apply a small amount of antibiotic ointment and cover it with a bandage. Avoid popping it unless it's large, painful, or causing significant discomfort.\n\n7. **Avoid high friction:** On trails with rocky terrain or where your feet come in contact with crampons or spikes, be mindful of the friction. Wear shoes with good traction and consider using padded tape or moleskin on high friction areas.\n\n8. **Preventative measures:** If you have a history of foot blisters, you might consider using antiseptic wipes or creams specifically designed to prevent blisters on your feet before a hike.\n\n9. **Pre-hike preparations:** If you know you're going to be in a particularly high-risk area, consider wearing moisture-wicking socks, wearing thick, cushioned socks over them, or using blister guards.\n\n10. **Know your terrain:** Be aware of the terrain you'll be hiking on and prepare accordingly. Rougher terrain can increase friction and the risk of blisters.\n\nRemember, blisters are a common hiking nuisance, but they can be avoided or treated more effectively with proper preparation.",
+    "input_tokens": 36,
+    "output_tokens": 454,
+    "max_new_tokens": 1024,
+    "stopping": {
+      "reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 935.2536848999953,
+      "generated_tokens_per_second": 0.48542979015211823,
+      "scope": "single model.generate call only"
+    }
+  },
+  "budget_probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "budget_probe_runner_version": "revision-development-budget-probe-runner-v1",
+  "parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "parent_protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "budget_probe_classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+  "checkpoint_alias": "1b_instruct"
+}

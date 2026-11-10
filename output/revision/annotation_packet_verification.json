@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "packet": "output\\revision\\annotation_v4\\historical_packet_v2",
+  "items": 112,
+  "probability_sample": 40,
+  "positive_enriched": 75,
+  "overlap": 3,
+  "construction_prompt_items": 9,
+  "blank_passes": 2,
+  "all_annotation_values_blank": true,
+  "human_certifications_created": 0,
+  "blinded_columns_only": true,
+  "item_and_key_hashes_verified": true,
+  "score_without_humans_rejected": true,
+  "scope": "one-checkpoint historical diagnostic; not held-out or stagewise validation"
+}

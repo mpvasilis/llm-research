@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-09",
+  "complete_result_equality": true,
+  "parity_cells": 40,
+  "bootstrap_draws": 20000,
+  "all_contrasts_and_intervals_reproduced": true,
+  "initial_check_note": "Initial equality check identified stale script hash after cleanup only; canonical report regenerated and full equality passed."
+}

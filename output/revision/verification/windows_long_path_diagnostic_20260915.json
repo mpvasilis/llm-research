@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-15T17:18:52.808842+00:00",
+  "ordinary_path_length": 345,
+  "platform": "nt",
+  "ordinary_write": {
+    "exception": "FileNotFoundError",
+    "winerror": 3
+  },
+  "extended_write_read_replace_glob": "passed",
+  "temporary_tree_removed": true
+}

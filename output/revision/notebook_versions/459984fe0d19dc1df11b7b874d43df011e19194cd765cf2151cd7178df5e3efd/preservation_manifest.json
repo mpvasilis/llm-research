@@ -1,0 +1,25 @@
+{
+  "scope": "Prior verified notebook and source bundle before calibration and prospective-validation integration",
+  "files": [
+    {
+      "path": "output\\revision\\notebook_versions\\459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd\\advice_marker_revision_study_bundle.zip",
+      "sha256": "459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd"
+    },
+    {
+      "path": "output\\revision\\notebook_versions\\459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd\\advice_marker_revision_study.ipynb",
+      "sha256": "90edd7eea183eabe0e58f94220202d4a56c688dbb13a1a77570bb25566446517"
+    },
+    {
+      "path": "output\\revision\\notebook_versions\\459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd\\notebook_verification_20260915.json",
+      "sha256": "d36e6997a2f541ad960c12141980900e04a1f4127e6d52d15248f329fb452857"
+    },
+    {
+      "path": "output\\revision\\notebook_versions\\459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd\\notebook_local_execution_20260915.ipynb",
+      "sha256": "afb8f760b48b7ef8b5c92c2cb27a8a8b00ee824dd97ca4c5dc9df9f316da0771"
+    },
+    {
+      "path": "output\\revision\\notebook_versions\\459984fe0d19dc1df11b7b874d43df011e19194cd765cf2151cd7178df5e3efd\\notebook_bundle_manifest_v2.json",
+      "sha256": "6a702b9c13fa3f394438185be54a5f67d03d1d2e69775de66d2ad0299bd2ad12"
+    }
+  ]
+}

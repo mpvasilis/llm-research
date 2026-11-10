@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-09-15T17:34:59.1537164Z",
+  "files": [
+    {
+      "path": "experiments/extended_revision_study.py",
+      "sha256": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e"
+    },
+    {
+      "path": "experiments/extended_calibration_study.py",
+      "sha256": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9"
+    },
+    {
+      "path": "experiments/extended_prospective_validation.py",
+      "sha256": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a"
+    },
+    {
+      "path": "experiments/extended_sensitivity_analysis.py",
+      "sha256": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+    }
+  ]
+}

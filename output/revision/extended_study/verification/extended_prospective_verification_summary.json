@@ -1,0 +1,45 @@
+{
+  "captured_at": "2026-09-15T18:26:13.624008Z",
+  "status": "closed_by_exact_retained_fixture_replay",
+  "evidence": {
+    "initial_full_focused_invocation": {
+      "path": "output/revision/extended_study/verification/extended_prospective_validation_junit.xml",
+      "sha256": "fd0ffb507a21cfb42e1ae33697d61d2badc5eab31c0f720f7665dea71d043973",
+      "tests": 9,
+      "failures": 1,
+      "errors": 0,
+      "time_seconds": 1211.987,
+      "interpretation": "Eight tests passed; the strict ninth case failed at a Windows ordinary-path relocation copy before the product relocation loader ran."
+    },
+    "strict_case_retest": {
+      "path": "output/revision/extended_study/verification/extended_prospective_validation_strict_retest_junit.xml",
+      "sha256": "1932ef13182fca5d485093e5764abb0e48c8cc6a9d0a48ad919675916f75396c",
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "time_seconds": 1072.63,
+      "interpretation": "All strict assertions through the final tampered-readiness rejection were reached; the product raised the intended ValueError, but the test regex was case-sensitive."
+    },
+    "third_fresh_strict_attempt": {
+      "status": "interrupted_early_as_redundant",
+      "exit_code": 1,
+      "junit_written": false
+    },
+    "exact_retained_fixture_replay": {
+      "path": "output/revision/extended_study/verification/extended_prospective_retained_fixture_replay.json",
+      "sha256": "eb6ed4a51851e2d03f769cb86e26411619a94c704e96f2711569d6df73929ca4",
+      "result": "passed",
+      "observed_exception": "Readiness snapshot hash mismatch",
+      "inputs_unchanged": true,
+      "unexpected_output_created": false
+    },
+    "compile": "passed",
+    "ruff": "passed"
+  },
+  "production_source_audit": {
+    "path": "output/revision/extended_study/verification/extended_prospective_source_hashes_after.json",
+    "sha256": "b458620cfd26fe84622e9b48c9c6e44a1ee8c0ffe99f72097287f52fbe3adf23",
+    "unchanged": true
+  },
+  "claim_limit": "This is aggregate evidence, not a claim that one nine-test invocation completed green."
+}

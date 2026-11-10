@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="12" time="233.583" timestamp="2026-09-15T20:03:53.532698+03:00" hostname="vmaqs2603230920"><testcase classname="tests.test_extended_revision_study" name="test_candidate_is_read_only_complete_and_cap_dependent" time="4.238" /><testcase classname="tests.test_extended_revision_study" name="test_freeze_load_reconstructs_after_complete_package_relocation" time="27.847" /><testcase classname="tests.test_extended_revision_study" name="test_rehashed_protocol_grid_and_dependency_tamper_are_rejected" time="33.545" /><testcase classname="tests.test_extended_revision_study" name="test_rehashed_probe_fixed_scope_and_profile_mismatch_are_rejected" time="18.175" /><testcase classname="tests.test_extended_revision_study" name="test_rehashed_preceding_evidence_cap_metadata_is_rejected" time="4.564" /><testcase classname="tests.test_extended_revision_study" name="test_probe_run_must_use_declared_matched_execution_profile" time="10.308" /><testcase classname="tests.test_extended_revision_study" name="test_context_preflight_checks_official_template_and_both_caps" time="1.231" /><testcase classname="tests.test_extended_revision_study" name="test_successor_response_validator_rejects_cap_and_stop_tamper" time="1.867" /><testcase classname="tests.test_extended_revision_study" name="test_evaluation_requires_human_and_complete_readiness" time="28.940" /><testcase classname="tests.test_extended_revision_study" name="test_unchanged_analyzer_accepts_synthetic_full_2880_by_8640_archive" time="16.093" /><testcase classname="tests.test_extended_calibration_study" name="test_manifest_is_exact_96_response_rotation_and_strict_cap" time="30.606" /><testcase classname="tests.test_extended_calibration_study" name="test_fake_complete_generation_resume_zero_and_strict_export" time="51.674"><failure message="ValueError: Current scientific sources differ from the frozen successor protocol">frozen = (WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1128/extended-calibration0/successor/protoc...enai/OLMo-2-1124-7B-DPO', ...}, ...}, 'classification': 'exploratory_development_only_not_confirmatory_analysis', ...})
+tmp_path = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1128/test_fake_complete_generation_0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000026B9A37A2C0&gt;
+
+    def test_fake_complete_generation_resume_zero_and_strict_export(
+        frozen: tuple[Path, dict, Path, dict], tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        protocol_path, _protocol, manifest_path, manifest = frozen
+        execution_core = {
+            "profile_schema_version": "revision-study-execution-profile-v1", "device_class": "cpu",
+            "dtype": "float32", "torch_num_threads": 2, "single_response_generation": True,
+            "python_version": "test", "torch_version": "test", "transformers_version": "test",
+            "cuda_runtime": None, "accelerator": None,
+        }
+        execution = {**execution_core, "execution_profile_id": calibration.core.stable_id("execution", execution_core, 32)}
+        calls: list[str] = []
+    
+        class Model:
+            pass
+    
+        class Tokenizer:
+            pass
+    
+        monkeypatch.setattr(calibration.core, "execution_profile", lambda *_args: execution)
+        monkeypatch.setattr(calibration.core, "load_checkpoint", lambda *_args: (Model(), Tokenizer(), "torch.float32"))
+        monkeypatch.setattr(calibration.core, "context_preflight", lambda parent, entries, model, tokenizer: {"context_limit": 4096, "primary_cap": parent["primary_cap"], "sensitivity_cap": parent["sensitivity_cap"], "tested_prompts": len(entries)})
+    
+        def fake_generate(entry, _checkpoint, _model, _tokenizer, observed_execution, _dtype, observed_manifest):
+            calls.append(entry["response_id"])
+            return calibration_response(entry, observed_manifest, observed_execution)
+    
+        monkeypatch.setattr(calibration, "_response_with_calibration_provenance", fake_generate)
+        first = calibration.run_generation(manifest_path, protocol_path, tmp_path / "output", "cpu", True, 2)
+        assert first["new_responses"] == 96 and first["remaining"] == 0
+        run_dir = Path(first["run_dir"])
+        before = {path.name: calibration.core.sha256_file(path) for path in (run_dir / "responses").glob("*.json")}
+        second = calibration.run_generation(manifest_path, protocol_path, tmp_path / "output", "cpu", True, 2)
+        after = {path.name: calibration.core.sha256_file(path) for path in (run_dir / "responses").glob("*.json")}
+        assert second["new_responses"] == 0 and second["status"] == "complete"
+        assert before == after and len(calls) == 96
+&gt;       assert calibration.verify_run(manifest_path, protocol_path, run_dir)["verified_responses"] == 96
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_extended_calibration_study.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments\extended_calibration_study.py:306: in verify_run
+    manifest, rows, _config = _validated_run(manifest_path, parent_protocol_path, run_dir, require_complete)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\extended_calibration_study.py:270: in _validated_run
+    manifest = load_manifest(manifest_path, parent_protocol_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\extended_calibration_study.py:150: in load_manifest
+    expected = build_manifest(parent_protocol_path, manifest.get("max_new_tokens_decision"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\extended_calibration_study.py:95: in build_manifest
+    parent, prompts, corpus_hash = _load_parent_and_prompts(parent_protocol_path)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\extended_calibration_study.py:44: in _load_parent_and_prompts
+    parent = core.load_protocol(parent_protocol_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1128/extended-calibration0/successor/protocol.json')
+evidence_root = None
+
+    
+    
+    def load_protocol(path: Path, evidence_root: Path | None = None) -&gt; dict[str, Any]:
+        path = Path(path)
+        protocol = _read_json(path)
+        if (protocol.get("protocol_schema_version") != PROTOCOL_SCHEMA_VERSION
+                or protocol.get("extended_schema_version") != EXTENDED_SCHEMA_VERSION
+                or protocol.get("orchestration_version") != ORCHESTRATION_VERSION):
+            raise ValueError("Unsupported or non-successor protocol schema")
+        if "candidate_protocol_id" in protocol or protocol.get("status") == "CANDIDATE_NOT_FROZEN":
+            raise ValueError("Candidate planning object is not a frozen successor protocol")
+        claimed = protocol.get("protocol_id")
+        body = {key: value for key, value in protocol.items() if key != "protocol_id"}
+        if claimed != stable_id("protocol", body, 32):
+&gt;           raise ValueError("Successor protocol content does not match protocol_id")
+E           ValueError: Current scientific sources differ from the frozen successor protocol
+
+experiments\extended_revision_study.py:529: ValueError</failure></testcase></testsuite></testsuites>

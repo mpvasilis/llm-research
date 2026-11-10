@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "at": "2026-09-15T16:00:19.164005+00:00",
+  "scope": "All eight matched serialized inputs in both completed256/512 archives, compared with the real1024 model/tokenizer preflight",
+  "archives": {
+    "256": {
+      "path": "output/revision/full_study/exports/development_256_eight_responses.jsonl",
+      "sha256": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+      "input_tokens_by_prompt_id": {
+        "prompt_01f2dd9289183cc9590e": 44,
+        "prompt_46bc32ce20587f550b4f": 52,
+        "prompt_5d34517bef1eac80859c": 46,
+        "prompt_37343c58848ceda69602": 58,
+        "prompt_723e9ae54014c790a7bd": 44,
+        "prompt_f604a2a97fc25ddb0159": 36,
+        "prompt_05799bd3d7bb439bc8c5": 40,
+        "prompt_40d04e2b3122517b0182": 52
+      }
+    },
+    "512": {
+      "path": "output/revision/full_study/exports/development_512_eight_responses.jsonl",
+      "sha256": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+      "input_tokens_by_prompt_id": {
+        "prompt_40d04e2b3122517b0182": 52,
+        "prompt_05799bd3d7bb439bc8c5": 40,
+        "prompt_01f2dd9289183cc9590e": 44,
+        "prompt_723e9ae54014c790a7bd": 44,
+        "prompt_5d34517bef1eac80859c": 46,
+        "prompt_f604a2a97fc25ddb0159": 36,
+        "prompt_46bc32ce20587f550b4f": 52,
+        "prompt_37343c58848ceda69602": 58
+      }
+    }
+  },
+  "serialized_prompts_identical_across_budgets": true,
+  "probe_preflight_input_counts_equal": true,
+  "input_token_min": 36,
+  "input_token_max": 58,
+  "context_limit": 4096,
+  "report_correction": {
+    "path": "out/paper/DEVELOPMENT_BUDGET_REPORT_2026-09-15.md",
+    "old_text": "Serialized inputs were 40\u201344 tokens, far below the 4,096-token context limit.",
+    "new_text": "Across all eight prompts, serialized inputs were 36\u201358 tokens under both budgets, far below the 4,096-token context limit. This range is taken from every saved response and agrees with the independent 1,024-token probe preflight; this corrects the previously reported 40\u201344 range.",
+    "before_sha256": "a34ca31c5cc2ae8a67b0f8520459c8d029e15a19e2dc3fde1bdaba5d04b2c391",
+    "after_sha256": "93fd1873abd3dbd049a81b13f956bb475d44a9e841705b6609c0370a69390d3f"
+  },
+  "frozen_archives_or_verification_files_modified": false
+}

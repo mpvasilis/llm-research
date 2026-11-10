@@ -1,0 +1,14 @@
+{
+  "version": 4,
+  "status": "diagnostic_sampling_frame_only",
+  "scientific_scope": "historical final-7B diagnostic only; not fresh, held out, or stagewise",
+  "source": "out/raw_cache/final_7b_answers.jsonl",
+  "source_sha256": "17a20aa58a62de175077f3c0b5aebc20100b0d62aa42ab3c985e8367dd60f5da",
+  "destination": "output/revision/annotation_v4/historical_final7b_response_frame_v4.jsonl",
+  "destination_sha256": "2b405ba1d51cf7f07e825a806f573c18b525ca05d27513830085c2656d91333e",
+  "n_responses": 700,
+  "n_scenario_families": 140,
+  "n_known_construction_prompt_responses": 60,
+  "construction_prompt_policy": "flagged here for historical provenance; these prompts are prohibited from any new evaluation framing",
+  "created_at": "2026-09-14T20:35:16.268324+00:00"
+}

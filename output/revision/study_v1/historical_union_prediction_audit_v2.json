@@ -1,0 +1,36 @@
+{
+  "audit_version": "historical-union-prediction-audit-v2",
+  "status": "pass",
+  "execution": "actual detector rescore with dependency revision bound at model load",
+  "prediction_path": "output/revision/study_v1/historical_final7b_union_predictions_v2.jsonl",
+  "prediction_sha256": "98b21fdc77d75783317a36b33ca904044cf68069ec304bb34d2ec7b8f7165a10",
+  "rows": 700,
+  "unique_prediction_ids": 700,
+  "unique_response_ids": 700,
+  "prediction_schema_version": "historical-detector-prediction-v2",
+  "evaluation_unit": "full_response",
+  "prediction_variant": "raw_output_robustness_four_category_union_provenance_v2",
+  "decision_field": "union",
+  "dependency_identity": {
+    "embedding_model": {
+      "model_id": "intfloat/multilingual-e5-small",
+      "resolved_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "applied": true
+    },
+    "prefix_window_tokenizer": {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "resolved_revision": null,
+      "applied": false,
+      "role": "applied only to requested 64/128-token windows; not required for full-response prediction"
+    },
+    "historical_run_revision_status": "unrecorded; these are current reproduction dependencies"
+  },
+  "crisis_referral_state": "not_applicable on all 700 rows",
+  "historical_report_parity": {
+    "reference": "out/results/raw_output_robustness.json",
+    "comparison": "four category rates across five conditions for the full-response union component",
+    "cells_checked": 20,
+    "mismatch_count": 0
+  },
+  "scope": "Historical final-7B diagnostic. Reproduction dependency pins do not recover the original run's unrecorded revisions and this is not human validation."
+}

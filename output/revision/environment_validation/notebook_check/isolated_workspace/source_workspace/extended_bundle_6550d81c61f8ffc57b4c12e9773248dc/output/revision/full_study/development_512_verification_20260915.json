@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "scope": "Real exploratory development only; two families, four variants each, 1B Instruct, seed 0, 512-token cap. Not the full evaluation.",
+  "run_id": "run_e769fbba523c6308507e459fa37a401e",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "authoritative_generation_exit_code": 0,
+  "verification": {
+    "status": "complete",
+    "mode": "development-512",
+    "classification": "exploratory_development_not_confirmatory",
+    "expected_responses": 8,
+    "verified_responses": 8,
+    "missing_responses": 0,
+    "unique_response_ids": 8,
+    "stopping_reasons": {
+      "eos_token": 2,
+      "max_new_tokens": 6
+    },
+    "cap_rate": 0.75
+  },
+  "generation_attempt": {
+    "attempt_id": "attempt_1789479671048537200",
+    "attempt_started_at": "2026-09-15T13:41:11.048550+00:00",
+    "attempt_finished_at": "2026-09-15T15:08:24.863922+00:00",
+    "attempt_wall_seconds": 5233.784213700004,
+    "model_load_seconds": 18.781539700001304,
+    "generation_seconds_sum": 5214.543871599999,
+    "generation_seconds_mean": 651.8179839499999,
+    "generation_seconds_min": 189.5294980000035,
+    "generation_seconds_max": 968.671540299998,
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "torch_num_threads": 4
+  },
+  "resume": {
+    "completed": 8,
+    "new_responses": 0,
+    "remaining": 0,
+    "status": "complete"
+  },
+  "response_hashes_unchanged_on_resume": true,
+  "response_files_before_resume": 8,
+  "response_files_after_resume": 8,
+  "response_sha256": {
+    "response_06233666a7e25fc64aa712eda1c19c7d.json": "4e2346de0cd72c6644ac8962c345693f21db4b58f405f1b8f0068b167ef717b1",
+    "response_52cc6a8d31dbfb0f44e58817e3fd429b.json": "8ae30ef45519eeb381326d6c4774e890ec8904bac57b8c64817bb67e3aea4863",
+    "response_60808ae7a6ce52b190e0504be72f08c7.json": "3d24bb2720095411862e97c00c321137e862ce82545abf45d9fe151c88ee654d",
+    "response_6723f643c4abd791bf822093185d9af7.json": "78287f0c5f5d59067e3a4585546e1c2fc6f4bec683471c8e5aec3595ff904eae",
+    "response_7f5ad912fa4cf4a47824d8fc41ac6a77.json": "6d2a6336f724177b6066838c88195599132da61c1718d8d9f1ed98f6d1a046b0",
+    "response_843e2f1f61856de8e3c321e82e084169.json": "c80c4f52a93455857903b09902190b780fc844b4aa1525e5808cdac08936e91d",
+    "response_d121c2a62b597e2a1c3a72e9583257ac.json": "ab66345200512c9545d9fa9aeb53a7eceb4cebdb8b6c6f5939cebc99320250e5",
+    "response_f717d8011e4822010c62ec7cde7cab79.json": "9e4e2100fc2f235bb2063432c0f6ac08a97b448746518948adf809e14a5884e8"
+  },
+  "export": {
+    "status": "complete",
+    "output": "output/revision/full_study/exports/development_512_eight_responses.jsonl",
+    "output_sha256": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+    "rows": 8
+  },
+  "output_summary": {
+    "total_output_tokens": 3987,
+    "cap_count": 6,
+    "eos_count": 2,
+    "cap_rate": 0.75
+  },
+  "matched_256_decoded_prefix_check": {
+    "matched_prompt_ids": 8,
+    "exact_decoded_text_prefix_matches": 8,
+    "status": "all eight 256-token decoded response strings are exact text prefixes of their matched 512-budget decoded response strings",
+    "limitation": "Raw continuation token IDs were not retained. This verifies decoded-text prefix agreement, not original token-ID identity."
+  }
+}

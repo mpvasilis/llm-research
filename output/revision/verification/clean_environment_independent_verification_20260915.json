@@ -1,0 +1,36 @@
+{
+  "schema_version": "clean-environment-independent-artifact-verification-v1",
+  "at": "2026-09-15T19:30:26.715885+00:00",
+  "status": "passed",
+  "checks": {
+    "all_23_cell_types_and_sources_identical": true,
+    "13_sequential_execution_counts": true,
+    "zero_error_outputs": true,
+    "21_actions_false_in_source_ast": true,
+    "candidate_caps_none_in_source_ast": true,
+    "kernel_and_driver_use_exact_isolated_python": true,
+    "system_site_packages_disabled": true,
+    "notebook_kernel_python_3_12_14": true,
+    "pip_check_passed": true,
+    "both_install_logs_report_success": true,
+    "resolved_import_versions_satisfy_all_seven_declared_ranges": true,
+    "all_eight_notebook_artifact_hashes_and_sizes_match": true,
+    "five_frozen_original_artifacts_preserved": true,
+    "all_12_scientific_source_hashes_preserved": true,
+    "all_37_frozen_companion_payloads_match_workspace": true,
+    "six_tokenizer_model_pins_and_serialization_ids_match_frozen_protocol": true,
+    "six_tokenizer_reports_cover_40_development_and_160_evaluation_prompts": true,
+    "revised_pdf_preserved": true,
+    "no_official_calibration_response_files": true
+  },
+  "scope": "Independent direct artifact, AST, version, pin and hash inspection; does not rerun tokenization or model inference. Notebook and tokenizer runtime results are retained separate agent executions.",
+  "evidence": {
+    "output/revision/environment_validation/import_check.json": "63b64724f7d7a4738fba282cd742a0b0ea110ec5c6c79b2e48137d5d94821791",
+    "output/revision/environment_validation/tokenizer_config_compatibility.json": "3c01f9c05a64ba702a5f59ab65cec1b1e3d251c4d8e133e6e8bbc1ed8de58790",
+    "output/revision/environment_validation/notebook_check/execution_verification.json": "e0e4d2260e38ef392a93789c50129294a093b8cc0e4878a293a4a49da0627fd1",
+    "output/revision/environment_validation/notebook_check/artifact_manifest.json": "74ed2a5258e1b55f923a50c2e115ddfd82c56696c21f0df8015c9421948019fc",
+    "output/revision/environment_validation/notebook_check/executed_advice_marker_extended_study_clean_env.ipynb": "87c944a3c5c1c36dbf03d5e81319790b2c77e5139df56177e1026fa5cbcfa395"
+  },
+  "human_or_model_generation_performed_by_this_audit": false,
+  "scientific_goal_complete": false
+}

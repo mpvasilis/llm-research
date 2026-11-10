@@ -1,0 +1,13 @@
+C:\Users\vasilis\Documents\GitHub\llm-research\output\revision\environment_validation\venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+{
+  "report": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\execution_verification.json",
+  "report_sha256": "e0e4d2260e38ef392a93789c50129294a093b8cc0e4878a293a4a49da0627fd1",
+  "status": "passed",
+  "source_type_equality": true,
+  "code_cells_executed": 13,
+  "error_outputs": 0,
+  "safe_default_controls_valid": true,
+  "protected_inputs_unchanged": true
+}

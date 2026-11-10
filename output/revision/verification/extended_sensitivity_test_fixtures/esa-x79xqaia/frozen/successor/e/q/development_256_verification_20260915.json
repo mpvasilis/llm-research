@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "scope": "Real exploratory development only; two families, four variants each, 1B Instruct, seed0. Not the full evaluation.",
+  "run_id": "run_2f0530049d13ba4d2e6ae42e3030b7bb",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "verification": {
+    "status": "complete",
+    "mode": "development-256",
+    "classification": "exploratory_development_not_confirmatory",
+    "expected_responses": 8,
+    "verified_responses": 8,
+    "missing_responses": 0,
+    "unique_response_ids": 8,
+    "stopping_reasons": {
+      "max_new_tokens": 8
+    },
+    "cap_rate": 1.0
+  },
+  "resume": {
+    "run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\runs\\run_2f0530049d13ba4d2e6ae42e3030b7bb",
+    "completed": 8,
+    "new_responses": 0,
+    "remaining": 0,
+    "status": "complete"
+  },
+  "response_hashes_unchanged_on_resume": true,
+  "response_sha256": {
+    "response_3aaa49cdce05c36921a699af8cdbebc1.json": "80ee88e8363fedeeedd60b5b6a18b800c701be5a9b0ad0196a4071b40fb8dbaa",
+    "response_50298e95e4e60c2dcab5aaa26b86da4a.json": "7c7339c8223383716fba2d23f13c0c16c30c289ff0fe0e3e59af16cf4f104e15",
+    "response_5245f59f3574bf05b7adf533770e7bd9.json": "89ede5087fd207e7f040be7e9e63a272205e4a359247727e75f27db9a6cfaf17",
+    "response_77ed5bdb9a96cc1e720bc21049eda2ee.json": "3e3be31e6b920279fac7edf91b461dc4527b2174f87cdb961a0e34054417fd2c",
+    "response_93d0e920acd47105b7910b8db671f076.json": "ab081a6ad66445d7de25f8c3004e1c22502e0bcede22718d74c3c5f737a292d2",
+    "response_99e24897f1d84380c13b5df203289e10.json": "fd103ad4fbb0eadeff7fb644d12f38ab0620a699446db76aa50fd73a5457ffa1",
+    "response_a6e77a65a62490ea83b9dffe6c044363.json": "7caa040910a962f037c464b024522140918c2c38b3c536f7ea2fc6a941720b61",
+    "response_af5923b04512e9ef502133d7b8027e0b.json": "c9de8c290bd75a26028985eed84a88d7e4b32f4740a1ff52a84e1dc71a5ae68e"
+  },
+  "export": {
+    "status": "complete",
+    "mode": "development-256",
+    "classification": "exploratory_development_not_confirmatory",
+    "expected_responses": 8,
+    "verified_responses": 8,
+    "missing_responses": 0,
+    "unique_response_ids": 8,
+    "stopping_reasons": {
+      "max_new_tokens": 8
+    },
+    "cap_rate": 1.0,
+    "output": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\exports\\development_256_eight_responses.jsonl",
+    "output_sha256": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670"
+  },
+  "generation_seconds_sum": 795.2774338999952,
+  "generation_seconds_mean": 99.4096792374994,
+  "generation_seconds_min": 83.50994730000093,
+  "generation_seconds_max": 114.13184139999794,
+  "total_output_tokens": 2048,
+  "cap_count": 8,
+  "eos_count": 0,
+  "interpretation": "All eight outputs reached the 256-token cap. This budget is not validated as adequate for complete answers; longer-budget development remains necessary. No human labels or checkpoint comparisons are inferred."
+}

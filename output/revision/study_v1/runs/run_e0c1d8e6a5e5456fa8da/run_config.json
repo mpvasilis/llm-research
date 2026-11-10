@@ -1,0 +1,25 @@
+{
+  "study_version": "revision-study-v1",
+  "mode": "local_development_pilot",
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "split": "development",
+  "prompts": 2,
+  "max_new_tokens": 32,
+  "seed": 0,
+  "local_files_only": true,
+  "network_downloads": false,
+  "paid_apis": false,
+  "prompt_ids": [
+    "prompt_0d92140c20fad02cecea",
+    "prompt_bb838ac8547d538f8929"
+  ],
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "rng_scheme": "sha256(prompt_id + logical_seed), first 8 bytes modulo 2^63; reset immediately before each generate call",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "official-chat-template-sha256:fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+  "model_hash": "hf-content-manifest-sha256:74c9e66856fd801642c7f2b53c6a0679170dd04f25cb57390470f92f223dd2f3",
+  "weight_blob_ids": [
+    "36d044c73655bb904f822915e6294ba3dae8e6e1af5e703e9d452f2d6a3a294f"
+  ]
+}

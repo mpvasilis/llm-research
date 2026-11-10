@@ -1,0 +1,104 @@
+{
+  "status": "complete_guide_correction_and_fresh_retained_notebook_validation",
+  "classification": "preparation_only_no_generation_download_install_or_human_judgments",
+  "frozen_preparation_bundle": {
+    "path": "output/jupyter-notebook/advice_marker_frozen_preparation_bundle.zip",
+    "sha256": "cee63f40d21a44df277f8e4e4b7d581b7463bb3fe370f07f9506481f3fdac796",
+    "files": 37,
+    "bundle_id": "frozen_preparation_bundle_27e45a4a1c8a0f79baeb1b63d930ee21"
+  },
+  "manifest": {
+    "path": "output/revision/extended_notebook/frozen_preparation_bundle_manifest.json",
+    "sha256": "059e884760d92c10a40a4b778bb0765b47e1c3405e0322f0973cf606a52ed022"
+  },
+  "source_bundle_compatibility": {
+    "path": "output/jupyter-notebook/advice_marker_extended_study_bundle.zip",
+    "bundle_content_id": "extended_bundle_6550d81c61f8ffc57b4c12e9773248dc",
+    "sha256": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb",
+    "declared_source_dependencies": 12,
+    "source_dependency_sha256": {
+      "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+      "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+      "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+      "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+      "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+      "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+      "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+      "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+      "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3"
+    }
+  },
+  "relocation": {
+    "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+    "primary_cap": 1024,
+    "sensitivity_cap": 2048,
+    "calibration_manifest_id": "extended_calibration_manifest_2e744d3df5602179882f17981b8e457a",
+    "calibration_responses": 96,
+    "blank_review_rejected": true,
+    "blank_error": "Human review manifest is incomplete or incompatible:\n- status must equal 'COMPLETE_HUMAN_REVIEW'\n- reviewer_id must be completed by the human reviewer\n- reviewed_at must be completed by the human reviewer\n- review_method must be completed by the human reviewer\n- all review checks must be true for eval_everyday_apartment_noise\n- all review checks must be true for eval_everyday_bicycle_chain\n- all review checks must be true for eval_everyday_bus_commute\n- all review checks must be true for eval_everyday_community_class\n- all review checks must be true for eval_everyday_digital_files\n- all review checks must be true for eval_everyday_email_overload\n- all review checks must be true for eval_everyday_fabric_stain\n- all review checks must be true for eval_everyday_focus_blocks\n- all review checks must be true for eval_everyday_host_guests\n- all review checks must be true for eval_everyday_irregular_budget\n- all review checks must be true for eval_everyday_kitchen_herbs\n- all review checks must be true for eval_everyday_language_routine\n- all review checks must be true for eval_everyday_meeting_agenda\n- all review checks must be true for eval_everyday_pet_hair\n- all review checks must be true for eval_everyday_photo_backup\n- all review checks must be true for eval_everyday_recipe_scaling\n- all review checks must be true for eval_everyday_reconnect_friend\n- all review checks must be true for eval_everyday_shared_chores\n- all review checks must be true for eval_everyday_small_room_storage\n- all review checks must be true for eval_everyday_travel_packing\n- all review checks must be true for eval_health_back_stiffness\n- all review checks must be true for eval_health_breakfast_energy\n- all review checks must be true for eval_health_caffeine_timing\n- all review checks must be true for eval_health_concert_hearing\n- all review checks must be true for eval_health_daily_hydration\n- all review checks must be true for eval_health_desk_posture\n- all review checks must be true for eval_health_eczema_triggers\n- all review checks must be true for eval_health_iron_absorption\n- all review checks must be true for eval_health_mild_heartburn\n- all review checks must be true for eval_health_motion_sickness\n- all review checks must be true for eval_health_muscle_recovery\n- all review checks must be true for eval_health_nasal_congestion\n- all review checks must be true for eval_health_postexercise_soreness\n- all review checks must be true for eval_health_screen_eye_strain\n- all review checks must be true for eval_health_seasonal_allergies\n- all review checks must be true for eval_health_sleep_schedule\n- all review checks must be true for eval_health_tension_headache\n- all review checks must be true for eval_health_tooth_sensitivity\n- all review checks must be true for eval_health_travel_constipation\n- all review checks must be true for eval_health_winter_skin",
+    "source_root_is_relocated": true,
+    "original_frozen_input_paths_passed_to_loaders": false,
+    "relocated_source_modules_used": true,
+    "original_member_hashes_unchanged": true
+  },
+  "notebook_all_controls_off": {
+    "path": "output/revision/extended_notebook/executed_frozen_preparation_20260915.ipynb",
+    "sha256": "081cfb923aa6ea10bb636613a55ca20e49290aa7cb6f0c0ef6d35c059f2f8545",
+    "code_cells": 13,
+    "markdown_cells": 10,
+    "cell_outputs_inspected": 13,
+    "error_outputs": 0,
+    "safe_defaults_observed": true,
+    "cell_sources_exactly_equal_to_source_notebook": true,
+    "source_notebook_sha256": "bf16bb2d7440e091a73034015627431333abb3530bde61a430d38b7ee9c4b7e2",
+    "relocated_frozen_protocol_configured": true,
+    "relocated_calibration_manifest_configured": true,
+    "blank_human_review_configured": false,
+    "scientific_outputs_unchanged": true
+  },
+  "actions": {
+    "generation_started": false,
+    "downloads_or_install_started": false,
+    "models_loaded": false,
+    "human_fields_created": false,
+    "protocol_or_manifest_frozen": false
+  },
+  "packaging_revision": {
+    "change": "Guide now distinguishes retained historical probe execution profiles from the unset future calibration/evaluation profile and clarifies the intended v1 blank template.",
+    "changed_archive_members": [
+      "out/paper/FROZEN_CALIBRATION_GUIDE_2026-09-15.md"
+    ],
+    "unchanged_archive_members": 36,
+    "prior_bundle_sha256": "d8710277cc130b79cebc4a4e62ff68cfad6e2d4207d541b7657fca5221a4c602",
+    "prior_manifest_sha256": "dd43039f732adcf5284e8fc058eb1f1b7046b25c665f8a1244ec4604b57dca77",
+    "prior_verification_sha256": "5a1499cde828b17c11650bc9512a2629707983fd9422159da81b5d1c7a64910d",
+    "version_history_root": "output/revision/extended_notebook/version_history",
+    "strict_relocation_evidence_reused": true,
+    "notebook_execution_evidence_reused": false,
+    "reuse_basis": "All scientific sources, runtime source bundle, frozen protocol/evidence, calibration manifest, review template, worksheet, and audit inputs are byte-identical; only the explanatory guide payload changed.",
+    "notebook_rerun_for_this_revision": true,
+    "historical_temp_executed_notebook": {
+      "sha256": "b55a69aac9fa18f2c228e32d765e78b2194ce02736314001ab2a70239851286a",
+      "retained": false,
+      "reason": "Historical relocated validation temporary was deleted after verification."
+    },
+    "fresh_retained_notebook": {
+      "path": "output/revision/extended_notebook/executed_frozen_preparation_20260915.ipynb",
+      "sha256": "081cfb923aa6ea10bb636613a55ca20e49290aa7cb6f0c0ef6d35c059f2f8545",
+      "code_cells": 13,
+      "markdown_cells": 10,
+      "cell_outputs_inspected": 13,
+      "error_outputs": 0,
+      "safe_defaults_observed": true,
+      "cell_sources_exactly_equal_to_source_notebook": true,
+      "source_notebook_sha256": "bf16bb2d7440e091a73034015627431333abb3530bde61a430d38b7ee9c4b7e2",
+      "relocated_frozen_protocol_configured": true,
+      "relocated_calibration_manifest_configured": true,
+      "blank_human_review_configured": false,
+      "scientific_outputs_unchanged": true
+    }
+  }
+}

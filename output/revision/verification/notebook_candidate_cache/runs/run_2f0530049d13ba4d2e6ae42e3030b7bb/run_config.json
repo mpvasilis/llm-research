@@ -1,0 +1,38 @@
+{
+  "run_schema_version": "revision-study-run-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "mode": "development-256",
+  "classification": "exploratory_development_not_confirmatory",
+  "human_review_manifest_sha256": null,
+  "scenario_family_ids": [
+    "dev_everyday_closet",
+    "dev_health_hiking_blister"
+  ],
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_ids": [
+    "response_3aaa49cdce05c36921a699af8cdbebc1",
+    "response_a6e77a65a62490ea83b9dffe6c044363",
+    "response_77ed5bdb9a96cc1e720bc21049eda2ee",
+    "response_af5923b04512e9ef502133d7b8027e0b",
+    "response_50298e95e4e60c2dcab5aaa26b86da4a",
+    "response_5245f59f3574bf05b7adf533770e7bd9",
+    "response_93d0e920acd47105b7910b8db671f076",
+    "response_99e24897f1d84380c13b5df203289e10"
+  ],
+  "expected_responses": 8,
+  "run_id": "run_2f0530049d13ba4d2e6ae42e3030b7bb"
+}

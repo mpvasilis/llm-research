@@ -19,3 +19,8 @@ out/paper/*.fls
 out/paper/*.log
 out/paper/*.out
 out/results/.ai_fable_annotations_v3_partial.json
+
+# Local virtual environments and LaTeX scratch
+output/revision/environment_validation/venv/
+**/site-packages/
+texput.log

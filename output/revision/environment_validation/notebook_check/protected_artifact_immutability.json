@@ -1,0 +1,50 @@
+{
+  "verification_schema_version": "extended-notebook-protected-artifact-immutability-v1",
+  "status": "passed",
+  "pre_run_reference": {
+    "path": "output/revision/verification/extended_development_freeze_independent_20260915.json",
+    "sha256": "1ddf1725e10bf39021f1fd253f5a38a0140c92ec36231c283a1eceb3f193fabd",
+    "status": "passed",
+    "protected_inputs_all_match": true
+  },
+  "post_run_artifact_checks": [
+    {
+      "name": "budget_decision",
+      "path": "output/revision/extended_study/development_budget_decision_v1.json",
+      "pre_run_reference_sha256": "95af6e31285d74af1d26dd905399742c5b8da1c84090e1f9b2e6b4b4aaeb4bab",
+      "post_run_sha256": "95af6e31285d74af1d26dd905399742c5b8da1c84090e1f9b2e6b4b4aaeb4bab",
+      "unchanged": true
+    },
+    {
+      "name": "protocol",
+      "path": "output/revision/extended_study/full_study/protocol_v1.json",
+      "pre_run_reference_sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+      "post_run_sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+      "unchanged": true
+    },
+    {
+      "name": "calibration_manifest",
+      "path": "output/revision/extended_study/calibration_study/manifest.json",
+      "pre_run_reference_sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3",
+      "post_run_sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3",
+      "unchanged": true
+    },
+    {
+      "name": "blank_human_review",
+      "path": "output/revision/extended_study/human_prompt_review_template_v1.json",
+      "pre_run_reference_sha256": "82395ac0fae069cdd15e25aba8d4984b94b492e299e7e27d8701f0930540d102",
+      "post_run_sha256": "82395ac0fae069cdd15e25aba8d4984b94b492e299e7e27d8701f0930540d102",
+      "unchanged": true
+    },
+    {
+      "name": "prompt_review_worksheet",
+      "path": "output/revision/extended_study/prompt_review_worksheet.md",
+      "pre_run_reference_sha256": "378161aa11c9ebd64057f9858ec6ee40cb1878b088e06dfead3a449cc623d2ee",
+      "post_run_sha256": "378161aa11c9ebd64057f9858ec6ee40cb1878b088e06dfead3a449cc623d2ee",
+      "unchanged": true
+    }
+  ],
+  "unexpected_original_empirical_output_directories": [],
+  "original_scientific_artifacts_unchanged": true,
+  "note": "Notebook outputs and extracted copies were confined to output/revision/environment_validation/notebook_check."
+}

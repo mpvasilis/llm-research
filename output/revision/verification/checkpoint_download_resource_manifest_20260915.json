@@ -1,0 +1,578 @@
+{
+  "checkpoints": [
+    {
+      "already_local_bytes": 0,
+      "checkpoint_alias": "1b_sft",
+      "complete_weight_set_present_locally": false,
+      "config_architecture": {
+        "hidden_size": 2048,
+        "intermediate_size": 8192,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 16,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "49bea9bdaa58245ee3d04685b05e39b90a4c1ec69f32afbc0877ae22023c0f6c",
+      "index_file_count": 0,
+      "metadata_resolved_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "missing_bytes": 2969891414,
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-0425-1B-SFT/revision/0d85a3d037876ce6ac7d4311d994400fc66ac27f?blobs=true",
+      "official_safetensors_parameter_metadata": null,
+      "parameter_metadata_note": "Unavailable from files_metadata because this pinned repository exposes PyTorch .bin weights, not safetensors.",
+      "requested_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "weight_file_count": 1,
+      "weight_files": [
+        {
+          "bytes": 2969891414,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model.bin",
+          "format": "pytorch_bin",
+          "gib": 2.765926918014884,
+          "git_blob_sha1": "e5b380dd20db48c713a7f10c04103e0c114ddd8c",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "338aeb8b3049cc9b19ba1f3e6df4b5280f3e002b5ae9e38328a353d8f072d534",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        }
+      ],
+      "weight_format": "pytorch_bin",
+      "weight_storage_bytes_including_index": 2969891414,
+      "weight_storage_gib_including_index": 2.765926918014884
+    },
+    {
+      "already_local_bytes": 0,
+      "checkpoint_alias": "1b_dpo",
+      "complete_weight_set_present_locally": false,
+      "config_architecture": {
+        "hidden_size": 2048,
+        "intermediate_size": 8192,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 16,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "49bea9bdaa58245ee3d04685b05e39b90a4c1ec69f32afbc0877ae22023c0f6c",
+      "index_file_count": 0,
+      "metadata_resolved_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "missing_bytes": 2969891414,
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-0425-1B-DPO/revision/c4b0485961ab24c2433b090f3b922f0913a9290f?blobs=true",
+      "official_safetensors_parameter_metadata": null,
+      "parameter_metadata_note": "Unavailable from files_metadata because this pinned repository exposes PyTorch .bin weights, not safetensors.",
+      "requested_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "weight_file_count": 1,
+      "weight_files": [
+        {
+          "bytes": 2969891414,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model.bin",
+          "format": "pytorch_bin",
+          "gib": 2.765926918014884,
+          "git_blob_sha1": "28c258bee844853af9d50bc1f8e33c2f9e42d73f",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "2262a62b6caa094aeea3996b054a080370d59f349436d5e9788792063d6acda1",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        }
+      ],
+      "weight_format": "pytorch_bin",
+      "weight_storage_bytes_including_index": 2969891414,
+      "weight_storage_gib_including_index": 2.765926918014884
+    },
+    {
+      "already_local_bytes": 2969854224,
+      "checkpoint_alias": "1b_instruct",
+      "complete_weight_set_present_locally": true,
+      "config_architecture": {
+        "hidden_size": 2048,
+        "intermediate_size": 8192,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 16,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "0d15ebb6cb8d998513b46ef337214176a6fd59fe5f16b30387c70d5f87795a9c",
+      "index_file_count": 0,
+      "metadata_resolved_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "missing_bytes": 0,
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-0425-1B-Instruct/revision/48d788eca847d4d7548f375ad03d3c9312f6139e?blobs=true",
+      "official_safetensors_parameter_metadata": {
+        "parameters_by_dtype": {
+          "BF16": 1484916736
+        },
+        "raw_parameter_bytes_if_loaded_float32": 5939666944,
+        "raw_parameter_gib_if_loaded_float32": 5.531745910644531,
+        "total_parameters": 1484916736
+      },
+      "parameter_metadata_note": "Exact official safetensors metadata is available for this pinned repository.",
+      "requested_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "weight_file_count": 1,
+      "weight_files": [
+        {
+          "bytes": 2969854224,
+          "cache_state_at_exact_revision": "present",
+          "filename": "model.safetensors",
+          "format": "safetensors",
+          "gib": 2.765892282128334,
+          "git_blob_sha1": "df1e30783ca1acd7c9079b8c7be6ad2d746582ac",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "36d044c73655bb904f822915e6294ba3dae8e6e1af5e703e9d452f2d6a3a294f",
+          "local_blob_identity_matches_metadata_lfs_sha256": true,
+          "local_bytes": 2969854224,
+          "local_cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\snapshots\\48d788eca847d4d7548f375ad03d3c9312f6139e\\model.safetensors",
+          "local_resolved_blob_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\blobs\\36d044c73655bb904f822915e6294ba3dae8e6e1af5e703e9d452f2d6a3a294f",
+          "local_size_matches_metadata": true,
+          "role": "weight_tensor_file"
+        }
+      ],
+      "weight_format": "safetensors",
+      "weight_storage_bytes_including_index": 2969854224,
+      "weight_storage_gib_including_index": 2.765892282128334
+    },
+    {
+      "already_local_bytes": 0,
+      "checkpoint_alias": "7b_sft",
+      "complete_weight_set_present_locally": false,
+      "config_architecture": {
+        "hidden_size": 4096,
+        "intermediate_size": 11008,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 32,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "9e39950708cf043bf59cb13137e80fb37d25846179d1d01cb6195880649333b0",
+      "index_file_count": 1,
+      "metadata_resolved_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "missing_bytes": 14597385869,
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-1124-7B-SFT/revision/1de02c0175118a9de5854aec80a1f970e701e928?blobs=true",
+      "official_safetensors_parameter_metadata": null,
+      "parameter_metadata_note": "Unavailable from files_metadata because this pinned repository exposes PyTorch .bin weights, not safetensors.",
+      "requested_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "weight_file_count": 3,
+      "weight_files": [
+        {
+          "bytes": 4970616924,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00001-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.62924775108695,
+          "git_blob_sha1": "216584b2800f80582aa7b9a20b6be0bf39869761",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "c2daa996474ccd22aa2e337943d9ff871e5ccf1d89fa07c900028e4b185057bc",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4981192226,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00002-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.6390967685729265,
+          "git_blob_sha1": "0f1c9f0fa46874605f4ad92a02cab06ffbe8712e",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "528c6edbb7a82b0ebd544490410498156cdfa1eb8dbd719260406d98c8c5a9ec",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4645547125,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00003-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.326502908952534,
+          "git_blob_sha1": "ee5d80106fac395ed4443699b80bc7e85c1a34a2",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "1171292db1b89f2331eef64b6d81c2907eabfbdaf11770a6634d9996885819c6",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 29594,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model.bin.index.json",
+          "format": "pytorch_bin",
+          "gib": 2.756156027317047e-05,
+          "git_blob_sha1": "11717685c6c01bd79092da5e83b959c9857cd5f5",
+          "lfs_pointer_bytes": null,
+          "lfs_sha256": null,
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "index"
+        }
+      ],
+      "weight_format": "pytorch_bin",
+      "weight_storage_bytes_including_index": 14597385869,
+      "weight_storage_gib_including_index": 13.594874990172684
+    },
+    {
+      "already_local_bytes": 0,
+      "checkpoint_alias": "7b_dpo",
+      "complete_weight_set_present_locally": false,
+      "config_architecture": {
+        "hidden_size": 4096,
+        "intermediate_size": 11008,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 32,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "5f55669a0bc6e1825836c3c978908dde7918f705995eda1a5ffc40dd7ef47289",
+      "index_file_count": 1,
+      "metadata_resolved_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "missing_bytes": 14597385869,
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-1124-7B-DPO/revision/e34ea60adff2e575f4fe7569eaffd1b28509b6fd?blobs=true",
+      "official_safetensors_parameter_metadata": null,
+      "parameter_metadata_note": "Unavailable from files_metadata because this pinned repository exposes PyTorch .bin weights, not safetensors.",
+      "requested_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "weight_file_count": 3,
+      "weight_files": [
+        {
+          "bytes": 4970616924,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00001-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.62924775108695,
+          "git_blob_sha1": "c918c4ebb2f643959ceb219d8333555fe77c2fcb",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "9be0c90c7f06cda8d55ac4ace196ab42e96653f0049767cee77535c16c61b251",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4981192226,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00002-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.6390967685729265,
+          "git_blob_sha1": "6f6fcbfd8b2578cea0cc933054a4264add2626c9",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "4987eac9cbea29614a1ff33cd9bd4cd8b5a0954d306b39fc2bee5fcd697863f5",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4645547125,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model-00003-of-00003.bin",
+          "format": "pytorch_bin",
+          "gib": 4.326502908952534,
+          "git_blob_sha1": "107919a2101b1bce7f2c521dd18c04d384066f9d",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "3b2e4be915324a96c9c264d917e73cc50be863cdb7ccc5692c913661aa69464b",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 29594,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "pytorch_model.bin.index.json",
+          "format": "pytorch_bin",
+          "gib": 2.756156027317047e-05,
+          "git_blob_sha1": "11717685c6c01bd79092da5e83b959c9857cd5f5",
+          "lfs_pointer_bytes": null,
+          "lfs_sha256": null,
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "index"
+        }
+      ],
+      "weight_format": "pytorch_bin",
+      "weight_storage_bytes_including_index": 14597385869,
+      "weight_storage_gib_including_index": 13.594874990172684
+    },
+    {
+      "already_local_bytes": 0,
+      "checkpoint_alias": "7b_instruct",
+      "complete_weight_set_present_locally": false,
+      "config_architecture": {
+        "hidden_size": 4096,
+        "intermediate_size": 11008,
+        "max_position_embeddings": 4096,
+        "num_hidden_layers": 32,
+        "tie_word_embeddings": false,
+        "vocab_size": 100352
+      },
+      "config_cache_state": "present",
+      "config_declared_torch_dtype": "bfloat16",
+      "config_sha256": "ff8cc8709a229515676797ab6f343a09391041c9a8fbbc78bfec5be4c2e3664e",
+      "index_file_count": 1,
+      "metadata_resolved_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "missing_bytes": 14597305722,
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "official_metadata_url": "https://huggingface.co/api/models/allenai/OLMo-2-1124-7B-Instruct/revision/470b1fba1ae01581f270116362ee4aa1b97f4c84?blobs=true",
+      "official_safetensors_parameter_metadata": {
+        "parameters_by_dtype": {
+          "BF16": 7298617344
+        },
+        "raw_parameter_bytes_if_loaded_float32": 29194469376,
+        "raw_parameter_gib_if_loaded_float32": 27.189468383789062,
+        "total_parameters": 7298617344
+      },
+      "parameter_metadata_note": "Exact official safetensors metadata is available for this pinned repository.",
+      "requested_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "weight_file_count": 3,
+      "weight_files": [
+        {
+          "bytes": 4970591184,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "model-00001-of-00003.safetensors",
+          "format": "safetensors",
+          "gib": 4.62922377884388,
+          "git_blob_sha1": "442908417afb5a41e9b199528754b0c73d122f02",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "05ae91e1171f1f1753b23df3a5a6740d89da377932b33a1661bb7485d6ec530e",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4981161496,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "model-00002-of-00003.safetensors",
+          "format": "safetensors",
+          "gib": 4.639068149030209,
+          "git_blob_sha1": "fb9e3a7f12202c9a3df65e41da006d3665ed53fb",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "0d41b81fe0d7e4c1d673a77beded5ee77080e39d6a6940b523e82f61eaa1dcbd",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 4645523448,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "model-00003-of-00003.safetensors",
+          "format": "safetensors",
+          "gib": 4.326480858027935,
+          "git_blob_sha1": "e4b9bdeafaa54211dfbf69ade9f1591df1619217",
+          "lfs_pointer_bytes": 135,
+          "lfs_sha256": "51d701cc400703094ae4b6434b067ee8810056170ce4703e93b2f5b2cb93a51d",
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "weight_tensor_file"
+        },
+        {
+          "bytes": 29594,
+          "cache_state_at_exact_revision": "missing",
+          "filename": "model.safetensors.index.json",
+          "format": "safetensors",
+          "gib": 2.756156027317047e-05,
+          "git_blob_sha1": "5897f0ef1399d0ec455ff4f235ebcac40e7a1ece",
+          "lfs_pointer_bytes": null,
+          "lfs_sha256": null,
+          "local_blob_identity_matches_metadata_lfs_sha256": null,
+          "local_bytes": null,
+          "local_cache_path": null,
+          "local_resolved_blob_path": null,
+          "local_size_matches_metadata": null,
+          "role": "index"
+        }
+      ],
+      "weight_format": "safetensors",
+      "weight_storage_bytes_including_index": 14597305722,
+      "weight_storage_gib_including_index": 13.594800347462296
+    }
+  ],
+  "created_at_utc": "2026-09-15T18:52:09.908225+00:00",
+  "current_cpu_configuration": {
+    "checkpoint_config_declared_torch_dtype": {
+      "1b_dpo": "bfloat16",
+      "1b_instruct": "bfloat16",
+      "1b_sft": "bfloat16",
+      "7b_dpo": "bfloat16",
+      "7b_instruct": "bfloat16",
+      "7b_sft": "bfloat16"
+    },
+    "interpretation": "The observed development probe requests float32 CPU loading while all six cached configs declare bfloat16. Forced float32 materializes parameter tensors at four bytes per parameter; exact raw parameter bytes are reported only where official safetensors parameter counts exist. This records the current probe configuration and does not choose a successor execution profile.",
+    "observed_development_probe_execution_profile": {
+      "accelerator": null,
+      "cuda_runtime": null,
+      "device_class": "cpu",
+      "dtype": "float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+      "profile_schema_version": "revision-study-execution-profile-v1",
+      "python_version": "3.14.3",
+      "single_response_generation": true,
+      "torch_num_threads": 4,
+      "torch_version": "2.13.0+cpu",
+      "transformers_version": "5.5.4"
+    },
+    "source_path": "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\run_config.json",
+    "source_sha256": "7e72226a51cd959c4a3416041b05e820ded80d1d5ce41d4ff979f44ae595758e"
+  },
+  "deduplication": {
+    "alias_deduplication": "none; all six frozen model_id/revision pairs are distinct",
+    "lfs_weight_tensor_sha256_collisions": 0,
+    "planning_policy": "Gross bytes are retained for download/storage planning because Hugging Face cache blob stores are repository-scoped and no cross-repository physical deduplication is proved. Content-unique totals are reported separately.",
+    "proven_duplicate_content": [
+      {
+        "bytes_each": 29594,
+        "identity": "11717685c6c01bd79092da5e83b959c9857cd5f5",
+        "identity_kind": "git_blob_sha1",
+        "occurrences": [
+          {
+            "checkpoint_alias": "7b_sft",
+            "filename": "pytorch_model.bin.index.json",
+            "model_id": "allenai/OLMo-2-1124-7B-SFT",
+            "revision": "1de02c0175118a9de5854aec80a1f970e701e928"
+          },
+          {
+            "checkpoint_alias": "7b_dpo",
+            "filename": "pytorch_model.bin.index.json",
+            "model_id": "allenai/OLMo-2-1124-7B-DPO",
+            "revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd"
+          }
+        ]
+      }
+    ]
+  },
+  "float32_raw_parameter_ram_references": {
+    "1b_instruct": {
+      "exact_raw_parameter_gib": 5.531745910644531,
+      "fraction_of_free_ram_snapshot": 0.3746272457432298,
+      "fraction_of_physical_ram": 0.1731646865125851,
+      "free_ram_minus_raw_parameter_gib": 9.234254089355469,
+      "physical_ram_minus_raw_parameter_gib": 26.41325408935547,
+      "scope": "Raw parameter tensors only; excludes framework, allocator, temporary conversion, KV cache, activations, tokenizer, and operating-system memory. This is not a memory-fit benchmark."
+    },
+    "7b_instruct": {
+      "exact_raw_parameter_gib": 27.189468383789062,
+      "fraction_of_free_ram_snapshot": 1.8413563851949792,
+      "fraction_of_physical_ram": 0.8511337731660373,
+      "free_ram_minus_raw_parameter_gib": -12.423468383789062,
+      "physical_ram_minus_raw_parameter_gib": 4.755531616210938,
+      "scope": "Raw parameter tensors only; excludes framework, allocator, temporary conversion, KV cache, activations, tokenizer, and operating-system memory. This is not a memory-fit benchmark."
+    }
+  },
+  "limitations": [
+    "Official metadata file sizes establish transfer/storage bytes for the listed pinned weight and index files; they do not establish runtime memory use.",
+    "Exact parameter/dtype metadata is unavailable from files_metadata for the four pinned PyTorch .bin repositories and is not inferred by loading weights.",
+    "Raw float32 parameter bytes are a lower-bound component, not a memory-fit benchmark or a claim that any checkpoint fits physical or free RAM.",
+    "No GPU throughput, CPU throughput, wall-time, execution-profile, or full-study budget recommendation is made.",
+    "D: is temporary storage subject to data loss and is not counted as durable capacity."
+  ],
+  "machine_snapshot_supplied_by_root": {
+    "c_drive_free_gib_before_venv_install": 75.2,
+    "cuda_observation": "No CUDA is known in the current environment; this was not an exhaustive hardware audit.",
+    "d_drive_free_gib": 57.1,
+    "d_drive_storage_class": "temporary disk subject to data loss; excluded from durable experiment storage",
+    "display_and_connected_tools_context": "Microsoft Hyper-V Video display adapter; no connected Drive, Colab, or SSH surface found by root",
+    "free_ram_gib": 14.766,
+    "observed_time_local": "2026-09-15T21:44:00+03:00 Europe/Bucharest",
+    "observed_time_utc": "2026-09-15T18:44:00Z",
+    "physical_ram_gib": 31.945,
+    "storage_arithmetic_from_rounded_snapshot": {
+      "c_free_minus_all_missing_weights_gib": 28.88359583616257,
+      "c_free_minus_gross_six_checkpoint_weights_gib": 26.117703554034236,
+      "note": "Rounded snapshot arithmetic only; excludes cache metadata, environment, temporary download duplication, outputs, and future disk use."
+    }
+  },
+  "manifest_id": "checkpoint_resources_3b937eebe50c6b26cdf5e98716a118ac",
+  "metadata_method": {
+    "client": "huggingface_hub.HfApi.model_info",
+    "exact_revision_required": true,
+    "files_metadata": true,
+    "huggingface_hub_version": "1.7.2",
+    "official_host": "huggingface.co",
+    "query_count": 6
+  },
+  "protocol": {
+    "path": "output\\revision\\extended_study\\full_study\\protocol_v1.json",
+    "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+    "sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46"
+  },
+  "schema_version": "checkpoint-download-resource-manifest-v1",
+  "scope": "Official Hugging Face files_metadata at exact frozen revisions plus local cache/config inspection; no model weights downloaded or loaded.",
+  "source_integrity": {
+    "current_run_config_sha256_after": "7e72226a51cd959c4a3416041b05e820ded80d1d5ce41d4ff979f44ae595758e",
+    "current_run_config_sha256_before": "7e72226a51cd959c4a3416041b05e820ded80d1d5ce41d4ff979f44ae595758e",
+    "protocol_sha256_after": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+    "protocol_sha256_before": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+    "unchanged": true
+  },
+  "totals": {
+    "already_local_weight_bytes": 2969854224,
+    "already_local_weight_gib": 2.765892282128334,
+    "checkpoint_count": 6,
+    "complete_weight_sets_already_local": [
+      "1b_instruct"
+    ],
+    "complete_weight_sets_missing": [
+      "1b_sft",
+      "1b_dpo",
+      "7b_sft",
+      "7b_dpo",
+      "7b_instruct"
+    ],
+    "content_unique_bytes_if_repository_namespaces_are_ignored": 52701684918,
+    "content_unique_gib_if_repository_namespaces_are_ignored": 49.082268884405494,
+    "content_unique_missing_bytes_if_repository_namespaces_are_ignored": 49731830694,
+    "content_unique_missing_gib_if_repository_namespaces_are_ignored": 46.31637660227716,
+    "gross_weight_storage_bytes_including_indexes": 52701714512,
+    "gross_weight_storage_gib_including_indexes": 49.08229644596577,
+    "missing_weight_download_storage_bytes": 49731860288,
+    "missing_weight_download_storage_gib": 46.31640416383743
+  }
+}

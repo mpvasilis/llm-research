@@ -1,0 +1,24 @@
+{
+  "status": "compiled_and_visually_reviewed",
+  "pdf": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\pdf\\advice_marker_revision_2026-11-09.pdf",
+  "page_count": 15,
+  "main_body_note": "The main text and conclusion finish on page 8. Limitations begin on page 8; ethics and references begin on page 9. Venue not yet selected.",
+  "window_table_page": [
+    5
+  ],
+  "dpo_table_page": [
+    8
+  ],
+  "overfull_warnings": 0,
+  "undefined_reference_or_citation_warnings": 0,
+  "visual_review": "Final all-page contact sheet inspected, including relocated appendix content; main conclusion and tables on page 8 inspected at readable size. No clipped or overlapping content observed.",
+  "build": "From repository root: prepend latex_build and out/paper to TEXINPUTS, out/paper to BIBINPUTS and BSTINPUTS; pdflatex -interaction=nonstopmode -halt-on-error -output-directory=output/review_2026-11-09/latex_build out/paper/acl_latex.tex; bibtex output/review_2026-11-09/latex_build/acl_latex; rerun pdflatex until references stable. latexmk cannot run because Perl is absent.",
+  "hashes": {
+    "out\\paper\\acl_latex.tex": "8c344b6b70043171abb8e2654c6d5f52079974e3c88152c1047996594fb352f1",
+    "out\\paper\\custom.bib": "908fcd7d10c3bf85266a49154bc168c3a252139a21922800e37f2196d52bad63",
+    "output\\pdf\\advice_marker_revision_2026-11-09.pdf": "63779476ae11ce08a030fcf2e4f0c51965b03b15936147ef478590336ed6c435"
+  },
+  "preservation": "Prior output snapshots and out/paper/acl_latex.pdf were not overwritten.",
+  "final_focused_pass": "Moved detailed corpus-search methods to their appendix and compressed tangential background; font and spacing unchanged.",
+  "final_readability_fix": "Shortened discussion ending to remove a one-word column orphan; page 8 rerendered and visually checked. Main text remains within 8 pages; total 15."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "independent-readability-packet-v1",
+  "status": "PENDING_HUMAN_READINGS",
+  "paper_path": "output\\pdf\\advice_marker_revision_2026-09-15.pdf",
+  "paper_sha256": "559013886fffb86d63600b8d8f33ce328c0f2c0c207b31929eb1223633a3421a",
+  "prepared_by": "AI assistant",
+  "completed_human_readings": 0,
+  "reader_forms": [
+    {
+      "path": "blank_reader_1.md",
+      "sha256": "0d38b182c4fb28295eb5916d3b200a456e99e95c24e942959ba95d847fdcf5c5",
+      "reader_id": null,
+      "status": "PENDING"
+    },
+    {
+      "path": "blank_reader_2.md",
+      "sha256": "4426dde134c822be39e7d1610a85e237e9c2bc56112ff36e14fd67fbbad1ec0e",
+      "reader_id": null,
+      "status": "PENDING"
+    }
+  ],
+  "author_protocol": "out/paper/EXTERNAL_READABILITY_PROTOCOL_2026-09-15.md",
+  "distribution": "Each reader receives only the PDF and their own form before independent answers; author rubric stays separate."
+}

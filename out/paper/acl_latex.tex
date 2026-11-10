@@ -57,14 +57,16 @@ searched. Our case study is advice-style language in OLMo-2, whose
 post-training data and intermediate checkpoints are public. We combine 140
 prompts in five conditions, 1B and 7B checkpoints from base to final model, a
 120-sentence audit against LLM-consensus labels, and about 378,000 preference
-pairs per model. On the same 700 final-7B responses, the gap between
-personal-advice prompts and an emotional control for an empathy marker is
+pairs per model. On the same 700 responses of the final 7B model, an empathy
+marker's rate on personal-advice prompts, minus its rate on prompts that
+mention an emotion without asking for help, is
 $+32.3$ percentage points with exact matching, $-14.7$ once embedding matches
 are added, and $+25.3$ when only the first 64 tokens are searched. Swapping
 the matching rule alone moves this gap by 47 points (simultaneous 95\%
 interval 28 to 66). In the audit, every false positive comes from the
-embedding rule. Across checkpoints, DPO widens the advice-specific gap for
-validation phrases and narrows it for structuring phrases at both model sizes.
+embedding rule. Across checkpoints, the DPO stage widens the gap between
+advice and factual prompts for validation phrases and narrows it for
+structuring phrases, at both model sizes.
 In the DPO preference data, referral and structuring phrases favor the chosen
 response, and modeling response length roughly halves that association
 without removing it. Marker comparisons should therefore report the matching
@@ -106,26 +108,35 @@ apparent behavioral trajectory may be a measurement trajectory.
 
 This paper asks one question: \emph{how do detection rules and response length
 change conclusions about advice-style language across OLMo-2 post-training?}
-We split it into three parts. \textbf{RQ1} asks how the detector's components
+By advice-style language we mean four surface features that recur in answers
+to personal requests for help: an expression of empathy, a validation of the
+person's feelings, a referral or disclaimer, and list-like structuring.
+We split the question into three parts. \textbf{RQ1} asks how the detector's components
 and the text window change measured contrasts. \textbf{RQ2} asks how those
 contrasts vary with the control condition and the checkpoint. \textbf{RQ3}
-asks how phrase--preference associations in the DPO training data change once
+asks how phrase-preference associations in the DPO training data change once
 response length is modeled.
 
-OLMo-2 suits this study because its final Instruct model is the product of
+OLMo-2, released with 1B and 7B parameters, suits this study because its
+final Instruct model is the product of
 four public data-bearing stages: pretraining, supervised fine-tuning (SFT),
 direct preference optimization (DPO), and reinforcement learning with
 verifiable rewards (RLVR) \citep{olmo2025olmo2}. Both the intermediate
 checkpoints and the post-training data can be inspected.
 
-We use three terms throughout. A \textbf{marker} is a specified textual
+We use four terms throughout. A \textbf{marker} is a specified textual
 feature, such as a phrase in our lexicon. A \textbf{detector} is the algorithm
 that decides whether a marker category occurs in a response. A detector output
 becomes a \textbf{proxy} when it stands in for a broader construct such as
 empathy. Our four categories keep the names of their lexicon entries
 (\emph{empathy-opener}, \emph{validation-phrase}, \emph{referral/disclaimer},
 \emph{structuring-marker}), but the names label rules and not semantic
-judgments.
+judgments. A \textbf{gap} is the share of personal-advice prompts on which a
+category is detected minus the share for a control set of prompts. We use
+general factual questions as the broad control and three \emph{targeted
+controls} that each share one property with personal advice: emotional
+content without a request, a request without emotional content, and the
+health domain.
 
 \paragraph{Findings and contributions.}
 \begin{enumerate}\itemsep2pt
@@ -138,7 +149,7 @@ and every false positive of the union comes from the embedding rule.
 \item \textbf{Controls and checkpoints separate markers that look alike
 (RQ2).} All four markers separate personal advice from general facts, yet only
 validation phrases exceed every targeted control. Between the SFT and DPO
-checkpoints, which share one prompt interface, the advice-minus-facts gap for
+checkpoints, which use the same prompt format, the advice-minus-facts gap for
 validation widens while the gap for structuring narrows, at both sizes.
 \item \textbf{Length explains about half of the preference-data association
 (RQ3).} In roughly 378,000 DPO pairs per model, referral/disclaimer and
@@ -190,11 +201,10 @@ Behavioral testing argues for targeted controls beyond aggregate scores
 \citep{ribeiro2020checklist}. Measurement-theory accounts of evaluation
 separate the concept, its systematization, and the instrument that scores it
 \citep{wallach2025position,bean2025construct}; our marker, detector, and proxy
-terms follow that separation. LLM judges can approach expert agreement on
-empathic communication in specific settings \citep{kumar2026reliable}, are
-less reliable for affective properties in mental-health text
-\citep{badawi2026trust}, and can be compared directly with human judges
-\citep{welivita2026empathetic}. \citet{calderon2025alttest} give a statistical
+terms follow that separation. LLM judges can approach expert agreement on empathic communication
+\citep{kumar2026reliable} but are less reliable for affective properties in
+mental-health text \citep{badawi2026trust,welivita2026empathetic}.
+\citet{calderon2025alttest} give a statistical
 procedure for deciding when an LLM may replace human annotators, which
 requires a human-annotated subset. Our audit has no such subset, so we use it
 to diagnose the detector's rules and not to validate a construct.
@@ -231,8 +241,8 @@ Analysis & Material & Comparison & Main scope limit \\
 RQ1: Detector and window & 700 stored final-7B responses; 140 prompts, five generations & Exact-only versus union contrasts; all text versus 64- and 128-token prefixes & Generations capped at 256 tokens; final 7B only \\
 RQ1: Sentence audit & 120 sentences from 97 final responses & Detector versus LLM-consensus sentence labels & No human labels; the referral label is narrower than the detector category \\
 RQ2: Final conditions & 140 prompts, five conditions, five generations & Personal advice versus four controls at final 1B and 7B & Author-written controls are not topic-paired counterfactuals \\
-RQ2: Checkpoint grid & 90 personal-advice and general-facts prompts, five generations & Change in the advice-minus-facts gap across public 1B and 7B stages & Base-to-SFT also changes prompt serialization; detector outputs only \\
-RQ3: DPO pairs & 378,301 1B and 378,341 7B pairs & Exact chosen-versus-rejected matches, with paired flexible length terms & Observational; conditioning changes the estimand; mixtures share 21,508 pairs \\
+RQ2: Checkpoint grid & 90 personal-advice and general-facts prompts, five generations & Change in the advice-minus-facts gap across public 1B and 7B stages & Base-to-SFT also changes the prompt format; detector outputs only \\
+RQ3: DPO pairs & 378,301 1B and 378,341 7B pairs & Exact chosen-versus-rejected matches, with paired flexible length terms & Observational; conditioning on length changes the question; mixtures share 21,508 pairs \\
 \bottomrule
 \end{tabular}
 \caption{Evidence map. Each analysis answers a different part of the
@@ -254,9 +264,9 @@ excluded after producing 0 true positives and 11 false positives in the audit.
 
 The detector has two components. The \emph{exact} component is
 case-insensitive substring matching against the lexicon. The \emph{embedding}
-component marks a response positive when any sentence reaches cosine
-similarity $\tau$ to a category exemplar under e5-small
-\citep{wang2024e5}. The \emph{union} detector fires when either component
+component marks a response positive when any of its sentences reaches cosine
+similarity $\tau$ to one of three example sentences for the category, using
+the e5-small sentence-embedding model \citep{wang2024e5}. The \emph{union} detector fires when either component
 does. The primary threshold $\tau=0.82$ was fixed before the 140-prompt
 battery was run and was not tuned afterwards; we also report $\tau=0.80$ and
 $0.84$. Appendix~\ref{app:lexicon} gives the full specification.
@@ -292,13 +302,13 @@ Base$\to$SFT$\to$DPO$\to$RLVR1$\to$Instruct and 7B
 Base$\to$SFT$\to$DPO$\to$Instruct. The checkpoint grid uses the 90
 personal-advice and general-facts prompts with five generations. All five
 conditions run on the final models and, with four generations per prompt
-(seeds 0--3), at Base, SFT, and DPO.
+(seeds 0-3), at Base, SFT, and DPO.
 
 Base checkpoints have no chat template and use a plain Question/Answer
 format, whereas post-trained checkpoints use their official chat template.
-Base$\to$SFT is therefore a stage-plus-interface transition and cannot
-isolate SFT training. We report it but build no claim on it; the
-SFT$\to$DPO comparison shares one interface and carries the checkpoint
+Base$\to$SFT therefore changes the training stage and the prompt format at
+once and cannot isolate SFT training. We report it but build no claim on it.
+The SFT$\to$DPO comparison uses one prompt format and carries the checkpoint
 results.
 
 \subsection{Sentence-level audit}
@@ -308,8 +318,7 @@ sentences at random within condition (40 personal advice, 30 general facts,
 20 emotion without a request, 20 neutral how-to, 10 health facts), without
 stratifying on detector predictions. Two separately run, blinded passes of an
 LLM annotator (Codex) label each sentence for the four categories, and Claude
-Opus 4.8 adjudicates their disagreements. The artifact records the Opus
-identifier and run metadata; exact Codex build identifiers were not retained.
+Opus 4.8 adjudicates their disagreements.
 These labels are a diagnostic of the detector's rules against one explicit
 labeling scheme. They are not human validation, and we do not use them to
 recalibrate response-level rates.
@@ -321,22 +330,26 @@ detector-positive indicator over its generations, and condition rates are
 means over prompts; generations are never treated as independent trials.
 Between-condition and stage-by-condition tests are two-sided permutation tests
 on prompt-level means (10{,}000 permutations; Monte Carlo
-$p=(b+1)/(B+1)$). Benjamini--Hochberg correction is applied within each
+$p=(b+1)/(B+1)$). Benjamini-Hochberg correction is applied within each
 family: 24 final-condition contrasts, 28 adjacent-stage interactions on the
 advice-minus-facts gap, 24 stage interactions with targeted controls, and 8
 DPO pairwise tests. We write $p$ for unadjusted and $q$ for adjusted values.
 
 For the detector-component comparison we estimate the change in each
 advice-minus-control gap when exact-only matching replaces the union on the
-same text. We resample prompts within condition 20,000 times, keeping all five
-generations and both detector outputs together. Shared draws give simultaneous
-95\% intervals across the four changes from the maximum absolute standardized
-bootstrap deviation. This analysis was added after the condition and
-checkpoint results were known and is exploratory.
+same text, resampling prompts within condition 20,000 times. Shared draws
+give simultaneous 95\% intervals across the four changes. This analysis was
+added after the other results were known and is exploratory.
 
 \subsection{Paired DPO length model}
 \label{sec:method-dpo-conditional}
-For each of three exact phrase groups and each model size we fit a paired
+Each DPO training example pairs a prompt with a \emph{chosen} (preferred)
+and a \emph{rejected} response. We ask whether a phrase group appears more
+often on the chosen side, for three exact-match groups: the
+referral/disclaimer lexicon, a narrower referral set that requires an
+explicit doctor or professional object (for example ``talk to your
+doctor''), and the structuring lexicon. For each group and each model size
+we fit a paired
 choice model with conditional likelihood
 $\sum_i\log\sigma[\boldsymbol\beta^\top(\mathbf{x}_{ic}-\mathbf{x}_{ir})]$
 and no intercept, where $c$ and $r$ index the chosen and rejected response of
@@ -345,25 +358,23 @@ differences in a restricted cubic spline of $\log(1+\text{words})$ with five
 knots fixed at pooled percentiles before fitting (7, 78, 204, 374, and 739
 words). Intervals use a prompt-cluster sandwich covariance with finite-cluster
 correction. The resulting conditional odds ratio (OR) equals one when the
-model estimates no marker--choice association at the modeled lengths. Without
-the length terms, the model reduces, up to a continuity correction, to the matched odds ratio of
-chosen-only to rejected-only pairs, which we report as the marker-only
+model estimates no marker-choice association at the modeled lengths. Without
+the length terms, the model reduces, up to a continuity correction, to the
+matched odds ratio: the number of pairs with the phrase only in the chosen
+response divided by the number with it only in the rejected response, which we report as the marker-only
 estimate.
 
-Two cautions apply. Conditioning on an observed response property changes
-the estimand and does not identify a causal effect. The model specification
+Two cautions apply. Conditioning on length changes the question being
+answered, from ``is the phrase more common in chosen responses'' to ``is it
+more common among responses of similar length'', and neither version
+identifies a causal effect. The model specification
 was written down before the six fits but after the aggregate differences were
 known, so we treat the fits as exploratory.
 
-\paragraph{Corpus searches.} Searches of the pretraining, SFT, and RLVR data
-give secondary evidence of phrase co-occurrence
-(Appendix~\ref{app:perphrase}).
-
 \paragraph{Reproducibility.} The artifact contains the prompts, lexicon,
-seeds, thresholds, detector outputs, both audit passes with adjudication
-reasons, paired DPO features, and the scripts that derive every reported
-statistic, including adjusted values. Appendix~\ref{app:formulas} lists the
-file for each analysis.
+seeds, detector outputs, audit labels, paired DPO features, and the scripts
+behind every statistic (Appendix~\ref{app:formulas}). Secondary corpus
+searches are in Appendix~\ref{app:perphrase}.
 
 \section{Results}
 \label{sec:results}
@@ -425,11 +436,6 @@ rule having more sentences to test. The validation and referral/disclaimer contr
 positive in every window and structuring stays near zero. The window
 $p$-values are unadjusted, and only the 64-token contrast is clearly
 different from zero.
-
-A stored health-facts response shows the mechanism for exact rules as well:
-``Here are some key points based on research findings'' occurs after the
-first 64 tokens, so the structuring rule fires on the full text and not on
-the prefix.
 
 \paragraph{False positives come from the embedding rule.}
 The audit covers 120 sentences (56 from the 1B and 64 from the 7B final
@@ -503,13 +509,8 @@ targeted control in both models (all $p\leq.0044$, all $q\leq.0082$).
 The 1B and 7B profiles are close, and their small, mixed differences support
 no scaling claim.
 
-\paragraph{Markers co-occur within responses.}
-Among the 300 final-7B advice responses, 4.7\% trigger one category, 29.0\%
-two, 40.7\% three, and 25.7\% all four; none triggers zero.
-Referral/disclaimer is present in 93.0\% of validation-positive advice
-responses. Pairwise phi correlations are weak ($-.14$ to $.21$), so they neither
-establish nor rule out a shared response template of the kind reported by
-\citet{gueorguieva2026templatic}.
+Markers often co-occur: 25.7\% of final-7B advice responses trigger all four
+categories (Appendix~\ref{app:response-robustness}).
 
 \begin{table*}[t]
 \centering
@@ -558,7 +559,7 @@ structuring & 1B & $.180$ (.0002) & $.000$ (1.0) & $.080$ (.018) \\
 \end{tabular}
 \caption{Personal advice minus each targeted control, with the
 prompt-clustered permutation $p$ in parentheses (10k draws). After
-Benjamini--Hochberg correction across the 24 tests, all validation contrasts
+Benjamini-Hochberg correction across the 24 tests, all validation contrasts
 keep $q\leq.0082$. A non-significant cell means no detected difference, not
 equivalence.}
 \label{tab:contrasts}
@@ -571,21 +572,22 @@ Advice-side rates that rise across stages are ambiguous, because
 post-training could make all outputs more cautious and list-like. We
 therefore track the personal-advice-minus-general-facts gap at each stage
 (Appendix~\ref{app:stage-rates}) and test its change between adjacent stages,
-a stage-by-condition difference-in-differences on per-prompt trajectories
+that is, whether the gap itself grows or shrinks from one stage to the next
 (Table~\ref{tab:interaction}; 60 personal-advice and 30 general-facts
 prompts).
 
-Between SFT and DPO, which share the chat interface, the validation gap
+Between SFT and DPO, which use the same chat format, the validation gap
 widens by $+.213$ for 1B ($q=.002$) and $+.147$ for 7B ($q=.021$). The
 structuring gap narrows by $-.367$ for 1B and $-.277$ for 7B (both
 $q=.002$): DPO raises structuring on factual answers while advice-side rates
 are already near ceiling. The 1B referral/disclaimer gap widens by $+.190$
 ($q=.002$); the 7B change of $+.083$ is not significant ($q=.203$), and
-neither empathy-opener change is. No RLVR or final-merge gap change is
-significant (all unadjusted $p\geq.168$).
+neither empathy-opener change is. After DPO, no gap change at the RLVR stage
+or in the final Instruct model is significant (all unadjusted
+$p\geq.168$).
 
 All eight Base-to-SFT changes are positive and six survive correction, but
-this transition also switches from plain question--answer text to the chat
+this transition also switches from plain question-answer text to the chat
 template, so it cannot be attributed to SFT. Every category is already
 detector-positive at Base.
 
@@ -595,7 +597,7 @@ detector-positive at Base.
 \setlength{\tabcolsep}{1.5pt}
 \begin{tabular}{@{}llrr@{}}
 \toprule
-Model & Marker & \shortstack{Base$\to$SFT\\+ interface} &
+Model & Marker & \shortstack{Base$\to$SFT\\+ format} &
 SFT$\to$DPO \\
 \midrule
 1B & empathy opener & $+0.190$ (.004) & $+0.117$ (.121) \\
@@ -611,8 +613,8 @@ SFT$\to$DPO \\
 \end{tabular}
 \caption{Change in the personal-advice-minus-general-facts gap across
 transitions, with $q$ in parentheses (prompt-clustered permutation tests, 10k
-draws, Benjamini--Hochberg across all 28 adjacent-stage tests). The
-Base$\to$SFT column also changes the input serialization. Later transitions
+draws, Benjamini-Hochberg across all 28 adjacent-stage tests). The
+Base$\to$SFT column also changes the prompt format. Later transitions
 have unadjusted $p\geq.168$.}
 \label{tab:interaction}
 \end{table}
@@ -622,7 +624,7 @@ The Base/SFT/DPO runs with all five conditions test 24 planned
 stage-by-control interactions (Appendix~\ref{app:matched-stage}), of which
 four survive correction at $\tau=.82$. The clearest concerns empathy relative
 to emotion without a request. The 7B gap increases at the
-Base$\to$SFT/interface transition ($+0.358$, $q=.016$), and DPO then reverses
+Base$\to$SFT transition ($+0.358$, $q=.016$), and DPO then reverses
 it at both 1B ($-0.467$, $q=.001$) and 7B ($-0.642$, $q=.001$). At 7B, SFT
 also shifts structuring toward neutral how-to ($-0.208$, $q=.026$). No
 validation or referral interaction reaches $q<.05$. Three interactions are
@@ -651,10 +653,8 @@ Mix & Phrase group & Marker only & With length terms \\
 \end{tabular}
 \caption{RQ3: odds ratio [95\% interval] that a phrase group appears in the
 chosen and not the rejected response of a DPO pair. ``Marker only'' is the
-matched odds ratio; ``with length terms'' is the paired conditional model
-with flexible length terms and prompt-cluster intervals. The 7B
-narrower-referral lower bound is 0.996. Three-decimal values are in
-Appendix~\ref{app:dpo-robustness}.}
+matched odds ratio; ``with length terms'' is the paired model. One means no
+association. The 7B narrower-referral lower bound is 0.996.}
 \label{tab:dpo}
 \end{table}
 
@@ -679,29 +679,22 @@ In the paired model with flexible length terms, the broad referral/disclaimer
 odds ratio falls from 1.18 to 1.09 for 1B and from 1.35 to 1.13 for 7B, and
 structuring falls from 1.24 to 1.13 and from 1.44 to 1.19. All four intervals
 still exclude one. For the narrower referral set, which requires an explicit
-doctor or professional object, both intervals include one. An odds ratio of
-one means no modeled marker--choice association; it is not a statement about
-a change in choice probability.
+doctor or professional object, both intervals include one.
 
-One-pair-per-prompt and leave-largest-source-out checks preserve the
-broad-referral and structuring directions. The two mixtures share 21{,}508
+The broad-referral and structuring directions hold when we keep one pair per
+prompt and when we drop the largest data source. The two mixtures share 21{,}508
 content-identical pairs, so the 1B and 7B results are not independent
-replications. Source heterogeneity and the forest plot are in
-Appendix~\ref{app:dpo-robustness}.
+replications.
 
 \section{Discussion}
 
 \paragraph{What changes with the measurement, and what does not.}
-Two conclusions depend on the measurement choice. The empathy contrast
-against emotional prompts is positive under exact matching, negative under the
-union, and positive again in a 64-token window. The structuring contrast
-against neutral how-to prompts is large under exact matching and absent under
-the union. Three conclusions do not move in our checks: validation phrases
-exceed their strongest targeted control at all three thresholds, DPO reverses
-the 7B empathy gap against emotional prompts at all three thresholds, and no
-RLVR or final-merge gap change is significant. Stability under three
-thresholds is a property of the detector and does not establish construct
-validity.
+The empathy and structuring contrasts depend on the matching rule and, for
+empathy, on the text window. Two conclusions hold at all three thresholds:
+validation phrases exceed their strongest targeted control, and DPO reverses
+the 7B empathy gap against emotional prompts. Stability
+across thresholds is a property of the detector and does not establish that
+it measures the intended construct.
 
 \paragraph{Why the union detector behaves this way.}
 The embedding rule fires when any sentence resembles an exemplar, so its
@@ -710,59 +703,39 @@ the targeted controls are as long as advice responses and close to the
 256-token cap, while factual responses are shorter. A rule with this property
 separates long from short conditions well and separates two long conditions
 poorly, which matches the pattern in Tables~\ref{tab:window-components}
-and~\ref{tab:contrasts}. Exact matching has the opposite profile in the audit:
-no false positives and low recall.
-
+and~\ref{tab:contrasts}.
 \paragraph{Recommendations.}
-For marker-based comparisons of checkpoints or conditions, our results
-support four reporting practices. State the matching rule and show the
+We suggest four reporting practices for marker-based comparisons. State the matching rule and show the
 headline contrast under at least one alternative rule. Fix and report the
 text window, and check whether generations reach the length cap. Include a
 control condition that shares the surface property most likely to trigger the
 rule, such as emotional content without a request. When relating markers to
-preference data, report the association with and without length terms, since
-a raw phrase count mixes a length component with a phrase component.
+preference data, report the association with and without length terms.
+
+\section{Limitations}
+\label{sec:limitations}
+
+All analyses are observational and do not attribute outputs to training
+examples. The audit uses LLM-consensus labels, has no human labels, covers 97
+responses, has wide per-category intervals, and does not validate
+response-level prevalence. The component and window analyses cover only
+final 7B, because raw responses for other checkpoints were not stored. Base
+and later checkpoints use different prompt formats, which confounds every
+Base-to-SFT contrast. The targeted controls are not topic-paired to the
+advice prompts, and twelve pilot prompts were reused. The DPO length bins are
+post hoc, and the conditional model is exploratory and not preregistered.
+One model family, two sizes, one decoding configuration, and modest
+author-written prompt sets support no scaling or cross-family claim.
 
 \section{Conclusion}
 \label{sec:roadmap}
 
 On identical OLMo-2 responses, the matching rule and the text window decide
 whether an empathy marker looks more or less common in personal advice than
-in an emotional control. Targeted controls separate markers that all look
-advice-specific against factual prompts, DPO moves the validation and
-structuring gaps in opposite directions, and length accounts for about half
-of the chosen-side advantage of referral and structuring phrases in the DPO
-data. These results describe detector outputs. Human labels and stored
-responses at every checkpoint would let the same design support claims about
+in an emotional control, and length accounts for about half of the
+chosen-side advantage of referral and structuring phrases in the DPO data.
+These results describe detector outputs; human labels would extend them to
 semantic behavior.
-
-\section{Limitations}
-\label{sec:limitations}
-
-All analyses are observational. Checkpoint and corpus comparisons do not
-attribute outputs to training examples. Base uses plain QA while later
-checkpoints use chat serialization, confounding every Base-to-SFT contrast.
-
-The 120-sentence audit uses LLM-consensus labels and has no independent human
-labels. It does not validate response-level prevalence, samples 97 seed-0
-responses, and has wide category intervals. The detector-component and window
-analyses cover only final 7B, because raw responses for other checkpoints
-were not stored.
-
-The targeted controls are not topic-paired to the advice prompts, and a
-non-significant contrast does not show equivalence. Twelve pilot prompts were
-reused; excluding them changes final-7B advice-minus-general-facts gaps by at
-most .045. The small seed sets do not remove sampling uncertainty.
-
-The DPO length bins are post hoc. The conditional model was specified before
-its fits but after the aggregate results were known, so the analysis is
-exploratory and not preregistered. Conditioning
-on response length changes the estimand, and an OR is not a probability change.
-The mixtures share 21{,}508 content-identical pairs. SFT recoverability uses
-only three to six distinct three-word types. Stage-2 Dolmino-Mix-1124 lacks a
-public index, and Stage-1 novelty is verbatim-only and length-confounded. One
-model family, two sizes, one decoding configuration, and modest author-written
-prompt sets support no scaling or cross-family claim.
 
 \section*{Ethics Statement}
 
@@ -799,7 +772,7 @@ checkpoints), and five seeds per prompt in the canonical grid. The battery: 60 a
 prompts; the complete
 machine-readable list ships as \texttt{experiments/prompts\_full.json}. The
 Base/SFT/DPO five-condition extension uses four seeds; all balanced
-extension tests use seeds 0--3 for every condition. Eight advice and four
+extension tests use seeds 0-3 for every condition. Eight advice and four
 general-facts prompts were reused from the earlier 12-prompt pilot; the other 128 are
 new to the full battery.
 
@@ -955,7 +928,7 @@ Model & Stage & Empathy & Validation & Referral/disclaimer & Structuring \\
 \end{tabular}
 \caption{Personal-advice detector-positive rate, with the advice-minus-general-
 facts gap in parentheses ($\tau=0.82$). Base uses plain QA; later checkpoints
-use chat serialization.}
+use the chat format.}
 \label{tab:stagewise}
 \end{table*}
 
@@ -1070,6 +1043,10 @@ topical per-million for 1B: 2-word $1884.3$ vs $1760.2$ ($1.1\times$, $n_{\text{
 dropping ``here are some'' moves the mean from $5455.2$ to $1305.2$/M at 1B
 (3 types) and from $3026.0$ to $1065.9$/M at 7B (6 types).
 
+\paragraph{Scope of the corpus searches.} SFT recoverability uses only three
+to six distinct three-word types. Stage-2 Dolmino-Mix-1124 lacks a public
+index, and Stage-1 novelty is verbatim-only and length-confounded.
+
 \section{DPO phrase and source robustness}
 \label{app:dpo-robustness}
 
@@ -1138,9 +1115,9 @@ nine 1B sources (one tie) and all nine 7B sources; narrower-referral differences
 are positive in six and seven sources. After flexible length conditioning,
 adjusted ORs exceed one in eight of nine sources for broad referral and
 structuring at both sizes, and six of nine for the narrower set. Their ranges
-are broad referral $.919$--$1.294$ (1B) and $.988$--$1.584$ (7B), narrower
-referral $.600$--$1.537$ and $.636$--$2.242$, and structuring $.718$--$1.213$
-and $.718$--$1.324$. Source intervals can be wide, so these are heterogeneity
+are broad referral $.919$ to $1.294$ (1B) and $.988$ to $1.584$ (7B), narrower
+referral $.600$ to $1.537$ and $.636$ to $2.242$, and structuring $.718$ to $1.213$
+and $.718$ to $1.324$. Source intervals can be wide, so these are heterogeneity
 descriptions rather than source-level discoveries. The 19{,}890 7B rows with
 missing source labels are retained as the null-source stratum.
 
@@ -1157,7 +1134,7 @@ rows), limiting independent-replication language.
 \caption{Paired conditional marker associations in the 1B/7B DPO
 training mixtures after flexible response-length modeling. Bars are 95\%
 prompt-cluster sandwich intervals.
-OR${}=1$ denotes no modeled marker--choice association, not a zero change in
+OR${}=1$ denotes no modeled marker-choice association, not a zero change in
 preference probability.}
 \label{fig:dpo-conditional}
 \end{figure*}
@@ -1165,7 +1142,9 @@ preference probability.}
 \section{Response-cluster audit uncertainty}
 \label{app:audit-bootstrap}
 
-The 120 audit sentences come from 97 seed-0 responses. To preserve dependence
+The 120 audit sentences come from 97 seed-0 responses. The artifact records
+the adjudicator's model identifier and run metadata; exact build identifiers
+of the first-pass annotator were not retained. To preserve dependence
 among sentences from the same response, we assign Dirichlet$(1)$ weights to
 response keys in a 10{,}000-draw Bayesian bootstrap and recompute each metric.
 Table~\ref{tab:audit-bootstrap} reports percentile intervals. These intervals
@@ -1201,7 +1180,7 @@ $p=(b+1)/(B+1)$. With $B=10{,}000$, zero exceedances yield the minimum
 $p=1/10{,}001\approx9.999\times10^{-5}$, not zero.
 The distinct-phrase leave-one-out removes the most frequent 3-word phrase before
 recomputing the mean seeded-marker per-million. DPO comparisons use exact McNemar
-tests on chosen-only versus rejected-only pairs, Haldane--Anscombe matched odds
+tests on chosen-only versus rejected-only pairs, Haldane-Anscombe matched odds
 ratios with log-scale intervals, paired risk differences with normal-approximation
 intervals, and phrase occurrences per million whitespace-delimited response
 words. The exploratory conditional fits use the no-intercept paired likelihood

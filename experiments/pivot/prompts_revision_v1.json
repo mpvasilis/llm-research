@@ -1,0 +1,470 @@
+{
+  "study_version": "revision-study-v1",
+  "corpus_version": "prompts-revision-v1",
+  "authoring_provenance": "AI-assisted draft prepared for prospective revision study",
+  "human_manipulation_check": "PENDING",
+  "status": "DRAFT_DO_NOT_CALL_HUMAN_VALIDATED",
+  "construction": {
+    "template": "{context} {optional emotional_clause} {request}",
+    "invariance": "Within a family, context and request are identical across emotional framing; the emotional variant adds exactly emotional_clause. Context is identical across information and advice requests.",
+    "variants_per_family": 4,
+    "factors": {"emotional_framing": [false, true], "request_type": ["information", "advice"]}
+  },
+  "design": {
+    "evaluation_families": 40,
+    "development_families": 10,
+    "family_split_rule": "All four variants of a scenario family remain in the same split."
+  },
+  "families": [
+    {
+      "scenario_family_id": "eval_health_seasonal_allergies", "split": "evaluation", "domain": "health", "topic": "seasonal allergies",
+      "context": "I sometimes develop mild pollen-allergy symptoms that vary from day to day.",
+      "emotional_clause": "The unpredictability is wearing me down.",
+      "requests": {
+        "information": "What biological processes cause these symptoms, and why can their intensity vary? Please explain the processes rather than recommend steps.",
+        "advice": "What practical steps can I try to reduce routine pollen exposure and make mild allergy days easier to manage?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_mild_heartburn", "split": "evaluation", "domain": "health", "topic": "mild heartburn after meals",
+      "context": "I occasionally notice mild heartburn after a large meal.",
+      "emotional_clause": "The discomfort is frustrating.",
+      "requests": {
+        "information": "What causes this, and how does stomach acid reach the esophagus? Please explain the process rather than recommend steps.",
+        "advice": "What everyday eating or timing changes can I try to make these episodes less likely?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_muscle_recovery", "split": "evaluation", "domain": "health", "topic": "muscle recovery",
+      "context": "My muscles sometimes feel tired for a day after an unfamiliar workout.",
+      "emotional_clause": "That slow recovery discourages me.",
+      "requests": {
+        "information": "Why does that happen, and what occurs during recovery? Please explain the physiology rather than recommend steps.",
+        "advice": "What sensible recovery habits can I use after this kind of workout?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_daily_hydration", "split": "evaluation", "domain": "health", "topic": "daily hydration",
+      "context": "I am trying to understand how hydration needs change during an ordinary day.",
+      "emotional_clause": "Conflicting claims about hydration leave me confused.",
+      "requests": {
+        "information": "How does the body regulate water balance, and what affects fluid needs? Please explain the physiology rather than recommend a plan.",
+        "advice": "What practical habits can I use to stay adequately hydrated?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_winter_skin", "split": "evaluation", "domain": "health", "topic": "dry winter skin",
+      "context": "My skin can feel mildly dry during cold weather and indoor heating.",
+      "emotional_clause": "The tight feeling bothers me.",
+      "requests": {
+        "information": "Why do cold outdoor air and indoor heating contribute to this? Please explain the skin-barrier process rather than recommend care.",
+        "advice": "What basic routine can I try to protect my skin in those conditions?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_motion_sickness", "split": "evaluation", "domain": "health", "topic": "motion sickness",
+      "context": "I sometimes feel mildly queasy when reading in a moving vehicle.",
+      "emotional_clause": "I hate that sensation.",
+      "requests": {
+        "information": "Why does it happen? Please explain the sensory process rather than recommend remedies.",
+        "advice": "What practical measures can I try during a routine car or bus trip?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_tension_headache", "split": "evaluation", "domain": "health", "topic": "occasional tension headache",
+      "context": "I occasionally get a mild, tight headache during a long workday.",
+      "emotional_clause": "It makes me irritable.",
+      "requests": {
+        "information": "What factors are thought to contribute to this kind of tension-type headache? Please explain them rather than recommend actions.",
+        "advice": "What low-risk habits can I try to prevent or ease it?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_sleep_schedule", "split": "evaluation", "domain": "health", "topic": "weekend sleep schedule",
+      "context": "I often sleep much later on weekends than on weekdays and feel sluggish on Monday.",
+      "emotional_clause": "That Monday sluggishness annoys me.",
+      "requests": {
+        "information": "How can the schedule shift affect the circadian rhythm? Please explain the mechanism rather than recommend a schedule.",
+        "advice": "What gradual scheduling habits can I try to make my sleep times more consistent?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_screen_eye_strain", "split": "evaluation", "domain": "health", "topic": "screen-related eye strain",
+      "context": "My eyes sometimes feel temporarily tired or dry after prolonged screen work.",
+      "emotional_clause": "I am fed up with the fatigue.",
+      "requests": {
+        "information": "Why can prolonged viewing cause this when vision is otherwise normal? Please explain the process rather than recommend adjustments.",
+        "advice": "What simple workday adjustments can I try to reduce it?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_back_stiffness", "split": "evaluation", "domain": "health", "topic": "mild lower-back stiffness",
+      "context": "I sometimes have temporary mild lower-back stiffness after sitting in one position for a long time.",
+      "emotional_clause": "The stiffness wears me down.",
+      "requests": {
+        "information": "Why can prolonged stillness contribute to this? Please explain the mechanism rather than prescribe actions.",
+        "advice": "What gentle, practical habits can I try to reduce it?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_caffeine_timing", "split": "evaluation", "domain": "health", "topic": "caffeine timing",
+      "context": "Afternoon coffee can leave me alert at my usual bedtime.",
+      "emotional_clause": "I find that frustrating.",
+      "requests": {
+        "information": "How does caffeine block sleep pressure, and why do people differ? Please explain the mechanism rather than advise what I should drink.",
+        "advice": "How can I adjust caffeine timing to reduce that effect?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_postexercise_soreness", "split": "evaluation", "domain": "health", "topic": "delayed exercise soreness",
+      "context": "My muscle soreness can peak two days after a new strength exercise rather than immediately.",
+      "emotional_clause": "The delay is discouraging.",
+      "requests": {
+        "information": "Why is the soreness delayed? Please explain the process rather than recommend recovery steps.",
+        "advice": "What reasonable habits can I try to make ordinary delayed soreness more manageable?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_breakfast_energy", "split": "evaluation", "domain": "health", "topic": "breakfast and steady energy",
+      "context": "Some breakfasts leave me hungry again quickly during the morning.",
+      "emotional_clause": "That leaves me disappointed.",
+      "requests": {
+        "information": "How do protein, fiber, fat, and rapidly digested carbohydrates affect fullness and energy? Please explain rather than design a meal.",
+        "advice": "How can I compose a simple breakfast intended to support fullness and steadier energy?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_concert_hearing", "split": "evaluation", "domain": "health", "topic": "hearing protection at concerts",
+      "context": "My ears can feel temporarily dull after a loud concert.",
+      "emotional_clause": "That sensation worries me.",
+      "requests": {
+        "information": "How can loud sound temporarily affect hearing, and what determines exposure? Please explain rather than recommend precautions.",
+        "advice": "What practical precautions can I use at future concerts to limit sound exposure?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_eczema_triggers", "split": "evaluation", "domain": "health", "topic": "mild eczema triggers",
+      "context": "I am trying to understand occasional mild eczema flares and their everyday triggers.",
+      "emotional_clause": "Their unpredictability is exhausting.",
+      "requests": {
+        "information": "What environmental factors can trigger a flare, and why does the skin barrier matter? Please explain rather than recommend care.",
+        "advice": "How can I keep a useful record of possible everyday triggers?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_tooth_sensitivity", "split": "evaluation", "domain": "health", "topic": "tooth sensitivity",
+      "context": "One tooth sometimes feels briefly sensitive to cold food or drinks.",
+      "emotional_clause": "The sensation makes me uneasy.",
+      "requests": {
+        "information": "Why can that happen, and which tooth structures transmit the sensation? Please provide general information rather than care advice.",
+        "advice": "What routine oral-care steps can I use while arranging a normal dental checkup if it persists?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_desk_posture", "split": "evaluation", "domain": "health", "topic": "desk posture",
+      "context": "I experience ordinary neck and shoulder fatigue during desk work.",
+      "emotional_clause": "The fatigue leaves me drained.",
+      "requests": {
+        "information": "How can desk height, monitor position, and prolonged stillness contribute? Please explain the relationships rather than recommend a setup.",
+        "advice": "How can I adjust my basic desk setup and work routine to reduce it?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_travel_constipation", "split": "evaluation", "domain": "health", "topic": "routine changes and constipation",
+      "context": "I sometimes experience temporary constipation when my routine changes during travel.",
+      "emotional_clause": "It leaves me uncomfortable and annoyed.",
+      "requests": {
+        "information": "Why can changes in schedule, diet, movement, and hydration contribute? Please explain rather than recommend treatment.",
+        "advice": "What routine habits can I try when my travel schedule changes?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_nasal_congestion", "split": "evaluation", "domain": "health", "topic": "mild nasal congestion",
+      "context": "I occasionally have short-lived mild nasal congestion that can alternate between nostrils.",
+      "emotional_clause": "It makes concentrating difficult and frustrates me.",
+      "requests": {
+        "information": "What produces the blocked sensation and the alternating pattern? Please explain the anatomy rather than offer remedies.",
+        "advice": "What simple comfort measures can I try while it is short-lived?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_health_iron_absorption", "split": "evaluation", "domain": "health", "topic": "dietary iron absorption",
+      "context": "I am learning how food combinations can affect dietary iron absorption.",
+      "emotional_clause": "The conflicting claims feel overwhelming.",
+      "requests": {
+        "information": "How do iron type, vitamin C, and common meal components affect absorption? Please explain the interactions rather than suggest a diet.",
+        "advice": "What general meal-combination ideas can I use in ordinary balanced meals?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_apartment_noise", "split": "evaluation", "domain": "everyday", "topic": "apartment noise",
+      "context": "I hear ordinary neighbor noise through the walls and floor of my apartment.",
+      "emotional_clause": "The noise has been stressing me out.",
+      "requests": {
+        "information": "How do impact noise and airborne noise travel differently through a building? Please explain the acoustics rather than suggest actions.",
+        "advice": "What renter-friendly steps can I try to reduce the noise?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_irregular_budget", "split": "evaluation", "domain": "everyday", "topic": "irregular expenses",
+      "context": "I have several household bills that arrive annually rather than monthly.",
+      "emotional_clause": "They make budgeting feel chaotic.",
+      "requests": {
+        "information": "How do sinking funds account for these irregular expenses? Please explain the concept rather than build a budget.",
+        "advice": "How can I set up simple sinking funds for these expenses?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_kitchen_herbs", "split": "evaluation", "domain": "everyday", "topic": "indoor herbs",
+      "context": "I grow common culinary herbs indoors in my kitchen.",
+      "emotional_clause": "Their repeated decline disappoints me.",
+      "requests": {
+        "information": "How do light, drainage, and root space affect them? Please explain the factors rather than give a care schedule.",
+        "advice": "What simple setup and care routine can I try to help them grow?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_fabric_stain", "split": "evaluation", "domain": "everyday", "topic": "food stains on fabric",
+      "context": "I sometimes need to remove ordinary food stains from washable fabric.",
+      "emotional_clause": "A stain that survives the wash annoys me.",
+      "requests": {
+        "information": "Why do oily and water-based stains respond differently to cleaning agents? Please explain the chemistry rather than give directions.",
+        "advice": "What cautious step-by-step method can I use to treat one?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_digital_files", "split": "evaluation", "domain": "everyday", "topic": "digital file organization",
+      "context": "My personal digital documents are spread across many folders.",
+      "emotional_clause": "The scattered files make me feel overwhelmed.",
+      "requests": {
+        "information": "What are the tradeoffs between organizing files by project, date, and document type? Please compare the systems rather than recommend one.",
+        "advice": "How can I create a simple, maintainable folder and file-naming system?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_shared_chores", "split": "evaluation", "domain": "everyday", "topic": "shared household chores",
+      "context": "My housemates and I have a shared household chore system that often breaks down.",
+      "emotional_clause": "The repeated confusion has left me resentful.",
+      "requests": {
+        "information": "What coordination problems commonly cause such systems to fail? Please explain the patterns rather than advise a confrontation.",
+        "advice": "How can we design a fair system that is easy to maintain?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_language_routine", "split": "evaluation", "domain": "everyday", "topic": "language-learning routine",
+      "context": "I am a beginner learning a new language with limited time each week.",
+      "emotional_clause": "Slow progress makes me lose confidence.",
+      "requests": {
+        "information": "How do spaced retrieval, varied input, and active production support learning? Please explain the principles rather than prescribe a routine.",
+        "advice": "How can I build a realistic weekly learning routine?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_email_overload", "split": "evaluation", "domain": "everyday", "topic": "email overload",
+      "context": "My personal email inbox contains a large mix of current and old messages.",
+      "emotional_clause": "The crowded inbox makes me anxious.",
+      "requests": {
+        "information": "How do filters, labels, folders, and archive-based systems differ? Please compare their functions rather than recommend a workflow.",
+        "advice": "What simple workflow can I use to process the inbox consistently?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_small_room_storage", "split": "evaluation", "domain": "everyday", "topic": "small-room storage",
+      "context": "I rent a small room with limited floor space and storage.",
+      "emotional_clause": "The cramped space feels discouraging.",
+      "requests": {
+        "information": "Which spatial principles make vertical, hidden, and modular storage useful? Please explain the design logic rather than propose a layout.",
+        "advice": "How can I plan renter-friendly storage without making the room feel crowded?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_bicycle_chain", "split": "evaluation", "domain": "everyday", "topic": "bicycle chain maintenance",
+      "context": "The chain on my casually ridden bicycle has become somewhat noisy.",
+      "emotional_clause": "I worry that I am damaging something.",
+      "requests": {
+        "information": "How do dirt, lubrication, and wear affect shifting and drivetrain efficiency? Please explain the mechanics rather than give maintenance steps.",
+        "advice": "What basic inspection, cleaning, and lubrication routine can I use?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_meeting_agenda", "split": "evaluation", "domain": "everyday", "topic": "meeting agendas",
+      "context": "I attend 30-minute team meetings that often need one clear decision.",
+      "emotional_clause": "When they lose focus, I feel frustrated.",
+      "requests": {
+        "information": "How do decision items, discussion items, time boxes, and pre-reading serve different purposes? Please explain the structure rather than draft an agenda.",
+        "advice": "How can I write a concise agenda for this kind of meeting?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_recipe_scaling", "split": "evaluation", "domain": "everyday", "topic": "scaling recipes",
+      "context": "I sometimes double an ordinary home recipe for a larger group.",
+      "emotional_clause": "Uneven results leave me disappointed.",
+      "requests": {
+        "information": "Why can cooking time, pan geometry, and seasoning fail to scale linearly? Please explain why rather than adapt a recipe.",
+        "advice": "What should I check when adapting the recipe?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_travel_packing", "split": "evaluation", "domain": "everyday", "topic": "packing light",
+      "context": "I need to pack for a four-day trip with changeable weather.",
+      "emotional_clause": "I feel tense because I fear forgetting something.",
+      "requests": {
+        "information": "What tradeoffs influence the number of clothing layers, shoes, and contingency items people pack? Please explain them rather than make a list.",
+        "advice": "How can I create a compact packing list?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_pet_hair", "split": "evaluation", "domain": "everyday", "topic": "pet hair on furniture",
+      "context": "Pet hair regularly collects on several kinds of fabric furniture in my home.",
+      "emotional_clause": "The buildup gets on my nerves.",
+      "requests": {
+        "information": "Why does hair cling differently to woven upholstery, smooth fabric, and synthetic blankets? Please explain the materials rather than suggest cleaning methods.",
+        "advice": "What efficient routine can I use to reduce the buildup?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_photo_backup", "split": "evaluation", "domain": "everyday", "topic": "photo backups",
+      "context": "I have a growing personal collection of digital photos.",
+      "emotional_clause": "The idea of losing years of them makes me nervous.",
+      "requests": {
+        "information": "How do local copies, cloud synchronization, and independent backups differ? Please explain the distinctions rather than choose services.",
+        "advice": "How can I set up a simple backup routine for the collection?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_reconnect_friend", "split": "evaluation", "domain": "everyday", "topic": "reconnecting with a friend",
+      "context": "I have not contacted an old friend for a long time and am considering reconnecting.",
+      "emotional_clause": "I feel guilty that I let the contact fade.",
+      "requests": {
+        "information": "What social factors can make reconnecting after a long lapse feel awkward? Please explain the dynamics rather than tell me what to write.",
+        "advice": "How can I write a low-pressure message to reconnect?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_host_guests", "split": "evaluation", "domain": "everyday", "topic": "hosting overnight guests",
+      "context": "I will host two overnight guests in my small home without buying much.",
+      "emotional_clause": "I worry that I will overlook something.",
+      "requests": {
+        "information": "Which practical needs shape whether a guest space feels functional and welcoming? Please explain the needs rather than make a checklist.",
+        "advice": "How can I prepare the home for them?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_focus_blocks", "split": "evaluation", "domain": "everyday", "topic": "focused work blocks",
+      "context": "I do desk work in a morning with frequent digital distractions.",
+      "emotional_clause": "Constantly losing focus leaves me discouraged.",
+      "requests": {
+        "information": "How do task switching, notifications, and unclear stopping points affect sustained attention? Please explain the mechanisms rather than make a productivity plan.",
+        "advice": "How can I structure two focused work blocks during the morning?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_community_class", "split": "evaluation", "domain": "everyday", "topic": "joining a community class",
+      "context": "I am comparing local community classes that could fit a beginner's schedule and goals.",
+      "emotional_clause": "I feel nervous about being out of place.",
+      "requests": {
+        "information": "How do class size, schedule, teaching format, and skill level affect fit? Please explain the criteria rather than choose for me.",
+        "advice": "How can I compare the options and choose one?"
+      }
+    },
+    {
+      "scenario_family_id": "eval_everyday_bus_commute", "split": "evaluation", "domain": "everyday", "topic": "unreliable bus commute",
+      "context": "I commute on a bus route with modest schedule variability and transfers.",
+      "emotional_clause": "The uncertainty leaves me tense before work.",
+      "requests": {
+        "information": "How do route frequency, transfer timing, and variability affect reliability? Please explain the system factors rather than plan my route.",
+        "advice": "How can I build a practical routine around the variability?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_health_dry_eyes", "split": "development", "domain": "health", "topic": "dry eyes in heated rooms",
+      "context": "My eyes sometimes feel temporarily dry in heated indoor rooms.",
+      "emotional_clause": "The sensation irritates me.",
+      "requests": {
+        "information": "Why can heated indoor air contribute to this? Please explain rather than suggest a routine.",
+        "advice": "What simple environmental adjustments can I try to make it less bothersome?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_health_hiking_blister", "split": "development", "domain": "health", "topic": "minor hiking blister prevention",
+      "context": "I sometimes get an ordinary foot blister during a day hike.",
+      "emotional_clause": "It can spoil the hike for me.",
+      "requests": {
+        "information": "How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+        "advice": "What practical preparation can I try to reduce the chance of one?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_health_bedroom_light", "split": "development", "domain": "health", "topic": "bedroom light and sleep",
+      "context": "Bright bedroom light can leave me alert during my usual wind-down period.",
+      "emotional_clause": "I find that frustrating.",
+      "requests": {
+        "information": "How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+        "advice": "How can I adjust ordinary bedroom lighting to support the wind-down period?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_health_sunscreen_labels", "split": "development", "domain": "health", "topic": "sunscreen labels",
+      "context": "I am reading sunscreen labels for an ordinary outdoor day.",
+      "emotional_clause": "The different claims leave me confused.",
+      "requests": {
+        "information": "What do SPF, broad-spectrum, and water-resistance claims mean? Please explain the terms rather than select a product.",
+        "advice": "How can I use the label information when choosing protection?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_health_hoarse_voice", "split": "development", "domain": "health", "topic": "temporary voice strain",
+      "context": "My voice can feel temporarily tired or mildly hoarse after extended speaking.",
+      "emotional_clause": "That makes me self-conscious.",
+      "requests": {
+        "information": "Why can extended speaking cause this? Please explain the mechanism rather than suggest care.",
+        "advice": "What ordinary voice-use habits can I try to reduce temporary strain?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_everyday_grocery_plan", "split": "development", "domain": "everyday", "topic": "weekly grocery planning",
+      "context": "I plan groceries for one week of simple home cooking.",
+      "emotional_clause": "The planning makes me feel scattered.",
+      "requests": {
+        "information": "How do meal themes, pantry inventory, and ingredient overlap reduce uncertainty? Please explain the method rather than plan my meals.",
+        "advice": "How can I make a flexible one-week grocery plan?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_everyday_closet", "split": "development", "domain": "everyday", "topic": "crowded closet",
+      "context": "My clothes closet is crowded, and I need to use the storage I already have.",
+      "emotional_clause": "Getting dressed there feels exhausting.",
+      "requests": {
+        "information": "How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+        "advice": "How can I reorganize the closet within that constraint?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_everyday_desk_cables", "split": "development", "domain": "everyday", "topic": "desk cable management",
+      "context": "I have a small desk with tangled cables for a laptop, monitor, and charger.",
+      "emotional_clause": "The tangle irritates me.",
+      "requests": {
+        "information": "What causes tangling, and how do routing and strain relief affect organization? Please explain the principles rather than propose a setup.",
+        "advice": "How can I organize these cables cleanly?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_everyday_reading_habit", "split": "development", "domain": "everyday", "topic": "regular reading habit",
+      "context": "I rarely finish recreational books now and have limited free time.",
+      "emotional_clause": "That change disappoints me.",
+      "requests": {
+        "information": "How do environmental cues, small goals, and book choice affect reading consistency? Please explain the behavior rather than prescribe a routine.",
+        "advice": "How can I rebuild a modest reading habit?"
+      }
+    },
+    {
+      "scenario_family_id": "dev_everyday_laundry_colors", "split": "development", "domain": "everyday", "topic": "sorting laundry colors",
+      "context": "I wash ordinary mixed household loads that contain garments of different colors and fabrics.",
+      "emotional_clause": "I get nervous about ruining clothes.",
+      "requests": {
+        "information": "Why can dyes transfer, and how do water temperature and fabric type influence it? Please explain the process rather than give sorting instructions.",
+        "advice": "What simple sorting method can I use to reduce color transfer?"
+      }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "plan_schema_version": "extended-prospective-validation-sampling-plan-v1",
+  "status": "frozen_before_held_out_evaluation_inspection",
+  "orchestration_version": "extended-revision-study-orchestration-v1",
+  "source_sha256": {
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3"
+  },
+  "protocol": {
+    "protocol_id": "protocol_73bed865a61058ca43476981de24bf2e",
+    "sha256": "65b965f4929c1fcf81ad331740188902d750db64c5c56c35020944cdc9e26809",
+    "primary_max_new_tokens": 1024,
+    "sensitivity_max_new_tokens": 1536,
+    "protocol_schema_version": "revision-study-protocol-v1",
+    "extended_schema_version": "extended-revision-study-protocol-v1",
+    "orchestration_version": "extended-revision-study-orchestration-v1"
+  },
+  "calibration": {
+    "manifest_id": "extended_calibration_manifest_d07b9339beb448ac07765e7a268dbf9b",
+    "manifest_sha256": "80baeda23ccaedc2beb38ed5bb019b3f22b1113280b003c461185404d38b08d9",
+    "responses_sha256": "2c751823f25c3e5406091007d5fa1214d86b92ac48431d7e64e700b8a06c7585",
+    "responses": 96,
+    "development_scenario_family_ids": [
+      "dev_everyday_closet",
+      "dev_everyday_desk_cables",
+      "dev_everyday_grocery_plan",
+      "dev_everyday_laundry_colors",
+      "dev_everyday_reading_habit",
+      "dev_health_bedroom_light",
+      "dev_health_dry_eyes",
+      "dev_health_hiking_blister",
+      "dev_health_hoarse_voice",
+      "dev_health_sunscreen_labels"
+    ],
+    "run_id": "extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c",
+    "run_config_sha256": "7c90b79b19a36766e040760e7445db6841f7eff6a514c59594e320f5b348a800",
+    "verified_export_sha256": "2c751823f25c3e5406091007d5fa1214d86b92ac48431d7e64e700b8a06c7585"
+  },
+  "annotation_guide": {
+    "sha256": "180d5711fecb1a4e23c5993bf255a3ca275ab552b3599fe3bc178cf51d81dd2f"
+  },
+  "length_bins": {
+    "measure": "generation.output_tokens under the checkpoint tokenizer",
+    "source": "complete 96-response six-checkpoint development calibration export",
+    "quantile_rule": "nearest rank: sorted value at rank ceil(p*n), p in {1/3,2/3}",
+    "raw_tertile_values": [
+      50,
+      150
+    ],
+    "effective_cutpoints": [
+      50,
+      150
+    ],
+    "tie_rule": "duplicate cutpoints and cutpoints at the observed maximum (which would create an empty upper tail) are removed; a minimum cutpoint is retained when lengths vary; no evaluation-informed replacement is allowed",
+    "calibration_min": 10,
+    "calibration_max": 200,
+    "calibration_counts_by_bin": {
+      "0": 32,
+      "1": 32,
+      "2": 32
+    }
+  },
+  "probability_sample": {
+    "outer_cell_fields": [
+      "checkpoint_alias",
+      "domain",
+      "emotional_framing",
+      "request_type"
+    ],
+    "expected_outer_cells": 48,
+    "expected_population_per_outer_cell": 60,
+    "sample_per_outer_cell": 13,
+    "planned_total": 624,
+    "within_cell_allocation": "one per nonempty frozen length bin, then proportional to residual capacity by largest remainder; bin index breaks exact ties",
+    "inclusion_probability": "selected count / population in outer-cell length bin"
+  },
+  "enrichment": {
+    "categories": [
+      "empathy_opener",
+      "validation",
+      "disclaimer",
+      "structure"
+    ],
+    "maximum_draws_per_category": 30,
+    "maximum_unique": 120,
+    "population_interpretation": "none"
+  },
+  "randomization": {
+    "master_seed": 0,
+    "substreams": "sha256(plan_id, component, canonical stratum/category key)"
+  },
+  "annotation": {
+    "evaluation_unit": "full_response",
+    "prefix_predictions": "detector sensitivity only; excluded from human validation",
+    "two_independent_human_passes": true,
+    "adjudication_after_both_passes": true,
+    "ai_labels_forbidden": true
+  },
+  "development_evidence": {
+    "schema_version": "extended-prospective-validation-development-evidence-v1",
+    "sha256": "0931fb99cffd9237d4b1b963a5a35b1ffe21e0981daa6109c74313106f1011fa",
+    "reviewer_ids": [
+      "synthetic-human-a"
+    ],
+    "reviewed_at": "2026-09-15T12:00:00Z",
+    "distinct_reviewed_responses": 60,
+    "distinct_timed_responses": 4,
+    "timing_mode": "per_item_seconds",
+    "labels_created_by_ai": false
+  },
+  "plan_id": "extended_prospective_plan_b31fae5697c08297e8d9a6565688d028"
+}

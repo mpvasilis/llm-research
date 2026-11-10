@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "scope": "independent_synthetic_math_check_not_empirical_results",
+  "source": "extended_sensitivity_analysis.py",
+  "source_sha256": "c27cd6be4526be8a98dff2fd75292e9edb593742ace0698c2cbd7bc14ed541cd",
+  "families_per_domain": 4,
+  "replicates": 512,
+  "seed": 20260915,
+  "known_primary_family_contrasts": [
+    -0.5,
+    -0.25,
+    0.0,
+    0.25
+  ],
+  "known_paired_change": 0.25,
+  "checks": [
+    "balanced factorial contrast directions",
+    "known family-average estimates",
+    "paired change retains degenerate interval when every family changes equally",
+    "repeated seed deterministic",
+    "zero-replicate intervals remain unavailable"
+  ],
+  "result": [
+    {
+      "checkpoint_alias": "1b_instruct",
+      "domain": "health",
+      "window": "full_response",
+      "component": "union",
+      "category": "empathy_opener",
+      "factor_contrast": "advice_minus_information",
+      "scenario_families": 4,
+      "primary_seed0_estimate": -0.125,
+      "sensitivity_seed0_estimate": 0.125,
+      "sensitivity_minus_primary_estimate": 0.25,
+      "primary_seed0_pointwise_95_lower": -0.375,
+      "primary_seed0_pointwise_95_upper": 0.125,
+      "sensitivity_seed0_pointwise_95_lower": -0.125,
+      "sensitivity_seed0_pointwise_95_upper": 0.375,
+      "sensitivity_minus_primary_pointwise_95_lower": 0.25,
+      "sensitivity_minus_primary_pointwise_95_upper": 0.25
+    },
+    {
+      "checkpoint_alias": "1b_instruct",
+      "domain": "everyday",
+      "window": "full_response",
+      "component": "union",
+      "category": "empathy_opener",
+      "factor_contrast": "advice_minus_information",
+      "scenario_families": 4,
+      "primary_seed0_estimate": -0.125,
+      "sensitivity_seed0_estimate": 0.125,
+      "sensitivity_minus_primary_estimate": 0.25,
+      "primary_seed0_pointwise_95_lower": -0.375,
+      "primary_seed0_pointwise_95_upper": 0.1875,
+      "sensitivity_seed0_pointwise_95_lower": -0.125,
+      "sensitivity_seed0_pointwise_95_upper": 0.4375,
+      "sensitivity_minus_primary_pointwise_95_lower": 0.25,
+      "sensitivity_minus_primary_pointwise_95_upper": 0.25
+    }
+  ]
+}

@@ -1,0 +1,4116 @@
+{
+  "manifest_schema_version": "extended-revision-study-calibration-manifest-v1",
+  "calibration_runner_version": "extended-revision-study-calibration-runner-v1",
+  "classification": "exploratory_development_only_not_confirmatory_analysis",
+  "purpose": "guide refinement and runtime/timing calibration only",
+  "parent_protocol": {
+    "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+    "sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+    "protocol_schema_version": "revision-study-protocol-v1",
+    "orchestration_version": "extended-revision-study-orchestration-v1",
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2"
+  },
+  "source_sha256": {
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "prompt_corpus": {
+    "sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "corpus_version": "prompts-revision-v1"
+  },
+  "checkpoints": {
+    "1b_sft": {
+      "checkpoint_alias": "1b_sft",
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-SFT@0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    },
+    "1b_dpo": {
+      "checkpoint_alias": "1b_dpo",
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-DPO@c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    },
+    "1b_instruct": {
+      "checkpoint_alias": "1b_instruct",
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    },
+    "7b_sft": {
+      "checkpoint_alias": "7b_sft",
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-1124-7B-SFT@1de02c0175118a9de5854aec80a1f970e701e928",
+      "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    },
+    "7b_dpo": {
+      "checkpoint_alias": "7b_dpo",
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-1124-7B-DPO@e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    },
+    "7b_instruct": {
+      "checkpoint_alias": "7b_instruct",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "model_hash": "hf-repository-commit:allenai/OLMo-2-1124-7B-Instruct@470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+      "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+      "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+    }
+  },
+  "selection_rule": {
+    "domain_order": [
+      "health",
+      "everyday"
+    ],
+    "within_domain_order": "lexicographic sort of five development scenario_family_id values",
+    "stage_indices": {
+      "sft": [
+        0,
+        1
+      ],
+      "dpo": [
+        2,
+        3
+      ],
+      "instruct": [
+        4,
+        0
+      ]
+    },
+    "same_stage_families_shared_across_model_sizes": true,
+    "logical_seeds": [
+      0
+    ]
+  },
+  "development_family_order": {
+    "health": [
+      "dev_health_bedroom_light",
+      "dev_health_dry_eyes",
+      "dev_health_hiking_blister",
+      "dev_health_hoarse_voice",
+      "dev_health_sunscreen_labels"
+    ],
+    "everyday": [
+      "dev_everyday_closet",
+      "dev_everyday_desk_cables",
+      "dev_everyday_grocery_plan",
+      "dev_everyday_laundry_colors",
+      "dev_everyday_reading_habit"
+    ]
+  },
+  "stage_allocations": {
+    "sft": {
+      "health": [
+        "dev_health_bedroom_light",
+        "dev_health_dry_eyes"
+      ],
+      "everyday": [
+        "dev_everyday_closet",
+        "dev_everyday_desk_cables"
+      ]
+    },
+    "dpo": {
+      "health": [
+        "dev_health_hiking_blister",
+        "dev_health_hoarse_voice"
+      ],
+      "everyday": [
+        "dev_everyday_grocery_plan",
+        "dev_everyday_laundry_colors"
+      ]
+    },
+    "instruct": {
+      "health": [
+        "dev_health_sunscreen_labels",
+        "dev_health_bedroom_light"
+      ],
+      "everyday": [
+        "dev_everyday_reading_habit",
+        "dev_everyday_closet"
+      ]
+    }
+  },
+  "generation_config": {
+    "do_sample": true,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 1024
+  },
+  "max_new_tokens_decision": 1024,
+  "parent_primary_max_new_tokens": 1024,
+  "parent_sensitivity_max_new_tokens": 2048,
+  "grid": [
+    {
+      "response_id": "response_3bd0cd7f3983d85036c8774724b27082",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+        "prompt_text_sha256": "80dc970f78828b72be57c03bb1e0a1398db527835c6ad4cce857ace11bdcfa9c",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 7685901955475228813,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_c4d1def8efdcd590ba56d3059550fae3",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_0a02836f9eba63da806e",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. How can I organize these cables cleanly?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0a02836f9eba63da806e",
+        "prompt_text_sha256": "f440515e1aff2b776e68a32b855aa5de08f793cd7a1d5c1f1b0548db8a40c7f3",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 6053855137343858031,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_1e7de70f3caf12bfd60978019c3a7918",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_0d92140c20fad02cecea",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. Why can heated indoor air contribute to this? Please explain rather than suggest a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0d92140c20fad02cecea",
+        "prompt_text_sha256": "2cd170152bbf2f9c30450779b8021a546c9f301be415d6b33fb771265477c491",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 6845953725970202390,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_ad4884774febf1fb2024ef9782356e4d",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_22ac753287fe0aa31fee",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. The tangle irritates me. What causes tangling, and how do routing and strain relief affect organization? Please explain the principles rather than propose a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_22ac753287fe0aa31fee",
+        "prompt_text_sha256": "b0e93247595932b0ed098ea09c450ab791c3124cbc5387f79a06f402ba1afc57",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 1826267283329592242,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_842e826ad1f1bb76eb8f682c03fc68c5",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_2dacf870f548de569dae",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_2dacf870f548de569dae",
+        "prompt_text_sha256": "e6e6b5624ec0a65f41dfdcaad7a958bb2d26c73022ee51a4798b74684548d173",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 9169300050385999037,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_3af4325331c50485f0a713eb0929d860",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_3653dc7165787acc7f0d",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. The sensation irritates me. What simple environmental adjustments can I try to make it less bothersome?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_3653dc7165787acc7f0d",
+        "prompt_text_sha256": "f80872152516f45dc22f40af837643069958774ab2b2a6d38c7da961c5ca1505",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 6920411203938348252,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_345ffeb599da11781e0a6ecaf0eb5167",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_37343c58848ceda69602",
+        "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 538954422983802219,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_76ff907a9b853f45601631c965b3da53",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_40d04e2b3122517b0182",
+        "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 2976021750472413337,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_67f3d556202f74048d994fb5d7442c98",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_4c92ac62c8cb598222da",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. What causes tangling, and how do routing and strain relief affect organization? Please explain the principles rather than propose a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_4c92ac62c8cb598222da",
+        "prompt_text_sha256": "1094ce9b7feecec01f31562d59ea64856f9e31df209dce536f6237dc1c111d47",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 1051598440253917979,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_cfb3dfe4f4f2083c2383841d914903cb",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_5d34517bef1eac80859c",
+        "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 594045105949365461,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_0593cfe9676fccfd1fd859bd0fdf0f97",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_6185be579c6a51c5801c",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_6185be579c6a51c5801c",
+        "prompt_text_sha256": "bc5fe745f26749378c41f2b52b2336c02a17859881a4ba461f7659964c0ebef0",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 8547026670976091662,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_f4e56af46973ddaca542a8491ea45027",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_7219bd4f880a056393b5",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. The tangle irritates me. How can I organize these cables cleanly?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_7219bd4f880a056393b5",
+        "prompt_text_sha256": "38017d1d3d7df10707d37bb5c47dddd413d31a11cce79cb0f16887adee3a36ea",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 4033435721093875875,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_d86e437c8e3e035eb623c6696f831d02",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_bb838ac8547d538f8929",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. The sensation irritates me. Why can heated indoor air contribute to this? Please explain rather than suggest a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_bb838ac8547d538f8929",
+        "prompt_text_sha256": "b99ad05681095ba3164aca95632ca0e1d166717949ab3f083efd68aef904a78e",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 1621825695714060398,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_00a6c1ce01ba97b0588c0ab822755869",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_d6f0ebdc99087235a978",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d6f0ebdc99087235a978",
+        "prompt_text_sha256": "2ba03db29a403f6d253bc576cdaecf548cc87503b99811555960f46bc83d682a",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 3488041444478389169,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_0b6abd12b1a2c6d71966578e9dfd3d9f",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_dde023abbc81c8687aa7",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_dde023abbc81c8687aa7",
+        "prompt_text_sha256": "613c7138dbd2092d9439a0c13b33cb38a9e941330ff2db3528be493a57b4bdf7",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 5533007364755257951,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_83040c7edc82be1a8215ef82db53d4be",
+      "checkpoint_alias": "1b_sft",
+      "prompt_id": "prompt_e7b3ed924b068f57e0f5",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. What simple environmental adjustments can I try to make it less bothersome?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_e7b3ed924b068f57e0f5",
+        "prompt_text_sha256": "6cf12d1a20be0768cf7a16da112bc9dacb1ef092a5cacba8f808b6f041fcbace",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-SFT",
+        "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+        "logical_seed": 0,
+        "rng_seed": 5260838758283075757,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_0fcdc200dd04826090a74d10dae6465b",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_01f2dd9289183cc9590e",
+        "prompt_text_sha256": "442000e92464bf502fca26c23da58cd37d2de0e4a3d1e287ed7c68dfa530cb7f",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 8933231524143871985,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_7e0546fb6463e98863ff5b05f4a21f5f",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_11f72d5d410d1f0be67d",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. I get nervous about ruining clothes. Why can dyes transfer, and how do water temperature and fabric type influence it? Please explain the process rather than give sorting instructions.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_11f72d5d410d1f0be67d",
+        "prompt_text_sha256": "707db262b1bcdcfc03a81f4dc202cf69f72a487e6f379482960ecd6d849c0e0a",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 3377535373708207265,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_32d3789539be9835594db09103890344",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_1743494883a39e188b64",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. I get nervous about ruining clothes. What simple sorting method can I use to reduce color transfer?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1743494883a39e188b64",
+        "prompt_text_sha256": "96682bc0d808cf6c3a1116028a2a43d5a48a2bea6904d8729d41e7666e53ab7e",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 1047043256177331835,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_bf509954c017fffb8cb28248d1a2208d",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_1e5e01dafb170d2a35ab",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. How can I make a flexible one-week grocery plan?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1e5e01dafb170d2a35ab",
+        "prompt_text_sha256": "2090c9af00a99004c58334e45a9f1f064fd1e8e6008e0b4a68172cf03ca59b40",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 5253221059980898962,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e832cffb8529c1fcb68afe507c882a6f",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_1f5338cc7229212ca108",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. The planning makes me feel scattered. How do meal themes, pantry inventory, and ingredient overlap reduce uncertainty? Please explain the method rather than plan my meals.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1f5338cc7229212ca108",
+        "prompt_text_sha256": "d83af27739f421787758602dbd0891568f9983d8d258be9cdbeebbe52c977873",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 1610281259814657783,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_5e8003100f3ed70ac69d3865c647bfde",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_30793de02fd57f069e2b",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. Why can extended speaking cause this? Please explain the mechanism rather than suggest care.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_30793de02fd57f069e2b",
+        "prompt_text_sha256": "e20f4d59c33b4a36a8517f00ffe3b0830aecd4da1702c3ed228592de916e2881",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 6754918481952551970,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_fe385a8d97bdbf2113037749c19d7388",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_46bc32ce20587f550b4f",
+        "prompt_text_sha256": "7360f27eb7be02c2f0c967efa97a3a8a85ebdf483f1f5fc54d4b3f2160311b13",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 8971794308151707630,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_6fedf56ea619ecc68f7196ca04fd31ac",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_50d895d3d6eddf29a7ca",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. What simple sorting method can I use to reduce color transfer?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_50d895d3d6eddf29a7ca",
+        "prompt_text_sha256": "848a71f8697f38e558147b05346d1355726c7e547a344e9fad24733218868bc0",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 455578084314448553,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_8aecf3f93682f3ece4f99941872adc9b",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_723e9ae54014c790a7bd",
+        "prompt_text_sha256": "ae6fe829b0dc0c4cae0cac9abd9a2c05b0163546e7eda9238d86cb800c6ef8be",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 6365195081995441708,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_cc1001f85a9e3dcb1a11277938792327",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_b0440247541a748d5ec8",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. Why can dyes transfer, and how do water temperature and fabric type influence it? Please explain the process rather than give sorting instructions.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b0440247541a748d5ec8",
+        "prompt_text_sha256": "1981fc1bb2196eb3e5ef9cf810aa2982f792858218dd129fc0410e77263f4431",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 1645568131185332656,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_378fe00fdf93832ac4d42daac5214f62",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_b1ec57291a77d37001a1",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. That makes me self-conscious. What ordinary voice-use habits can I try to reduce temporary strain?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b1ec57291a77d37001a1",
+        "prompt_text_sha256": "54440a5b690b41c827b9cc80a83a64a6a4fe58242a03543339aa4461359d1265",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 9176700282791192986,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_c57f5b6d058e81dec4de63689a38941a",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_b27d11a2101553efde70",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. What ordinary voice-use habits can I try to reduce temporary strain?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b27d11a2101553efde70",
+        "prompt_text_sha256": "4738e02bec8bd58ff3389b83971bc4bb2926c84944cf79801398ac1109dcbce6",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 1342745304274524999,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_521961eccd5cafc751cd47354885e17c",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_b5a2fa0db17028aa99e6",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. How do meal themes, pantry inventory, and ingredient overlap reduce uncertainty? Please explain the method rather than plan my meals.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b5a2fa0db17028aa99e6",
+        "prompt_text_sha256": "00db23b95acd03052975e3854e7a06825d24f83cc2958a26410a4021a87c4ca6",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 5145027214330359071,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_6a13534ed7804f626a74fc1adbf84fe2",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_c146586914502ba6c8be",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. The planning makes me feel scattered. How can I make a flexible one-week grocery plan?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_c146586914502ba6c8be",
+        "prompt_text_sha256": "4576c1cb63e901dc24483f792aa65d7b5e9d6f1f96b4a746dd7c2cad0f735ca9",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 2353533726694460899,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_b82fc84427a908b1350295fcf2982fe4",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_d2f7ad72e2ac1f0ebca7",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. That makes me self-conscious. Why can extended speaking cause this? Please explain the mechanism rather than suggest care.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d2f7ad72e2ac1f0ebca7",
+        "prompt_text_sha256": "3aa39667309037c860e31579106b1d033ebcd1974327ee42ff0461a4ccfd7890",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 5386626272980304807,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_de285ad348d75b13efc8cc5528a42096",
+      "checkpoint_alias": "1b_dpo",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_f604a2a97fc25ddb0159",
+        "prompt_text_sha256": "7069359f61ca14951101335bd278eb43c114e93303552652758a69d8e5262c85",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-DPO",
+        "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+        "logical_seed": 0,
+        "rng_seed": 1577440488323092923,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+        "prompt_text_sha256": "80dc970f78828b72be57c03bb1e0a1398db527835c6ad4cce857ace11bdcfa9c",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 7685901955475228813,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_87ff6817901a671fee9518079e698f08",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_0ac1c928a431254ddfb1",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. The different claims leave me confused. What do SPF, broad-spectrum, and water-resistance claims mean? Please explain the terms rather than select a product.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0ac1c928a431254ddfb1",
+        "prompt_text_sha256": "810c06846985fc61c7fe0d7a2324fe717bc58a8fa8e611177473b29ea1db334c",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 9101257086649633350,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_66892017eea273eef09b7637bd3852da",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_0bd659c83e26be754099",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. The different claims leave me confused. How can I use the label information when choosing protection?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0bd659c83e26be754099",
+        "prompt_text_sha256": "e6f7315644fc4681beefa5dcc77ba803757459ae19e331274e2e697a87b4901d",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 6057032788482447494,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2839e56b0cfd1bdc8b0b4512c595eedd",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_2dacf870f548de569dae",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_2dacf870f548de569dae",
+        "prompt_text_sha256": "e6e6b5624ec0a65f41dfdcaad7a958bb2d26c73022ee51a4798b74684548d173",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 9169300050385999037,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_830538cfd5672aca5581c52c0c6e99d6",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_367a410b13203858ee96",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. How do environmental cues, small goals, and book choice affect reading consistency? Please explain the behavior rather than prescribe a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_367a410b13203858ee96",
+        "prompt_text_sha256": "12c6e4b2ba3a40bd13d55ee2effa3eaab5e0c5896ec4b856fe3bbda6d103de6d",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 6326965383548373250,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_322263f56de192300236c36fbb023a53",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_37343c58848ceda69602",
+        "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 538954422983802219,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e48c6793e773ea143392927497495635",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_40d04e2b3122517b0182",
+        "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 2976021750472413337,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_f223bf58df6b6261e4252d5cecb39063",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_432eed96612c3d568861",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. How can I rebuild a modest reading habit?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_432eed96612c3d568861",
+        "prompt_text_sha256": "8e32bfa8a1ed62513b6186f4d0c565e30f2b6fa5d7b4f8025fd53cb53f56588a",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 3155089925415265930,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_5d34517bef1eac80859c",
+        "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 594045105949365461,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_9fd823b8e3901808f0090791e62ee51d",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_6185be579c6a51c5801c",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_6185be579c6a51c5801c",
+        "prompt_text_sha256": "bc5fe745f26749378c41f2b52b2336c02a17859881a4ba461f7659964c0ebef0",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 8547026670976091662,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_25cf68fd8cde3d041a5860a8d0df3570",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_628f52290c0eacfd26ff",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. That change disappoints me. How do environmental cues, small goals, and book choice affect reading consistency? Please explain the behavior rather than prescribe a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_628f52290c0eacfd26ff",
+        "prompt_text_sha256": "71c551b8020ae69adee9aef440fa2edeeb02155cb0733717d2e3bb64a0abbd52",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 4763134680535956675,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_7de52303eb4a6a3544d8439c015160d1",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_ade376c09f53adc373e6",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. That change disappoints me. How can I rebuild a modest reading habit?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_ade376c09f53adc373e6",
+        "prompt_text_sha256": "71ea53fccafb0383b7b7ab7a660c7c65c4a57118d4cba238591544c495e5379b",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 9089951498044125622,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_0edeedd0fab3c979cc3307ff475d50a2",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_d6f0ebdc99087235a978",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d6f0ebdc99087235a978",
+        "prompt_text_sha256": "2ba03db29a403f6d253bc576cdaecf548cc87503b99811555960f46bc83d682a",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 3488041444478389169,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_62776dcd06e53604b667440d3444b58e",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_dde023abbc81c8687aa7",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_dde023abbc81c8687aa7",
+        "prompt_text_sha256": "613c7138dbd2092d9439a0c13b33cb38a9e941330ff2db3528be493a57b4bdf7",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 5533007364755257951,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_1336ad4c54ddfab911d011c5ee1b4262",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_e92b23f8a44f13170e61",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. What do SPF, broad-spectrum, and water-resistance claims mean? Please explain the terms rather than select a product.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_e92b23f8a44f13170e61",
+        "prompt_text_sha256": "0532264382f86c9ee80e56491c003cff4dc09ba1a9265ef1ea4266cb38001af0",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 8289240736377379984,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_425fcf89f58583c33ab188ed6bafed67",
+      "checkpoint_alias": "1b_instruct",
+      "prompt_id": "prompt_ec6646f6a8ec753edb95",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. How can I use the label information when choosing protection?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_ec6646f6a8ec753edb95",
+        "prompt_text_sha256": "e48731a1aff274feab3553993ca1543fa585b2a524350bc31978acd32aed99e6",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+        "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+        "logical_seed": 0,
+        "rng_seed": 1769803478094000469,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e6eba60c5482b771153e329862ee329e",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+        "prompt_text_sha256": "80dc970f78828b72be57c03bb1e0a1398db527835c6ad4cce857ace11bdcfa9c",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 7685901955475228813,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_47c35b7e0629a736c9973b7b5792a43e",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_0a02836f9eba63da806e",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. How can I organize these cables cleanly?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0a02836f9eba63da806e",
+        "prompt_text_sha256": "f440515e1aff2b776e68a32b855aa5de08f793cd7a1d5c1f1b0548db8a40c7f3",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 6053855137343858031,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_30822dd0008e128a279ac46745858a68",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_0d92140c20fad02cecea",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. Why can heated indoor air contribute to this? Please explain rather than suggest a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0d92140c20fad02cecea",
+        "prompt_text_sha256": "2cd170152bbf2f9c30450779b8021a546c9f301be415d6b33fb771265477c491",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 6845953725970202390,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_3709c44380552afc26a9795aa8239805",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_22ac753287fe0aa31fee",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. The tangle irritates me. What causes tangling, and how do routing and strain relief affect organization? Please explain the principles rather than propose a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_22ac753287fe0aa31fee",
+        "prompt_text_sha256": "b0e93247595932b0ed098ea09c450ab791c3124cbc5387f79a06f402ba1afc57",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 1826267283329592242,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_261e247d8f18157cb8b9b7e3b2033118",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_2dacf870f548de569dae",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_2dacf870f548de569dae",
+        "prompt_text_sha256": "e6e6b5624ec0a65f41dfdcaad7a958bb2d26c73022ee51a4798b74684548d173",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 9169300050385999037,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_ce43953ba57ea025358d3b0251359f2d",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_3653dc7165787acc7f0d",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. The sensation irritates me. What simple environmental adjustments can I try to make it less bothersome?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_3653dc7165787acc7f0d",
+        "prompt_text_sha256": "f80872152516f45dc22f40af837643069958774ab2b2a6d38c7da961c5ca1505",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 6920411203938348252,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_45dab5ea974e590964d7dfb0ba099d8d",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_37343c58848ceda69602",
+        "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 538954422983802219,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_8206e751abc94279dcdb47238f7c49b1",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_40d04e2b3122517b0182",
+        "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 2976021750472413337,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_48fcb40bb915fb85fd2501999cc77ab5",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_4c92ac62c8cb598222da",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. What causes tangling, and how do routing and strain relief affect organization? Please explain the principles rather than propose a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_4c92ac62c8cb598222da",
+        "prompt_text_sha256": "1094ce9b7feecec01f31562d59ea64856f9e31df209dce536f6237dc1c111d47",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 1051598440253917979,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_df8f89c74bef5028f94f671bc0e54b10",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_5d34517bef1eac80859c",
+        "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 594045105949365461,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_923d8e2e9386d30ef638de2bd06229d0",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_6185be579c6a51c5801c",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_6185be579c6a51c5801c",
+        "prompt_text_sha256": "bc5fe745f26749378c41f2b52b2336c02a17859881a4ba461f7659964c0ebef0",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 8547026670976091662,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_627132af42565218620811df92d5af47",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_7219bd4f880a056393b5",
+      "scenario_family_id": "dev_everyday_desk_cables",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I have a small desk with tangled cables for a laptop, monitor, and charger. The tangle irritates me. How can I organize these cables cleanly?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_7219bd4f880a056393b5",
+        "prompt_text_sha256": "38017d1d3d7df10707d37bb5c47dddd413d31a11cce79cb0f16887adee3a36ea",
+        "scenario_family_id": "dev_everyday_desk_cables",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 4033435721093875875,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_7625e8629a239188f0a82c445d190874",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_bb838ac8547d538f8929",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. The sensation irritates me. Why can heated indoor air contribute to this? Please explain rather than suggest a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_bb838ac8547d538f8929",
+        "prompt_text_sha256": "b99ad05681095ba3164aca95632ca0e1d166717949ab3f083efd68aef904a78e",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 1621825695714060398,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_cccb6211772779cdd70570c410d2d607",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_d6f0ebdc99087235a978",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d6f0ebdc99087235a978",
+        "prompt_text_sha256": "2ba03db29a403f6d253bc576cdaecf548cc87503b99811555960f46bc83d682a",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 3488041444478389169,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_1acde9de6336328d07e3dfa8ba4031d3",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_dde023abbc81c8687aa7",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_dde023abbc81c8687aa7",
+        "prompt_text_sha256": "613c7138dbd2092d9439a0c13b33cb38a9e941330ff2db3528be493a57b4bdf7",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 5533007364755257951,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_78c81ab0c8ac942e7a01672a235cd654",
+      "checkpoint_alias": "7b_sft",
+      "prompt_id": "prompt_e7b3ed924b068f57e0f5",
+      "scenario_family_id": "dev_health_dry_eyes",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My eyes sometimes feel temporarily dry in heated indoor rooms. What simple environmental adjustments can I try to make it less bothersome?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_e7b3ed924b068f57e0f5",
+        "prompt_text_sha256": "6cf12d1a20be0768cf7a16da112bc9dacb1ef092a5cacba8f808b6f041fcbace",
+        "scenario_family_id": "dev_health_dry_eyes",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-SFT",
+        "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+        "logical_seed": 0,
+        "rng_seed": 5260838758283075757,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_eb258f9fc8de3a8c1a5e77a961be453c",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_01f2dd9289183cc9590e",
+        "prompt_text_sha256": "442000e92464bf502fca26c23da58cd37d2de0e4a3d1e287ed7c68dfa530cb7f",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 8933231524143871985,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_08b1a3ba1a0f0187c0ac6f55da906520",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_11f72d5d410d1f0be67d",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. I get nervous about ruining clothes. Why can dyes transfer, and how do water temperature and fabric type influence it? Please explain the process rather than give sorting instructions.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_11f72d5d410d1f0be67d",
+        "prompt_text_sha256": "707db262b1bcdcfc03a81f4dc202cf69f72a487e6f379482960ecd6d849c0e0a",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 3377535373708207265,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e3763e7919b20d5ab2efcbe2eebcf119",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_1743494883a39e188b64",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. I get nervous about ruining clothes. What simple sorting method can I use to reduce color transfer?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1743494883a39e188b64",
+        "prompt_text_sha256": "96682bc0d808cf6c3a1116028a2a43d5a48a2bea6904d8729d41e7666e53ab7e",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 1047043256177331835,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_9b1edc0d8389021e304770c44ada49fd",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_1e5e01dafb170d2a35ab",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. How can I make a flexible one-week grocery plan?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1e5e01dafb170d2a35ab",
+        "prompt_text_sha256": "2090c9af00a99004c58334e45a9f1f064fd1e8e6008e0b4a68172cf03ca59b40",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 5253221059980898962,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_125539ab5b1ab55450ad3a1175847ba2",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_1f5338cc7229212ca108",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. The planning makes me feel scattered. How do meal themes, pantry inventory, and ingredient overlap reduce uncertainty? Please explain the method rather than plan my meals.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_1f5338cc7229212ca108",
+        "prompt_text_sha256": "d83af27739f421787758602dbd0891568f9983d8d258be9cdbeebbe52c977873",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 1610281259814657783,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_19482bfb9ef29475ef07332717e5002c",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_30793de02fd57f069e2b",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. Why can extended speaking cause this? Please explain the mechanism rather than suggest care.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_30793de02fd57f069e2b",
+        "prompt_text_sha256": "e20f4d59c33b4a36a8517f00ffe3b0830aecd4da1702c3ed228592de916e2881",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 6754918481952551970,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_be167db767e9da6c252290527d572db2",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_46bc32ce20587f550b4f",
+        "prompt_text_sha256": "7360f27eb7be02c2f0c967efa97a3a8a85ebdf483f1f5fc54d4b3f2160311b13",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 8971794308151707630,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_0727fb60ce1ad440ebdb13a4c9020dec",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_50d895d3d6eddf29a7ca",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. What simple sorting method can I use to reduce color transfer?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_50d895d3d6eddf29a7ca",
+        "prompt_text_sha256": "848a71f8697f38e558147b05346d1355726c7e547a344e9fad24733218868bc0",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 455578084314448553,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_85cb0fa7d3b9780deb372efbbfe053b6",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_723e9ae54014c790a7bd",
+        "prompt_text_sha256": "ae6fe829b0dc0c4cae0cac9abd9a2c05b0163546e7eda9238d86cb800c6ef8be",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 6365195081995441708,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2c77d6e6f2e43f1d422d3d2ede1f7217",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_b0440247541a748d5ec8",
+      "scenario_family_id": "dev_everyday_laundry_colors",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I wash ordinary mixed household loads that contain garments of different colors and fabrics. Why can dyes transfer, and how do water temperature and fabric type influence it? Please explain the process rather than give sorting instructions.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b0440247541a748d5ec8",
+        "prompt_text_sha256": "1981fc1bb2196eb3e5ef9cf810aa2982f792858218dd129fc0410e77263f4431",
+        "scenario_family_id": "dev_everyday_laundry_colors",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 1645568131185332656,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_48ce347a40e4e1a6c8b779bc44b16d63",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_b1ec57291a77d37001a1",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. That makes me self-conscious. What ordinary voice-use habits can I try to reduce temporary strain?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b1ec57291a77d37001a1",
+        "prompt_text_sha256": "54440a5b690b41c827b9cc80a83a64a6a4fe58242a03543339aa4461359d1265",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 9176700282791192986,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2357b8bf479f6f5f45b519379a93f80b",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_b27d11a2101553efde70",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. What ordinary voice-use habits can I try to reduce temporary strain?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b27d11a2101553efde70",
+        "prompt_text_sha256": "4738e02bec8bd58ff3389b83971bc4bb2926c84944cf79801398ac1109dcbce6",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 1342745304274524999,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_54822a14676b202f1bc2f43db9878e21",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_b5a2fa0db17028aa99e6",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. How do meal themes, pantry inventory, and ingredient overlap reduce uncertainty? Please explain the method rather than plan my meals.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_b5a2fa0db17028aa99e6",
+        "prompt_text_sha256": "00db23b95acd03052975e3854e7a06825d24f83cc2958a26410a4021a87c4ca6",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 5145027214330359071,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_9f1f7207484e817e0439421633a6c242",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_c146586914502ba6c8be",
+      "scenario_family_id": "dev_everyday_grocery_plan",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I plan groceries for one week of simple home cooking. The planning makes me feel scattered. How can I make a flexible one-week grocery plan?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_c146586914502ba6c8be",
+        "prompt_text_sha256": "4576c1cb63e901dc24483f792aa65d7b5e9d6f1f96b4a746dd7c2cad0f735ca9",
+        "scenario_family_id": "dev_everyday_grocery_plan",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 2353533726694460899,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_55ae603b7a2b3f9cc9259add87845fd8",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_d2f7ad72e2ac1f0ebca7",
+      "scenario_family_id": "dev_health_hoarse_voice",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My voice can feel temporarily tired or mildly hoarse after extended speaking. That makes me self-conscious. Why can extended speaking cause this? Please explain the mechanism rather than suggest care.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d2f7ad72e2ac1f0ebca7",
+        "prompt_text_sha256": "3aa39667309037c860e31579106b1d033ebcd1974327ee42ff0461a4ccfd7890",
+        "scenario_family_id": "dev_health_hoarse_voice",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 5386626272980304807,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_1aa1b19884330c231d9d47c9926cc95d",
+      "checkpoint_alias": "7b_dpo",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I sometimes get an ordinary foot blister during a day hike. What practical preparation can I try to reduce the chance of one?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_f604a2a97fc25ddb0159",
+        "prompt_text_sha256": "7069359f61ca14951101335bd278eb43c114e93303552652758a69d8e5262c85",
+        "scenario_family_id": "dev_health_hiking_blister",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-DPO",
+        "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+        "logical_seed": 0,
+        "rng_seed": 1577440488323092923,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_503d156629f4323814a564bcd814ea8a",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+        "prompt_text_sha256": "80dc970f78828b72be57c03bb1e0a1398db527835c6ad4cce857ace11bdcfa9c",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 7685901955475228813,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_6a2a7f0ceeb829872094765c641ffc9a",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_0ac1c928a431254ddfb1",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. The different claims leave me confused. What do SPF, broad-spectrum, and water-resistance claims mean? Please explain the terms rather than select a product.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0ac1c928a431254ddfb1",
+        "prompt_text_sha256": "810c06846985fc61c7fe0d7a2324fe717bc58a8fa8e611177473b29ea1db334c",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 9101257086649633350,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_ec699d80bec8ba2451c275dd98af2a29",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_0bd659c83e26be754099",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. The different claims leave me confused. How can I use the label information when choosing protection?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_0bd659c83e26be754099",
+        "prompt_text_sha256": "e6f7315644fc4681beefa5dcc77ba803757459ae19e331274e2e697a87b4901d",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 6057032788482447494,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_252af8dc94fa7dad002ed20ad319d675",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_2dacf870f548de569dae",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_2dacf870f548de569dae",
+        "prompt_text_sha256": "e6e6b5624ec0a65f41dfdcaad7a958bb2d26c73022ee51a4798b74684548d173",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 9169300050385999037,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2e585f841357a7aa202aec8228d78bf9",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_367a410b13203858ee96",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. How do environmental cues, small goals, and book choice affect reading consistency? Please explain the behavior rather than prescribe a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_367a410b13203858ee96",
+        "prompt_text_sha256": "12c6e4b2ba3a40bd13d55ee2effa3eaab5e0c5896ec4b856fe3bbda6d103de6d",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 6326965383548373250,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_8f48ee5c6950e8728e09aaece1d9a296",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_37343c58848ceda69602",
+        "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 538954422983802219,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e7911e8d61ff7b7ddb5aaf8450c26da5",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_40d04e2b3122517b0182",
+        "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 2976021750472413337,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_e76c97026406f5a3ad4ebf6d846d0337",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_432eed96612c3d568861",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. How can I rebuild a modest reading habit?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_432eed96612c3d568861",
+        "prompt_text_sha256": "8e32bfa8a1ed62513b6186f4d0c565e30f2b6fa5d7b4f8025fd53cb53f56588a",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 3155089925415265930,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_b075d903b200537e55a26deca5cdf1d2",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_5d34517bef1eac80859c",
+        "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+        "scenario_family_id": "dev_everyday_closet",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 594045105949365461,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2b9b228cc145c78bfa68a2c084edc918",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_6185be579c6a51c5801c",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. I find that frustrating. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_6185be579c6a51c5801c",
+        "prompt_text_sha256": "bc5fe745f26749378c41f2b52b2336c02a17859881a4ba461f7659964c0ebef0",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 8547026670976091662,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_6dd63a2d7863c15a1671a17fa72a138c",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_628f52290c0eacfd26ff",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. That change disappoints me. How do environmental cues, small goals, and book choice affect reading consistency? Please explain the behavior rather than prescribe a routine.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_628f52290c0eacfd26ff",
+        "prompt_text_sha256": "71c551b8020ae69adee9aef440fa2edeeb02155cb0733717d2e3bb64a0abbd52",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 4763134680535956675,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_2ab14c996e713acace09ad7d914a6336",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_ade376c09f53adc373e6",
+      "scenario_family_id": "dev_everyday_reading_habit",
+      "split": "development",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "prompt": "I rarely finish recreational books now and have limited free time. That change disappoints me. How can I rebuild a modest reading habit?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_ade376c09f53adc373e6",
+        "prompt_text_sha256": "71ea53fccafb0383b7b7ab7a660c7c65c4a57118d4cba238591544c495e5379b",
+        "scenario_family_id": "dev_everyday_reading_habit",
+        "split": "development",
+        "condition": {
+          "domain": "everyday",
+          "emotional_framing": true,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 9089951498044125622,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_ececa06d17f047f3312163aeb78e6eb0",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_d6f0ebdc99087235a978",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can I adjust ordinary bedroom lighting to support the wind-down period?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_d6f0ebdc99087235a978",
+        "prompt_text_sha256": "2ba03db29a403f6d253bc576cdaecf548cc87503b99811555960f46bc83d682a",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 3488041444478389169,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_5ada7ede654f6918aa5a917771970b60",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_dde023abbc81c8687aa7",
+      "scenario_family_id": "dev_health_bedroom_light",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "Bright bedroom light can leave me alert during my usual wind-down period. How can light intensity and timing influence alertness and sleep preparation? Please explain the biology rather than recommend a setup.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_dde023abbc81c8687aa7",
+        "prompt_text_sha256": "613c7138dbd2092d9439a0c13b33cb38a9e941330ff2db3528be493a57b4bdf7",
+        "scenario_family_id": "dev_health_bedroom_light",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 5533007364755257951,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_4ae826c386ad3fc82bc162811674430f",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_e92b23f8a44f13170e61",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. What do SPF, broad-spectrum, and water-resistance claims mean? Please explain the terms rather than select a product.",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_e92b23f8a44f13170e61",
+        "prompt_text_sha256": "0532264382f86c9ee80e56491c003cff4dc09ba1a9265ef1ea4266cb38001af0",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "information"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 8289240736377379984,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    },
+    {
+      "response_id": "response_c02c345f9b4cfb612ea0cf614319e640",
+      "checkpoint_alias": "7b_instruct",
+      "prompt_id": "prompt_ec6646f6a8ec753edb95",
+      "scenario_family_id": "dev_health_sunscreen_labels",
+      "split": "development",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "prompt": "I am reading sunscreen labels for an ordinary outdoor day. How can I use the label information when choosing protection?",
+      "logical_seed": 0,
+      "response_identity": {
+        "study_version": "revision-study-v1",
+        "runner_version": "revision-study-full-runner-v2",
+        "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "prompt_id": "prompt_ec6646f6a8ec753edb95",
+        "prompt_text_sha256": "e48731a1aff274feab3553993ca1543fa585b2a524350bc31978acd32aed99e6",
+        "scenario_family_id": "dev_health_sunscreen_labels",
+        "split": "development",
+        "condition": {
+          "domain": "health",
+          "emotional_framing": false,
+          "request_type": "advice"
+        },
+        "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+        "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+        "logical_seed": 0,
+        "rng_seed": 1769803478094000469,
+        "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "max_new_tokens": 1024
+        }
+      }
+    }
+  ],
+  "expected_responses": 96,
+  "calibration_manifest_id": "extended_calibration_manifest_2e744d3df5602179882f17981b8e457a"
+}

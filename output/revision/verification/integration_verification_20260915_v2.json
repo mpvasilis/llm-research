@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "at": "2026-09-15T15:56:17.795108+00:00",
+  "test_cases": 70,
+  "unique_test_cases": 70,
+  "errors": 0,
+  "failures": 0,
+  "skipped": 0,
+  "runs": [
+    {
+      "path": "output/revision/verification/integration_tests_20260915_v2.xml",
+      "test_cases": 61,
+      "process_exit_code": 0,
+      "sha256": "743ced87b9045671868da6f5854684356ee1d8bad5a012a6449ade7331bb46c6"
+    },
+    {
+      "path": "output/revision/verification/budget_probe_tests_20260915.xml",
+      "test_cases": 9,
+      "process_exit_code": 0,
+      "sha256": "189febbc345cf3f1c9dbc800118b9b6e0347454a457bba2c8a3fef88e5f6c002"
+    }
+  ],
+  "cases_by_module": {
+    "tests.test_calibration_study": 5,
+    "tests.test_development_budget_probe": 9,
+    "tests.test_dpo_conditional_analysis": 6,
+    "tests.test_full_revision_study": 7,
+    "tests.test_prospective_validation": 8,
+    "tests.test_revision_analysis": 10,
+    "tests.test_revision_study": 13,
+    "tests.test_validation_v4": 12
+  },
+  "source_sha256": {
+    "pytest.ini": "4551307f5b1a58adb7ec215d513089ba670b1737b81ada5a5863afe796d67343",
+    "experiments/build_revision_notebook.py": "cb2baa5ae0a07905cefbca3458266e90aaba59ccdda8618ae4e7a1d719f32156",
+    "experiments/calibration_study.py": "fd348ce184a986b8d298bee52c6e78ccfa431f9bf08824318349d1a2b9485862",
+    "experiments/prospective_validation.py": "9e86976b2708a7bdee41a048979c0dd7fd7a4aea8c9493569e7df3ab236dbddd",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/dpo_conditional_analysis.py": "117d0160e0dc04f1e8106f4e2e0a9485b24d1ea0c973391ea78caa54c9f7d4c8",
+    "out/paper/ANNOTATION_GUIDE.md": "53fd3f9689c23494997c3bb5123c61ca5a42979fefedf2bbc5335d8c6d34d0eb"
+  },
+  "scope": "61 integration tests in tests/ plus nine focused budget-probe tests. Synthetic fixtures verify workflow behavior, not empirical study outcomes. The earlier unscoped discovery was stopped and is excluded from these counts; see test_discovery_correction_20260915.json."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "passed_independent_pin_and_resource_arithmetic_checks",
+  "at": "2026-09-15T18:55:46.381453+00:00",
+  "metadata_manifest": {
+    "path": "output/revision/verification/checkpoint_download_resource_manifest_20260915.json",
+    "sha256": "1dc8528e6d7c871daa04e087f376cdbc62dd17f44f5cfc6d706fd6416f06b6e4"
+  },
+  "checkpoint_pins_verified": 6,
+  "gross_bytes": 52701714512,
+  "missing_bytes": 49731860288,
+  "already_local_bytes": 2969854224,
+  "source": "Six official exact-revision metadata queries reported in referenced manifest; arithmetic and pin bindings independently checked here.",
+  "limits": "Parameter memory lower bounds do not certify runtime fit, and storage arithmetic does not choose hardware or authorize model downloads."
+}

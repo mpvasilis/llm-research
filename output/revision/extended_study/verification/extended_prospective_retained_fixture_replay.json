@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "public_call": "experiments.extended_prospective_validation.prepare_packet",
+  "expected_exception": "ValueError matching [Rr]eadiness|provenance|config",
+  "observed_exception": "Readiness snapshot hash mismatch",
+  "regex_matched": true,
+  "inputs_unchanged": true,
+  "unexpected_output_created": false,
+  "retained_fixture_root": "C:\\Users\\vasilis\\AppData\\Local\\Temp\\pytest-of-vasilis\\pytest-1139\\test_real_strict_full_grid_rou0\\relocated_complete_package",
+  "before": {
+    "plan": {
+      "kind": "file",
+      "sha256": "5e8fe16edc82f98f33984a03118b2c31568591160348513e8f179d1e4178c63c"
+    },
+    "protocol": {
+      "kind": "file",
+      "sha256": "65b965f4929c1fcf81ad331740188902d750db64c5c56c35020944cdc9e26809"
+    },
+    "responses": {
+      "kind": "file",
+      "sha256": "cbc58795a57f6547fc2220b8ccbcefbce014f0e37cfd329fb365e62d03523dc5"
+    },
+    "predictions": {
+      "kind": "file",
+      "sha256": "1aac8c2d5ca7ae6aa924492515d8e6fa2171db6d7684cb2794c296e57fe2b0f5"
+    },
+    "calibration_manifest": {
+      "kind": "file",
+      "sha256": "80baeda23ccaedc2beb38ed5bb019b3f22b1113280b003c461185404d38b08d9"
+    },
+    "calibration_responses": {
+      "kind": "file",
+      "sha256": "2c751823f25c3e5406091007d5fa1214d86b92ac48431d7e64e700b8a06c7585"
+    },
+    "calibration_run": {
+      "kind": "tree",
+      "sha256": "486803736fc1c48d1ab325b2d7dfab340ad513f4d01913d0a8e8e116d3e92482",
+      "files": 100
+    },
+    "evidence": {
+      "kind": "file",
+      "sha256": "0931fb99cffd9237d4b1b963a5a35b1ffe21e0981daa6109c74313106f1011fa"
+    },
+    "evaluation_run": {
+      "kind": "tree",
+      "sha256": "bfca743abf95efcb2cec24f23f23a9065cf84b9840feeff030aaafc0dc8d967f",
+      "files": 2989
+    },
+    "guide": {
+      "kind": "file",
+      "sha256": "180d5711fecb1a4e23c5993bf255a3ca275ab552b3599fe3bc178cf51d81dd2f"
+    }
+  },
+  "after": {
+    "plan": {
+      "kind": "file",
+      "sha256": "5e8fe16edc82f98f33984a03118b2c31568591160348513e8f179d1e4178c63c"
+    },
+    "protocol": {
+      "kind": "file",
+      "sha256": "65b965f4929c1fcf81ad331740188902d750db64c5c56c35020944cdc9e26809"
+    },
+    "responses": {
+      "kind": "file",
+      "sha256": "cbc58795a57f6547fc2220b8ccbcefbce014f0e37cfd329fb365e62d03523dc5"
+    },
+    "predictions": {
+      "kind": "file",
+      "sha256": "1aac8c2d5ca7ae6aa924492515d8e6fa2171db6d7684cb2794c296e57fe2b0f5"
+    },
+    "calibration_manifest": {
+      "kind": "file",
+      "sha256": "80baeda23ccaedc2beb38ed5bb019b3f22b1113280b003c461185404d38b08d9"
+    },
+    "calibration_responses": {
+      "kind": "file",
+      "sha256": "2c751823f25c3e5406091007d5fa1214d86b92ac48431d7e64e700b8a06c7585"
+    },
+    "calibration_run": {
+      "kind": "tree",
+      "sha256": "486803736fc1c48d1ab325b2d7dfab340ad513f4d01913d0a8e8e116d3e92482",
+      "files": 100
+    },
+    "evidence": {
+      "kind": "file",
+      "sha256": "0931fb99cffd9237d4b1b963a5a35b1ffe21e0981daa6109c74313106f1011fa"
+    },
+    "evaluation_run": {
+      "kind": "tree",
+      "sha256": "bfca743abf95efcb2cec24f23f23a9065cf84b9840feeff030aaafc0dc8d967f",
+      "files": 2989
+    },
+    "guide": {
+      "kind": "file",
+      "sha256": "180d5711fecb1a4e23c5993bf255a3ca275ab552b3599fe3bc178cf51d81dd2f"
+    }
+  }
+}

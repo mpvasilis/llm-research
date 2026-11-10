@@ -1,0 +1,322 @@
+{
+  "verification_schema_version": "extended-study-clean-environment-validation-v1",
+  "created_at": "2026-09-15T19:30:38.415040+00:00",
+  "status": "passed",
+  "scope": "clean local Windows dependency, safe-default notebook, and offline tokenizer/config compatibility",
+  "environment": {
+    "host_platform": "Windows-2025Server-10.0.26100-SP0",
+    "selected_interpreter": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "base_interpreter_prefix": "C:\\Users\\vasilis\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+    "venv_configuration": "output/revision/environment_validation/venv/pyvenv.cfg",
+    "include_system_site_packages": false,
+    "venv_retained": true,
+    "venv_path": "output/revision/environment_validation/venv",
+    "official_index": "https://pypi.org/simple",
+    "pip_check": "No broken requirements found.",
+    "imports": {
+      "transformers": "4.57.6",
+      "huggingface_hub": "0.36.2",
+      "sentence_transformers": "5.7.0",
+      "accelerate": "1.15.0",
+      "safetensors": "0.8.0",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "torch": "2.14.0+cpu",
+      "nbclient": "0.11.0",
+      "nbformat": "5.11.1",
+      "ipykernel": "7.3.0"
+    },
+    "resolved_distribution_count": 74
+  },
+  "dependency_sets": {
+    "notebook_stated": [
+      "transformers>=4.57,<5",
+      "huggingface_hub>=0.34,<2",
+      "sentence-transformers>=5,<6",
+      "accelerate>=1.10,<2",
+      "safetensors>=0.6,<1",
+      "numpy>=1.26,<3",
+      "matplotlib>=3.8,<4"
+    ],
+    "test_only": [
+      "nbclient",
+      "nbformat",
+      "ipykernel"
+    ],
+    "test_only_classification": "verification tooling only; not claimed as notebook runtime dependencies"
+  },
+  "tokenizer_and_config": {
+    "status": "passed",
+    "runtime": {
+      "python": "3.12.14",
+      "executable": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "transformers": "4.57.6",
+      "offline_environment": {
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "TOKENIZERS_PARALLELISM": "false"
+      }
+    },
+    "checkpoint_count": 6,
+    "expanded_prompt_count": 200,
+    "all_six_per_prompt_counts_identical": true,
+    "input_token_range": [
+      32,
+      64
+    ],
+    "matches_prior_transformers_5_5_4_audit": {
+      "prior_context_audit_path": "output/revision/verification/checkpoint_context_capacity_audit_20260915.json",
+      "prior_transformers_version": "5.5.4",
+      "official_template_and_serialization_match_frozen_protocol": true,
+      "all_200_prompt_token_counts_match_across_all_six": true,
+      "split_extrema_and_prompt_ids_match_prior_audit": true
+    },
+    "no_model_or_generation": {
+      "auto_config_loaded": true,
+      "auto_tokenizer_loaded": true,
+      "local_files_only": true,
+      "network_or_download_used": false,
+      "auto_model_called": false,
+      "model_instantiated": false,
+      "model_weights_loaded": false,
+      "generation_performed": false,
+      "gpu_claimed_or_tested": false
+    }
+  },
+  "notebook": {
+    "status": "passed",
+    "runtime": {
+      "driver_python_executable": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+      "python_version": "3.12.14",
+      "implementation": "CPython",
+      "packages": {
+        "nbclient": "0.11.0",
+        "nbformat": "5.11.1",
+        "ipykernel": "7.3.0",
+        "jupyter_client": "8.10.0"
+      },
+      "kernel_name": "clean-env",
+      "kernel_spec_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\jupyter\\kernels\\clean-env",
+      "kernel_argv": [
+        "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+        "-m",
+        "ipykernel_launcher",
+        "-f",
+        "{connection_file}"
+      ],
+      "jupyter_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\jupyter",
+      "duration_seconds": 34.23614192008972
+    },
+    "relocation": {
+      "relocated_source_bundle": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\isolated_workspace\\inputs\\advice_marker_extended_study_bundle.zip",
+      "relocated_frozen_bundle": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\isolated_workspace\\inputs\\advice_marker_frozen_preparation_bundle.zip",
+      "extracted_workspace": "\\\\?\\C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\isolated_workspace\\source_workspace\\extended_bundle_6550d81c61f8ffc57b4c12e9773248dc",
+      "protocol_path_from_environment": "\\\\?\\C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\isolated_workspace\\source_workspace\\extended_bundle_6550d81c61f8ffc57b4c12e9773248dc\\output\\revision\\extended_study\\full_study\\protocol_v1.json",
+      "calibration_manifest_path_from_environment": "\\\\?\\C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\isolated_workspace\\source_workspace\\extended_bundle_6550d81c61f8ffc57b4c12e9773248dc\\output\\revision\\extended_study\\calibration_study\\manifest.json",
+      "protocol_sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46",
+      "calibration_manifest_sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3"
+    },
+    "source_cells": 23,
+    "code_cells_executed": 13,
+    "cell_type_and_source_sha256": "a8fe8c601678f7bcc389f582ebfce8f59b734f38f71c5ff5a79646345e9cd725",
+    "source_type_equality": true,
+    "error_outputs": 0,
+    "traceback_text_found": false,
+    "safe_default_controls": {
+      "local_validation": true,
+      "primary_cap": null,
+      "sensitivity_cap": null,
+      "all_action_controls_disabled": true,
+      "action_controls": {
+        "use_google_drive": false,
+        "install_dependencies": false,
+        "download_detectors": false,
+        "freeze_successor_protocol": false,
+        "create_human_review_form": false,
+        "freeze_calibration_manifest": false,
+        "run_calibration": false,
+        "export_calibration": false,
+        "freeze_validation_plan": false,
+        "run_primary": false,
+        "run_sensitivity": false,
+        "export_primary": false,
+        "export_sensitivity": false,
+        "run_primary_predictions": false,
+        "run_sensitivity_predictions": false,
+        "run_primary_analysis": false,
+        "run_sensitivity_analysis": false,
+        "prepare_validation_packet": false,
+        "init_human_pass_1": false,
+        "init_human_pass_2": false,
+        "run_human_scoring": false
+      }
+    },
+    "network_disabled_by_environment": true,
+    "protected_inputs_unchanged": true,
+    "scientific_interpretation": "Environment execution validates safe-default portability/importability only; it creates no empirical or human evidence and does not establish study completion."
+  },
+  "immutability": {
+    "status": "passed",
+    "original_scientific_artifacts_unchanged": true,
+    "unexpected_original_empirical_output_directories": [],
+    "scientific_sources": [
+      {
+        "path": "experiments/extended_revision_study.py",
+        "bytes": 64420,
+        "sha256": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e"
+      },
+      {
+        "path": "experiments/extended_calibration_study.py",
+        "bytes": 26471,
+        "sha256": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9"
+      },
+      {
+        "path": "experiments/extended_prospective_validation.py",
+        "bytes": 52939,
+        "sha256": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a"
+      },
+      {
+        "path": "experiments/extended_sensitivity_analysis.py",
+        "bytes": 47733,
+        "sha256": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+      }
+    ],
+    "protected_inputs": [
+      {
+        "path": "output/jupyter-notebook/advice_marker_extended_study.ipynb",
+        "bytes": 25610,
+        "sha256": "bf16bb2d7440e091a73034015627431333abb3530bde61a430d38b7ee9c4b7e2"
+      },
+      {
+        "path": "output/jupyter-notebook/advice_marker_extended_study_bundle.zip",
+        "bytes": 590280,
+        "sha256": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb"
+      },
+      {
+        "path": "output/jupyter-notebook/advice_marker_frozen_preparation_bundle.zip",
+        "bytes": 1219024,
+        "sha256": "cee63f40d21a44df277f8e4e4b7d581b7463bb3fe370f07f9506481f3fdac796"
+      },
+      {
+        "path": "output/revision/extended_study/development_budget_decision_v1.json",
+        "bytes": 3878,
+        "sha256": "95af6e31285d74af1d26dd905399742c5b8da1c84090e1f9b2e6b4b4aaeb4bab"
+      },
+      {
+        "path": "output/revision/extended_study/full_study/protocol_v1.json",
+        "bytes": 6116568,
+        "sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46"
+      },
+      {
+        "path": "output/revision/extended_study/calibration_study/manifest.json",
+        "bytes": 192302,
+        "sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3"
+      },
+      {
+        "path": "output/revision/extended_study/human_prompt_review_template_v1.json",
+        "bytes": 39046,
+        "sha256": "82395ac0fae069cdd15e25aba8d4984b94b492e299e7e27d8701f0930540d102"
+      },
+      {
+        "path": "output/revision/extended_study/prompt_review_worksheet.md",
+        "bytes": 77718,
+        "sha256": "378161aa11c9ebd64057f9858ec6ee40cb1878b088e06dfead3a449cc623d2ee"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "output/revision/environment_validation/stated_requirements.txt",
+      "bytes": 150,
+      "sha256": "d262d3857226977c20fc8e58a5cf8786f690084a0010f43673e9b1d87074e87f"
+    },
+    {
+      "path": "output/revision/environment_validation/stated_dependencies_install.log",
+      "bytes": 10669,
+      "sha256": "1b7ab73b85e38cea329509ca660cf43afbde1dbcfaba3427f46e51e534ea936a"
+    },
+    {
+      "path": "output/revision/environment_validation/test_only_requirements.txt",
+      "bytes": 29,
+      "sha256": "1bb6e26d49c788f1dc4142600cfa6ad42d21dc88cc46e135efcc77440d7621d7"
+    },
+    {
+      "path": "output/revision/environment_validation/test_only_install.log",
+      "bytes": 8070,
+      "sha256": "c67b4a3dccee12149447f1320ec1234b059e904edbdc2f93a40e8e26172d626a"
+    },
+    {
+      "path": "output/revision/environment_validation/resolved_packages.txt",
+      "bytes": 1406,
+      "sha256": "7a04002d7372486c4b15ee4f9c245c2db7f56973f6e2ae6a2ddfbadabfb72751"
+    },
+    {
+      "path": "output/revision/environment_validation/resolved_packages.json",
+      "bytes": 3258,
+      "sha256": "1aaba06e84c6f0ae4f62f65155ba95e703258c56a67a59fc4ecd36a9b36a3892"
+    },
+    {
+      "path": "output/revision/environment_validation/pip_check.log",
+      "bytes": 31,
+      "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "path": "output/revision/environment_validation/import_check.json",
+      "bytes": 1161,
+      "sha256": "63b64724f7d7a4738fba282cd742a0b0ea110ec5c6c79b2e48137d5d94821791"
+    },
+    {
+      "path": "output/revision/environment_validation/kernels/clean-env/kernel.json",
+      "bytes": 337,
+      "sha256": "2c44098022f43e8e44c951dd8b6746dc149d70911f4df08ec1b427a0e5d6859b"
+    },
+    {
+      "path": "output/revision/environment_validation/tokenizer_config_compatibility.log",
+      "bytes": 200,
+      "sha256": "fd19e80ad3172a8b6fd18e7370844010785f63fafeadc557cc44cf93114e98a0"
+    },
+    {
+      "path": "output/revision/environment_validation/tokenizer_config_compatibility.json",
+      "bytes": 12477,
+      "sha256": "3c01f9c05a64ba702a5f59ab65cec1b1e3d251c4d8e133e6e8bbc1ed8de58790"
+    },
+    {
+      "path": "output/revision/environment_validation/notebook_check/executed_advice_marker_extended_study_clean_env.ipynb",
+      "bytes": 32902,
+      "sha256": "87c944a3c5c1c36dbf03d5e81319790b2c77e5139df56177e1026fa5cbcfa395"
+    },
+    {
+      "path": "output/revision/environment_validation/notebook_check/execution_console.log",
+      "bytes": 1143,
+      "sha256": "408e78563070890d389c2d369718ae7055807f0bc2c0151b8c6ddf1eb6b34f51"
+    },
+    {
+      "path": "output/revision/environment_validation/notebook_check/execution_verification.json",
+      "bytes": 6902,
+      "sha256": "e0e4d2260e38ef392a93789c50129294a093b8cc0e4878a293a4a49da0627fd1"
+    },
+    {
+      "path": "output/revision/environment_validation/notebook_check/protected_artifact_immutability.json",
+      "bytes": 2438,
+      "sha256": "8d19cefcdbfa96563d32d3dbc8719128555bbf8fd21c834d5b3518a89fbacc1a"
+    },
+    {
+      "path": "output/revision/environment_validation/notebook_check/artifact_manifest.json",
+      "bytes": 2403,
+      "sha256": "74ed2a5258e1b55f923a50c2e115ddfd82c56696c21f0df8015c9421948019fc"
+    }
+  ],
+  "limits": {
+    "validated_host": "local Windows",
+    "linux_validated": false,
+    "gpu_validated": false,
+    "model_weights_loaded": false,
+    "model_inference_performed": false,
+    "network_used_by_notebook_or_tokenizer_checks": false,
+    "network_used_for_authorized_dependency_install_only": true,
+    "human_review_created_or_completed": false,
+    "study_generation_or_analysis_performed": false
+  }
+}

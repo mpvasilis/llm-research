@@ -1,0 +1,314 @@
+{
+  "verification_schema_version": "clean-tokenizer-config-compatibility-v1",
+  "created_at": "2026-09-15T19:26:44.041867+00:00",
+  "status": "passed",
+  "scope": "local_windows_config_and_tokenizer_only_no_model_instantiation",
+  "runtime": {
+    "python": "3.12.14",
+    "executable": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "transformers": "4.57.6",
+    "offline_environment": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "TOKENIZERS_PARALLELISM": "false"
+    }
+  },
+  "protocol": {
+    "path": "output/revision/extended_study/full_study/protocol_v1.json",
+    "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+    "primary_cap": 1024,
+    "sensitivity_cap": 2048
+  },
+  "prompt_corpus": {
+    "sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "expanded_prompt_count": 200,
+    "min_input_tokens": 32,
+    "max_input_tokens": 64,
+    "all_six_per_prompt_counts_identical": true
+  },
+  "checkpoints": [
+    {
+      "checkpoint_alias": "1b_sft",
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-SFT\\snapshots\\0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    },
+    {
+      "checkpoint_alias": "1b_dpo",
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-DPO\\snapshots\\c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    },
+    {
+      "checkpoint_alias": "1b_instruct",
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\snapshots\\48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    },
+    {
+      "checkpoint_alias": "7b_sft",
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-SFT\\snapshots\\1de02c0175118a9de5854aec80a1f970e701e928",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    },
+    {
+      "checkpoint_alias": "7b_dpo",
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-DPO\\snapshots\\e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    },
+    {
+      "checkpoint_alias": "7b_instruct",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-Instruct\\snapshots\\470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "snapshot_revision_leaf_matches_pin": true,
+      "config_class": "Olmo2Config",
+      "tokenizer_class": "GPT2TokenizerFast",
+      "max_position_embeddings": 4096,
+      "expected_max_position_embeddings": 4096,
+      "serialization_identity": {
+        "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+        "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+        "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8"
+      },
+      "serialization_matches_frozen_protocol": true,
+      "tokenization": {
+        "development": {
+          "prompt_count": 40,
+          "min_input_tokens": 32,
+          "max_input_tokens": 60,
+          "min_prompt_ids": [
+            "prompt_432eed96612c3d568861"
+          ],
+          "max_prompt_ids": [
+            "prompt_11f72d5d410d1f0be67d",
+            "prompt_22ac753287fe0aa31fee"
+          ]
+        },
+        "evaluation": {
+          "prompt_count": 160,
+          "min_input_tokens": 32,
+          "max_input_tokens": 64,
+          "min_prompt_ids": [
+            "prompt_e42271f38d74287b8041"
+          ],
+          "max_prompt_ids": [
+            "prompt_4ddd06b37535c043b148"
+          ]
+        }
+      },
+      "per_prompt_counts_match_all_six": true
+    }
+  ],
+  "operations": {
+    "auto_config_loaded": true,
+    "auto_tokenizer_loaded": true,
+    "local_files_only": true,
+    "network_or_download_used": false,
+    "auto_model_called": false,
+    "model_instantiated": false,
+    "model_weights_loaded": false,
+    "generation_performed": false,
+    "gpu_claimed_or_tested": false
+  },
+  "comparison": {
+    "prior_context_audit_path": "output/revision/verification/checkpoint_context_capacity_audit_20260915.json",
+    "prior_transformers_version": "5.5.4",
+    "official_template_and_serialization_match_frozen_protocol": true,
+    "all_200_prompt_token_counts_match_across_all_six": true,
+    "split_extrema_and_prompt_ids_match_prior_audit": true
+  }
+}

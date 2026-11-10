@@ -1,0 +1,66 @@
+{
+  "bundle_schema_version": "advice-marker-revision-notebook-bundle-v1",
+  "provenance": "Built from the current local workspace, including uncommitted source files.",
+  "detector_dependencies": {
+    "embedding_model": {
+      "model_id": "intfloat/e5-small-v2",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+    },
+    "prefix_window_tokenizer": {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "download_scope": "tokenizer files only"
+    }
+  },
+  "files": {
+    "experiments/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "experiments/detector_spec.py": {
+      "sha256": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+      "size_bytes": 11463
+    },
+    "experiments/full_revision_study.py": {
+      "sha256": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "size_bytes": 56032
+    },
+    "experiments/prompts.json": {
+      "sha256": "a088656cfbbe67f2276231002e3f63ef1b9bc399c3af117bc2b9bb2a72d08762",
+      "size_bytes": 852
+    },
+    "experiments/prompts_revision_v1.json": {
+      "sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+      "size_bytes": 29566
+    },
+    "experiments/raw_output_robustness.py": {
+      "sha256": "ce5cb5a268621c19c9c5b00ab21e400978b145dc209634de524ccea94d1dd10f",
+      "size_bytes": 14856
+    },
+    "experiments/revision_analysis.py": {
+      "sha256": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+      "size_bytes": 49101
+    },
+    "experiments/revision_study.py": {
+      "sha256": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "size_bytes": 43160
+    },
+    "output/revision/full_study/human_prompt_review_v2.json": {
+      "sha256": "941244124ab87274cb325c94585201639b7ce1ecf285372530b6373b3825b7da",
+      "size_bytes": 39046
+    },
+    "output/revision/full_study/protocol_v2.json": {
+      "sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+      "size_bytes": 6110738
+    },
+    "output/revision/study_v1/detector_manifest_v1.json": {
+      "sha256": "c49e62708cf8af867539579d431f2ca125fec71752afa3529d6ab4d325db10e2",
+      "size_bytes": 5881
+    },
+    "trace/behavior.py": {
+      "sha256": "fcc1be46aa18f0f0c19eeff91f841f260676cd0fe5931fb473bb9a3b8f385e93",
+      "size_bytes": 4252
+    }
+  },
+  "bundle_content_id": "bundle_5bf5f0d564120918641c91bcc747b17b"
+}

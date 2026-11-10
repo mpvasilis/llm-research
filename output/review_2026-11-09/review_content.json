@@ -1,0 +1,100 @@
+{
+  "title": "Submission review and experimental roadmap",
+  "subtitle": "Measuring Advice-Style Language in OLMo-2",
+  "date": "9 November 2026",
+  "verdict": "A promising measurement case study, but not yet a convincing top-tier empirical submission. The writing can be improved now; independent human validation and a fresh, adequately budgeted checkpoint evaluation remain substantive evidence gaps.",
+  "sections": [
+    {
+      "title": "1. The contribution worth building around",
+      "paragraphs": [
+        "The strongest question is: when we count advice-style language, how much does our conclusion depend on the detector and on how much of the answer we inspect? This is more defensible than claiming to measure empathy, identify the training source of a behavior, or explain the causal effect of DPO.",
+        "The current results offer a concrete warning. In recovered final-7B outputs, the advice-minus-emotional-control empathy-marker gap is -14.7 percentage points over the complete cached text but +25.3 points over its first 64 tokens. For structuring, the advice-minus-neutral-how-to gap is +39.0 points with exact matching and -3.0 points with the exact-or-embedding rule. These are sizeable changes in a measurement conclusion. The full-window empathy comparison is uncertain; a change in point-estimate sign is not proof of two opposite population effects.",
+        "The general facts that length matters and automatic metrics need validation are already established. The distinctive contribution should therefore be the controlled, reproducible demonstration of how detector choice and observed text interact with condition and checkpoint comparisons, together with a practical validation procedure. The present one-checkpoint recovery is useful evidence, but broad generalization needs the prospective study.",
+        "A successful paper need not obtain uniformly positive or statistically significant results. A well-estimated failure of a detector, a robust measurement interaction, or a carefully bounded null can be the main result. Select analyses for the question they answer, not for whether they improve the apparent result."
+      ]
+    },
+    {
+      "title": "2. What the existing results actually establish",
+      "items": [
+        ["Detector diagnostic", "120 AI-labeled sentences from 97 responses. Union precision is about .22, .33, .06, and .49 for the four categories; corresponding true-positive counts are only 2, 1, 1, and 26. Referral annotation is narrower than the broad referral/disclaimer rule. This is evidence about agreement with these AI labels, not human construct validity. Exact matching has no observed false positives here, but the sample is too small to establish generally high precision."],
+        ["Recovered output sensitivity", "700 final-7B responses support comparisons of detector components and 64/128-token windows. They do not supply a fresh test set or recover the missing raw outputs for other checkpoints. The original 256-token cap matters: the reported cap proxy is .880 on advice, .573 on factual, and .960-.980 on targeted controls. Complete cached text is often an incomplete answer."],
+        ["Historical checkpoint comparisons", "Under the historical rule, SFT-to-DPO validation gaps increase by .213 (1B) and .147 (7B), while structuring gaps decrease by .367 and .277. These same-interface comparisons describe detector outputs. Base-to-SFT additionally changes input formatting. Missing stagewise raw outputs prevent retrospective validation of the trajectory with the revised checks."],
+        ["DPO mixture associations", "The paired analysis covers 378,301 1B and 378,341 7B pairs. Length-conditioned broad-referral odds ratios are 1.088 and 1.134; structuring odds ratios are 1.128 and 1.190. These are associations in preference data, not changes in model behavior or choice probability. Narrower-referral intervals include one, which does not establish equivalence or absence of an effect."],
+        ["Dependence and replication", "The two DPO mixtures share 21,508 content-identical pairs. Treat the two sizes as related analyses, not fully independent replications. Prompt-cluster uncertainty and one-pair-per-prompt checks are appropriate strengths. Corpus string occurrence is supporting context, not training-data attribution."],
+        ["Prospective evidence", "The repository contains substantial preparation: frozen model identities, matched scenario families, a calibration design, blinded annotation tools, and generation/analysis code. Preparation and passing software checks are not empirical completion. Genuine human labels, calibration, and the full six-checkpoint evaluation are still pending in the inspected evidence."]
+      ]
+    },
+    {
+      "title": "3. The experimental structure I recommend",
+      "retrospective_update": {
+        "heading": "Completed during this review: direct detector comparison",
+        "summary": "A new retrospective analysis on 9 November directly estimates the exact-minus-union change in the advice-minus-targeted-control gap. Approximate 95% simultaneous intervals cover all four contrasts; values below are percentage points.",
+        "rows": [
+          ["Empathy / emotional control", "+47.0", "[+28.1, +65.9]"],
+          ["Validation / emotional control", "-9.7", "[-22.7, +3.3]"],
+          ["Referral/disclaimer / health facts", "+6.7", "[-14.7, +28.0]"],
+          ["Structure / neutral how-to", "+42.0", "[+21.9, +62.1]"]
+        ],
+        "method": "20,000 shared bootstrap draws resample prompts within condition, retaining all five seeds and both detector components. All 40 original rate cells match. This strengthens retrospective detector-choice sensitivity for empathy and structure; it is neither human validation nor fresh replication. Direct inference on prefix-window changes remains pending."
+      },
+      "paragraphs": [
+        "Use three research questions and give each experiment an explicit target quantity, analysis unit, comparison, and interpretation. Keep historical diagnostics separate from prospective results. Reuse the existing protocol and implementation; do not restart the project or silently modify frozen designs."
+      ],
+      "items": [
+        ["RQ1: How sensitive is the measurement?", "Extend the completed exact-versus-union comparison to embedding-only rules and fixed 64/128-token prefixes, then repeat it prospectively. For each category, estimate the change in the advice-minus-matched-control gap across rules/windows directly. Preserve pairing across rules, windows, seeds, and checkpoints. Report percentage-point effects with cluster intervals; significance in one window but not another is not itself a test of change."],
+        ["RQ2: Which condition gaps change across checkpoints?", "Use the prepared 40 held-out scenario families with four variants each, six SFT/DPO/Instruct checkpoints across 1B/7B, and three seeds: 2,880 responses. The emotional-framing and request manipulations occur within a family, with domains balanced. Analyze family-level contrasts and changes in those contrasts across stages. Resample whole families with every dependent variant, seed, and checkpoint retained together. The independent scenario count is 40, not 2,880."],
+        ["RQ3: How are marker matches associated with DPO preferences?", "Retain the completed paired conditional analysis as a secondary explanation of phrase occurrence in the training mixtures. Show absolute paired differences alongside odds ratios and length distributions. Keep the spline model, source heterogeneity, exact-prompt dependence, and cross-mixture overlap visible. No additional retraining is needed for this observational question; retraining would be needed for a causal attribution question."]
+      ]
+    },
+    {
+      "title": "4. Priority work before a strong empirical submission",
+      "items": [
+        ["Priority 1 - Align and validate the labels", "Separate an empathy expression from a phrase resembling one; separate emotional validation, an actual recommendation to contact a professional, a disclaimer, and organizational language. The existing broad detector can remain as a historical baseline. Use two distinct blinded human annotators and adjudication, with the prompt available as context. Report category-specific agreement, disagreements, precision/recall, support counts, uncertainty, and performance by checkpoint/condition/length where estimable. Do not replace human labels with additional AI agreement."],
+        ["Priority 2 - Complete development calibration before evaluation", "The prepared design includes 96 responses spanning all six checkpoints, with 1,024 and 2,048 tokens as provisional primary/sensitivity caps. The earlier eight-response 1B probe does not demonstrate adequate budgets for the other checkpoints. Verify actual stop reasons, inspect semantic completeness, time annotation and generation, and preserve any revised design as a new version. Keep all evaluation outputs unseen while choosing rules, thresholds, and sampling decisions."],
+        ["Priority 3 - Run the fresh matched study", "Complete human review of the drafted scenario manipulations, then generate the 2,880 primary responses and the pre-specified 192-response longer-budget subset. Retain raw text, seeds, revisions, exact serialized inputs, output-token counts, and stop reasons. A prefix comparison changes the observation window; a matched longer-budget run checks whether generation truncation itself changes the conclusion. These are different diagnostics."],
+        ["Priority 4 - Use a defensible validation sample", "The prepared probability sample has 624 responses across 48 cells, with up to 120 additional detector-positive items for diagnosis; the combined workload is 624-744 unique responses, each independently labeled twice. Estimate prevalence and recall from the probability sample using its inclusion probabilities. Keep positive-enriched examples separate from population estimates. Full-response labels do not automatically validate clipped prefixes; label prefixes separately if making semantic claims about them."],
+        ["Priority 5 - Plan precision, not just a response total", "The current counts are planning quantities, not a demonstrated power calculation. Before seeing evaluation results, define a scientifically meaningful change and use development data or a sensitivity simulation over plausible family correlations and category rates to assess interval widths and detection probability. Prioritize adequate numbers of independent families and positive labels. If rare categories remain imprecise, report that limitation rather than changing endpoints after inspecting the result."],
+        ["Priority 6 - Make the main result visual and auditable", "Show detector/window gaps with uncertainty in one main figure or compact table, then show family-level checkpoint interactions. Put giant condition-rate tables, every source split, corpus counts, and redundant robustness details in the appendix. Release the exact inputs and analysis that produced every main result. Use one result manifest to keep tables and prose synchronized."]
+      ]
+    },
+    {
+      "title": "5. Extensions that depend on the claim",
+      "items": [
+        ["Base-to-SFT training effect", "If retaining a claim about SFT training itself, add a checkpoint-by-input-format crossover with the same prompts and scoring. Otherwise keep Base-to-SFT as a stage-plus-interface descriptive comparison or move it to the appendix."],
+        ["General behavior across models", "A second independently trained model family would strengthen external validity. It is valuable for a broad claim about LLMs; it is not a substitute for validating the OLMo-2 measurement first. Keep an OLMo-2 case-study title if the evaluation remains in one family."],
+        ["Training examples cause the behavior", "This requires interventions such as matched data removal or label changes followed by retraining, with random/source/length-matched controls and general-capability checks. Existing corpus counts and conditional DPO models cannot establish this. Treat this as a separate, resource-heavy project unless causal attribution is central."],
+        ["A better detector", "If introducing a calibrated detector, train or tune it on development families, lock it before evaluation, and compare against the historical exact and union baselines using independent human test labels. Improving the detector on the existing audit alone would produce an in-sample correction, not evidence of generalization."]
+      ]
+    },
+    {
+      "title": "6. Readability and result reporting",
+      "paragraphs": [
+        "Open with the question and a short example, then state what was measured. Define a marker as a textual feature and a detector as a matching rule once. Use category names consistently. The historical name empathy-opener must not imply the algorithm searches only the beginning; it searches all eligible sentences.",
+        "Write each results paragraph in the order question, estimate, uncertainty, interpretation. Prefer 'the gap increased by 21.3 percentage points' to a chain of unexplained decimals. Define the comparison direction and control in every table caption. Explain that OR=1 is the no-association reference, and an OR of 1.13 is not a 13-percentage-point preference increase.",
+        "Keep one local caveat where it changes interpretation, then collect broader limits in Limitations. Repeating every caveat in the abstract, introduction, every result, discussion, and conclusion obscures the contribution. Avoid treating non-significance as equivalence, three detector thresholds as construct validation, or AI-human agreement as interchangeable with AI-AI agreement.",
+        "The manuscript contains two slightly different final-7B sources: an archived advice empathy rate of .617 and a recovered-cache rate of .6133. This is a provenance discrepancy, not rounding. Preserve and identify the source of each result; do not silently harmonize values. Also distinguish original analyses, later exploratory fits, and new retrospective sensitivity analyses by their actual chronology.",
+        "For an eventual submission, use a compact evidence map, one main detector/window result, one checkpoint-interaction result, and one secondary DPO result. Check venue-specific length, anonymity, ethics, and artifact requirements after the venue is selected. No target venue or deadline was supplied for this review."
+      ]
+    },
+    {
+      "title": "7. A practical completion criterion",
+      "paragraphs": [
+        "Call the scientific revision ready for a submission decision when the human targets are aligned and independently labeled, the main held-out comparison has complete raw outputs, the key detector/window and checkpoint effects have uncertainty based on their independent units, and the conclusion survives the pre-specified robustness checks or is narrowed to reflect their failure. A null result can meet this criterion; a favorable p-value alone cannot.",
+        "Have two readers unfamiliar with the project independently answer: What is the research question? What is the main finding? What can this study not establish? Use their answers to identify remaining jargon and structural problems. Their participation has not been completed by an AI review.",
+        "The current manuscript can be circulated as a clearer revision draft. It should not be described as validated, causally explanatory, or guaranteed competitive at a top venue. The most useful next investment is the prepared human-validation and matched-checkpoint study, not another round of cosmetic edits or a larger unvalidated prompt collection."
+      ]
+    }
+  ],
+  "local_evidence": [
+    "out/paper/acl_latex.tex",
+    "out/results/raw_output_robustness.json",
+    "out/results/ai_consensus_validation_v3.json",
+    "out/results/interaction_tests_v3.json",
+    "output/revision/dpo_conditional/conditional_results.json",
+    "out/paper/PROSPECTIVE_VALIDATION_PROTOCOL_2026-09-15.md",
+    "out/paper/EXTENDED_STUDY_PROTOCOL_2026-09-15.md",
+    "output/revision/extended_study/full_study/protocol_v1.json",
+    "out/paper/GOAL_COMPLETION_AUDIT_2026-09-15.md",
+    "output/review_2026-11-09/component_reanalysis/paired_measurement_contrasts.json"
+  ]
+}

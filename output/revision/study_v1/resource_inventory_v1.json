@@ -1,0 +1,54 @@
+{
+  "python": "3.14.3",
+  "platform": "Windows-2025Server-10.0.26100-SP0",
+  "logical_cpu_count": 8,
+  "physical_memory_gib": 31.9,
+  "cuda_available": false,
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.5.4",
+    "sentence_transformers": "5.3.0"
+  },
+  "cached_models": {
+    "1b_sft": {
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "available_local": false,
+      "reason": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    },
+    "1b_dpo": {
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "available_local": false,
+      "reason": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    },
+    "1b_instruct": {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "available_local": true,
+      "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "weight_blob_count": 1
+    },
+    "7b_sft": {
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "available_local": false,
+      "reason": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    },
+    "7b_dpo": {
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "available_local": false,
+      "reason": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    },
+    "7b_instruct": {
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "available_local": false,
+      "reason": "We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    }
+  },
+  "historical_detector_dependencies": {
+    "embedding_model_id": "intfloat/multilingual-e5-small",
+    "embedding_model_cached_revision_current_machine": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "window_tokenizer_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "window_tokenizer_cached_revision_current_machine": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "provenance_warning": "These current cache revisions were not recorded by the historical run and must not be presented as recovered historical revisions."
+  },
+  "recommendation": "Use only the two-prompt, 32-token 1B development pilot on CPU; do not run the 2,880-response study locally."
+}

@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "Clean isolated validation environment",
+  "language": "python",
+  "metadata": {
+    "debugger": false
+  }
+}

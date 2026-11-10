@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "scope": "Candidate designs only; no empirical calibration manifest frozen and no model generation performed.",
+  "parent_protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "candidate_designs": [
+    {
+      "cap": 256,
+      "responses": 96,
+      "checkpoints": {
+        "1b_sft": 16,
+        "1b_dpo": 16,
+        "1b_instruct": 16,
+        "7b_sft": 16,
+        "7b_dpo": 16,
+        "7b_instruct": 16
+      },
+      "outer_cells": 48,
+      "responses_per_outer_cell": 2,
+      "development_families": 10,
+      "evaluation_family_overlap": 0,
+      "candidate_manifest_id": "calibration_manifest_c14234f8b3280ec31dff93234cacd005"
+    },
+    {
+      "cap": 512,
+      "responses": 96,
+      "checkpoints": {
+        "1b_sft": 16,
+        "1b_dpo": 16,
+        "1b_instruct": 16,
+        "7b_sft": 16,
+        "7b_dpo": 16,
+        "7b_instruct": 16
+      },
+      "outer_cells": 48,
+      "responses_per_outer_cell": 2,
+      "development_families": 10,
+      "evaluation_family_overlap": 0,
+      "candidate_manifest_id": "calibration_manifest_1b2ec3235b10a2e31c4d32f6b6cf28e4"
+    }
+  ],
+  "source_sha256": {
+    "experiments/calibration_study.py": "fd348ce184a986b8d298bee52c6e78ccfa431f9bf08824318349d1a2b9485862",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+  },
+  "human_calibration_completed": false
+}

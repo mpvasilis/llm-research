@@ -1,0 +1,13 @@
+{
+  "run_dir": "output\\revision\\full_study\\runs\\run_2f0530049d13ba4d2e6ae42e3030b7bb",
+  "completed": 8,
+  "new_responses": 8,
+  "remaining": 0,
+  "status": "complete",
+  "attempt_id": "attempt_1789478747083931800",
+  "attempt_started_at": "2026-09-15T13:25:47.083941+00:00",
+  "attempt_finished_at": "2026-09-15T13:39:28.215775+00:00",
+  "attempt_wall_seconds": 821.1269395999989,
+  "device": "cpu",
+  "torch_num_threads": 4
+}

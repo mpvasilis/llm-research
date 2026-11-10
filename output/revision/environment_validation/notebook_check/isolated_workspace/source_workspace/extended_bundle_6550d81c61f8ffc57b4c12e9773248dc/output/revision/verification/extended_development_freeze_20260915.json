@@ -1,0 +1,116 @@
+{
+  "status": "frozen_provisional_development_preparation_verified",
+  "at": "2026-09-15T18:31:21.103423+00:00",
+  "classification": "real_development_design_no_new_empirical_responses_or_human_judgments",
+  "artifacts": {
+    "budget_decision": {
+      "path": "output/revision/extended_study/development_budget_decision_v1.json",
+      "sha256": "95af6e31285d74af1d26dd905399742c5b8da1c84090e1f9b2e6b4b4aaeb4bab"
+    },
+    "protocol": {
+      "path": "output/revision/extended_study/full_study/protocol_v1.json",
+      "sha256": "2dbb5e1a6b14eb505456de52487bee0d4faaaeb8c49766aabed7c9c485c92f46"
+    },
+    "calibration_manifest": {
+      "path": "output/revision/extended_study/calibration_study/manifest.json",
+      "sha256": "4775f80d61546e38408fd7549c4113ba3e921c5725677df16b740d9be84ff7b3"
+    },
+    "blank_human_review": {
+      "path": "output/revision/extended_study/human_prompt_review_template_v1.json",
+      "sha256": "82395ac0fae069cdd15e25aba8d4984b94b492e299e7e27d8701f0930540d102"
+    },
+    "prompt_review_worksheet": {
+      "path": "output/revision/extended_study/prompt_review_worksheet.md",
+      "sha256": "378161aa11c9ebd64057f9858ec6ee40cb1878b088e06dfead3a449cc623d2ee"
+    }
+  },
+  "budget_decision_id": "budget_decision_1893ecd47f49ee071a72b6578da4c43d",
+  "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+  "calibration_manifest_id": "extended_calibration_manifest_2e744d3df5602179882f17981b8e457a",
+  "primary_cap": 1024,
+  "sensitivity_cap": 2048,
+  "calibration_expected": 96,
+  "calibration_by_checkpoint": {
+    "1b_sft": 16,
+    "1b_dpo": 16,
+    "1b_instruct": 16,
+    "7b_sft": 16,
+    "7b_dpo": 16,
+    "7b_instruct": 16
+  },
+  "development_families": 10,
+  "primary_grid_expected": 2880,
+  "sensitivity_grid_expected": 192,
+  "blank_review_families": 40,
+  "blank_review_checks": 200,
+  "human_reviews_completed": 0,
+  "run_creation_guards": {
+    "evaluation": "blank_human_review_rejected_before_run_creation",
+    "sensitivity": "blank_human_review_rejected_before_run_creation"
+  },
+  "new_model_responses": 0,
+  "model_weights_downloaded": false,
+  "generation_started": false,
+  "execution_profile_selected_for_future_runs": false,
+  "preserved_files_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments\\extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments\\full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments\\revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments\\detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments\\development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments\\extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments\\extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments\\extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments\\revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments\\validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments\\prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "output\\revision\\full_study\\protocol_v2.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "output\\revision\\development_budget_probe\\development_1024_probe_manifest_v1.json": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+    "output\\revision\\development_budget_probe\\exports\\development_1024_eight_responses.jsonl": "961b98d914284fae5508c89e83ed6b39cf5fb0030cbfa6edf9f39880294da937",
+    "output\\revision\\development_budget_probe\\development_1024_verification_20260915.json": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369",
+    "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\exports\\development_256_eight_responses.jsonl": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+    "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\development_256_verification_20260915.json": "d39f77b6342f13d36000a526db48923bc7a49f5808f93720a8d19f174abc2abd",
+    "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\exports\\development_512_eight_responses.jsonl": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+    "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\full_study\\development_512_verification_20260915.json": "ab2c0161b1390754d281a57f10b0e608181ae4989e09c55ef038bece8ecab2a7",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\budget_probe_manifest.json": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\parent_protocol.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\progress.jsonl": "a94013dc7c5dcfa169d6129b8a8a57ac0bbfe18d294956031f37348c845cb497",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\run_config.json": "7e72226a51cd959c4a3416041b05e820ded80d1d5ce41d4ff979f44ae595758e",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\attempts\\attempt_1789486704303564400.json": "081040c28070ac8d0144b509d26f5c99dd6a820d68c88808d6f867d07da1651b",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_322263f56de192300236c36fbb023a53.json": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_43dff3cd2c847545689f0e2a12e3cd7a.json": "de9dea6d1f5bd07ed66b827cc467204431700f31e731138e0bdd8c662469f550",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_4b188d767b43ffd3eb750e3c7f9b10bd.json": "062baec7a4ff64123feab0a29bad6c6aa79b9194980faded879d70e9e755eb57",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_4dd8728a238fe4414bc079535bad693d.json": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_5b0224d67050d24cbceac8b227c0c2da.json": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_5d9393621f8c0b300071743c37fc069b.json": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_6115d86977355d4df6d5cfe0a35d111f.json": "ecbacf494d8614d29be249a7a579b040ec1b2071bffc62f8684aac353414a8d2",
+    "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24\\responses\\response_e48c6793e773ea143392927497495635.json": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+    "out\\paper\\acl_latex.tex": "bef76c152d5f976fc43f44e16d9622ef4dfe3f7c901a7f57e81903a010bbc3a9",
+    "output\\pdf\\advice_marker_revision_2026-09-15.pdf": "559013886fffb86d63600b8d8f33ce328c0f2c0c207b31929eb1223633a3421a",
+    "out\\paper\\DEVELOPMENT_BUDGET_REPORT_2026-09-15.md": "56c24bc33c51de8a7cae0be9872c023fc46160f633d6eabdef085e2b7ef9c1ad",
+    "out\\paper\\DEVELOPMENT_BUDGET_DECISION_2026-09-15.md": "efa86779e31719b449e257c0ea64dd3f38f3c386aac3c0b0597c424994552ae5",
+    "output\\jupyter-notebook\\advice_marker_revision_study.ipynb": "186159433271d0439af706ebe4e43c8b3af722f94b202fefbebd0b7d65730a4b",
+    "output\\jupyter-notebook\\advice_marker_revision_study_bundle.zip": "aa3f26293432292f1058c71f5b00996e49174bbd93e304e4aa52ec5c7b33524b",
+    "output\\jupyter-notebook\\advice_marker_extended_study.ipynb": "bf16bb2d7440e091a73034015627431333abb3530bde61a430d38b7ee9c4b7e2",
+    "output\\jupyter-notebook\\advice_marker_extended_study_bundle.zip": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb",
+    "output\\jupyter-notebook\\advice_marker_completed_probe_bundle.zip": "97c97682abac163336596ee8eacd0a40a916609ba842db97a50179f309976844"
+  },
+  "preserved_files_unchanged": true,
+  "production_source_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "next_required": "Suitable six-checkpoint execution environment; genuine prompt review; complete verified96-response calibration and genuine guide/timing/budget review before prospective-plan freezing.",
+  "scientific_goal_complete": false
+}

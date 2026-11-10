@@ -1,0 +1,102 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_5d34517bef1eac80859c",
+    "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+    "scenario_family_id": "dev_everyday_closet",
+    "split": "development",
+    "condition": {
+      "domain": "everyday",
+      "emotional_framing": true,
+      "request_type": "advice"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 594045105949365461,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024
+    }
+  },
+  "prompt_id": "prompt_5d34517bef1eac80859c",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "102e27de9eaab711a0422d4f3a86b00ac2cc4a93e5c312a4c25d69acfecd0d83",
+  "scenario_family_id": "dev_everyday_closet",
+  "split": "development",
+  "condition": {
+    "domain": "everyday",
+    "emotional_framing": true,
+    "request_type": "advice"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 594045105949365461,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?",
+    "serialized_prompt": "<|endoftext|><|user|>\nMy clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How can I reorganize the closet within that constraint?\n<|assistant|>\n",
+    "response": "Here are some steps to help you reorganize your closet within your current constraints while still keeping your favorite clothes accessible:\n\n1. **Limit Access to Favorite Clothes**: If you have a few items that you absolutely love and wear frequently, keep them in a separate bin, drawer, or hanger within easy reach. This way, you can quickly find your go-to outfits without having to dig through the entire closet.\n\n2. **Create Zones**: Organize your closet into functional zones based on the type of clothing you wear (e.g., tops, bottoms, jackets, shoes). This will make it easier to locate specific items without overwhelming yourself.\n\n3. **Label Everything**: Mark each bin, drawer, or shelf with the type of clothing it contains and the corresponding label (e.g., \"T-shirts,\" \"Bottoms,\" \"Jackets\"). This will help you quickly identify items when you need them.\n\n4. **Limit the Number of Hanging Rods**: Use just enough hanging rods to hang your clothes without feeling cluttered. Consider organizing your clothes vertically rather than horizontally to save space and make the closet feel more spacious.\n\n5. **Sort and Donate**: Go through your clothes and donate anything you don't wear or that doesn't fit you anymore. This will free up space and reduce the number of items cluttering your closet.\n\n6. **Add Storage Solutions**: If space is a concern, consider adding extra shelving, hangers, or bins to your closet. Look for storage solutions that are easily movable or stackable to maximize your available space.\n\n7. **Limit Use of Plastic Bags**: Instead of using plastic bags to store clothes, consider using hangers, folding, or rolling to keep your clothes tidy and accessible.\n\n8. **Limit Access to the Floor**: Keep your clothing off the floor by using shelving, boxes, or rugs to store non-hanging clothes or shoes.\n\n9. **Regularly Clean and Organize**: Regularly dust, wash, and reorganize your closet to keep it feeling fresh and manageable. This will help prevent clothes from becoming muddled and help you find items more easily.\n\nBy implementing these strategies, you can reorganize your closet while still keeping your essential items easily accessible and decluttering the rest for better organization and efficiency.",
+    "input_tokens": 46,
+    "output_tokens": 461,
+    "max_new_tokens": 1024,
+    "stopping": {
+      "reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 1028.7835758,
+      "generated_tokens_per_second": 0.4481020214980768,
+      "scope": "single model.generate call only"
+    }
+  },
+  "budget_probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "budget_probe_runner_version": "revision-development-budget-probe-runner-v1",
+  "parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "parent_protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "budget_probe_classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+  "checkpoint_alias": "1b_instruct"
+}

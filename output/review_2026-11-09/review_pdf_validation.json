@@ -1,0 +1,38 @@
+{
+  "pdf": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\pdf\\submission_review_2026-11-09.pdf",
+  "pages": 12,
+  "characters_per_page": [
+    2061,
+    2481,
+    2809,
+    2322,
+    2405,
+    2042,
+    2146,
+    2278,
+    2239,
+    2554,
+    2057,
+    2729
+  ],
+  "clickable_links": 22,
+  "planned_page_heights": [
+    529.7,
+    569.5,
+    654.6,
+    575.6,
+    559.9,
+    477.0,
+    582.4,
+    571.2,
+    569.8,
+    598.9,
+    514.4,
+    630.4
+  ],
+  "source_json": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\review_2026-11-09\\review_content.json",
+  "source_update": "Direct retrospective detector-comparison result added on 9 November 2026.",
+  "retrospective_comparison_rows_verified": 4,
+  "missing_evidence_paths": [],
+  "render_directory": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\review_2026-11-09\\review_pdf_pages"
+}

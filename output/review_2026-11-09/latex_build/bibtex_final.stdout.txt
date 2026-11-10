@@ -1,0 +1,4 @@
+This is BibTeX, Version 0.99e (MiKTeX 25.12)
+The top-level auxiliary file: output/review_2026-11-09/latex_build/acl_latex.aux
+The style file: acl_natbib.bst
+Database file #1: custom.bib

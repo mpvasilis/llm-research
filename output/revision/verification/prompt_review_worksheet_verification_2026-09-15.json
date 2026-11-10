@@ -1,0 +1,55 @@
+{
+  "verification_schema_version": "prompt-review-worksheet-verification-v1",
+  "status": "pass",
+  "verified_on": "2026-09-15",
+  "worksheet_path": "out/paper/PROMPT_REVIEW_WORKSHEET_2026-09-15.md",
+  "worksheet_sha256": "7b0ccabf9c701a111e1163cfdff6fb78ed0f02925f4064c52c8a17390c4fdaa2",
+  "sources": {
+    "protocol_path": "output/revision/full_study/protocol_v2.json",
+    "protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "review_manifest_path": "output/revision/full_study/human_prompt_review_v2.json",
+    "review_manifest_sha256": "941244124ab87274cb325c94585201639b7ce1ecf285372530b6373b3825b7da",
+    "prompt_corpus_path": "experiments/prompts_revision_v1.json",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "protocol_prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "counts": {
+    "evaluation_families": 40,
+    "evaluation_prompts": 160,
+    "unique_prompt_ids": 160,
+    "domains": {
+      "everyday": 20,
+      "health": 20
+    },
+    "condition_cells": {
+      "everyday, False, advice": 20,
+      "everyday, False, information": 20,
+      "health, True, information": 20,
+      "health, False, advice": 20,
+      "health, False, information": 20,
+      "everyday, True, information": 20,
+      "everyday, True, advice": 20,
+      "health, True, advice": 20
+    },
+    "development_prompt_id_or_text_hits": 0
+  },
+  "checks": {
+    "all_evaluation_prompt_ids_appear_exactly_once": true,
+    "all_evaluation_prompt_texts_appear_exactly_once": true,
+    "no_development_prompt_ids_or_texts": true,
+    "review_manifest_matches_protocol_prompts_and_hashes": true,
+    "all_family_checks_remain_null": true,
+    "all_reviewer_notes_remain_blank": true,
+    "reviewer_identity_date_method_remain_blank": true,
+    "review_status_remains_pending": true
+  },
+  "failures": {
+    "prompt_id_occurrences": [],
+    "prompt_text_occurrences": [],
+    "development_hits": [],
+    "manifest_mismatches": []
+  },
+  "scope": "Preparation-only verification; no review judgment or approval is asserted."
+}

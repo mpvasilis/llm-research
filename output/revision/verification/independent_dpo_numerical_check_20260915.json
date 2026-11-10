@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "method": "Independent scipy natural-cubic interpolation basis with linear tails, trust-exact optimizer, and directly assembled prompt-cluster covariance; compared against production restricted-cubic truncated-power basis",
+  "checks": [
+    {
+      "model": "1B",
+      "group": "professional_referral_original",
+      "marker_log_odds": 0.08429116890609807,
+      "marker_cluster_se": 0.03006479855390245,
+      "absolute_log_odds_difference": 4.656288882243231e-09,
+      "absolute_se_difference": 6.265669233451732e-11,
+      "gradient_infinity_norm": 4.130592745374364e-11,
+      "passed": true
+    },
+    {
+      "model": "1B",
+      "group": "professional_referral_high_precision",
+      "marker_log_odds": 0.09081850993179409,
+      "marker_cluster_se": 0.06083483617280758,
+      "absolute_log_odds_difference": 7.533733322601099e-07,
+      "absolute_se_difference": 3.1905816877397797e-09,
+      "gradient_infinity_norm": 3.8773087871649394e-11,
+      "passed": true
+    },
+    {
+      "model": "1B",
+      "group": "structuring_language",
+      "marker_log_odds": 0.12038679036776424,
+      "marker_cluster_se": 0.009275391280723844,
+      "absolute_log_odds_difference": 6.124430046439144e-09,
+      "absolute_se_difference": 4.832897970707961e-12,
+      "gradient_infinity_norm": 3.4167346481364235e-11,
+      "passed": true
+    },
+    {
+      "model": "7B",
+      "group": "professional_referral_original",
+      "marker_log_odds": 0.126004432360615,
+      "marker_cluster_se": 0.030975025504751355,
+      "absolute_log_odds_difference": 2.8627836545780383e-08,
+      "absolute_se_difference": 1.811502302329071e-10,
+      "gradient_infinity_norm": 9.136600630330006e-13,
+      "passed": true
+    },
+    {
+      "model": "7B",
+      "group": "professional_referral_high_precision",
+      "marker_log_odds": 0.1145262100163632,
+      "marker_cluster_se": 0.060640099173882585,
+      "absolute_log_odds_difference": 3.2454248122260054e-08,
+      "absolute_se_difference": 1.464164692266401e-10,
+      "gradient_infinity_norm": 8.894359421743948e-13,
+      "passed": true
+    },
+    {
+      "model": "7B",
+      "group": "structuring_language",
+      "marker_log_odds": 0.17403264028054052,
+      "marker_cluster_se": 0.009530606964663856,
+      "absolute_log_odds_difference": 8.927785732915083e-10,
+      "absolute_se_difference": 1.377285438475262e-12,
+      "gradient_infinity_norm": 7.793859077517728e-13,
+      "passed": true
+    }
+  ],
+  "scope": "six primary numerical fits only; no causal or human-validation claim"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "scope": "two development information variants from one scenario; execution and resume only",
+  "run_id": "run_4ce72bf186532d789c14",
+  "responses": 2,
+  "new_responses_on_resume": 0,
+  "response_file_sha256": "7dc8dc54d362bba3dca843a74c7f39da861258463b52fa643ee52b18b5f74e3f",
+  "response_file_unchanged_on_resume": true,
+  "identical_text_to_pre_hardening_smoke": true,
+  "all_records_pass_identity_validation": true,
+  "all_outputs_capped_at_32_tokens": true,
+  "resume_attempt_report": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\study_v1\\runs\\run_4ce72bf186532d789c14\\attempts\\attempt_1789419227426410600.json"
+}

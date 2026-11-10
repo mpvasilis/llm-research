@@ -1,0 +1,84 @@
+{
+  "status": "verified_by_suite_results_and_focused_replay",
+  "at": "2026-09-15T18:29:06.187293+00:00",
+  "classification": "synthetic_implementation_verification_not_empirical_study_results",
+  "production_source_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "core_calibration": {
+    "path": "output/revision/verification/extended_core_calibration_tests_20260915_v3.xml",
+    "sha256": "32e5a2611eb9c725e7c63037c65113a8ba36b9ff76c5e7eaede85736a4e54b1f",
+    "tests": 13,
+    "failures": 0,
+    "errors": 0
+  },
+  "prospective": {
+    "initial_suite": {
+      "path": "output/revision/extended_study/verification/extended_prospective_validation_junit.xml",
+      "sha256": "fd0ffb507a21cfb42e1ae33697d61d2badc5eab31c0f720f7665dea71d043973",
+      "tests": 9,
+      "failures": 1,
+      "errors": 0
+    },
+    "strict_case_retest": {
+      "path": "output/revision/extended_study/verification/extended_prospective_validation_strict_retest_junit.xml",
+      "sha256": "1932ef13182fca5d485093e5764abb0e48c8cc6a9d0a48ad919675916f75396c",
+      "tests": 1,
+      "failures": 1,
+      "errors": 0
+    },
+    "retained_fixture_replay": {
+      "path": "output/revision/extended_study/verification/extended_prospective_retained_fixture_replay.json",
+      "sha256": "eb6ed4a51851e2d03f769cb86e26411619a94c704e96f2711569d6df73929ca4",
+      "result": "passed",
+      "observed_exception": "Readiness snapshot hash mismatch",
+      "inputs_unchanged": true,
+      "unexpected_output_created": false
+    },
+    "interpretation": "Eight original cases passed. The strict ninth case completed all preceding assertions and the intended final rejection; its case-sensitive regex failure was closed by exact retained-fixture replay. Original failed JUnits preserved. No single green nine-case invocation claimed."
+  },
+  "sensitivity": {
+    "initial_suite_report": {
+      "command": "python -X utf8 -m pytest -q tests/test_extended_sensitivity_analysis.py",
+      "failure": "test-only contradictory row reached the earlier intersection-consistency rejection; production behaved strictly",
+      "junit_note": "The run began before the request for JUnit output, so no JUnit was produced; no replacement XML was fabricated.",
+      "junit_path": null,
+      "passing_test_bodies_changed_after_run": false,
+      "result": {
+        "failed": 1,
+        "passed": 3,
+        "seconds": 2088.83
+      }
+    },
+    "corrected_focused_case": {
+      "path": "C:/Users/vasilis/Documents/GitHub/llm-research/output/revision/verification/extended_sensitivity_corrected_case_junit_20260915.xml",
+      "sha256": "53c78a0eb5d0ed02f39844fa5804da64aff8751bbdfd6f423c15b7ff25c102a0",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "aggregate_cases_verified": 4,
+    "evidence": {
+      "path": "output/revision/verification/extended_sensitivity_verification_20260915.json",
+      "sha256": "3f60d4057a20f57bd5eeda27b293405e64aed58439b973f352273633fc80a997"
+    },
+    "retained_exports_independently_rehashed_and_recounted": 6
+  },
+  "unresolved_implementation_failure": false,
+  "scope_limits": [
+    "Initial sensitivity run has agent-observed terminal results, not a JUnit; three unchanged passing cases are combined with the corrected passing focused case.",
+    "Production sources match the independent core/calibration run; no empirical data were created by these synthetic checks.",
+    "Actual calibration, human review, primary evaluation, and sensitivity evaluation remain incomplete."
+  ]
+}

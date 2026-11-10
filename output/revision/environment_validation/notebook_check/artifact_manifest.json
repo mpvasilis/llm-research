@@ -1,0 +1,64 @@
+{
+  "manifest_schema_version": "extended-notebook-clean-environment-artifacts-v1",
+  "status": "passed",
+  "classification": "safe_default_environment_execution_only_no_scientific_completion_claim",
+  "files": [
+    {
+      "path": "execute_check.py",
+      "bytes": 10245,
+      "sha256": "ec4b18bcfa9545fc3cc115b4c80cb911eacc0be0fe5192641df47efaf5763958"
+    },
+    {
+      "path": "executed_advice_marker_extended_study_clean_env.ipynb",
+      "bytes": 32902,
+      "sha256": "87c944a3c5c1c36dbf03d5e81319790b2c77e5139df56177e1026fa5cbcfa395"
+    },
+    {
+      "path": "execution_console.log",
+      "bytes": 1143,
+      "sha256": "408e78563070890d389c2d369718ae7055807f0bc2c0151b8c6ddf1eb6b34f51"
+    },
+    {
+      "path": "execution_verification.json",
+      "bytes": 6902,
+      "sha256": "e0e4d2260e38ef392a93789c50129294a093b8cc0e4878a293a4a49da0627fd1"
+    },
+    {
+      "path": "protected_artifact_immutability.json",
+      "bytes": 2438,
+      "sha256": "8d19cefcdbfa96563d32d3dbc8719128555bbf8fd21c834d5b3518a89fbacc1a"
+    },
+    {
+      "path": "jupyter/kernels/clean-env/kernel.json",
+      "bytes": 344,
+      "sha256": "b2e25c904431164dc03154e83b6c7f309e58974f22770c88df8d798e04930638"
+    },
+    {
+      "path": "isolated_workspace/inputs/advice_marker_extended_study_bundle.zip",
+      "bytes": 590280,
+      "sha256": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb"
+    },
+    {
+      "path": "isolated_workspace/inputs/advice_marker_frozen_preparation_bundle.zip",
+      "bytes": 1219024,
+      "sha256": "cee63f40d21a44df277f8e4e4b7d581b7463bb3fe370f07f9506481f3fdac796"
+    }
+  ],
+  "summary": {
+    "python_version": "3.12.14",
+    "kernel_name": "clean-env",
+    "kernel_argv0": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\venv\\Scripts\\python.exe",
+    "jupyter_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\environment_validation\\notebook_check\\jupyter",
+    "source_cells": 23,
+    "code_cells_executed": 13,
+    "cell_sources_and_types_equal": true,
+    "error_outputs": 0,
+    "traceback_found": false,
+    "action_controls": 21,
+    "all_actions_false": true,
+    "primary_cap": null,
+    "sensitivity_cap": null,
+    "protected_inputs_unchanged": true,
+    "frozen_artifacts_unchanged": true
+  }
+}

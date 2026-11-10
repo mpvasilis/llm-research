@@ -1,0 +1,25 @@
+{
+  "audit_version": "historical-cache-audit-v1",
+  "status": "pass",
+  "cache_path": "out\\raw_cache\\final_7b_answers.jsonl",
+  "cache_sha256": "17a20aa58a62de175077f3c0b5aebc20100b0d62aa42ab3c985e8367dd60f5da",
+  "responses": 700,
+  "unique_response_keys": 700,
+  "unique_prompts": 140,
+  "condition_counts": {
+    "advice": 300,
+    "domain_factual": 50,
+    "emotional": 100,
+    "factual": 150,
+    "neutral_advice": 100
+  },
+  "missing_required_metadata_rows": [],
+  "duplicate_key_count": 0,
+  "exact_match_parity": {
+    "checked_responses": 700,
+    "mismatch_count": 0,
+    "mismatch_keys": []
+  },
+  "detector_source_sha256": "ce5cb5a268621c19c9c5b00ab21e400978b145dc209634de524ccea94d1dd10f",
+  "scope": "Recovered final-7B diagnostic only; not prospective evaluation and not stagewise validation."
+}

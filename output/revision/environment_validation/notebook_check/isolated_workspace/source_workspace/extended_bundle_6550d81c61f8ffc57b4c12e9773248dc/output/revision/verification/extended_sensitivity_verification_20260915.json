@@ -1,0 +1,128 @@
+{
+  "aggregate": {
+    "failed": 0,
+    "method": "three passing cases from the initial full run plus the corrected formerly failing case from the focused run; this is not represented as a single green full-suite JUnit",
+    "passed": 4,
+    "verified_test_cases": 4
+  },
+  "classification": "synthetic-only strict contract verification; no empirical responses, model loading, downloads, human labels, or budget decision",
+  "companion_artifacts": {
+    "production_source": {
+      "path": "experiments/extended_sensitivity_analysis.py",
+      "sha256": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+    },
+    "protocol_note": {
+      "path": "out/paper/EXTENDED_SENSITIVITY_PROTOCOL_2026-09-15.md",
+      "sha256": "ca06c0c799262db6b731c4394df643e71f6eb1361f2b533b46c09cbd953644fd"
+    },
+    "tests": {
+      "path": "tests/test_extended_sensitivity_analysis.py",
+      "sha256": "7ed12bc8a646160441baf3812ea9e21159444794d64f587eb8a76580a0eb0c49"
+    }
+  },
+  "corrected_focused_run": {
+    "command": "EXTENDED_SENSITIVITY_KEEP_FIXTURE=1 python -X utf8 -m pytest -q tests/test_extended_sensitivity_analysis.py::test_embedding_score_flag_contradiction_and_execution_profile_mismatch --junitxml=output/revision/verification/extended_sensitivity_corrected_case_junit_20260915.xml",
+    "covers": [
+      "contradictory embedding score/flag rejection with otherwise consistent exact/embedding/union/intersection flags",
+      "actual complete strict primary and sensitivity loaders",
+      "actual unequal execution-profile rejection"
+    ],
+    "junit_bytes": 411,
+    "junit_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_corrected_case_junit_20260915.xml",
+    "junit_sha256": "53c78a0eb5d0ed02f39844fa5804da64aff8751bbdfd6f423c15b7ff25c102a0",
+    "result": {
+      "errors": 0,
+      "failures": 0,
+      "pytest_reported_seconds": 765.41,
+      "skipped": 0,
+      "suite_seconds": 764.844,
+      "tests": 1
+    }
+  },
+  "initial_full_run": {
+    "command": "python -X utf8 -m pytest -q tests/test_extended_sensitivity_analysis.py",
+    "failure": "test-only contradictory row reached the earlier intersection-consistency rejection; production behaved strictly",
+    "junit_note": "The run began before the request for JUnit output, so no JUnit was produced; no replacement XML was fabricated.",
+    "junit_path": null,
+    "passing_test_bodies_changed_after_run": false,
+    "result": {
+      "failed": 1,
+      "passed": 3,
+      "seconds": 2088.83
+    }
+  },
+  "production_source_sha256_after": {
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+  },
+  "production_source_sha256_before": {
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+  },
+  "production_sources_unchanged": true,
+  "retained_fixture": {
+    "deepest_file_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\primary\\runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47\\readiness\\calibration_run_dir\\extended_calibration_run_d3f7c4a943213d6f928ec5a3895c3e2c\\responses\\response_00a6c1ce01ba97b0588c0ab822755869.json",
+    "deepest_file_path_characters": 327,
+    "expected_counts": {
+      "primary_predictions": 8640,
+      "primary_responses": 2880,
+      "sensitivity_predictions": 576,
+      "sensitivity_responses": 192
+    },
+    "exports": {
+      "primary_predictions": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\primary\\evaluation_predictions.jsonl",
+        "rows": 8640,
+        "sha256": "8717fe5c010b43ce42e816dedd201572052a24b10de7c49e4ba177ad586e9d5d"
+      },
+      "primary_responses": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\primary\\evaluation_responses.jsonl",
+        "rows": 2880,
+        "sha256": "252ff54b7a54ac8019fdad5c2381461dc3ff9a793dde036f75ce8972a334be61"
+      },
+      "profile_mismatch_predictions": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\other\\sensitivity_predictions.jsonl",
+        "rows": 576,
+        "sha256": "f7d4c4531c3340e87e020a3b0ae72abd39eb19b04936f61f2687a767f6227e20"
+      },
+      "profile_mismatch_responses": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\other\\sensitivity_responses.jsonl",
+        "rows": 192,
+        "sha256": "01d470f66d43b517a45da441c9f2699a05d60ac3adb4c05364a062a02e0f0702"
+      },
+      "sensitivity_predictions": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\longer\\sensitivity_predictions.jsonl",
+        "rows": 576,
+        "sha256": "2bf7c0e64d2c56aa7ac8f6a7e37b0f6437ce9c0dc133a76806d656edc106d638"
+      },
+      "sensitivity_responses": {
+        "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\longer\\sensitivity_responses.jsonl",
+        "rows": 192,
+        "sha256": "ded296abc680f425059a3653539606d01649b70ed51babd2bffc70b363d5f4a8"
+      }
+    },
+    "primary_run_config_sha256": "3a1b87e1de0c04cc1e99712370864a141b35fe1c829c50301140f481ac8db7d8",
+    "primary_run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\primary\\runs\\extended_run_41c0438e65f5a04cc7d2b5e30180bb47",
+    "profile_mismatch_run_config_sha256": "017948562a474c7e55fc3cfe573f6f1be593b2cd61d76c9e419b2f4561bd7e20",
+    "profile_mismatch_run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\other\\runs\\extended_run_fc5156717231067355bfc191a89e66e5",
+    "protocol_id": "protocol_73bed865a61058ca43476981de24bf2e",
+    "protocol_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\frozen\\successor\\protocol.json",
+    "protocol_sha256": "65b965f4929c1fcf81ad331740188902d750db64c5c56c35020944cdc9e26809",
+    "root": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia",
+    "sensitivity_run_config_sha256": "7337f98f0e33373ba29dc30ed60464e6b81fde93b842fbb5dc48268801693ac9",
+    "sensitivity_run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\verification\\extended_sensitivity_test_fixtures\\esa-x79xqaia\\longer\\runs\\extended_run_3482e8180f73128592d082685ddc2610"
+  },
+  "schema_version": "extended-sensitivity-verification-v1",
+  "status": "aggregate_pass_from_three_unchanged_initial_passes_plus_one_corrected_focused_pass",
+  "test_source": {
+    "corrected_focused_run_sha256": "7ed12bc8a646160441baf3812ea9e21159444794d64f587eb8a76580a0eb0c49",
+    "initial_run_sha256_reconstructed_by_reversing_exact_post-run_test-only_additions": "75501a0e50c71914891e58f0699674aa2dd79792cd55c1fd7e8e48812ce77446",
+    "only_test_body_change": "set intersection = exact after setting embedding true so all derived flags remain internally consistent except the intended below-threshold score versus embedding=true contradiction",
+    "path": "tests/test_extended_sensitivity_analysis.py",
+    "retention_harness_change": "optional EXTENDED_SENSITIVITY_KEEP_FIXTURE=1 suppresses test-fixture cleanup for this verification spot check"
+  }
+}

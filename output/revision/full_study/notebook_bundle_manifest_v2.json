@@ -1,0 +1,120 @@
+{
+  "bundle_schema_version": "advice-marker-revision-notebook-bundle-v1",
+  "provenance": "Built from the current local workspace, including uncommitted source files.",
+  "detector_dependencies": {
+    "embedding_model": {
+      "model_id": "intfloat/e5-small-v2",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+    },
+    "prefix_window_tokenizer": {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "download_scope": "tokenizer files only"
+    }
+  },
+  "files": {
+    "experiments/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "experiments/calibration_study.py": {
+      "sha256": "fd348ce184a986b8d298bee52c6e78ccfa431f9bf08824318349d1a2b9485862",
+      "size_bytes": 28678
+    },
+    "experiments/detector_spec.py": {
+      "sha256": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+      "size_bytes": 11463
+    },
+    "experiments/development_budget_probe.py": {
+      "sha256": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+      "size_bytes": 33396
+    },
+    "experiments/full_revision_study.py": {
+      "sha256": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "size_bytes": 56032
+    },
+    "experiments/prompts.json": {
+      "sha256": "a088656cfbbe67f2276231002e3f63ef1b9bc399c3af117bc2b9bb2a72d08762",
+      "size_bytes": 852
+    },
+    "experiments/prompts_revision_v1.json": {
+      "sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+      "size_bytes": 29566
+    },
+    "experiments/prospective_validation.py": {
+      "sha256": "9e86976b2708a7bdee41a048979c0dd7fd7a4aea8c9493569e7df3ab236dbddd",
+      "size_bytes": 45241
+    },
+    "experiments/raw_output_robustness.py": {
+      "sha256": "ce5cb5a268621c19c9c5b00ab21e400978b145dc209634de524ccea94d1dd10f",
+      "size_bytes": 14856
+    },
+    "experiments/revision_analysis.py": {
+      "sha256": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+      "size_bytes": 49101
+    },
+    "experiments/revision_study.py": {
+      "sha256": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "size_bytes": 43160
+    },
+    "experiments/validation_v4.py": {
+      "sha256": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+      "size_bytes": 57385
+    },
+    "out/paper/ANNOTATION_GUIDE.md": {
+      "sha256": "53fd3f9689c23494997c3bb5123c61ca5a42979fefedf2bbc5335d8c6d34d0eb",
+      "size_bytes": 9523
+    },
+    "out/paper/CALIBRATION_PROTOCOL_2026-09-15.md": {
+      "sha256": "22ed06c458e3501e6192a475c14791be4969508815cff5c75139b202aa397b09",
+      "size_bytes": 7213
+    },
+    "out/paper/DEVELOPMENT_BUDGET_PROBE_PROTOCOL_2026-09-15.md": {
+      "sha256": "8bf65b3c4433fa9541cd8063be9c1697f3f6e8c1014e2c7f22293a76250a3600",
+      "size_bytes": 8248
+    },
+    "out/paper/PROMPT_REVIEW_WORKSHEET_2026-09-15.md": {
+      "sha256": "7b0ccabf9c701a111e1163cfdff6fb78ed0f02925f4064c52c8a17390c4fdaa2",
+      "size_bytes": 75670
+    },
+    "out/paper/PROSPECTIVE_VALIDATION_PROTOCOL_2026-09-15.md": {
+      "sha256": "618f7550122bb75f34b8d84e23eb66a2e21f342cef64db3582f20b3a550ed9d8",
+      "size_bytes": 11444
+    },
+    "output/revision/full_study/development_256_verification_20260915.json": {
+      "sha256": "d39f77b6342f13d36000a526db48923bc7a49f5808f93720a8d19f174abc2abd",
+      "size_bytes": 3033
+    },
+    "output/revision/full_study/development_512_verification_20260915.json": {
+      "sha256": "ab2c0161b1390754d281a57f10b0e608181ae4989e09c55ef038bece8ecab2a7",
+      "size_bytes": 3254
+    },
+    "output/revision/full_study/exports/development_256_eight_responses.jsonl": {
+      "sha256": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+      "size_bytes": 39644
+    },
+    "output/revision/full_study/exports/development_512_eight_responses.jsonl": {
+      "sha256": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+      "size_bytes": 49158
+    },
+    "output/revision/full_study/human_prompt_review_v2.json": {
+      "sha256": "941244124ab87274cb325c94585201639b7ce1ecf285372530b6373b3825b7da",
+      "size_bytes": 39046
+    },
+    "output/revision/full_study/protocol_v2.json": {
+      "sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+      "size_bytes": 6110738
+    },
+    "output/revision/study_v1/detector_manifest_v1.json": {
+      "sha256": "c49e62708cf8af867539579d431f2ca125fec71752afa3529d6ab4d325db10e2",
+      "size_bytes": 5881
+    },
+    "trace/behavior.py": {
+      "sha256": "fcc1be46aa18f0f0c19eeff91f841f260676cd0fe5931fb473bb9a3b8f385e93",
+      "size_bytes": 4252
+    }
+  },
+  "bundle_content_id": "bundle_d6e4930adf7fc42f013bfadcbb47d979",
+  "bundle_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\jupyter-notebook\\advice_marker_revision_study_bundle.zip",
+  "bundle_sha256": "aa3f26293432292f1058c71f5b00996e49174bbd93e304e4aa52ec5c7b33524b"
+}

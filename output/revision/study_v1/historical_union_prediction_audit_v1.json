@@ -1,0 +1,20 @@
+{
+  "audit_version": "historical-union-prediction-audit-v1",
+  "status": "pass",
+  "prediction_path": "output/revision/study_v1/historical_final7b_union_predictions_v1.jsonl",
+  "prediction_sha256": "748c4a368a878513db9bd10505dc1c0afef4f9d1005ba65a4c84e0bba980aeed",
+  "rows": 700,
+  "unique_prediction_ids": 700,
+  "unique_response_ids": 700,
+  "evaluation_unit": "full_response",
+  "prediction_variant": "raw_output_robustness_four_category_union",
+  "decision_field": "union",
+  "crisis_referral_state": "not_applicable on all 700 rows",
+  "historical_report_parity": {
+    "reference": "out/results/raw_output_robustness.json",
+    "comparison": "four category rates across five conditions for the full-response union component",
+    "cells_checked": 20,
+    "mismatch_count": 0
+  },
+  "scope": "Historical final-7B diagnostic. Aggregate parity does not recover unrecorded historical package or Hugging Face revisions and is not human validation."
+}

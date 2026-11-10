@@ -1,0 +1,23 @@
+{
+  "status": "verified blank packet",
+  "paper_hash_matches": true,
+  "completed_human_readings": 0,
+  "forms": [
+    {
+      "file": "blank_reader_1.md",
+      "hash_matches": true,
+      "blank_answer_fields": 8,
+      "pdf_version_matches": true,
+      "reader_identity_unassigned": true,
+      "status": "PENDING"
+    },
+    {
+      "file": "blank_reader_2.md",
+      "hash_matches": true,
+      "blank_answer_fields": 8,
+      "pdf_version_matches": true,
+      "reader_identity_unassigned": true,
+      "status": "PENDING"
+    }
+  ]
+}

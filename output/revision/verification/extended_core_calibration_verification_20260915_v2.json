@@ -1,0 +1,53 @@
+{
+  "status": "passed_current_source_hashes_unchanged",
+  "at": "2026-09-15T17:10:48.198218+00:00",
+  "source_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "d9d039c935326e1ec1ef9784320e9a1cff74a0a8de00a590be9a1931d0dceb9f",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "8224c05a76caeabf56227960fb9cdfe444079ff3988d0487e12e9da18920115e",
+    "experiments/extended_prospective_validation.py": "659e5fbb8379a84b9edd203f3c74093decb635ef679e63ee04f1c5061e78c485",
+    "experiments/extended_sensitivity_analysis.py": "c27cd6be4526be8a98dff2fd75292e9edb593742ace0698c2cbd7bc14ed541cd",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "test_source_sha256": {
+    "tests/test_extended_revision_study.py": "2e6e3fb986801d7010b26369958f4dcf80c5c3cd79fa2ec955861f4626d7df77",
+    "tests/test_extended_calibration_study.py": "e5a1d524e93fb7ec5997df0188428971376dfaac9462168896e31fe070a5f927"
+  },
+  "command": "python -m pytest -q tests/test_extended_revision_study.py tests/test_extended_calibration_study.py --junitxml=output/revision/verification/extended_core_calibration_tests_20260915_v2.xml",
+  "classification": "synthetic_workflow_verification_not_empirical_results",
+  "supersedes": "extended_core_calibration_verification_20260915.json",
+  "completed_at": "2026-09-15T17:18:52.808842+00:00",
+  "source_sha256_after": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "d9d039c935326e1ec1ef9784320e9a1cff74a0a8de00a590be9a1931d0dceb9f",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "8224c05a76caeabf56227960fb9cdfe444079ff3988d0487e12e9da18920115e",
+    "experiments/extended_prospective_validation.py": "659e5fbb8379a84b9edd203f3c74093decb635ef679e63ee04f1c5061e78c485",
+    "experiments/extended_sensitivity_analysis.py": "c27cd6be4526be8a98dff2fd75292e9edb593742ace0698c2cbd7bc14ed541cd",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "test_source_sha256_after": {
+    "tests/test_extended_revision_study.py": "2e6e3fb986801d7010b26369958f4dcf80c5c3cd79fa2ec955861f4626d7df77",
+    "tests/test_extended_calibration_study.py": "e5a1d524e93fb7ec5997df0188428971376dfaac9462168896e31fe070a5f927"
+  },
+  "junit": {
+    "path": "output/revision/verification/extended_core_calibration_tests_20260915_v2.xml",
+    "sha256": "f196f98ed18a57ce206facf63be554963541ff9a7fcc0fec8142983a6f325608",
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "time_seconds": 288.119
+  },
+  "scope": "Core and calibration synthetic tests only; does not certify prospective/sensitivity integration or Windows long-path portability."
+}

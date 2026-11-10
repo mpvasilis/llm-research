@@ -1,0 +1,66 @@
+{
+  "status": "closed_by_verified_suite_results_and_focused_replay",
+  "at": "2026-09-15T18:42:39.351978+00:00",
+  "production_source_sha256": {
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474"
+  },
+  "core_and_calibration": {
+    "status": "passed",
+    "tests": 13,
+    "evidence": "output/revision/verification/extended_core_calibration_verification_20260915_v3.json"
+  },
+  "prospective": {
+    "owner_agent": "/root/detector_study_setup",
+    "first_suite": {
+      "passed": 8,
+      "failed": 1,
+      "seconds": 1212.52
+    },
+    "failure_scope": "Test-only ordinary Windows shutil.copytree destination hit a long nested path before the product relocation validator. Production sources unchanged.",
+    "next": "Closed; see final evidence and preserved failed JUnits."
+  },
+  "sensitivity": {
+    "owner_agent": "/root/context_capacity_audit",
+    "first_suite": {
+      "passed": 3,
+      "failed": 1,
+      "seconds": 2088.83
+    },
+    "failure_scope": "Contradictory synthetic prediction changed embedding/union without updating intersection; product correctly rejected it earlier than the expected score/flag error. Production sources unchanged.",
+    "next": "Closed by corrected passing focused case; see final evidence."
+  },
+  "notebook_preparation": {
+    "status": "independently_verified_default_local_execution",
+    "evidence": "output/revision/extended_notebook/independent_verification_20260915_v2.json"
+  },
+  "real_probe": {
+    "status": "complete_strictly_verified_eight_of_eight_zero_new_resume",
+    "evidence": "output/revision/development_budget_probe/development_1024_verification_20260915.json"
+  },
+  "scientific_goal_complete": false,
+  "budget_selected": true,
+  "empirical_successor_protocol_frozen": true,
+  "human_validation_complete": false,
+  "final_evidence": {
+    "path": "output/revision/verification/extended_workflow_verification_20260915.json",
+    "sha256": "61160a39a3fc592373a66acf284376b4b26056259692393c75b16b0704e5fd2c"
+  },
+  "budget_selection_scope": "provisional_development_1024_primary_2048_sensitivity_not_evaluation_adequacy",
+  "calibration_manifest_frozen": true,
+  "calibration_responses_generated": 0,
+  "evaluation_readiness_established": false,
+  "frozen_preparation_evidence": {
+    "path": "output/revision/verification/extended_development_freeze_20260915.json",
+    "sha256": "f2d6e3e937b7ef55867389b8d8090c164a4ec131d24074b2e4c547710641d887"
+  },
+  "frozen_preparation_companion": {
+    "status": "independently_verified_archive_and_retained_local_execution",
+    "evidence": "output/revision/extended_notebook/frozen_preparation_independent_verification_20260915.json",
+    "sha256": "c8350afb47b3ded7f9affd2611a387f01e015f147fad1a6dc5b847af47cbf57a",
+    "generation_complete": false,
+    "human_review_complete": false
+  }
+}

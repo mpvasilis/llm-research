@@ -1,0 +1,9 @@
+{
+  "run_id": "run_e0c1d8e6a5e5456fa8da",
+  "run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\study_v1\\runs\\run_e0c1d8e6a5e5456fa8da",
+  "responses": 2,
+  "new_responses": 2,
+  "model_load_seconds": 3.283822199970018,
+  "execution_wall_seconds": 112.71979330002796,
+  "timing_note": "execution wall time includes metadata resolution, model load, serialization, generation, and checkpoint writes"
+}

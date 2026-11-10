@@ -1,0 +1,53 @@
+{
+  "status": "passed_current_source_hashes_unchanged",
+  "at": "2026-09-15T17:34:41.708739+00:00",
+  "source_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "test_source_sha256": {
+    "tests/test_extended_revision_study.py": "047a9456d167cd56c0421cbe33aef5f3b386c7f04b562f9abb9d9239c2c10451",
+    "tests/test_extended_calibration_study.py": "e5a1d524e93fb7ec5997df0188428971376dfaac9462168896e31fe070a5f927"
+  },
+  "command": "python -m pytest -q tests/test_extended_revision_study.py tests/test_extended_calibration_study.py --junitxml=output/revision/verification/extended_core_calibration_tests_20260915_v3.xml",
+  "classification": "synthetic_workflow_verification_not_empirical_results",
+  "supersedes": "extended_core_calibration_verification_20260915_v2.json",
+  "completed_at": "2026-09-15T17:43:10.605283+00:00",
+  "source_sha256_after": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "test_source_sha256_after": {
+    "tests/test_extended_revision_study.py": "047a9456d167cd56c0421cbe33aef5f3b386c7f04b562f9abb9d9239c2c10451",
+    "tests/test_extended_calibration_study.py": "e5a1d524e93fb7ec5997df0188428971376dfaac9462168896e31fe070a5f927"
+  },
+  "junit": {
+    "path": "output/revision/verification/extended_core_calibration_tests_20260915_v3.xml",
+    "sha256": "32e5a2611eb9c725e7c63037c65113a8ba36b9ff76c5e7eaede85736a4e54b1f",
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "time_seconds": 314.298
+  },
+  "scope": "Successor core and calibration synthetic workflow checks, including deep Windows paths; complete prospective and sensitivity integration is reported separately."
+}

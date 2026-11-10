@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-15T19:05:04.483346+00:00",
+  "status": "remote_refs_observed",
+  "scope": "remote_heads_and_tags_metadata_only_no_fetch",
+  "exit_code": 0,
+  "refs": [
+    {
+      "ref": "refs/heads/main",
+      "object": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe",
+      "object_already_local": true
+    }
+  ],
+  "unknown_remote_objects": [],
+  "fetched_objects": false,
+  "interactive_auth_disabled": true
+}

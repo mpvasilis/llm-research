@@ -1,0 +1,96 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_77ed5bdb9a96cc1e720bc21049eda2ee",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_37343c58848ceda69602",
+    "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+    "scenario_family_id": "dev_everyday_closet",
+    "split": "development",
+    "condition": {
+      "domain": "everyday",
+      "emotional_framing": true,
+      "request_type": "information"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 538954422983802219,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 256
+    }
+  },
+  "prompt_id": "prompt_37343c58848ceda69602",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "c5712b9afeb5f79542ad0dbe52ec585ef9971b2ea474e2465f75bca4ac725717",
+  "scenario_family_id": "dev_everyday_closet",
+  "split": "development",
+  "condition": {
+    "domain": "everyday",
+    "emotional_framing": true,
+    "request_type": "information"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 538954422983802219,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "My clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+    "serialized_prompt": "<|endoftext|><|user|>\nMy clothes closet is crowded, and I need to use the storage I already have. Getting dressed there feels exhausting. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.\n<|assistant|>\n",
+    "response": "When designing or rearranging your clothes closet, the principles of visibility, accessibility, frequency of access, and category size significantly affect its usability. Here's how each of these factors impacts your experience:\n\n1. **Visibility**:\n   - **Purpose**: High visibility means that clothes are easily identifiable by color, pattern, or design.\n   - **Functionality**: A closet with good visibility allows you to quickly locate what you need.\n   - **Design Considerations**: Use clear dividers, labels, or tags that clearly indicate the purpose of each section.\n   - **Space**: Ensure there is enough space to see clothes clearly without overcrowding or clutter.\n\n2. **Access Frequency**:\n   - **Frequency**: The frequency with which you access your clothes can influence how organized and useful your closet becomes.\n   - **Design Considerations**: A closet with frequent access points (doors, shelves, drawers) is better than one with infrequent access points.\n   - **Space**: Design the closet with enough depth and width to accommodate frequent access without feeling cramped.\n\n3. **Category Size**:\n   - **Purpose**: Larger categories help in categorizing items more effectively.\n   - **Functionality**: Knowing where to find specific items can save time and reduce stress.\n   - **",
+    "input_tokens": 58,
+    "output_tokens": 256,
+    "max_new_tokens": 256,
+    "stopping": {
+      "reason": "max_new_tokens",
+      "eos_reached": false,
+      "cap_reached": true
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 256,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 110.80726480000158,
+      "generated_tokens_per_second": 2.3103178339620594,
+      "scope": "single model.generate call only"
+    }
+  }
+}

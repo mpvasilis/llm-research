@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "check": "all parsed result values identical",
+  "historical_report": "out/results/raw_output_robustness.json",
+  "reproduced_report": "output/revision/reproduced_raw_output_robustness.json",
+  "historical_sha256": "4cb57ccd4fd3d1a54545d2d79a9c045d1cadb25dfbb1b34dc2db3d554523b342",
+  "reproduced_sha256": "4cb57ccd4fd3d1a54545d2d79a9c045d1cadb25dfbb1b34dc2db3d554523b342",
+  "responses": 700,
+  "scope": "recovered final7B only; no new human or stagewise validation",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.5.4",
+    "sentence-transformers": "5.3.0",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1"
+  }
+}

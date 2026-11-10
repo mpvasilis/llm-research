@@ -1,0 +1,39 @@
+{
+  "at": "2026-09-15T17:32:54.591457+00:00",
+  "status": "passed",
+  "classification": "synthetic_filesystem_and_read_only_candidate_verification_not_empirical",
+  "source_sha256": {
+    "config.py": "d8f5eaeca41142f400afcd3ef4743415411544bda67094ac9e913ceaea8c6a2f",
+    "experiments/extended_revision_study.py": "0df8d2538fe519f6374b0d648bbe150c443aefde006c9179d468f779e6f9f61e",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+    "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/extended_calibration_study.py": "3245adaee72f3c1ce15ef5e6614aa810662c54a19b0fccf601ccd8c7f07d59f9",
+    "experiments/extended_prospective_validation.py": "ded635ebd49fdb2612bd78fdf0446479f07a3c74d9391b27286f2712a4e22c4a",
+    "experiments/extended_sensitivity_analysis.py": "32531b42abd4d7882ff5d18e8b5179038e0e05fced3c041e6fa714f05b3e7474",
+    "experiments/revision_analysis.py": "e4c37d97fdc9696c080f7ce5b6ed11de643edf6d04cac65dcb4375b474dbba0f",
+    "experiments/validation_v4.py": "8d387d62b49a1878fb8e1c297123963410ef5e4801858e586234d06713871fc3",
+    "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264"
+  },
+  "source_hashes_unchanged": true,
+  "platform": "nt",
+  "deep_response_path_length": 349,
+  "checks": {
+    "drive_path_roundtrip_idempotence": true,
+    "unc_lexical_roundtrip": true,
+    "deep_immutable_tree_copy_and_relocation_hash": true,
+    "incompatible_overwrite_rejected": true,
+    "deep_durable_jsonl_write_read": true,
+    "deep_sensitivity_file_and_directory_atomic_outputs": true,
+    "candidate_identity_independent_of_path_prefix": true
+  },
+  "temporary_tree_removed": true,
+  "protocol_frozen": false,
+  "budget_selected": false,
+  "candidate_caps_test_values_only": [
+    1024,
+    2048
+  ],
+  "limits": "Does not replace complete strict prospective and sensitivity integration tests."
+}

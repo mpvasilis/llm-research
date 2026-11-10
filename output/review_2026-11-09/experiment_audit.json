@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-09",
+  "audit_scope": "Local retained DPO features, score equations, cluster covariance, and new paired component inference; no source download or model generation",
+  "dpo": {
+    "1B": {
+      "pairs": 378301,
+      "valid": 378301,
+      "prompt_clusters": 367082,
+      "source_null": 0,
+      "groups": {
+        "professional_referral_original": {
+          "chosen_only": 2478,
+          "rejected_only": 2098,
+          "raw_OR": 1.181124880838894,
+          "conditional_OR": 1.0879456286985667,
+          "conditional_CI": [
+            1.025688576010176,
+            1.1539815482868132
+          ],
+          "max_score_per_observation": 9.806163548170958e-09,
+          "max_covariance_SE_difference": 1.354472090042691e-14
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 591,
+          "rejected_only": 505,
+          "raw_OR": 1.1702970297029702,
+          "conditional_OR": 1.0950710678462732,
+          "conditional_CI": [
+            0.9719829441493358,
+            1.2337465907732372
+          ],
+          "max_score_per_observation": 1.0179264780412168e-08,
+          "max_covariance_SE_difference": 1.2212453270876722e-14
+        },
+        "structuring_language": {
+          "chosen_only": 27047,
+          "rejected_only": 21779,
+          "raw_OR": 1.2418843840396712,
+          "conditional_OR": 1.1279330339447708,
+          "conditional_CI": [
+            1.1076127430422267,
+            1.1486261214090716
+          ],
+          "max_score_per_observation": 1.8471597534662178e-10,
+          "max_covariance_SE_difference": 1.3322676295501878e-15
+        }
+      }
+    },
+    "7B": {
+      "pairs": 378341,
+      "valid": 378341,
+      "prompt_clusters": 367110,
+      "source_null": 19890,
+      "groups": {
+        "professional_referral_original": {
+          "chosen_only": 2602,
+          "rejected_only": 1925,
+          "raw_OR": 1.3516883116883116,
+          "conditional_OR": 1.134287228313965,
+          "conditional_CI": [
+            1.0674721861411274,
+            1.205284346533857
+          ],
+          "max_score_per_observation": 5.254533933499111e-10,
+          "max_covariance_SE_difference": 5.295763827461997e-14
+        },
+        "professional_referral_high_precision": {
+          "chosen_only": 649,
+          "rejected_only": 486,
+          "raw_OR": 1.3353909465020577,
+          "conditional_OR": 1.1213420674641008,
+          "conditional_CI": [
+            0.9956810016187936,
+            1.2628623326350015
+          ],
+          "max_score_per_observation": 1.0758827516059948e-09,
+          "max_covariance_SE_difference": 5.384581669432009e-14
+        },
+        "structuring_language": {
+          "chosen_only": 28466,
+          "rejected_only": 19838,
+          "raw_OR": 1.4349228752898477,
+          "conditional_OR": 1.1900944091393413,
+          "conditional_CI": [
+            1.1680698079957723,
+            1.2125342962976784
+          ],
+          "max_score_per_observation": 5.309510753188878e-10,
+          "max_covariance_SE_difference": 2.3647750424515834e-14
+        }
+      }
+    }
+  },
+  "new_bootstrap_checks": [
+    "known condition-difference estimate equals0.2",
+    "shared additive offset cancels in estimate and interval",
+    "seed reproduces identical result",
+    "reversing all response rows preserves sorted prompt means exactly",
+    "four direct contrasts reproduce independent raw-count arithmetic",
+    "recomputed simultaneous intervals match saved results to1e-12",
+    "degenerate constant-zero contrast explicitly rejected instead of spurious certainty"
+  ],
+  "cross_mixture_content_identical_distinct_pairs": 21508,
+  "findings": [
+    {
+      "priority": "essential",
+      "finding": "No genuine human semantic validation;120AI-labeled sentences cannot validate response-level prevalence or stage shifts",
+      "source": "output/review_2026-11-09/baseline/acl_latex.tex:338"
+    },
+    {
+      "priority": "essential",
+      "finding": "Historical stage comparisons cannot be re-executed from most raw responses; Base-to-SFT also changes serialization",
+      "source": "output/review_2026-11-09/baseline/acl_latex.tex:288"
+    },
+    {
+      "priority": "essential",
+      "finding": "256-token generation caps truncate many historical answers; fixed prefixes change construct/opportunity, not a causal adjustment",
+      "source": "output/review_2026-11-09/baseline/acl_latex.tex:809"
+    },
+    {
+      "priority": "important",
+      "finding": "New paired component inference directly supports measurement sensitivity for empathy and structuring; all4 simultaneous intervals retained",
+      "source": "output/review_2026-11-09/component_reanalysis/paired_measurement_contrasts.json"
+    },
+    {
+      "priority": "edit",
+      "finding": ".6133 versus.617 differs by one advice response in300; it is not rounding",
+      "source": "output/review_2026-11-09/baseline/acl_latex.tex:836"
+    },
+    {
+      "priority": "edit",
+      "finding": "With10000plus-one permutations zero exceedances gives1/10001; report exact MonteCarlo minimum rather than ambiguous threshold notation",
+      "source": "output/review_2026-11-09/baseline/acl_latex.tex:1130"
+    }
+  ],
+  "minimal_prospective_design": {
+    "frame": "40 independent scenario families;20 health/20everyday; each crosses emotional framing x advice/information request. Review naturalness and manipulation before freeze. Generations are repeated measures, not independent n.",
+    "checkpoints": "Six pinned checkpoints SFT/DPO/final x1B/7B, common official chat-interface; omit Base training attribution unless serialization crossover is run.",
+    "generation": "96development calibrations before2,880primary responses; primary token cap provisionally1024, paired192response sensitivity2048; log EOS/cap/stopping and exact bytes.",
+    "human_validation": "624probability sample plus up to120positive enrichments; two blinded independent humans and adjudication. Estimate response-level semantic accuracy/prevalence using probability-sampling weights, not naive pooled enrichment. Prefix validity requires separately labeled prefixes.",
+    "inference": "Scenario-family resampling shared across all variants, prompt conditions and stages; retain prespecified48metric simultaneous family or narrow question before seeing evaluation. Report effect sizes/CIs and all planned outcomes.",
+    "minimum_before_submission": "Human construct validation, completed raw-response archive, calibration-budget acceptance, empirical checkpoint runs. Existing DPO and paired component reanalysis are complete exploratory evidence, not substitutes."
+  },
+  "source_line_basis": "Manuscript findings refer to the pre-edit snapshot preserved on 2026-11-09."
+}

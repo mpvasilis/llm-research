@@ -1,0 +1,972 @@
+{
+  "review_schema_version": "prompt-human-review-v1",
+  "status": "PENDING_HUMAN_REVIEW",
+  "protocol_id": "protocol_b7378f38ecd5af173cd2fd12cf086416",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "reviewer_id": "",
+  "reviewed_at": "",
+  "review_method": "",
+  "families": [
+    {
+      "scenario_family_id": "eval_everyday_apartment_noise",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_a2d0d535954c736ea2c7",
+        "prompt_b12e727a5378ad0eedd5",
+        "prompt_b17e77df3f8a5e77a9fe",
+        "prompt_cc45fbeeb348e509e5b3"
+      ],
+      "prompt_text_sha256": [
+        "8dfcdabd65345294d486c451e8e3376d5417a507ab328731b01767c610e18df5",
+        "4c007c2ed19f3a6c201055ee06dc7daba72a86da3ae987ddba156ab65574c237",
+        "ab4750a0703d548bc5a935c87b221c7f6007992f66337d0321393adb6472a9b2",
+        "781e52059e5672fd5ccd517a2b2c8bfba338c390e0a873acf227c42378015c7a"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_bicycle_chain",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_0439d86cd25f75eec35e",
+        "prompt_7d95392bc8aa55ac2a45",
+        "prompt_8a8a88a3cc0d75c5dc5a",
+        "prompt_b1405835ba1114b68fbf"
+      ],
+      "prompt_text_sha256": [
+        "5d364562435dfc7cfc00d3a895d6f0b6c3867dc3310250cd7b5da4a513a022ff",
+        "b7db9631ae1349ac49f2b6bd799b992c8ba8dd06e84e24de421b7305915edef0",
+        "b50ead7e2db170814d81d380e0dfb53cc1684a9b06cb0f1e6fa21c6b37d78761",
+        "e4ae4896f23b2de09ad7dc8f43f9023ca08c90ab6ec74f69aa71b45dd1ff61e5"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_bus_commute",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_2fbf0ec076da06a273ab",
+        "prompt_600ce9d411d1aeb60526",
+        "prompt_6b3b5b4b142fc7f9f4da",
+        "prompt_f005d44ba7d314e632d7"
+      ],
+      "prompt_text_sha256": [
+        "82b2be636a8174844f1c61b315bd2124d9525847ac4257ed1813095fdc436657",
+        "593812ae2e98374612cfe467762f49241b6f6422f02d274f7ebde9e7125b548b",
+        "f63382d170da16736f04c9fa9fa0b748baba11ba21b2d62195c0fb1b46d8dca6",
+        "3591296873d8f8f7b4dcde7cf1f6197044e4a6bb33cf88b2293e72186f4ac92c"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_community_class",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_492503d69939da76df02",
+        "prompt_8505a05633e377c9c0b7",
+        "prompt_99048d0002a411332230",
+        "prompt_aac7ad5b3b861d753cb3"
+      ],
+      "prompt_text_sha256": [
+        "81d912e9a366fe20a3c461c751603847e818f04e30fad850ae694ad846a2de87",
+        "d12fe43c6349cf77014702b4f12d5cc89df1762c74af1cb1049af08693b044eb",
+        "0b18551e9076e4cb51cfbe1cea85cf52065f71008fd0a9725477c84fc9482856",
+        "73a8af3d262fd2461368a6644261b05b67b52be9cf038d944a084e1699f1bdea"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_digital_files",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_250b3c53ca36d99ee85a",
+        "prompt_3fb4f83cf5d1a4caeabc",
+        "prompt_7ca00a3925bad892afb7",
+        "prompt_cf4a1ac0f8222ad8f458"
+      ],
+      "prompt_text_sha256": [
+        "037cb0cf1a219ef21fc98b249e134f4c9d6d6c5f83dc61bc93331e9f15d2379a",
+        "a9072eea7ea43ba4c14d46bb129839bf14a36a9ef775c500223a6183f29ed3db",
+        "32a3ab96b46997e64d61a7e995e69c530e988f02a3c7cb3bcfc582e1ffdfcfc7",
+        "38a2d25ed8330c699e67ac71510248162a4cbdac9634d259b9f4606ec3ced35e"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_email_overload",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_6a8a4eefdfd74c131b1b",
+        "prompt_89139f503c41d0579745",
+        "prompt_9f8d572b462a28d47426",
+        "prompt_dafe429071c3dd75dbad"
+      ],
+      "prompt_text_sha256": [
+        "79215fea87c8fc354dacef9a889b1b1a158cb5ced8a60054ef68a276956e4547",
+        "ee761720ebff2ab02e992d9d0ff004ef16541c96b1e9fd12825b1805b165c97f",
+        "24d97eb5efb227fdab16c79e325733535013136bca7eff46b8a9decc806f4e98",
+        "09ff0b270c1459e57852f931515fe1a8c4765204f53e121e74d3ccd38f2f04ab"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_fabric_stain",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_04efc36685a4a41222df",
+        "prompt_0f65b1e3b691bcb1bc6a",
+        "prompt_4abf1e05c98ee166fccd",
+        "prompt_d5aab2f27cb18c6dd156"
+      ],
+      "prompt_text_sha256": [
+        "4c835dfc42371f0a8a16788b6821b68a4ae4447dc638326b64e4d6d0023bebbc",
+        "ce80cf650f53299302c129425a44d72cbd151212b52e071f746bc9e80922db71",
+        "7a4308a4d7fd1fcb7fd12ef05b6f3320c31f90f5bf7e81731f459a8f7999c054",
+        "11fe501bdca66473a4a10e73d17fc6567f8f8a7d110918d29f19a2483100e4ac"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_focus_blocks",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_64dc62d9aa89ef19d82c",
+        "prompt_aa0f5b9c4d6805752c94",
+        "prompt_b6a2d07f44aba8f47312",
+        "prompt_d2529c61337a042162b2"
+      ],
+      "prompt_text_sha256": [
+        "d052d5d77b2013260e8e1799c117fb3aef06f04c1ab21f02e50addbd30d8ad10",
+        "cafb0ad9d4044f9ebc59c663b8afa0130ecba401b1f52abf81a156fbc6534e33",
+        "2ea85eb0c184e1d3622e00c66fbe6e4a238c69f95b5fb8405e2554f74902c55c",
+        "e7e16d6685a8eb398b44c2a50097d8f7b21300f848ef38e2f08521b28f9157a5"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_host_guests",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_09e4992137215151c710",
+        "prompt_0db75ac855c6031c1f5a",
+        "prompt_f468035bb28ef1fa8030",
+        "prompt_fa0e92ad2f9e5c6b1913"
+      ],
+      "prompt_text_sha256": [
+        "3449310499d4ef202f8393780237449f9747e58707515e285e7e74c31d52e22e",
+        "ebfe48fc121c32e0ffa66e9f79334bab68e91c56eb81047e1619bcff7027b27c",
+        "dea061c16285657da5f30d26793470f84c2a411aa256ccdac2d515ee94cb59de",
+        "f5c3c1174f625960442ff9a809759b325e986e8b1ea6d8dd26d77aa506c9449e"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_irregular_budget",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_1b85a26fea83354d7b51",
+        "prompt_2336cc17b4a58a42a9ea",
+        "prompt_3e0e65a3db064a9056f0",
+        "prompt_a839bc8a09c4ffa747b3"
+      ],
+      "prompt_text_sha256": [
+        "2beda23487bb84435d411f64952016934bb735423b4a6da97a05a90b6fae56f3",
+        "849dd96239a7518f7b4af287dcead453e36c8be893e13c59d8ba24a5b8eec491",
+        "d75c6f53da7520c987d45f70cc829797fadcea3d6330c4358772cdac8053ac58",
+        "d1a82584f89903e55cc0c5d7ae4b1c8baefa77e4f7b4674890dec67a3ba57724"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_kitchen_herbs",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_63673694d9de4ff01d57",
+        "prompt_8fc0064e32ecd55fd9ab",
+        "prompt_c9f082094376ce8065fa",
+        "prompt_d6f20eb2ca1846295411"
+      ],
+      "prompt_text_sha256": [
+        "9f37816a0afbaf558ff7451d4ce024ebed96f18347079d526a299b4f0fe79d8e",
+        "19095156510420952ed1fb4cea0c6646526b0d29221008f2f31060ce9d59aa42",
+        "a3784dd9a9bfb8bf90a199e48d4e786b9ab73aa0418c7dd211a7f2363fefb53c",
+        "3b6663d64b37d954bb8f06312509f1d3581e92782c64b09132ac60e71a6379ab"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_language_routine",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_3175f71ab84257629e71",
+        "prompt_355f10f683f592d93324",
+        "prompt_60417421fcac509ee173",
+        "prompt_e10c53173b0d82aa6d9e"
+      ],
+      "prompt_text_sha256": [
+        "391497e5e1243a900762050f19702e366cb90579fbe12e9117826ec7106367f2",
+        "03420f3608058a8095027dfc4d21f3376f56d6199dd33b22c5f8ac7d3fa900ce",
+        "630ffaf418c7d48870ce0635b1ebb8684c24634ce59ca437399d68dd0d1ac3b8",
+        "e0980b5c2d18c4a710e26b7a0fc7e37ce7884d74578e1b67b8cb8d97d9b14d31"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_meeting_agenda",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_1f9650541226fb53b5a0",
+        "prompt_7f0b9b14dd3985fa1b88",
+        "prompt_a7625355cc50d6e5e844",
+        "prompt_c17f321e35b2ed6eeab8"
+      ],
+      "prompt_text_sha256": [
+        "c2cef7aeb045e3bf1b634cf54252c31754d488ef612d807c17afe1f0f8b2ba50",
+        "1681568dd29759e84cb14fb8604680867ac7fac81b00db461570c1d8aa45ebea",
+        "c55dcd5d279f8f724f8ba6ff61ebadfcea148796037385419a69fe8f2c122f21",
+        "d9a0f9f332f2972afc5038794f5872bffecec732e3bbd8bf4d498788e658b644"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_pet_hair",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_61c113e8fecaa69d7015",
+        "prompt_91fc41cfda41eae605b2",
+        "prompt_be38f67d3f394a27c55e",
+        "prompt_d7747e50efe717dc0fab"
+      ],
+      "prompt_text_sha256": [
+        "eebb65475980dccd44be477e230d92b62fe2e21d8b0bce68daecb772f75f4bbd",
+        "ec795343c41bef0379747ebeb9263fedb9171baa40abb91726d061e01bdfb701",
+        "2a9fae3081039155096834a1cc25489deb94bfdbcc8b049881d9f47807a2c55d",
+        "45af4fd67e626b038756d823497381c3217362467de4270cf5da14a1bf2b52b8"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_photo_backup",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_04b8283f679afde1f672",
+        "prompt_5d2c4f9b4f1c5937347d",
+        "prompt_60e1fba073d5bfec3aa0",
+        "prompt_7c1ed3de974e8b119ec2"
+      ],
+      "prompt_text_sha256": [
+        "126ab2120643c46437557509237e2ee11335d698eedd9f08940fcf10ce9e492d",
+        "77939bd0c1c2fb49c17915fe9f95e41713bd64f229206a3bd530b20ae3092cef",
+        "586dd1042e523ae32277a2dc2783b8692d75ecdb1f221d973a98d112b3edf615",
+        "bbe4190e615a3f4b724971d94e4d91f19274d61bbcc97780627426a60283e833"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_recipe_scaling",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_320075e8087695933818",
+        "prompt_4c98e2c9ad4ff0e0d9b4",
+        "prompt_8adc181d89a10dfeb274",
+        "prompt_e42271f38d74287b8041"
+      ],
+      "prompt_text_sha256": [
+        "5afd1566bb0e7b161d852a80b4fc34c854066ec1ee2df44ea2be47a3265aad62",
+        "2c6c4da98fda2febf6f625879e8c012e8f010e8f9c586ec8c997e69bee8a3806",
+        "d41c6768395ce40eb5065c773bc94826df831d58341a76c5a9eaa5653cb02b32",
+        "14d7911d61d3894a81008064fc221aa672f51cb38a36326cec92ed63ea1f0708"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_reconnect_friend",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_2eb397860d7b3b4674a0",
+        "prompt_4ddd06b37535c043b148",
+        "prompt_87b0dfde4a06d9d7ad1e",
+        "prompt_91642f6511388947de6f"
+      ],
+      "prompt_text_sha256": [
+        "fcbfb2edf5dda2c5d98dc8d73c30cc6821ef1a36ca196665c663c6f1c435a588",
+        "63b35c259b3a93f5242dd89e6a01a9f0747e32210283148f1f2ae912bab386c5",
+        "62bc5b957596e6e61af6aa74886ae172904b9a21f645f8bda99b03bf97f7935f",
+        "5cc6f8542fb8bd89ebdc69adf649931839da8592c8543b9fe2989b789c56c2d3"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_shared_chores",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_3439af35ecf43a9ffdaa",
+        "prompt_66130c5e1fccdb569e12",
+        "prompt_86ab5457c098097f9d40",
+        "prompt_ade5900b714440998df7"
+      ],
+      "prompt_text_sha256": [
+        "110956655a71bcc7ddab3709dc9be17e0b97fe868adcebfb80ae31bb482c20c0",
+        "f0cfe74fe8b517b38dcea57c9f59fb9d60a7f7df28a9120a1ec1df54a1fce09f",
+        "251e97d42575822f0cb62e7f1bdfa0194076b509015056603cca1e1c37b686d6",
+        "6869e797ae1f37d0405546799cd17912ed5cff0d6a38c30aa319482d6fc1b96d"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_small_room_storage",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_387c8560ed00c5d9e699",
+        "prompt_4d267151afa1e375a323",
+        "prompt_e4dda6a118c75c401737",
+        "prompt_fe9bfdb41e62fe35e9cf"
+      ],
+      "prompt_text_sha256": [
+        "65007f7d5cc503cef4a78a63423f61ec38d98c2e8831eea86da589784aafb14f",
+        "73ae9a88eb0a359da298a90b78848946120839547113aed63ce8812b2e3e9c2c",
+        "db805e494e238f7783417b8ce2a9a4b238e48aec1cfc0688e53463b33dc18d7d",
+        "9fca416288754fd79ed4f677150e5de84ae2260d150e54c4f6e023f95e77af42"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_everyday_travel_packing",
+      "domain": "everyday",
+      "prompt_ids": [
+        "prompt_1640ffe676e9377aa353",
+        "prompt_d29f13d912c769fb2cb6",
+        "prompt_d3a4b12cac0a65953ad5",
+        "prompt_f75afa2e06eda162144a"
+      ],
+      "prompt_text_sha256": [
+        "fe669b7ef47e8c982ca738827b7f8985580d81aa85c66ac733828eadeaa36a26",
+        "d5e1441901ca5722b163166f7e064ef92b6c9b6cb5aadf289430aabef73154b6",
+        "2075d9bc8c618ad86dfc267c7dbaab3f4d3dc02c5f1e442eb6e05ecaa5375641",
+        "7acf43381b6609605cef5b3850a91babd11763e36e2de14060864b27f28e44b2"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_back_stiffness",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_6ce54457d7312538107d",
+        "prompt_762156054c99e3583075",
+        "prompt_968214dd0261e350a876",
+        "prompt_bbbfc436815c52dafe1b"
+      ],
+      "prompt_text_sha256": [
+        "3857a30f8246153638077b7fcd018e63565b88032de4f5e9a474c8868ea7168d",
+        "b3c9d13b12a710e499c45bc51ecaf7614fcbebcc71ac26f8f2032acb63baf4e3",
+        "c5c95bab9633d908f645237051ea964afa996aa5aadab8e7fa297f4eac355f46",
+        "1c240eee523dc707e6c9849ce651befac8a4861e085935ff0b94488a3a49e730"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_breakfast_energy",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_4f839161e7f137cece64",
+        "prompt_8b5b78b85b72e57970b2",
+        "prompt_feaa6e389133d637a39e",
+        "prompt_ff7fc3479b7712aeee94"
+      ],
+      "prompt_text_sha256": [
+        "4f1334a8893c4a9144eafa3bc4cce580f9c8d73d2032470e351c600c00cf1072",
+        "7600ff7f7c60352292f58e6638be08d74d66d77a3d2be58fe91b214561676b04",
+        "23f03b4693e657842f7426baaf831b2c677e50cdc1037bda0b143cb8ae5e21ba",
+        "b524a17ca4c70dc5a937448d43dac9dcc6def3119a82cc74b1513239a9b9496c"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_caffeine_timing",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_00f43ec7f4d21df17a83",
+        "prompt_4a197db537aff861a907",
+        "prompt_aa324afb000411d1f481",
+        "prompt_bf24d1661bd42d587f91"
+      ],
+      "prompt_text_sha256": [
+        "30853c8d0dd104a20e24836b7cc2485188a63680c8553d106d149000fe11f5ac",
+        "1c8c5eebffaab27fb4900b102ee28d5151a8194cef89bf467aa818d68cb9ba3b",
+        "a785e76251f4c5eb0e58e6302a5780676adfea0e0454abaf4ded853fceeea930",
+        "078ae0052dfc3a3e340741b2dfb7f637d98d6089407c8be52376277519affdde"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_concert_hearing",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_1658d4062114a6d14802",
+        "prompt_370569f436911ee83db1",
+        "prompt_3988b74c50a502b8231e",
+        "prompt_d1ff83f0b2050db03213"
+      ],
+      "prompt_text_sha256": [
+        "fee5be57c17eceba97e232565b91d02b03a753fd8c729891f2a91d91b0faed28",
+        "0c0de0faed931dfd30f7decf6c834c98c6b704a7d6bcf0665e099939a6a880ef",
+        "de639674619003f0002cdf61f491612958225a9cf1a70b7cdf98742914e21a00",
+        "06d9126194ac59d1f55934f248840b883289f7b7ae7466cd9d1161f64e351ad9"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_daily_hydration",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_430716085ff3489f6fe5",
+        "prompt_44ff3edd119bf4e8121f",
+        "prompt_585c17d8e49082640bf4",
+        "prompt_a670034a35b3e2cd32ba"
+      ],
+      "prompt_text_sha256": [
+        "e400d92ce2a93b2922d9e9a59f34891c9571617898fdc8d6863c8c624e44a9ed",
+        "45fcdec8741d1012093dbda2abd77f51b505bac3b201961cfeaa2bf8d09b8a05",
+        "08c61e64a3cd6a6ccd9ea2ce4b853b72eb2e875adaec07064ba2bd01c0984422",
+        "db0b46dd8cdeccf8f994355aa2f6165c58c0d921669ae4ab5aa24623c49d14b9"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_desk_posture",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_083c8b66aea3740dff42",
+        "prompt_0ed65d1e717b6ca1e3a5",
+        "prompt_344376dac421ee4aeff0",
+        "prompt_73596d71bd350639d58c"
+      ],
+      "prompt_text_sha256": [
+        "b6e48f727c130c74627909a5c1d6fe1728dc466145319646f4198b9710440449",
+        "d0a3ac010ffac28776fe6a76d5f68afae2d93f2d288af47aff47210075b548b7",
+        "0b9cd84fc331649367e426679b20665587811cf4909b7aaa295d7d5af9bab5e8",
+        "e742086c9ab2fa3d9f07e0222c2a9c0f3571ebfbd50c604f90ff78db41a00920"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_eczema_triggers",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_9e601d1482de528be4f7",
+        "prompt_ae985680a49c402391bb",
+        "prompt_bbe26ade38bfc095d433",
+        "prompt_f2c6948d799e8d257d08"
+      ],
+      "prompt_text_sha256": [
+        "183ecb58daed32909aafb3384f871e2207cb3cd4f6a04ba4fb65ce5e325ebba8",
+        "55540f23034840e283b85523542b5c341d219a6f26af65edd7d027808ebec35a",
+        "befd74ea9757af525aac9968c694a20167f181e66e3bc216595c6a7f742662c3",
+        "c5d7f737e1c91c7bb3d39ba911ea3ae588723d7ec129cb31c7bdb8e1fa8e11b5"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_iron_absorption",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_8c8b284e4fa6322ce37a",
+        "prompt_b2c3fc7c61d46325048e",
+        "prompt_f4f2344a480b9b5dcb04",
+        "prompt_fd0e92b8ccd37729dd52"
+      ],
+      "prompt_text_sha256": [
+        "46deed992590b7d6a995413a7f28785bc6f72eaf29601288b6f894903953a32f",
+        "321bb935d79eca4f1f0cb3ac19124b27c01a6b8eb7588fb216cabe714bf9d560",
+        "0db0bfec37e302bfa2803b82c5af096a7e6930085c87d7124e2d08f55b9880d2",
+        "a0b8e2415c8140cc9002b6b76e93dd4a14455c7563213c7457d43661582e4e28"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_mild_heartburn",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_17dcc6884a0ca607c64b",
+        "prompt_b439268d8da9f7333dd2",
+        "prompt_e0920b051ad76420bae7",
+        "prompt_f27ffa304b9857844aa7"
+      ],
+      "prompt_text_sha256": [
+        "f1c6247c87de4cc25a6e0916ffdbb5450e9f6e593af9e630be56acb39c19f9c1",
+        "887777fbe925a32710f2d9498161df299f6d027d750cd71dcffc4d627fd7e78f",
+        "c6545515d7a586915734d868967253872dc773e150e450e3f5983adbf02dfc40",
+        "274b33968c2150db9384f8fdeddc205a64b621b8f5d2742a97905c44d06073c8"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_motion_sickness",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_68b720813b436424b086",
+        "prompt_9802d71a02070d1c851b",
+        "prompt_bdf86a76e059e04d36ff",
+        "prompt_d106d96b0281bf2eba0d"
+      ],
+      "prompt_text_sha256": [
+        "dc61e9ea0e9ae1c7398e7e8d1329db094c77dfbbc7b92fec9663b32d715362ad",
+        "63b1ab6ba50d9e4b9dc15dc21fce4645763cb7d4996bb7b16a71eb1c9eec03d7",
+        "8b904602cc94f7c338dfab057ae38cbdb492c96d35351e059a45c273f74bfe2d",
+        "9273095b09d69b6406fcb244cde4b522c95bc49e28eac24738d9a24d3766bfd5"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_muscle_recovery",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_61deace79c86c986108d",
+        "prompt_8ca3ae2c372fffae0c2a",
+        "prompt_99297d958cc1d8b25905",
+        "prompt_c448a0b18a881117e82f"
+      ],
+      "prompt_text_sha256": [
+        "eae14a99332aea1d1e55ef690e960cdbd8fc918d4d38638b0bdafb946e034e5e",
+        "f572a514d2f6be36c25d4e1693e3f185c807c88fb73983a30ba02e67016e5a0b",
+        "d2faeefcf24c7280dd0b87a865b01b11359782a119ba6a5c82c52cdd7f0b7e4b",
+        "be5ca6603207a5aae69a1b0f37aebf79459a141f343739e947bfdc7e0791e114"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_nasal_congestion",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_4a7c20cad8c78384ee98",
+        "prompt_b78a553a7f49dc7e70e6",
+        "prompt_bb67cd045a985919ff67",
+        "prompt_bbac6f9cdc8ee525a5fe"
+      ],
+      "prompt_text_sha256": [
+        "123d9fff25e539929a80fc97985a40b4f42e3af92a12a284ad95b276cee76efe",
+        "fb60e3bddf04285cf4404070cbe501243a97e3336e30f2274d08473ef5fc1c8f",
+        "cd0aa1cd9abbf2de689d93e31d97d51c428f248807a598623922eaf88dc79fdc",
+        "6ca3401be545d4898439a99a946dffb04d40c99b951325cfc20832cb5f12887b"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_postexercise_soreness",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_59cf24e32381ba2001de",
+        "prompt_896015a3c711cd076d3a",
+        "prompt_98144784de403784b741",
+        "prompt_d4054bea3f2f65764c42"
+      ],
+      "prompt_text_sha256": [
+        "86f8bc4767b9a6ae11e96c63933140c2a81c91854b9fad8961010f7090ce0f34",
+        "d63449cd87af13368c8c17ef9e532cf83ba4cefdfc419fd78ca8ab0f4d97f004",
+        "5e8a49a3fc28ca479f07c5982a8299952e9168317c4a120de03f806456af07f0",
+        "a579609fd21f76a616548438e393d68686271c5871b2bb99d90b61b5f001ed57"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_screen_eye_strain",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_2d3d721aacaad8411c0f",
+        "prompt_5a04d54c4394b654807d",
+        "prompt_7117f5ae0ac96469473e",
+        "prompt_a499635185f407c156a0"
+      ],
+      "prompt_text_sha256": [
+        "fa16074b81ad965e9857309530b472f7df0fcf3f543dc739e6564d1b519ec665",
+        "57d1b7c337e8083c92c28f8f444e18d4d332041f5d03230ff34511862dc94869",
+        "bc4fb31ca1217570552e77a1b9f7c3f075611b81fe36364f690fbdaa9bf7d8ea",
+        "ca01620caaa33190379475319a926fcd9a89eca369b68690055b6812f95d2866"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_seasonal_allergies",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_5f293592ab73d964d123",
+        "prompt_73b8d5e011a68e0b2bb8",
+        "prompt_d275c976b5b392a6832f",
+        "prompt_fcf291a1a763545c815d"
+      ],
+      "prompt_text_sha256": [
+        "364ab446c62083a79ece646da77b15eddb522b79b8abb0a8237ea402afa4e0ab",
+        "95e84894736a237dadc999936728d1ff02446f179d320c8e6a244b22ff8c6240",
+        "0f9538257bc367d5ae542b835a9efc9d6a8374f1eb1107a38b631b8a8b260efc",
+        "1e561100486cf447bcfa229552e06f4e56d626a148612fefbb9155c1157f1d28"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_sleep_schedule",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_2561f7625ebbb8aa739d",
+        "prompt_708afa4be24813868259",
+        "prompt_9e4d0c4bb5a1b1ae6c22",
+        "prompt_c0a1a3b4e551b8c2e457"
+      ],
+      "prompt_text_sha256": [
+        "d09428e9a7743b928902cb34eae51760b0d02c0870153e908dea907f76fe4ea1",
+        "24d28325642d0c30ae0e5a6fddfdf0b722c3b91f782542a09da56cecd83fdd8f",
+        "319dbc81f38dd876c43daf75f3ad0f18491ac1e36948ed2fa68eac5ec7dd9993",
+        "c64f4091a9fb5990e047e4837c1692edfb4461b28028909473ed870d213a97d2"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_tension_headache",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_2bfe0669b76b486998a7",
+        "prompt_317d6fb869403b32a5f8",
+        "prompt_56a21ac5315d1cbf7b58",
+        "prompt_a2b8246545141a1a4cd2"
+      ],
+      "prompt_text_sha256": [
+        "bd0738df3ce2028a753d67b571f04e169303e026610b4a664b80d66f13281417",
+        "df73a3186a3383d38ba408ba143fb91b3248bfb7796e3560e9594bf20e7fd736",
+        "78c77615c227e013260d2d626458c6e13755c74e03f638edf1cd69b16a01b90c",
+        "2f94de8b7237be9ed4d7672ee493c902f6f26e4a82d28ed7488e078946a02257"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_tooth_sensitivity",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_09d05bbdb237b33f3b94",
+        "prompt_211392db87dea20cb1d3",
+        "prompt_2d6077ea6492556b9459",
+        "prompt_a924b6698f7de1df5513"
+      ],
+      "prompt_text_sha256": [
+        "557e239abde2b85d4bac6fcdf17556a6204a1b2f2cd11a649549cc288febd154",
+        "b40203318d7cc0ccfac2ca56a85996fe31bee1ca764133e1d4bce0016edb513c",
+        "1f7f2ea436e1c45c6bec856b46bc0c0e0a2eca073ad6039c7c0662cbc4e60f7b",
+        "18eeff399143276ac1590483538e2926c1c8becfeec2ff8a35243a0b56ad57ca"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_travel_constipation",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_3ee1ca5008adb7a3b9f1",
+        "prompt_92421b5838de399b3752",
+        "prompt_b113100267e8b17fa5f8",
+        "prompt_efe35a8b9bc74f39f984"
+      ],
+      "prompt_text_sha256": [
+        "8d7945a212791f2544936ea9e77b758979f54ce5477490644933fcbe21a14bd3",
+        "0a643d892e75df1ee0cb1051cbf46861be101a9c6bf88188594ccb04d3d074cd",
+        "ca24b592490c6c071fd61f69f6be7d95b467289c637e6a30d2e180f648ea266b",
+        "2e6c113eb2bc1187561ad01abf679f9b7cf3df12c187267955b4c9bd201ceb9e"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    },
+    {
+      "scenario_family_id": "eval_health_winter_skin",
+      "domain": "health",
+      "prompt_ids": [
+        "prompt_03980e22a912b209f8e2",
+        "prompt_3a4870ea1cf4d98b054d",
+        "prompt_76c17b16abcd86ba8f57",
+        "prompt_bd51db9f183a3ce09949"
+      ],
+      "prompt_text_sha256": [
+        "5035c2bb07f7dfac028dfd1729eed69818b2df85eff820b3bc736f75468a11cb",
+        "77aa522dc6631a89eab6e1121212d060d67d366f93ef6cf706f5a722e43b4797",
+        "b9bbf4b3b2b6eb83e4ec8b74dfc7d69771ad1e8cd7f92483b7658c6211dac748",
+        "2142d9d9a2d57d4d3113178cc332345811cd984d3b8d9dc72354197683e0afed"
+      ],
+      "checks": {
+        "topic_consistent_across_variants": null,
+        "emotional_framing_manipulation_clear": null,
+        "advice_information_manipulation_clear": null,
+        "information_variants_do_not_request_advice": null,
+        "approved_for_evaluation": null
+      },
+      "reviewer_notes": ""
+    }
+  ],
+  "provenance_note": "Blank template generated by code. Completion and judgments must be supplied by a human reviewer."
+}

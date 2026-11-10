@@ -1,0 +1,38 @@
+{
+  "status": "complete_local_no_action_validation",
+  "files": 37,
+  "bundle_sha256": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb",
+  "bundle_content_id": "extended_bundle_6550d81c61f8ffc57b4c12e9773248dc",
+  "notebook": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\jupyter-notebook\\advice_marker_extended_study.ipynb",
+  "notebook_sha256": "bf16bb2d7440e091a73034015627431333abb3530bde61a430d38b7ee9c4b7e2",
+  "bundle": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\jupyter-notebook\\advice_marker_extended_study_bundle.zip",
+  "code_cells": 13,
+  "markdown_cells": 10,
+  "cell_outputs_inspected": 13,
+  "error_outputs": 0,
+  "safe_defaults_observed": true,
+  "executed_notebook_sha256": "d4d609c8cc99fe03a6656d372dc1f37bc33f2a620c207a55f0a8ad52587161ae",
+  "completed_probe_bundle": {
+    "path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\jupyter-notebook\\advice_marker_completed_probe_bundle.zip",
+    "sha256": "97c97682abac163336596ee8eacd0a40a916609ba842db97a50179f309976844",
+    "files": 16,
+    "completed_probe_bundle_id": "completed_probe_bundle_407cdd45b9aaba23e427167b55456e30",
+    "source_bundle_compatibility": {
+      "bundle_content_id": "extended_bundle_6550d81c61f8ffc57b4c12e9773248dc",
+      "bundle_sha256": "d148bdb43c6545c0a02c5cb75e6b2683f0b56d3dfa31c2e0c25050b3031ed4cb"
+    }
+  },
+  "controls": {
+    "primary_cap": null,
+    "sensitivity_cap": null,
+    "all_actions": false
+  },
+  "scientific_output_created": false,
+  "extended_study_scientific_files_before": [],
+  "extended_study_scientific_files_after": [],
+  "probe_input": {
+    "status": "pending_complete_probe_run_export_and_budget_decision",
+    "included": false,
+    "reason": "The fixed manifest and preceding 256/512 evidence are bundled; no complete verified run, export, and decision package was supplied."
+  }
+}

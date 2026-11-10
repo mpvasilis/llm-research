@@ -1,0 +1,13 @@
+{
+  "decision_schema_version": "extended-study-budget-decision-v1",
+  "status": "COMPLETE_DEVELOPMENT_BUDGET_DECISION",
+  "source_parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "probe_export_sha256": "141d84cd417c8ad1ce84af093246adf2065e8df1164df7780700c4d06b6b72e5",
+  "primary_cap": 1024,
+  "sensitivity_cap": 1536,
+  "decided_by": "synthetic-test-fixture",
+  "decided_at": "2026-09-15T16:00:00Z",
+  "rationale": "Synthetic fixture for successor contract tests only.",
+  "budget_decision_id": "budget_decision_ab9f3aef2ef8143aff83f309daf44505"
+}

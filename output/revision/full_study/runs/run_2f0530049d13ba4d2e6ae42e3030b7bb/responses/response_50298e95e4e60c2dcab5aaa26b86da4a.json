@@ -1,0 +1,96 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_50298e95e4e60c2dcab5aaa26b86da4a",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_46bc32ce20587f550b4f",
+    "prompt_text_sha256": "7360f27eb7be02c2f0c967efa97a3a8a85ebdf483f1f5fc54d4b3f2160311b13",
+    "scenario_family_id": "dev_health_hiking_blister",
+    "split": "development",
+    "condition": {
+      "domain": "health",
+      "emotional_framing": true,
+      "request_type": "information"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 8971794308151707630,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 256
+    }
+  },
+  "prompt_id": "prompt_46bc32ce20587f550b4f",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "7360f27eb7be02c2f0c967efa97a3a8a85ebdf483f1f5fc54d4b3f2160311b13",
+  "scenario_family_id": "dev_health_hiking_blister",
+  "split": "development",
+  "condition": {
+    "domain": "health",
+    "emotional_framing": true,
+    "request_type": "information"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 8971794308151707630,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "I sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.",
+    "serialized_prompt": "<|endoftext|><|user|>\nI sometimes get an ordinary foot blister during a day hike. It can spoil the hike for me. How do friction, moisture, and shoe fit contribute? Please explain the causes rather than give prevention steps.\n<|assistant|>\n",
+    "response": "Foot blisters can occur due to a variety of factors related to friction, moisture, and poor shoe fit. Let's break down these causes:\n\n### Friction\nFriction is a major contributor to the formation of blisters. When walking or running, the outer layer of skin on your feet is subjected to continuous pressure from the soles of your shoes. If your shoes are too tight, too narrow, or too slick (either due to poor fit or high moisture content), they can rub against the skin, leading to friction and blister formation. Shoes that do not provide adequate cushioning or that are too thin or thin-wearing can cause increased friction and discomfort.\n\n### Moisture\nExcessive moisture on the feet can lead to the formation of blisters. Wet feet are more susceptible to blisters because the skin can become softer and more pliable, making it easier for friction to cause damage. High humidity or rain can also increase moisture levels on your feet, making the skin more prone to blistering. Shoes that are poorly ventilated or have poor moisture-wicking properties can retain moisture, exacerbating the problem.\n\n### Shoe Fit\nThe fit of your shoes is critical for preventing blisters. If your shoes are too small, narrow, or have a poor shape (",
+    "input_tokens": 52,
+    "output_tokens": 256,
+    "max_new_tokens": 256,
+    "stopping": {
+      "reason": "max_new_tokens",
+      "eos_reached": false,
+      "cap_reached": true
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 256,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 94.6097105000008,
+      "generated_tokens_per_second": 2.7058533278145673,
+      "scope": "single model.generate call only"
+    }
+  }
+}

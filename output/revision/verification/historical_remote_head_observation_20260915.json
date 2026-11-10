@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-15T19:04:35.252210+00:00",
+  "scope": "read_only_remote_default_reference_no_fetch_no_ref_update",
+  "exit_code": 0,
+  "reference_lines": [
+    "ref: refs/heads/main\tHEAD",
+    "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe\tHEAD"
+  ],
+  "local_head": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe",
+  "interactive_auth_disabled": true,
+  "fetched_objects": false,
+  "status": "remote_reference_observed",
+  "matches_local_head": true
+}

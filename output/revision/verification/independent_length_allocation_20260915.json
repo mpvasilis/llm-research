@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "Independent rational-arithmetic allocation check and synthetic length edge cases; no empirical samples or human labels created.",
+  "population_compositions_checked": 1891,
+  "population_per_outer_cell": 60,
+  "sample_per_outer_cell": 13,
+  "tied_minimum_cutpoints": [
+    100
+  ],
+  "constant_length_cutpoints": [],
+  "function_sha256": {
+    "allocate_length_bins": "680dd6e06c194f38f00a42b8fd5fa77f80d23c0de8c0c6b127933073b7e04bfa",
+    "derive_length_bins": "46c30b18c83ca3a7a8d6b3cfbf07df98060db7f8c1b29f72f700982d46cfdc18",
+    "length_bin_index": "c13433fb7414e5da62380ae59231403f93557173bb2eaff0d1a8582e5fcc1182"
+  }
+}

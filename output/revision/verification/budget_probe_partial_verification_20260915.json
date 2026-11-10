@@ -1,0 +1,972 @@
+{
+  "status": "complete_verified_see_final_audit",
+  "at": "2026-09-15T17:52:11.574559+00:00",
+  "verification": {
+    "status": "complete",
+    "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+    "expected_responses": 8,
+    "verified_responses": 8,
+    "missing_responses": 0,
+    "unique_response_ids": 8,
+    "stopping_reasons": {
+      "eos_token": 8
+    },
+    "cap_rate": 0.0
+  },
+  "completed_response_checks": [
+    {
+      "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "input_tokens": 44,
+      "output_tokens": 524,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 748.293258800004,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+      "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+      "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+      "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+      "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2385,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "scenario_family_id": "dev_everyday_closet",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "input_tokens": 40,
+      "output_tokens": 635,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 727.8533730000054,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+      "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+      "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+      "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+      "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2444,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_322263f56de192300236c36fbb023a53",
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "scenario_family_id": "dev_everyday_closet",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "input_tokens": 58,
+      "output_tokens": 569,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 870.5964717000024,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+      "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+      "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+      "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+      "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2590,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_e48c6793e773ea143392927497495635",
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "scenario_family_id": "dev_everyday_closet",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "input_tokens": 52,
+      "output_tokens": 677,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 1358.9358790000042,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json",
+      "saved_file_sha256": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+      "saved_file_mtime_utc": "2026-09-15T16:41:13.272233+00:00",
+      "probe_response_sha256": "214f24c857f48d71efe294ac7c46f50e56c6768e44bea2500c54ca8639bd3ed7",
+      "matched_512_response_sha256": "4a1c85fb8924b704c0e76e10b7f418b3c97b10a06c7c45c1c3ce8a7ea479a5d9",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2608,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": true,
+        "request_type": "information"
+      },
+      "input_tokens": 52,
+      "output_tokens": 744,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 1336.3363482999994,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4dd8728a238fe4414bc079535bad693d.json",
+      "saved_file_sha256": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+      "saved_file_mtime_utc": "2026-09-15T17:03:29.785816+00:00",
+      "probe_response_sha256": "234fbe0571d030d88bc25c0305ea0117e6718769e6263f8cff75115db41a1ecc",
+      "matched_512_response_sha256": "3dbaefc57c1aaa7cec1d56ac8f5dd7cac28326231f3f44dec2bee7133af2a2b1",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2448,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "scenario_family_id": "dev_everyday_closet",
+      "condition": {
+        "domain": "everyday",
+        "emotional_framing": true,
+        "request_type": "advice"
+      },
+      "input_tokens": 46,
+      "output_tokens": 461,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 1028.7835758,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4b188d767b43ffd3eb750e3c7f9b10bd.json",
+      "saved_file_sha256": "062baec7a4ff64123feab0a29bad6c6aa79b9194980faded879d70e9e755eb57",
+      "saved_file_mtime_utc": "2026-09-15T17:20:38.610048+00:00",
+      "probe_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+      "matched_512_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+      "matched_512_output_tokens": 461,
+      "matched_512_response_characters": 2243,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": true,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_6115d86977355d4df6d5cfe0a35d111f",
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "information"
+      },
+      "input_tokens": 44,
+      "output_tokens": 571,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 818.5455832999942,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_6115d86977355d4df6d5cfe0a35d111f.json",
+      "saved_file_sha256": "ecbacf494d8614d29be249a7a579b040ec1b2071bffc62f8684aac353414a8d2",
+      "saved_file_mtime_utc": "2026-09-15T17:34:17.236192+00:00",
+      "probe_response_sha256": "0a2ad45fe58dbec731f2b289b708d09cc2e937449c993f864c09765cda99afd4",
+      "matched_512_response_sha256": "58fde2df82e5cd82dd15e0fa39e99498b8e4c65a6774d0355f04cf1668515055",
+      "matched_512_output_tokens": 512,
+      "matched_512_response_characters": 2429,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": false,
+      "decoded_256_text_is_prefix": true
+    },
+    {
+      "response_id": "response_43dff3cd2c847545689f0e2a12e3cd7a",
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "scenario_family_id": "dev_health_hiking_blister",
+      "condition": {
+        "domain": "health",
+        "emotional_framing": false,
+        "request_type": "advice"
+      },
+      "input_tokens": 36,
+      "output_tokens": 454,
+      "stop_reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false,
+      "generation_seconds": 935.2536848999953,
+      "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_43dff3cd2c847545689f0e2a12e3cd7a.json",
+      "saved_file_sha256": "de9dea6d1f5bd07ed66b827cc467204431700f31e731138e0bdd8c662469f550",
+      "saved_file_mtime_utc": "2026-09-15T17:49:52.522757+00:00",
+      "probe_response_sha256": "5f80dc2c588a309888e66440dbc27febaa954d589945b3806c81163402fc20c6",
+      "matched_512_response_sha256": "5f80dc2c588a309888e66440dbc27febaa954d589945b3806c81163402fc20c6",
+      "matched_512_output_tokens": 454,
+      "matched_512_response_characters": 2112,
+      "decoded_512_text_is_prefix": true,
+      "decoded_512_text_is_identical": true,
+      "decoded_256_text_is_prefix": true
+    }
+  ],
+  "previous_checks": [
+    {
+      "at": "2026-09-15T15:53:28.338504+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 1,
+        "missing_responses": 7,
+        "unique_response_ids": 1,
+        "stopping_reasons": {
+          "eos_token": 1
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "decoded_512_text_is_prefix": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T16:06:26.754974+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 2,
+        "missing_responses": 6,
+        "unique_response_ids": 2,
+        "stopping_reasons": {
+          "eos_token": 2
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "decoded_512_text_is_prefix": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T16:30:32.2040375+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 3,
+        "missing_responses": 5,
+        "unique_response_ids": 3,
+        "stopping_reasons": {
+          "eos_token": 3
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+          "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+          "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+          "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+          "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+          "matched_512_response_characters": 2385,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "advice"
+          },
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+          "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+          "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+          "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+          "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+          "matched_512_response_characters": 2444,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_322263f56de192300236c36fbb023a53",
+          "prompt_id": "prompt_37343c58848ceda69602",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 569,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+          "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+          "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+          "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+          "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+          "matched_512_response_characters": 2590,
+          "decoded_512_text_is_prefix": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T16:43:35.951849+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 4,
+        "missing_responses": 4,
+        "unique_response_ids": 4,
+        "stopping_reasons": {
+          "eos_token": 4
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_322263f56de192300236c36fbb023a53",
+          "prompt_id": "prompt_37343c58848ceda69602",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 569,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+          "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+          "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+          "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+          "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+          "matched_512_response_characters": 2590,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+          "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+          "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+          "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+          "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+          "matched_512_response_characters": 2385,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "advice"
+          },
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+          "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+          "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+          "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+          "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+          "matched_512_response_characters": 2444,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_e48c6793e773ea143392927497495635",
+          "prompt_id": "prompt_40d04e2b3122517b0182",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "information"
+          },
+          "output_tokens": 677,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json",
+          "saved_file_sha256": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+          "saved_file_mtime_utc": "2026-09-15T16:41:13.272233+00:00",
+          "probe_response_sha256": "214f24c857f48d71efe294ac7c46f50e56c6768e44bea2500c54ca8639bd3ed7",
+          "matched_512_response_sha256": "4a1c85fb8924b704c0e76e10b7f418b3c97b10a06c7c45c1c3ce8a7ea479a5d9",
+          "matched_512_response_characters": 2608,
+          "decoded_512_text_is_prefix": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T17:08:27.759442+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 5,
+        "missing_responses": 3,
+        "unique_response_ids": 5,
+        "stopping_reasons": {
+          "eos_token": 5
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_322263f56de192300236c36fbb023a53",
+          "prompt_id": "prompt_37343c58848ceda69602",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 569,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+          "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+          "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+          "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+          "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+          "matched_512_response_characters": 2590,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+          "prompt_id": "prompt_46bc32ce20587f550b4f",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 744,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4dd8728a238fe4414bc079535bad693d.json",
+          "saved_file_sha256": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+          "saved_file_mtime_utc": "2026-09-15T17:03:29.785816+00:00",
+          "probe_response_sha256": "234fbe0571d030d88bc25c0305ea0117e6718769e6263f8cff75115db41a1ecc",
+          "matched_512_response_sha256": "3dbaefc57c1aaa7cec1d56ac8f5dd7cac28326231f3f44dec2bee7133af2a2b1",
+          "matched_512_response_characters": 2448,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+          "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+          "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+          "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+          "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+          "matched_512_response_characters": 2385,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "advice"
+          },
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+          "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+          "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+          "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+          "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+          "matched_512_response_characters": 2444,
+          "decoded_512_text_is_prefix": true
+        },
+        {
+          "response_id": "response_e48c6793e773ea143392927497495635",
+          "prompt_id": "prompt_40d04e2b3122517b0182",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "information"
+          },
+          "output_tokens": 677,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json",
+          "saved_file_sha256": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+          "saved_file_mtime_utc": "2026-09-15T16:41:13.272233+00:00",
+          "probe_response_sha256": "214f24c857f48d71efe294ac7c46f50e56c6768e44bea2500c54ca8639bd3ed7",
+          "matched_512_response_sha256": "4a1c85fb8924b704c0e76e10b7f418b3c97b10a06c7c45c1c3ce8a7ea479a5d9",
+          "matched_512_response_characters": 2608,
+          "decoded_512_text_is_prefix": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T17:23:38.536378+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 6,
+        "missing_responses": 2,
+        "unique_response_ids": 6,
+        "stopping_reasons": {
+          "eos_token": 6
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_322263f56de192300236c36fbb023a53",
+          "prompt_id": "prompt_37343c58848ceda69602",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 569,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+          "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+          "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+          "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+          "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+          "matched_512_response_characters": 2590,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+          "prompt_id": "prompt_5d34517bef1eac80859c",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 461,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4b188d767b43ffd3eb750e3c7f9b10bd.json",
+          "saved_file_sha256": "062baec7a4ff64123feab0a29bad6c6aa79b9194980faded879d70e9e755eb57",
+          "saved_file_mtime_utc": "2026-09-15T17:20:38.610048+00:00",
+          "probe_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+          "matched_512_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+          "matched_512_response_characters": 2243,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": true
+        },
+        {
+          "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+          "prompt_id": "prompt_46bc32ce20587f550b4f",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 744,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4dd8728a238fe4414bc079535bad693d.json",
+          "saved_file_sha256": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+          "saved_file_mtime_utc": "2026-09-15T17:03:29.785816+00:00",
+          "probe_response_sha256": "234fbe0571d030d88bc25c0305ea0117e6718769e6263f8cff75115db41a1ecc",
+          "matched_512_response_sha256": "3dbaefc57c1aaa7cec1d56ac8f5dd7cac28326231f3f44dec2bee7133af2a2b1",
+          "matched_512_response_characters": 2448,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+          "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+          "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+          "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+          "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+          "matched_512_response_characters": 2385,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "advice"
+          },
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+          "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+          "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+          "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+          "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+          "matched_512_response_characters": 2444,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_e48c6793e773ea143392927497495635",
+          "prompt_id": "prompt_40d04e2b3122517b0182",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "information"
+          },
+          "output_tokens": 677,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json",
+          "saved_file_sha256": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+          "saved_file_mtime_utc": "2026-09-15T16:41:13.272233+00:00",
+          "probe_response_sha256": "214f24c857f48d71efe294ac7c46f50e56c6768e44bea2500c54ca8639bd3ed7",
+          "matched_512_response_sha256": "4a1c85fb8924b704c0e76e10b7f418b3c97b10a06c7c45c1c3ce8a7ea479a5d9",
+          "matched_512_response_characters": 2608,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        }
+      ]
+    },
+    {
+      "at": "2026-09-15T17:37:07.682690+00:00",
+      "verification": {
+        "status": "partial_valid",
+        "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+        "expected_responses": 8,
+        "verified_responses": 7,
+        "missing_responses": 1,
+        "unique_response_ids": 7,
+        "stopping_reasons": {
+          "eos_token": 7
+        },
+        "cap_rate": 0.0
+      },
+      "completed_response_checks": [
+        {
+          "response_id": "response_322263f56de192300236c36fbb023a53",
+          "prompt_id": "prompt_37343c58848ceda69602",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 569,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_322263f56de192300236c36fbb023a53.json",
+          "saved_file_sha256": "da64b0c18c89507c14e353383719082d8650d3551b556617cd8557790165ec51",
+          "saved_file_mtime_utc": "2026-09-15T16:18:34.172232+00:00",
+          "probe_response_sha256": "06515084788f5fb2e48dfab9b9c2acfcbf872292cb93d002274a26d77d9abe11",
+          "matched_512_response_sha256": "57485e2b9a1f51536a5f4a2849e02af742cf375584aa1d84ebf037a9bb793967",
+          "matched_512_response_characters": 2590,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+          "prompt_id": "prompt_5d34517bef1eac80859c",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 461,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4b188d767b43ffd3eb750e3c7f9b10bd.json",
+          "saved_file_sha256": "062baec7a4ff64123feab0a29bad6c6aa79b9194980faded879d70e9e755eb57",
+          "saved_file_mtime_utc": "2026-09-15T17:20:38.610048+00:00",
+          "probe_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+          "matched_512_response_sha256": "0d96e32925ea78631911142654670536effd6e04a815c7b4dcb8e36f29e1e1a1",
+          "matched_512_response_characters": 2243,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": true
+        },
+        {
+          "response_id": "response_4dd8728a238fe4414bc079535bad693d",
+          "prompt_id": "prompt_46bc32ce20587f550b4f",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "information"
+          },
+          "output_tokens": 744,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_4dd8728a238fe4414bc079535bad693d.json",
+          "saved_file_sha256": "9b47a7a3fe8d161a1314703fc047ba9c06c8667c153bb4ae062439c6af18943f",
+          "saved_file_mtime_utc": "2026-09-15T17:03:29.785816+00:00",
+          "probe_response_sha256": "234fbe0571d030d88bc25c0305ea0117e6718769e6263f8cff75115db41a1ecc",
+          "matched_512_response_sha256": "3dbaefc57c1aaa7cec1d56ac8f5dd7cac28326231f3f44dec2bee7133af2a2b1",
+          "matched_512_response_characters": 2448,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_5b0224d67050d24cbceac8b227c0c2da",
+          "prompt_id": "prompt_01f2dd9289183cc9590e",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": true,
+            "request_type": "advice"
+          },
+          "output_tokens": 524,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5b0224d67050d24cbceac8b227c0c2da.json",
+          "saved_file_sha256": "8c3280cf3b0b744008a695ee2428a30b8de17b84e344d81d431992431f42617a",
+          "saved_file_mtime_utc": "2026-09-15T15:51:55.611922+00:00",
+          "probe_response_sha256": "b61ae713bc5572094d08e23878e5ad0e63fad571d8b49643c26cce28a70183c8",
+          "matched_512_response_sha256": "160fafebc684693c236092885c35efc72060543642b8c748ccdc059972942c2f",
+          "matched_512_response_characters": 2385,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_5d9393621f8c0b300071743c37fc069b",
+          "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "advice"
+          },
+          "output_tokens": 635,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_5d9393621f8c0b300071743c37fc069b.json",
+          "saved_file_sha256": "5875eb125a2feb43952c8861fd4155f07dfe6434f6437d8641946d001a2dc4c4",
+          "saved_file_mtime_utc": "2026-09-15T16:04:03.547343+00:00",
+          "probe_response_sha256": "0443167374654bceaf73fdf96acf1704af9d6e23a5ca0f4e5a4aa970dee65e90",
+          "matched_512_response_sha256": "e8f40d43f38f8e5c590ad9e370c746e16decabb4c506fd5eb32b4d87b2f7e29f",
+          "matched_512_response_characters": 2444,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_6115d86977355d4df6d5cfe0a35d111f",
+          "prompt_id": "prompt_723e9ae54014c790a7bd",
+          "scenario_family_id": "dev_health_hiking_blister",
+          "condition": {
+            "domain": "health",
+            "emotional_framing": false,
+            "request_type": "information"
+          },
+          "output_tokens": 571,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_6115d86977355d4df6d5cfe0a35d111f.json",
+          "saved_file_sha256": "ecbacf494d8614d29be249a7a579b040ec1b2071bffc62f8684aac353414a8d2",
+          "saved_file_mtime_utc": "2026-09-15T17:34:17.236192+00:00",
+          "probe_response_sha256": "0a2ad45fe58dbec731f2b289b708d09cc2e937449c993f864c09765cda99afd4",
+          "matched_512_response_sha256": "58fde2df82e5cd82dd15e0fa39e99498b8e4c65a6774d0355f04cf1668515055",
+          "matched_512_response_characters": 2429,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        },
+        {
+          "response_id": "response_e48c6793e773ea143392927497495635",
+          "prompt_id": "prompt_40d04e2b3122517b0182",
+          "scenario_family_id": "dev_everyday_closet",
+          "condition": {
+            "domain": "everyday",
+            "emotional_framing": false,
+            "request_type": "information"
+          },
+          "output_tokens": 677,
+          "stop_reason": "eos_token",
+          "eos_reached": true,
+          "cap_reached": false,
+          "saved_file": "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/responses/response_e48c6793e773ea143392927497495635.json",
+          "saved_file_sha256": "d14e4cf4a72e2598a47fe13e014face6bf5cf4f4097eba3d529ab1a5972e2aa3",
+          "saved_file_mtime_utc": "2026-09-15T16:41:13.272233+00:00",
+          "probe_response_sha256": "214f24c857f48d71efe294ac7c46f50e56c6768e44bea2500c54ca8639bd3ed7",
+          "matched_512_response_sha256": "4a1c85fb8924b704c0e76e10b7f418b3c97b10a06c7c45c1c3ce8a7ea479a5d9",
+          "matched_512_response_characters": 2608,
+          "decoded_512_text_is_prefix": true,
+          "decoded_512_text_is_identical": false
+        }
+      ]
+    }
+  ],
+  "comparison_method": "For each strictly validated saved probe row, compare generation.response to the matched 512-export generation.response selected by exact prompt_id using Python decoded_text.startswith(matched_512_decoded_text). This is exact decoded-text prefix evidence, never token-ID equivalence.",
+  "file_sha256": {
+    "output/revision/development_budget_probe/development_1024_probe_manifest_v1.json": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+    "output/revision/full_study/protocol_v2.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "output/revision/full_study/exports/development_512_eight_responses.jsonl": "c350379c9022a9f612e7503f67290b426659c9ed1e4b45a702fd2cb80f2dcaf9",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/run_config.json": "7e72226a51cd959c4a3416041b05e820ded80d1d5ce41d4ff979f44ae595758e",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/budget_probe_manifest.json": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+    "output/revision/development_budget_probe/runs/budget_probe_run_9acdc0e5ce18effd34337b139ff53c24/parent_protocol.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+    "output/revision/verification/checkpoint_context_capacity_audit_20260915.json": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87",
+    "output/revision/development_budget_probe/exports/development_1024_eight_responses.jsonl": "961b98d914284fae5508c89e83ed6b39cf5fb0030cbfa6edf9f39880294da937",
+    "output/revision/full_study/exports/development_256_eight_responses.jsonl": "335f3c42fea1a3affc06859560cd6757a7bf9b4c6cbfdd02b2f9551783e9c670",
+    "output/revision/development_budget_probe/development_1024_verification_20260915.json": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369"
+  },
+  "source_hash_check": {
+    "manifest_declared": {
+      "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+    },
+    "actual": {
+      "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+    },
+    "match": true
+  },
+  "strict_validation_calls": {
+    "verify_run": "development_budget_probe.verify_run(manifest, parent_protocol, run_dir, require_complete=True)",
+    "validated_run": "development_budget_probe._validated_run(manifest, parent_protocol, run_dir, True)",
+    "both_passed": true,
+    "validated_row_count": 8
+  },
+  "context_capacity_audit": {
+    "path": "output/revision/verification/checkpoint_context_capacity_audit_20260915.json",
+    "sha256": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87",
+    "root_independent_verification": "PASS: artifact hash; six local config hashes and 4096-position values; model/tokenizer pins; three tokenizer-file hashes per checkpoint; five source hashes; and candidate-margin arithmetic.",
+    "limitation": "Configuration-level capacity evidence does not prove runtime success, memory fit, semantic completeness, or generation-budget adequacy."
+  },
+  "interpretation": "All eight fixed exploratory 1B Instruct responses ended with EOS within 1024 tokens. This supports considering 1024 as a provisional cap for broader six-checkpoint development calibration, not a finding of study-wide budget adequacy. Decoded prefix/identity checks do not establish token-ID identity, semantic completeness, factual correctness, or advice quality. CPU timing does not establish 7B or GPU throughput.",
+  "extended_workflow_status": "under_construction_not_yet_independently_verified_or_empirically_frozen",
+  "existing_70_test_scope_note": "The previously reported 70 tests predate and do not establish coverage of the extended workflow now under construction.",
+  "active_root_generation_session_id": null,
+  "active_root_generation_os_pid": null,
+  "live_process_action_by_this_verification": "Original generation finished successfully; strict complete verification and zero-new-response cached resume completed without altering any run-file bytes.",
+  "final_verification": {
+    "path": "output/revision/development_budget_probe/development_1024_verification_20260915.json",
+    "sha256": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369"
+  },
+  "complete_export": {
+    "status": "complete_budget_probe_export",
+    "classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+    "run_id": "budget_probe_run_9acdc0e5ce18effd34337b139ff53c24",
+    "responses": 8,
+    "output": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\development_budget_probe\\exports\\development_1024_eight_responses.jsonl",
+    "output_sha256": "961b98d914284fae5508c89e83ed6b39cf5fb0030cbfa6edf9f39880294da937"
+  },
+  "resume": {
+    "run_dir": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24",
+    "completed": 8,
+    "new_responses": 0,
+    "remaining": 0,
+    "status": "complete"
+  },
+  "completed_root_generation_session_id": 23678,
+  "completed_root_generation_os_pid": 15208,
+  "original_generation_process_exit_code": 0
+}

@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "verified_at": "2026-09-15T15:36:55.319390+00:00",
+  "scope": "independent fixed probe prelaunch audit; no generation in this check",
+  "probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "manifest_path": "C:\\Users\\vasilis\\Documents\\GitHub\\llm-research\\output\\revision\\development_budget_probe\\development_1024_probe_manifest_v1.json",
+  "manifest_sha256": "7945422d916bc6f81f0e3a460ff5a41124cedf2054c74aa2ec0183ffe7db185a",
+  "source_sha256": {
+    "experiments/development_budget_probe.py": "0ef67f2764a4360cb874eff3b0798c1aad660cd0bf88ab9c4a046ca87552f279",
+    "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db"
+  },
+  "actual_prior_cpu_execution_profile_equal": true,
+  "checks": [
+    {
+      "prompt_id": "prompt_01f2dd9289183cc9590e",
+      "response_id_1024": "response_5b0224d67050d24cbceac8b227c0c2da",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_05799bd3d7bb439bc8c5",
+      "response_id_1024": "response_5d9393621f8c0b300071743c37fc069b",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_37343c58848ceda69602",
+      "response_id_1024": "response_322263f56de192300236c36fbb023a53",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_40d04e2b3122517b0182",
+      "response_id_1024": "response_e48c6793e773ea143392927497495635",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_46bc32ce20587f550b4f",
+      "response_id_1024": "response_4dd8728a238fe4414bc079535bad693d",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_5d34517bef1eac80859c",
+      "response_id_1024": "response_4b188d767b43ffd3eb750e3c7f9b10bd",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_723e9ae54014c790a7bd",
+      "response_id_1024": "response_6115d86977355d4df6d5cfe0a35d111f",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    },
+    {
+      "prompt_id": "prompt_f604a2a97fc25ddb0159",
+      "response_id_1024": "response_43dff3cd2c847545689f0e2a12e3cd7a",
+      "matching_prompt_seed_checkpoint": true,
+      "distinct_budget_response_ids": true
+    }
+  ],
+  "preservation": {
+    "status": "pass",
+    "parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+    "parent_source_hashes_valid": true,
+    "parent_source_comparisons": {
+      "experiments/detector_spec.py": {
+        "declared_sha256": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+        "actual_sha256": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365",
+        "match": true
+      },
+      "experiments/full_revision_study.py": {
+        "declared_sha256": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+        "actual_sha256": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+        "match": true
+      },
+      "experiments/prompts_revision_v1.json": {
+        "declared_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "actual_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+        "match": true
+      },
+      "experiments/revision_study.py": {
+        "declared_sha256": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+        "actual_sha256": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+        "match": true
+      }
+    },
+    "calibration_source": "experiments/calibration_study.py",
+    "calibration_expected_sha256": "fd348ce184a986b8d298bee52c6e78ccfa431f9bf08824318349d1a2b9485862",
+    "calibration_actual_sha256": "fd348ce184a986b8d298bee52c6e78ccfa431f9bf08824318349d1a2b9485862",
+    "calibration_is_probe_dependency": false
+  },
+  "mocked_tests": {
+    "passed": 9,
+    "junit": "output/revision/verification/budget_probe_tests_20260915.xml"
+  }
+}

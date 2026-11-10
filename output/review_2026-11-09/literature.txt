@@ -1,0 +1,139 @@
+PRIMARY LITERATURE AUDIT - 9 NOVEMBER 2026
+
+Scope: focused comparison for Measuring Advice-Style Language in OLMo-2. This is a targeted review, not a systematic review or a claim that all relevant work has been found. Methods below were checked against primary full text except Lee et al., where only the publisher repository metadata and abstract were accessible. Proposed adaptations are recommendations, not reported results. Four verified references were appended to custom.bib after root authorization; manuscript edits are handled separately.
+
+MAIN JUDGMENT
+
+The defensible gap is not that post-training changes style, that longer outputs affect evaluation, or that automated empathy metrics need validation: these are established. The potentially useful contribution is a reproducible case study showing how detector component, operational definition, and observed response window change the same post-training comparison, with prompt-paired uncertainty and independent human validation. The current evidence must remain a detector audit until the human and prospective work is complete. A marker-rate increase must not be presented as greater empathy or better advice.
+
+1. Lee, Yoon Kyung; Lee, Jaehyeong; An, Seonu; Hahn, Sowon (2026).
+What Makes an LLM Response Read as Empathic? A Multi-Dimensional Study of Empathic Alignment.
+Source: https://repositories.cdlib.org/uc/item/1zn8123s
+Verification: repository abstract/metadata only; full PDF inaccessible in this audit. Do not infer sample sizes, exact model IDs, training settings, statistical tests, or code availability.
+Verified method: five instruction-tuned LLMs assessed on specificity, emotional reflection, affective word choice, and diversity. Reflection-targeted preference learning improved the four-dimensional metric composite, but human raters showed no reliable preference over baseline responses.
+Overlap/difference: closest missing warning that optimizing empathy-related measurements need not improve perceived response quality. Your study examines measurement instability across checkpoints and text windows rather than optimizing a model.
+Proposed adaptation: compare marker changes with separately collected contextual human judgments, reporting disagreement rather than assuming convergence.
+
+2. Kumar, Aakriti; Poungpeth, Nalin; Yang, Diyi; Farrell, Erina; Lambert, Bruce L.; Groh, Matthew (2026).
+When large language models are reliable for judging empathic communication. Nature Machine Intelligence 8, 173-185.
+Published source: https://www.nature.com/articles/s42256-025-01169-6
+Full-text methods checked: https://arxiv.org/html/2506.10150v2
+Verified method: 200 conversations, 50 from each of four datasets/frameworks, with 3,150 expert, 2,844 crowd, and 3,150 LLM annotations. Models include GPT-4o, Gemini 2.5 Pro and Claude 3.7 Sonnet. Reliability is assessed against expert agreement across framework subcomponents, rather than assuming a universal empathy label. Models can approach expert reliability in these validated settings.
+Code: https://github.com/aakriti1kumar/replication-data-and-code-when-LLMs-reliable-empathic-communication (opened; contains annotations and analysis.ipynb).
+Overlap/difference: important counterbalance to a categorical claim that LLM empathy judges are unreliable; your narrow AI-only audit does not establish validity or invalidity for all such judges.
+Proposed adaptation: report human-human and detector-human agreement separately, with a declared response/context unit and per-category errors.
+
+3. Ibrahim, Lujain; Hafner, Franziska Sofia; Rocher, Luc (2026).
+Training language models to be warm can reduce accuracy and increase sycophancy. Nature 652, 1159-1165.
+Published record: https://doi.org/10.1038/s41586-026-10410-0
+Author source: https://syntheticsociety.oii.ox.ac.uk/research/warm-llm/
+Full-text methods checked in earlier preprint: https://arxiv.org/html/2507.21919v2 (title differs; do not assume every detail is unchanged in final journal version).
+Verified preprint method: five models, warmth-oriented SFT on transformed conversational responses; LoRA for open models. Evaluations pair original and warm models on factual/reliability tasks and vary emotional context and incorrect user beliefs. Controls include cold-style fine-tuning, system prompting, response length, and general capabilities. Analyses include McNemar tests, FDR correction, and logistic regression.
+Overlap/difference: establishes why style measurement matters, but studies downstream correctness and sycophancy under interventions; your study does not estimate those outcomes.
+Proposed adaptation: use matched scenario variants and distinguish acknowledgment of emotion from agreement with an incorrect proposition. Do not add a large safety claim without measuring safety.
+
+4. Bean, Andrew M., et al. (2025).
+Measuring what Matters: Construct Validity in Large Language Model Benchmarks. NeurIPS 2025 Datasets and Benchmarks track.
+Sources: https://arxiv.org/abs/2511.04703 ; https://arxiv.org/html/2511.04703v1
+Verified method: systematic review of 445 benchmarks by 29 expert reviewers, selected from proceedings using inclusion/exclusion criteria and a structured codebook. Separates phenomenon, task, metric, and claim; provides eight recommendations and a construct-validity checklist.
+Code: https://github.com/am-bean/benchmark_review (opened).
+Overlap/difference: establishes the broader methodological problem. Your contribution would be empirical quantification of one concrete failure mode, not a new general account of construct validity.
+Proposed adaptation: make a small construct-to-operation table specifying intended phenomenon, observed marker, unit, likely confounds, validation target, and permitted interpretation. Use a frozen held-out validation split and an explicit error analysis.
+
+5. Rivière, Pamela D.; Jones, Cameron; Trott, Sean (2026).
+Developmental Trajectories of Situation Modeling and Mentalizing in Transformer Language Models.
+Source: https://arxiv.org/html/2606.28524v1
+Verified method: OLMo-2 and Pythia checkpoint trajectories; 192 passages from 12 false-belief templates varying knowledge state, cue, and mention order. Adds 192 antagonist variants and 768 situation-modeling queries. Uses correct/distractor completion log-odds, Hugging Face Transformers, log-spaced checkpoints and targeted stress tests.
+Paper-linked resources: https://github.com/seantrott/dev_tom/tree/main ; https://osf.io/ncypd/overview (paper links verified; repository content was not accessible).
+Overlap/difference: close model-family and stage framing, but structured reasoning choices rather than free-form advice markers.
+Proposed adaptation: make variants within each scenario family, preserve family IDs across stages, and test the relevant stage-by-condition contrast. Their token-probability endpoint avoids free-generation length confounding; it is not interchangeable with your occurrence endpoint.
+Bibliographic status: existing citation is real and accurate; arXiv describes a non-archival workshop submission.
+
+6. Xiao, Frank; Aranguri, Santiago (2026).
+Probe-Based Data Attribution: Discovering and Mitigating Undesirable Behaviors in LLM Post-Training (explicitly v3).
+Source: https://arxiv.org/html/2602.11079v3
+Verified method: activation-difference vectors for behavior changes and preference pairs, ranked by cosine similarity. OLMo-2 7B DPO interventions filter or relabel ranked data and retrain from SFT; random, gradient and LLM-based rankings serve as comparisons. Behavioral evaluation includes 120 prompts with 100 response samples each and prompt-bootstrap intervals; capability checks assess trade-offs.
+Overlap/difference: direct precedent on the same post-training chain. It validates data attribution through retraining; corpus phrase co-occurrence and conditional DPO association cannot supply that evidence.
+Proposed adaptation: retain observational wording. If attribution becomes the central claim later, add targeted-data removal/relabeling versus size-matched random controls, held-out prompts and capability checks; this is a separate substantial experiment.
+Bibliographic status: current v3 title in the manuscript is correct and is also displayed by the unversioned arXiv page. Earlier versions used an In-the-Wild Model Organisms title. A versioned URL makes the cited version explicit.
+
+7. Dubois, Yann; Galambosi, Balázs; Liang, Percy; Hashimoto, Tatsunori B. (2024; revised 2025).
+Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators.
+Source: https://arxiv.org/html/2404.04475v2
+Verified method: on 805 instructions, fit a logistic preference model with model identity, transformed length difference and instruction difficulty, then predict with zero length difference. Evaluates resistance to verbosity manipulations and correlation with external human rankings.
+Code: https://github.com/tatsu-lab/alpaca_eval (opened).
+Overlap/difference: establishes length-sensitive preference evaluation. Your endpoint is detector-defined marker presence, and prefix restriction changes how much text is observed rather than estimating the same quantity as a preference-regression adjustment.
+Proposed adaptation: label full-response, fixed-prefix and conditional-model endpoints separately; publish all of them. Do not describe prefix truncation as a causal removal of length bias or equate conditional association with a training effect.
+
+8. Singhal, Prasann; Goyal, Tanya; Xu, Jiacheng; Durrett, Greg (2023; revised 2024).
+A Long Way to Go: Investigating Length Correlations in RLHF.
+Source: https://arxiv.org/html/2310.03716v2
+Verified method: LLaMA-7B experiments across WebGPT, Stack Exchange and RLCD settings, using Hugging Face TRL and rank-16 LoRA. Examines length-stratified reward changes, length-only reward, PPO/reward-model interventions, and supplementary DPO experiments. Reports downstream simulated-preference evaluations alongside reward and length.
+Overlap/difference: length correlations in post-training are established. The paper intervenes on training; your marker/window analysis asks a narrower measurement question.
+Proposed adaptation: report response-length distributions and truncation rates alongside marker rates; treat length-only or sentence-count baselines as diagnostic controls. More tokens or more marker hits do not by themselves establish better advice.
+
+9. Welivita, Anuradha; Zeitoun, Fawzia; Pu, Pearl (2026).
+Who Generates More Empathetic Responses—Humans or LLMs? A Comparative Evaluation with Human and LLM Judges. CoNLL, 358-381.
+Sources: https://aclanthology.org/2026.conll-main.21/ ; https://aclanthology.org/2026.conll-main.21.pdf
+Verified method: 2,000 dialogue prompts across 32 emotions; four LLMs and a human baseline; 1,000 participants in a between-subjects study with source-blinded ratings. GPT-4o-mini supplies an additional evaluation. Human groups receive the same empathy explanation as generation prompts; ratings are Bad/Okay/Good and analysis uses chi-square comparisons. The limitations explicitly state response length was reported but not controlled or analyzed.
+Overlap/difference: human-perceived response quality rather than lexical-marker incidence; the length limitation motivates a targeted extension but does not prove its findings are artifacts.
+Proposed adaptation: collect contextual human labels on a source-blinded sample, include output length in the analysis plan, and use cluster-aware comparisons for the repeated scenario structure of this study.
+
+10. Badawi, Abeer; Rahimi, Elahe; Laskar, Md Tahmid Rahman; Grach, Sheri; Bertrand, Lindsay; Danok, Lames; Dhanesh, Prathiba; Huang, Jimmy Xiangji; Rudzicz, Frank; Dolatabadi, Elham (2026).
+When Can We Trust LLMs in Mental Health? Large-Scale Benchmarks for Reliable LLM Evaluation. EACL, 3873-3896.
+Sources: https://aclanthology.org/2026.eacl-long.180/ ; https://aclanthology.org/2026.eacl-long.180.pdf
+Verified method: MentalBench combines 10,000 conversations with human and nine model responses. MentalAlign samples 1,000 conversations; four LLM judges and three human experts assess seven attributes. Uses ICC for consistency/absolute agreement, bias estimates, and bootstrap intervals. Its ICC analysis aggregates over conversations to model-level scores; it should not be treated as response-level classification accuracy.
+Code/data: https://github.com/abeerbadawi/MentalBench-Align (opened).
+Overlap/difference: task-specific evidence that agreement varies by attribute; does not justify a universal claim that automated judges fail.
+Proposed adaptation: validate each marker category separately and report false-positive/false-negative patterns; reserve semantic empathy claims for an appropriately validated contextual label.
+
+RECOMMENDED ADDITIONS AND NON-ADDITIONS
+
+Add Bean for measurement framing, Kumar for a balanced account of judge validation, and Lee for the metric-versus-human distinction (with exact implementation details withheld until its full paper is inspected). Ibrahim is valuable for motivation and scope boundaries if space permits. Keep the existing direct length and OLMo references. Avoid expanding into a broad mental-health survey; it would obscure the measurement contribution.
+
+No E5 correction is needed: root verified intfloat/multilingual-e5-small in provenance, matching the cited multilingual report. Earlier suspicion based on abbreviated naming was withdrawn.
+
+Suggested wording for root to adapt (proposal, not an excerpt):
+Prior work shows that empathy-oriented metrics can improve without a corresponding change in human preference, while carefully validated LLM judgments can approach expert agreement on specific empathic-communication tasks. We therefore evaluate the reliability of a declared detector for a declared unit and interpretation, rather than treating marker occurrence as empathy. Our focus is how detector components and observed response windows change checkpoint comparisons.
+
+VERIFIED BIBLIOGRAPHIC ADDITIONS (metadata only; copy to bibliography after checking venue style)
+
+@article{kumar2026reliable,
+  title = {When large language models are reliable for judging empathic communication},
+  author = {Kumar, Aakriti and Poungpeth, Nalin and Yang, Diyi and Farrell, Erina and Lambert, Bruce L. and Groh, Matthew},
+  journal = {Nature Machine Intelligence},
+  volume = {8},
+  pages = {173--185},
+  year = {2026},
+  doi = {10.1038/s42256-025-01169-6},
+  url = {https://www.nature.com/articles/s42256-025-01169-6}
+}
+
+@article{ibrahim2026warm,
+  title = {Training language models to be warm can reduce accuracy and increase sycophancy},
+  author = {Ibrahim, Lujain and Hafner, Franziska Sofia and Rocher, Luc},
+  journal = {Nature},
+  volume = {652},
+  pages = {1159--1165},
+  year = {2026},
+  doi = {10.1038/s41586-026-10410-0},
+  url = {https://www.nature.com/articles/s41586-026-10410-0}
+}
+
+@misc{lee2026empathic,
+  title = {What Makes an {LLM} Response Read as Empathic? A Multi-Dimensional Study of Empathic Alignment},
+  author = {Lee, Yoon Kyung and Lee, Jaehyeong and An, Seonu and Hahn, Sowon},
+  year = {2026},
+  url = {https://repositories.cdlib.org/uc/item/1zn8123s}
+}
+
+@misc{bean2025construct,
+  title = {Measuring what Matters: Construct Validity in Large Language Model Benchmarks},
+  author = {Bean, Andrew M. and Kearns, Ryan Othniel and Romanou, Angelika and Hafner, Franziska Sofia and Mayne, Harry and Batzner, Jan and Foroutan, Negar and Schmitz, Chris and Korgul, Karolina and Batra, Hunar and Deb, Oishi and Beharry, Emma and Emde, Cornelius and Foster, Thomas and Gausen, Anna and Grandury, Mar{\'i}a and Han, Simeng and Hofmann, Valentin and Ibrahim, Lujain and Kim, Hazel and Kirk, Hannah Rose and Lin, Fangru and Liu, Gabrielle Kaili-May and Luettgau, Lennart and Magomere, Jabez and Rystr{\o}m, Jonathan and Sotnikova, Anna and Yang, Yushi and Zhao, Yilun and Bibi, Adel and Bosselut, Antoine and Clark, Ronald and Cohan, Arman and Foerster, Jakob and Gal, Yarin and Hale, Scott A. and Raji, Inioluwa Deborah and Summerfield, Christopher and Torr, Philip H. S. and Ududec, Cozmin and Rocher, Luc and Mahdi, Adam},
+  year = {2025},
+  eprint = {2511.04703},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  note = {NeurIPS 2025 Datasets and Benchmarks track},
+  url = {https://arxiv.org/abs/2511.04703}
+}

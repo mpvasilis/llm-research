@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-09",
+  "cuda_available": false,
+  "cuda_device_count": 0,
+  "calibration_directory": "output/revision/extended_study/calibration_study",
+  "calibration_files": [
+    "manifest.json"
+  ],
+  "human_prompt_review_status": "PENDING_HUMAN_REVIEW",
+  "scope": "Local observation only; no remote GPU inventory or human annotations inferred",
+  "prospective_generation_performed_this_review": false,
+  "human_annotations_created_this_review": false
+}

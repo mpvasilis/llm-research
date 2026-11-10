@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1072.630" timestamp="2026-09-15T20:57:05.855816+03:00" hostname="vmaqs2603230920"><testcase classname="tests.test_extended_prospective_validation" name="test_real_strict_full_grid_roundtrip_and_uniform_wrong_run_id_rejection" time="1067.445"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'readiness|provenance|config'&#10;  Actual message: 'Readiness snapshot hash mismatch'">frozen_inputs = {'evidence_path': WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_...asilis/pytest-1139/test_real_strict_full_grid_rou0/copied_successor_validation_package_at_default_depth/cm.json'), ...}
+tmp_path = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_full_grid_rou0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000013BAD458C30&gt;
+
+    def test_real_strict_full_grid_roundtrip_and_uniform_wrong_run_id_rejection(
+        frozen_inputs: dict, tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        _freeze(frozen_inputs)
+        evaluation_run_dir, response_export, prediction_export, review_path = _strict_evaluation_archives(
+            frozen_inputs, tmp_path
+        )
+        readiness = {
+            "plan_path": frozen_inputs["plan_path"],
+            "calibration_manifest_path": frozen_inputs["manifest_path"],
+            "calibration_responses_path": frozen_inputs["responses_path"],
+            "calibration_run_dir": frozen_inputs["run_dir"],
+            "evidence_path": frozen_inputs["evidence_path"],
+            "guide_path": frozen_inputs["guide_path"],
+        }
+        before_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        execution = _execution()
+        monkeypatch.setattr(full, "execution_profile", lambda *_args: execution)
+    
+        def model_load_forbidden(*_args, **_kwargs):
+            raise AssertionError("A complete valid resume must not load a model")
+    
+        monkeypatch.setattr(full, "load_checkpoint", model_load_forbidden)
+        resumed = full.run_generation(
+            frozen_inputs["protocol_path"], "evaluation", evaluation_run_dir.parents[1],
+            None, review_path, "cpu", True, execution["torch_num_threads"],
+            readiness=readiness,
+        )
+        after_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        assert resumed["new_responses"] == 0 and resumed["completed"] == 2880
+        assert before_resume == after_resume
+        packet = tmp_path / "strict_packet"
+        manifest = prospective.prepare_packet(
+            frozen_inputs["plan_path"], frozen_inputs["protocol_path"], response_export,
+            prediction_export, frozen_inputs["manifest_path"], frozen_inputs["responses_path"],
+            frozen_inputs["run_dir"], frozen_inputs["evidence_path"], evaluation_run_dir,
+            packet, frozen_inputs["guide_path"],
+        )
+        assert manifest["n_pool"] == 2880
+        assert manifest["prediction_unit_counts_in_source"] == {
+            unit: 2880 for unit in revision_analysis.WINDOWS
+        }
+        assert manifest["n_probability_sample"] == 624
+        assert manifest["n_enriched_union"] &lt;= 120
+    
+        relocation = full.fs_path(tmp_path / "relocated_complete_package")
+        relocated_protocol_root = relocation / "protocol_bundle"
+        shutil.copytree(frozen_inputs["protocol_path"].parent, relocated_protocol_root)
+        relocated_protocol = relocated_protocol_root / frozen_inputs["protocol_path"].name
+        relocated_manifest = relocation / "calibration_manifest.json"
+        relocated_calibration_responses = relocation / "calibration_responses.jsonl"
+        relocated_evidence = relocation / "human_evidence.json"
+        relocated_guide = relocation / "guide.md"
+        for source, destination in (
+            (frozen_inputs["manifest_path"], relocated_manifest),
+            (frozen_inputs["responses_path"], relocated_calibration_responses),
+            (frozen_inputs["evidence_path"], relocated_evidence),
+            (frozen_inputs["guide_path"], relocated_guide),
+        ):
+            shutil.copy2(source, destination)
+        relocated_plan = relocation / "sampling_plan.json"
+        shutil.copy2(frozen_inputs["plan_path"], relocated_plan)
+        relocated_calibration_run = relocation / "calibration_runs" / frozen_inputs["run_dir"].name
+        shutil.copytree(frozen_inputs["run_dir"], relocated_calibration_run)
+        relocated_evaluation_run = relocation / "evaluation_runs" / evaluation_run_dir.name
+        shutil.copytree(evaluation_run_dir, relocated_evaluation_run)
+        relocated_responses = relocation / "evaluation_responses.jsonl"
+        relocated_predictions = relocation / "evaluation_predictions.jsonl"
+        shutil.copy2(response_export, relocated_responses)
+        shutil.copy2(prediction_export, relocated_predictions)
+    
+        # Remove the construction locations. Validation must use only the portable
+        # successor package while preserving the two run-directory identity leaves.
+        shutil.rmtree(frozen_inputs["protocol_path"].parents[1])
+        shutil.rmtree(evaluation_run_dir.parents[1])
+        response_export.unlink()
+        prediction_export.unlink()
+        review_path.unlink()
+        unavailable = tmp_path / "original_inputs_are_unavailable"
+        monkeypatch.setattr(full, "DEFAULT_PARENT_PROTOCOL", unavailable / "parent.json")
+        monkeypatch.setattr(
+            probe,
+            "EVIDENCE_PATHS",
+            {name: unavailable / f"{name}.missing" for name in probe.EVIDENCE_PATHS},
+        )
+        relocated_packet = relocation / "packet"
+        relocated_manifest_result = prospective.prepare_packet(
+            relocated_plan, relocated_protocol, relocated_responses, relocated_predictions,
+            relocated_manifest, relocated_calibration_responses, relocated_calibration_run,
+            relocated_evidence, relocated_evaluation_run, relocated_packet, relocated_guide,
+        )
+        assert relocated_manifest_result["n_pool"] == 2880
+        assert relocated_calibration_run.name.startswith("extended_calibration_run_")
+        assert relocated_evaluation_run.name.startswith("extended_run_")
+    
+        rehashed_rows = [json.loads(line) for line in relocated_predictions.read_text(encoding="utf-8").splitlines()]
+        forged = rehashed_rows[0]
+        forged["response_id"] = "response_forged_outside_successor_grid"
+        forged_identity = {
+            "response_id": forged["response_id"],
+            "detector_version": forged["detector_version"],
+            "prediction_variant": forged["prediction_variant"],
+            "evaluation_unit": forged["evaluation_unit"],
+            "dependency_identity": forged["dependency_identity"],
+        }
+        forged["prediction_id"] = revision_analysis.stable_id("prediction", forged_identity)
+        rehashed_predictions = relocation / "rehashed_prediction_tamper.jsonl"
+        _write_jsonl(rehashed_predictions, rehashed_rows)
+        with pytest.raises(ValueError, match="no matching response|exactly match"):
+            prospective.prepare_packet(
+                relocated_plan, relocated_protocol, relocated_responses,
+                rehashed_predictions, relocated_manifest, relocated_calibration_responses,
+                relocated_calibration_run, relocated_evidence, relocated_evaluation_run,
+                tmp_path / "rehashed_prediction_packet", relocated_guide,
+            )
+    
+        wrong_rows = [json.loads(line) for line in relocated_predictions.read_text(encoding="utf-8").splitlines()]
+        for row in wrong_rows:
+            row["run_id"] = "run_uniform_but_wrong"
+        wrong_predictions = tmp_path / "wrong_run_predictions.jsonl"
+        _write_jsonl(wrong_predictions, wrong_rows)
+        # The checkpoint loader permits a uniform run_id. The prospective companion
+        # must still bind it to the verified concrete evaluation run.
+        prospective._load_and_validate_successor_study(
+            relocated_protocol, relocated_responses, wrong_predictions
+        )
+        with pytest.raises(ValueError, match="run_id does not match"):
+            prospective.prepare_packet(
+                relocated_plan, relocated_protocol, relocated_responses,
+                wrong_predictions, relocated_manifest, relocated_calibration_responses,
+                relocated_calibration_run, relocated_evidence, relocated_evaluation_run,
+                tmp_path / "wrong_packet", relocated_guide,
+            )
+    
+        tampered_parent = relocation / "tampered_evaluation_runs"
+        tampered_run = tampered_parent / relocated_evaluation_run.name
+        shutil.copytree(relocated_evaluation_run, tampered_run)
+        run_config_path = tampered_run / "run_config.json"
+        run_config = json.loads(run_config_path.read_text(encoding="utf-8"))
+        run_config["readiness_sha256"]["guide_path"] = "0" * 64
+        run_body = {key: value for key, value in run_config.items() if key != "run_id"}
+        run_config["run_id"] = full.stable_id("extended_run", run_body, 32)
+        run_config_path.write_text(json.dumps(run_config, indent=2) + "\n", encoding="utf-8")
+        rehashed_run = tampered_parent / run_config["run_id"]
+        tampered_run.rename(rehashed_run)
+        with pytest.raises(ValueError, match="readiness|provenance|config"):
+&gt;           prospective.prepare_packet(
+                relocated_plan, relocated_protocol, relocated_responses,
+                relocated_predictions, relocated_manifest, relocated_calibration_responses,
+                relocated_calibration_run, relocated_evidence, rehashed_run,
+                tmp_path / "rehashed_run_packet", relocated_guide,
+            )
+
+tests\test_extended_prospective_validation.py:1062: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+experiments\extended_prospective_validation.py:1034: in prepare_packet
+    evaluation_provenance = _validate_evaluation_run_export(
+experiments\extended_prospective_validation.py:772: in _validate_evaluation_run_export
+    report = calibration.core.verify_run(
+experiments\extended_revision_study.py:925: in verify_run
+    protocol, config, grid = _validate_run_config(protocol_path, run_dir)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+protocol_path = WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_full_grid_rou0/relocated_complete_package/protocol_bundle/protocol.json')
+run_dir = WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_full_grid_rou0/relocated_complete_package/tampered_evaluation_runs/extended_run_6471241be60e09b8a8f520d2fbfa22ef')
+
+    def _validate_run_config(protocol_path: Path, run_dir: Path) -&gt; tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
+        protocol_path = fs_path(protocol_path)
+        run_dir = fs_path(run_dir)
+        protocol = load_protocol(protocol_path)
+        config = _read_json(run_dir / "run_config.json")
+        if config.get("run_schema_version") != RUN_SCHEMA_VERSION or config.get("orchestration_version") != ORCHESTRATION_VERSION:
+            raise ValueError("Run is not an extended-study run")
+        grid, classification = _mode_grid(protocol, config.get("mode"), None)
+        selected_families = set(config.get("scenario_family_ids", []))
+        if config["mode"].startswith("development-"):
+            grid = [entry for entry in grid if entry["scenario_family_id"] in selected_families]
+        execution = config.get("execution_profile")
+        if not isinstance(execution, dict):
+            raise ValueError("Run lacks an execution profile")
+        execution_body = {key: value for key, value in execution.items() if key != "execution_profile_id"}
+        if execution.get("execution_profile_id") != stable_id("execution", execution_body, 32):
+            raise ValueError("Run execution profile identity mismatch")
+        expected_core = {
+            "run_schema_version": RUN_SCHEMA_VERSION, "orchestration_version": ORCHESTRATION_VERSION,
+            "runner_version": RUNNER_VERSION, "protocol_id": protocol["protocol_id"],
+            "protocol_sha256": sha256_file(protocol_path), "mode": config["mode"],
+            "classification": classification,
+            "human_review_manifest_sha256": config.get("human_review_manifest_sha256"),
+            "readiness_sha256": config.get("readiness_sha256"),
+            "scenario_family_ids": sorted({entry["scenario_family_id"] for entry in grid}),
+            "execution_profile": execution, "response_ids": [entry["response_id"] for entry in grid],
+            "expected_responses": len(grid),
+        }
+        expected_config = {**expected_core, "run_id": stable_id("extended_run", expected_core, 32)}
+        if canonical_json(config) != canonical_json(expected_config) or run_dir.name != config.get("run_id"):
+            raise ValueError("Run config, grid, provenance, or directory identity mismatch")
+        if sha256_file(run_dir / "protocol.json") != config["protocol_sha256"]:
+            raise ValueError("Run protocol snapshot hash mismatch")
+        load_protocol(run_dir / "protocol.json")
+        if config["mode"] in {"evaluation", "sensitivity"}:
+            review = run_dir / "human_review_manifest.json"
+            if sha256_file(review) != config["human_review_manifest_sha256"]:
+                raise ValueError("Human-review snapshot hash mismatch")
+            validate_human_review(protocol, review)
+            snapshots = _snapshot_readiness_mapping(run_dir)
+            _validate_readiness(run_dir / "protocol.json", snapshots)
+            observed = {key: (_tree_hash(path) if key == "calibration_run_dir" else sha256_file(path)) for key, path in snapshots.items()}
+            if observed != config["readiness_sha256"]:
+&gt;               raise ValueError("Readiness snapshot hash mismatch")
+E               ValueError: Readiness snapshot hash mismatch
+
+experiments\extended_revision_study.py:916: ValueError
+
+During handling of the above exception, another exception occurred:
+
+frozen_inputs = {'evidence_path': WindowsPath('//?/C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_...asilis/pytest-1139/test_real_strict_full_grid_rou0/copied_successor_validation_package_at_default_depth/cm.json'), ...}
+tmp_path = WindowsPath('C:/Users/vasilis/AppData/Local/Temp/pytest-of-vasilis/pytest-1139/test_real_strict_full_grid_rou0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000013BAD458C30&gt;
+
+    def test_real_strict_full_grid_roundtrip_and_uniform_wrong_run_id_rejection(
+        frozen_inputs: dict, tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        _freeze(frozen_inputs)
+        evaluation_run_dir, response_export, prediction_export, review_path = _strict_evaluation_archives(
+            frozen_inputs, tmp_path
+        )
+        readiness = {
+            "plan_path": frozen_inputs["plan_path"],
+            "calibration_manifest_path": frozen_inputs["manifest_path"],
+            "calibration_responses_path": frozen_inputs["responses_path"],
+            "calibration_run_dir": frozen_inputs["run_dir"],
+            "evidence_path": frozen_inputs["evidence_path"],
+            "guide_path": frozen_inputs["guide_path"],
+        }
+        before_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        execution = _execution()
+        monkeypatch.setattr(full, "execution_profile", lambda *_args: execution)
+    
+        def model_load_forbidden(*_args, **_kwargs):
+            raise AssertionError("A complete valid resume must not load a model")
+    
+        monkeypatch.setattr(full, "load_checkpoint", model_load_forbidden)
+        resumed = full.run_generation(
+            frozen_inputs["protocol_path"], "evaluation", evaluation_run_dir.parents[1],
+            None, review_path, "cpu", True, execution["torch_num_threads"],
+            readiness=readiness,
+        )
+        after_resume = {
+            path.name: full.sha256_file(path)
+            for path in (evaluation_run_dir / "responses").glob("*.json")
+        }
+        assert resumed["new_responses"] == 0 and resumed["completed"] == 2880
+        assert before_resume == after_resume
+        packet = tmp_path / "strict_packet"
+        manifest = prospective.prepare_packet(
+            frozen_inputs["plan_path"], frozen_inputs["protocol_path"], response_export,
+            prediction_export, frozen_inputs["manifest_path"], frozen_inputs["responses_path"],
+            frozen_inputs["run_dir"], frozen_inputs["evidence_path"], evaluation_run_dir,
+            packet, frozen_inputs["guide_path"],
+        )
+        assert manifest["n_pool"] == 2880
+        assert manifest["prediction_unit_counts_in_source"] == {
+            unit: 2880 for unit in revision_analysis.WINDOWS
+        }
+        assert manifest["n_probability_sample"] == 624
+        assert manifest["n_enriched_union"] &lt;= 120
+    
+        relocation = full.fs_path(tmp_path / "relocated_complete_package")
+        relocated_protocol_root = relocation / "protocol_bundle"
+        shutil.copytree(frozen_inputs["protocol_path"].parent, relocated_protocol_root)
+        relocated_protocol = relocated_protocol_root / frozen_inputs["protocol_path"].name
+        relocated_manifest = relocation / "calibration_manifest.json"
+        relocated_calibration_responses = relocation / "calibration_responses.jsonl"
+        relocated_evidence = relocation / "human_evidence.json"
+        relocated_guide = relocation / "guide.md"
+        for source, destination in (
+            (frozen_inputs["manifest_path"], relocated_manifest),
+            (frozen_inputs["responses_path"], relocated_calibration_responses),
+            (frozen_inputs["evidence_path"], relocated_evidence),
+            (frozen_inputs["guide_path"], relocated_guide),
+        ):
+            shutil.copy2(source, destination)
+        relocated_plan = relocation / "sampling_plan.json"
+        shutil.copy2(frozen_inputs["plan_path"], relocated_plan)
+        relocated_calibration_run = relocation / "calibration_runs" / frozen_inputs["run_dir"].name
+        shutil.copytree(frozen_inputs["run_dir"], relocated_calibration_run)
+        relocated_evaluation_run = relocation / "evaluation_runs" / evaluation_run_dir.name
+        shutil.copytree(evaluation_run_dir, relocated_evaluation_run)
+        relocated_responses = relocation / "evaluation_responses.jsonl"
+        relocated_predictions = relocation / "evaluation_predictions.jsonl"
+        shutil.copy2(response_export, relocated_responses)
+        shutil.copy2(prediction_export, relocated_predictions)
+    
+        # Remove the construction locations. Validation must use only the portable
+        # successor package while preserving the two run-directory identity leaves.
+        shutil.rmtree(frozen_inputs["protocol_path"].parents[1])
+        shutil.rmtree(evaluation_run_dir.parents[1])
+        response_export.unlink()
+        prediction_export.unlink()
+        review_path.unlink()
+        unavailable = tmp_path / "original_inputs_are_unavailable"
+        monkeypatch.setattr(full, "DEFAULT_PARENT_PROTOCOL", unavailable / "parent.json")
+        monkeypatch.setattr(
+            probe,
+            "EVIDENCE_PATHS",
+            {name: unavailable / f"{name}.missing" for name in probe.EVIDENCE_PATHS},
+        )
+        relocated_packet = relocation / "packet"
+        relocated_manifest_result = prospective.prepare_packet(
+            relocated_plan, relocated_protocol, relocated_responses, relocated_predictions,
+            relocated_manifest, relocated_calibration_responses, relocated_calibration_run,
+            relocated_evidence, relocated_evaluation_run, relocated_packet, relocated_guide,
+        )
+        assert relocated_manifest_result["n_pool"] == 2880
+        assert relocated_calibration_run.name.startswith("extended_calibration_run_")
+        assert relocated_evaluation_run.name.startswith("extended_run_")
+    
+        rehashed_rows = [json.loads(line) for line in relocated_predictions.read_text(encoding="utf-8").splitlines()]
+        forged = rehashed_rows[0]
+        forged["response_id"] = "response_forged_outside_successor_grid"
+        forged_identity = {
+            "response_id": forged["response_id"],
+            "detector_version": forged["detector_version"],
+            "prediction_variant": forged["prediction_variant"],
+            "evaluation_unit": forged["evaluation_unit"],
+            "dependency_identity": forged["dependency_identity"],
+        }
+        forged["prediction_id"] = revision_analysis.stable_id("prediction", forged_identity)
+        rehashed_predictions = relocation / "rehashed_prediction_tamper.jsonl"
+        _write_jsonl(rehashed_predictions, rehashed_rows)
+        with pytest.raises(ValueError, match="no matching response|exactly match"):
+            prospective.prepare_packet(
+                relocated_plan, relocated_protocol, relocated_responses,
+                rehashed_predictions, relocated_manifest, relocated_calibration_responses,
+                relocated_calibration_run, relocated_evidence, relocated_evaluation_run,
+                tmp_path / "rehashed_prediction_packet", relocated_guide,
+            )
+    
+        wrong_rows = [json.loads(line) for line in relocated_predictions.read_text(encoding="utf-8").splitlines()]
+        for row in wrong_rows:
+            row["run_id"] = "run_uniform_but_wrong"
+        wrong_predictions = tmp_path / "wrong_run_predictions.jsonl"
+        _write_jsonl(wrong_predictions, wrong_rows)
+        # The checkpoint loader permits a uniform run_id. The prospective companion
+        # must still bind it to the verified concrete evaluation run.
+        prospective._load_and_validate_successor_study(
+            relocated_protocol, relocated_responses, wrong_predictions
+        )
+        with pytest.raises(ValueError, match="run_id does not match"):
+            prospective.prepare_packet(
+                relocated_plan, relocated_protocol, relocated_responses,
+                wrong_predictions, relocated_manifest, relocated_calibration_responses,
+                relocated_calibration_run, relocated_evidence, relocated_evaluation_run,
+                tmp_path / "wrong_packet", relocated_guide,
+            )
+    
+        tampered_parent = relocation / "tampered_evaluation_runs"
+        tampered_run = tampered_parent / relocated_evaluation_run.name
+        shutil.copytree(relocated_evaluation_run, tampered_run)
+        run_config_path = tampered_run / "run_config.json"
+        run_config = json.loads(run_config_path.read_text(encoding="utf-8"))
+        run_config["readiness_sha256"]["guide_path"] = "0" * 64
+        run_body = {key: value for key, value in run_config.items() if key != "run_id"}
+        run_config["run_id"] = full.stable_id("extended_run", run_body, 32)
+        run_config_path.write_text(json.dumps(run_config, indent=2) + "\n", encoding="utf-8")
+        rehashed_run = tampered_parent / run_config["run_id"]
+        tampered_run.rename(rehashed_run)
+&gt;       with pytest.raises(ValueError, match="readiness|provenance|config"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'readiness|provenance|config'
+E         Actual message: 'Readiness snapshot hash mismatch'
+
+tests\test_extended_prospective_validation.py:1061: AssertionError</failure></testcase></testsuite></testsuites>

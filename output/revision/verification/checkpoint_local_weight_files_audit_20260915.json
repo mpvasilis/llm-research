@@ -1,0 +1,89 @@
+{
+  "audit_schema_version": "checkpoint-local-weight-files-audit-v1",
+  "at": "2026-09-15T17:21:21.479039+00:00",
+  "scope": "read_only_pinned_snapshot_files_only",
+  "context_audit_sha256": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87",
+  "checkpoints": [
+    {
+      "checkpoint_alias": "1b_sft",
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-SFT\\snapshots\\0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [],
+      "indexes": [],
+      "single_file_weights": [],
+      "weight_file_set_present": false
+    },
+    {
+      "checkpoint_alias": "1b_dpo",
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-DPO\\snapshots\\c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [],
+      "indexes": [],
+      "single_file_weights": [],
+      "weight_file_set_present": false
+    },
+    {
+      "checkpoint_alias": "1b_instruct",
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\snapshots\\48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [
+        {
+          "filename": "model.safetensors",
+          "bytes": 2969854224
+        }
+      ],
+      "indexes": [],
+      "single_file_weights": [
+        "model.safetensors"
+      ],
+      "weight_file_set_present": true
+    },
+    {
+      "checkpoint_alias": "7b_sft",
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-SFT\\snapshots\\1de02c0175118a9de5854aec80a1f970e701e928",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [],
+      "indexes": [],
+      "single_file_weights": [],
+      "weight_file_set_present": false
+    },
+    {
+      "checkpoint_alias": "7b_dpo",
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-DPO\\snapshots\\e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [],
+      "indexes": [],
+      "single_file_weights": [],
+      "weight_file_set_present": false
+    },
+    {
+      "checkpoint_alias": "7b_instruct",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-Instruct\\snapshots\\470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "snapshot_revision_matches_pin": true,
+      "weight_files": [],
+      "indexes": [],
+      "single_file_weights": [],
+      "weight_file_set_present": false
+    }
+  ],
+  "complete_weight_file_sets": 1,
+  "checkpoint_count": 6,
+  "model_weights_loaded": false,
+  "network_or_download_used": false,
+  "limitations": [
+    "File presence and indexed shard coverage do not verify model loadability, numerical integrity, runtime compatibility, device memory, or generation throughput.",
+    "Only the six pinned local snapshot directories were inspected; no claim is made about other drives or remote environments."
+  ]
+}

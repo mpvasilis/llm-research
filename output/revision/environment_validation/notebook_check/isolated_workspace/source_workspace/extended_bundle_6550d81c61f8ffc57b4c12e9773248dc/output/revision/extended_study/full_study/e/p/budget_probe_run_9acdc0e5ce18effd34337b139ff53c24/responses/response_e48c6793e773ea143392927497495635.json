@@ -1,0 +1,102 @@
+{
+  "response_schema_version": "revision-study-response-v2",
+  "study_version": "revision-study-v1",
+  "runner_version": "revision-study-full-runner-v2",
+  "protocol_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb",
+  "execution_profile": {
+    "profile_schema_version": "revision-study-execution-profile-v1",
+    "device_class": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 4,
+    "single_response_generation": true,
+    "python_version": "3.14.3",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.5.4",
+    "cuda_runtime": null,
+    "accelerator": null,
+    "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+  },
+  "response_id": "response_e48c6793e773ea143392927497495635",
+  "response_identity": {
+    "study_version": "revision-study-v1",
+    "runner_version": "revision-study-full-runner-v2",
+    "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "prompt_id": "prompt_40d04e2b3122517b0182",
+    "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+    "scenario_family_id": "dev_everyday_closet",
+    "split": "development",
+    "condition": {
+      "domain": "everyday",
+      "emotional_framing": false,
+      "request_type": "information"
+    },
+    "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+    "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+    "logical_seed": 0,
+    "rng_seed": 2976021750472413337,
+    "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "generation_config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024
+    }
+  },
+  "prompt_id": "prompt_40d04e2b3122517b0182",
+  "prompt_corpus_sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+  "prompt_text_sha256": "75b6d3f7a606eb0fa70473c4ae36cc40df6f62d89be8bf4b02ee3cd7767dcd5e",
+  "scenario_family_id": "dev_everyday_closet",
+  "split": "development",
+  "condition": {
+    "domain": "everyday",
+    "emotional_framing": false,
+    "request_type": "information"
+  },
+  "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+  "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "model_hash": "hf-repository-commit:allenai/OLMo-2-0425-1B-Instruct@48d788eca847d4d7548f375ad03d3c9312f6139e",
+  "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+  "seed": 0,
+  "rng_seed": 2976021750472413337,
+  "rng_scheme": "sha256(canonical_json({prompt_id,logical_seed})) first 8 bytes modulo 2^63; reset before each single-response generate call",
+  "generation": {
+    "prompt": "My clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.",
+    "serialized_prompt": "<|endoftext|><|user|>\nMy clothes closet is crowded, and I need to use the storage I already have. How do visibility, access frequency, and category size affect closet usability? Please explain the principles rather than propose an arrangement.\n<|assistant|>\n",
+    "response": "The usability of a closet, particularly a clothes closet, hinges on several key factors related to visibility, access frequency, and category size. Here's how each of these dimensions affects the overall usability:\n\n1. **Visibility**: \n   - **High Visibility**: Closets with good visibility ensure that you can easily find what you need. This is critical for efficient use of space and time. High visibility can be achieved through well-lit spaces, clear labeling, and strategic positioning of hangers.\n   - **Low Visibility**: When items are hidden or cluttered, finding what you need becomes more difficult. This can lead to frustration and increased time spent searching for clothes.\n   - **Visibility by Category**: Organizing clothes by category (e.g., tops, bottoms, accessories, etc.) improves visibility significantly. When you walk in, you can see immediately what suits your current outfit or mood. For example, having all your tops hung vertically can make finding a specific color or style much quicker.\n\n2. **Access Frequency**:\n   - **Frequency of Use**: The more often you access your clothes, the more important it is to keep the closet organized. High-frequency usage means that items should be easily accessible.\n   - **Ease of Access**: A closet that is easily accessible is straightforward to navigate. This includes clear labeling, shelving heights that allow for easy grabbing, and sufficient space between shelves to ensure items don’t obstruct each other.\n   - **Automated Systems**: The use of automated hanger systems, which automatically secure clothes when hung, can significantly reduce the time spent searching for clothes, especially for frequent users.\n\n3. **Category Size**:\n   - **Large Categories**: Having multiple large categories (e.g., casuals, formal wear, seasonal) can improve organization but can also make it harder to find specific items if not managed well. The more categories, the more likely you are to struggle to find something specific.\n   - **Small Categories**: A closet with just a few well-defined categories can make finding specific items easier and more intuitive, as long as those categories are well-organized.\n\n**Principles for Usability**:\n\n- **Labeling**: Use clear, concise labels. The labels should be large enough to read easily and should be placed prominently.\n  \n- **Hanging Systems**: Choose a system that secures clothes efficiently and allows for easy retrieval. Automated systems save time and reduce the chance of losing items.\n\n- **Clutter Management**: Keep the closet clean and organized. Regularly assess what you wear and donate or store away clothes you don’t use frequently to maintain a tidy and functional space.\n\n- **Storage Space**: Ensure there is enough vertical and horizontal space to accommodate the clothes. This reduces the physical strain on the user and can improve the comfort and ease of access.\n\n- **Visibility**: Use color coding, tags, and labels to enhance the visual hierarchy of the closet. Dark colors can be used for dark clothes, while light colors can be used for light clothes, etc., making it easier to discern items by color and type.\n\nIn conclusion, the usability of a clothes closet is significantly influenced by how well these factors are managed. A closet that is visually clear, easily accessible, and well-organized can greatly enhance the user experience, reducing the time spent searching for clothes and making the most of the storage space available.",
+    "input_tokens": 52,
+    "output_tokens": 677,
+    "max_new_tokens": 1024,
+    "stopping": {
+      "reason": "eos_token",
+      "eos_reached": true,
+      "cap_reached": false
+    },
+    "config": {
+      "do_sample": true,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_new_tokens": 1024,
+      "effective_eos_token_ids": [
+        100257
+      ],
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "execution_profile_id": "execution_f9c312e17164e2fc8a082bb5e3203adb"
+    },
+    "timing": {
+      "generation_seconds": 1358.9358790000042,
+      "generated_tokens_per_second": 0.4981839176239734,
+      "scope": "single model.generate call only"
+    }
+  },
+  "budget_probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "budget_probe_runner_version": "revision-development-budget-probe-runner-v1",
+  "parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "parent_protocol_sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+  "budget_probe_classification": "exploratory_development_completion_budget_probe_not_confirmatory",
+  "checkpoint_alias": "1b_instruct"
+}

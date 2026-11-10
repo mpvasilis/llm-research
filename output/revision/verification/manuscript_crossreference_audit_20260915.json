@@ -1,0 +1,17 @@
+{
+  "pdf_sha256": "559013886fffb86d63600b8d8f33ce328c0f2c0c207b31929eb1223633a3421a",
+  "tex_sha256": "bef76c152d5f976fc43f44e16d9622ef4dfe3f7c901a7f57e81903a010bbc3a9",
+  "pages": 15,
+  "changed_rendered_pages": [
+    13
+  ],
+  "unchanged_pages_are_pixel_identical_to_previous_root_inspection": true,
+  "reference_targets": [
+    "\\newlabel{sec:method-dpo-conditional}{{3.4}{3}{Exploratory paired DPO length model}{subsection.3.4}{}}",
+    "\\newlabel{app:perphrase}{{G}{12}{Per-phrase recoverability and leave-one-out}{appendix.G}{}}"
+  ],
+  "log_issues": [],
+  "main_complete_on_page8": true,
+  "visual_check": "passed: revised page13 inspected; other14 pages pixel-identical to earlier all-page root inspection",
+  "copy_byte_identical": true
+}

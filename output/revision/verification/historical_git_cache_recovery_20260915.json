@@ -1,0 +1,80 @@
+{
+  "audit_schema_version": "historical-git-cache-recovery-audit-v1",
+  "at": "2026-09-15T18:59:24.4516544Z",
+  "status": "complete_no_candidate_stagewise_raw_archive_found",
+  "scope": "read_only_local_git_references_and_reachable_history_no_network_fetch_no_checkout",
+  "objective": "Find original raw response archives beyond the recovered 700-response final-7B cache; exclude aggregate counts, synthetic fixtures, and DPO preference pairs.",
+  "prior_audit": {
+    "path": "output/revision/study_v1/historical_cache_audit_v1.json",
+    "sha256": "fdfe566683496a66de5376d27cf618126b4e7a998133b1301cffa8f5833e234a",
+    "documented_scope": "current recovered final-7B diagnostic only",
+    "responses": 700
+  },
+  "git_scope": {
+    "refs_inspected": [
+      {
+        "ref": "refs/heads/main",
+        "commit": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe"
+      },
+      {
+        "ref": "refs/remotes/origin/HEAD",
+        "commit": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe"
+      },
+      {
+        "ref": "refs/remotes/origin/main",
+        "commit": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe"
+      }
+    ],
+    "local_tags": 0,
+    "reachable_commits": 9,
+    "oldest_reachable_commit": "c0c4ada8829d75317bc862bce4b2500d162c77e1",
+    "newest_reachable_commit": "7e8ba6f27cf56d35d0596b2d9ec72544db2272fe",
+    "unique_paths_across_commit_trees": 124,
+    "history_checks": [
+      "all reachable commit trees from every existing local head/tag/remote-tracking ref",
+      "added/deleted/modified/renamed path history",
+      "tracked JSON/JSONL/parquet/arrow/CSV/pickle/PT/NumPy/archive/notebook paths",
+      "tracked source/notebook references to response, answer, cache, checkpoint, generation, and completion paths"
+    ],
+    "network_fetch_performed": false,
+    "checkout_reset_or_worktree_change": false,
+    "unreachable_objects_or_external_storage_examined": false
+  },
+  "findings": {
+    "candidate_stagewise_raw_archives": [],
+    "deleted_or_renamed_candidate_archive_paths": [],
+    "data_result_paths_reviewed": 39,
+    "result_path_classification": "aggregate analyses, annotation records, validation records, and manifests; no original stagewise raw-response archive",
+    "referenced_but_untracked_cache_layouts": [
+      "out/cache/",
+      "notebook PROJECT/answers/*.json and related checkpoint directories"
+    ],
+    "tracked_nonarchive_response_like_objects": [
+      {
+        "path": "data/answer.txt",
+        "blob_oid": "415df0845ca2cc42b072d8a64f5058a6501725c5",
+        "bytes": 1264,
+        "structure": "single plain-text answer",
+        "checkpoint_or_stage_metadata": false,
+        "eligible": false
+      },
+      {
+        "path": "out/trace.json",
+        "blob_oid": "a4b59d78a0439144edff5da54841de6543a35c4a",
+        "bytes": 42868,
+        "structure": "single object with model, question, answer, pretraining, and instruction_tuning fields",
+        "checkpoint_or_stage_metadata": false,
+        "eligible": false
+      }
+    ],
+    "excluded": [
+      "aggregate count/statistics files under out/results",
+      "DPO preference-pair analysis artifacts",
+      "AI/human annotation files",
+      "single-answer and single-trace objects",
+      "synthetic/test fixtures"
+    ]
+  },
+  "conclusion": "No candidate blob containing original stagewise raw model responses was found in history reachable from the currently existing local refs. The Git history references ignored/untracked runtime cache directories, but their contents were never committed in the inspected history.",
+  "limitation": "This is a bounded local-Git result. It does not establish that external storage, un-fetched remote refs, reflogs, unreachable/pruned objects, notebook-service storage, or other machines lack the archives."
+}

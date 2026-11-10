@@ -1,0 +1,45 @@
+{
+  "decision_schema_version": "extended-study-budget-decision-v1",
+  "status": "COMPLETE_DEVELOPMENT_BUDGET_DECISION",
+  "classification": "provisional_development_choice_not_evaluation_adequacy_certification",
+  "source_parent_protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d",
+  "probe_manifest_id": "budget_probe_manifest_7d029d7622f863fb50f1a468042d4700",
+  "probe_export_sha256": "961b98d914284fae5508c89e83ed6b39cf5fb0030cbfa6edf9f39880294da937",
+  "primary_cap": 1024,
+  "sensitivity_cap": 2048,
+  "decided_by": "Codex acting under the user instruction to continue revision work; agent decision, not human review",
+  "decided_at": "2026-09-15T18:30:49.397404+00:00",
+  "rationale": "All eight matched 1024-token development probe responses reached EOS at 454-744 output tokens; the 256 and 512 caps stopped eight and six responses. Choose 1024 provisionally for six-checkpoint calibration. Choose 2048 as a predeclared doubled budget for sensitivity. Pinned configuration/tokenizer audits show both fit all planned inputs within 4096 positions. Neither the eight responses nor configuration margins establish evaluation-wide adequacy or semantic completeness.",
+  "calibration_acceptance_criterion": {
+    "declared_before_calibration_and_held_out_generation": true,
+    "required_complete_calibration_responses": 96,
+    "required_checkpoints": 6,
+    "required_uniform_execution_profile": true,
+    "maximum_cap_stops": 0,
+    "maximum_unexplained_stops": 0,
+    "minimum_genuine_human_reviewed_calibration_ids": 60,
+    "timing_requirement": "A nonempty genuine timed subset within the reviewed calibration IDs; observed effort informs the sampling plan.",
+    "human_budget_review_requirement": "No budget truncation identified in the genuinely reviewed development responses; record that assessment and any uncertainty.",
+    "enforcement_scope": "Structural archive and human-evidence validators do not certify this scientific acceptance decision. Review stopping summaries and genuine budget-review findings explicitly before freezing the prospective plan.",
+    "passing_interpretation": "Operational support for the provisional budget, not a statistical guarantee or proof of semantic answer completeness."
+  },
+  "failure_policy": "If any calibration cap/unexplained stop or reviewed budget truncation is found, withhold evaluation readiness, preserve the full failed calibration and reason, investigate generation/stopping, and record a new versioned decision and complete matching-cap calibration before reconsideration. Do not mix caps, relabel old responses, selectively omit failures, tune using held-out outcomes, or silently change the estimand. A revised longer cap must still fit every pinned context window.",
+  "evaluation_readiness_established": false,
+  "human_reviews_completed_by_this_decision": 0,
+  "compute_requirement": "Run the exact six-checkpoint calibration in one suitable environment with one recorded execution profile. No model weights are downloaded or model execution started by this decision.",
+  "supporting_evidence": {
+    "completed_probe_verification": {
+      "path": "output/revision/development_budget_probe/development_1024_verification_20260915.json",
+      "sha256": "c673a94fb20f659a77c39a941e2d3612ae90c28060fa5b18077d54c963a54369"
+    },
+    "successor_implementation_verification": {
+      "path": "output/revision/verification/extended_workflow_verification_20260915.json",
+      "sha256": "61160a39a3fc592373a66acf284376b4b26056259692393c75b16b0704e5fd2c"
+    },
+    "context_capacity_audit": {
+      "path": "output/revision/verification/checkpoint_context_capacity_audit_20260915.json",
+      "sha256": "7af8ef000a7515a4aa4e5cb2a4a59d0f04c490eda99aaae26529029abcd59e87"
+    }
+  },
+  "budget_decision_id": "budget_decision_1893ecd47f49ee071a72b6578da4c43d"
+}

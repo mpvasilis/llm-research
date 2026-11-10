@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-15T15:44:39.779692+00:00",
+  "status": "test_discovery_corrected",
+  "aborted_command": "python -m pytest -q --ignore=tests/test_development_budget_probe.py",
+  "reason": "Unscoped discovery included legacy experiments/_local_nb_test.py, which executes an unrelated notebook at module import. The task-owned pytest process was stopped; it did not report a test result.",
+  "replacement_command": "python -m pytest -q tests --ignore=tests/test_development_budget_probe.py --junitxml=output/revision/verification/integration_tests_20260915_v2.xml",
+  "prevention": "pytest.ini restricts default discovery to tests/test_*.py",
+  "pytest_ini_sha256": "4551307f5b1a58adb7ec215d513089ba670b1737b81ada5a5863afe796d67343",
+  "legacy_script_edited": false,
+  "generation_process_stopped": false
+}

@@ -1,0 +1,246 @@
+{
+  "audit_schema_version": "checkpoint-context-capacity-audit-v1",
+  "audit_date": "2026-09-15",
+  "scope": "configuration_and_tokenizer_only_no_generation",
+  "status": "complete",
+  "protocol": {
+    "path": "output/revision/full_study/protocol_v2.json",
+    "sha256": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+    "protocol_id": "protocol_32f4c8538587e45cdf07e88ed9b1f77d"
+  },
+  "prompt_corpus": {
+    "path": "experiments/prompts_revision_v1.json",
+    "sha256": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+    "expanded_prompt_counts": {
+      "development": 40,
+      "evaluation": 160
+    },
+    "expanded_prompt_total": 200
+  },
+  "runtime": {
+    "python": "3.14.3",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "huggingface_hub": "1.7.2",
+    "transformers": "5.5.4",
+    "offline_environment": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "TOKENIZERS_PARALLELISM": "false"
+    }
+  },
+  "method": {
+    "config_resolution": "huggingface_hub.try_to_load_from_cache(model_id, 'config.json', revision=model_revision)",
+    "tokenizer_loading": "transformers.AutoTokenizer.from_pretrained(model_id, revision=tokenizer_revision, local_files_only=True)",
+    "serialization": "tokenizer.apply_chat_template([{'role':'user','content':prompt}], add_generation_prompt=True, tokenize=False)",
+    "encoding": "tokenizer(serialized, add_special_tokens=False)['input_ids']",
+    "candidate_caps_tokens": [256, 512, 1024, 2048],
+    "response_generation_performed": false,
+    "model_weights_loaded": false,
+    "network_or_download_used": false
+  },
+  "shared_tokenizer_file_evidence": {
+    "applies_to_all_six_pinned_tokenizer_snapshots": true,
+    "files": [
+      {
+        "filename": "tokenizer_config.json",
+        "sha256": "50c412c57d832057a3d5db42064c741f751e570f7c8788f037bfb0d2dd6e5f49",
+        "bytes": 4884
+      },
+      {
+        "filename": "tokenizer.json",
+        "sha256": "73fd5254624f39a88e3faac6a8e11300fc3c735ed37880d4f4f08db898eaecca",
+        "bytes": 7137177
+      },
+      {
+        "filename": "special_tokens_map.json",
+        "sha256": "78afb564e81264029b25f9caf24bda2521d5bdaeff5cd3fdbc01d3da2e8ce2f2",
+        "bytes": 581
+      }
+    ]
+  },
+  "shared_serialization_identity": {
+    "tokenizer_class": "TokenizersBackend",
+    "chat_template_sha256": "fe689ffbd6a4e2d0532d7480696b065b10e0e1eff3f9b9fc4bea415761e4bf4a",
+    "rendered_probe_sha256": "4aeb423fde91583166a36c8238253d1148b80b7fc8dbe492e124ea10595db227",
+    "serialization_id": "serialization_b6685124cf9cadfd7c11d22bc10d09b8",
+    "all_actual_identities_match_protocol": true
+  },
+  "tokenization_result_group": {
+    "checkpoint_aliases": ["1b_sft", "1b_dpo", "1b_instruct", "7b_sft", "7b_dpo", "7b_instruct"],
+    "reason_grouped": "All six pinned local tokenizers produced the same official template identity and the same token counts for every expanded prompt.",
+    "development": {
+      "prompt_count": 40,
+      "min_input_tokens": 32,
+      "max_input_tokens": 60,
+      "min_prompt_ids": ["prompt_432eed96612c3d568861"],
+      "max_prompt_ids": ["prompt_11f72d5d410d1f0be67d", "prompt_22ac753287fe0aa31fee"],
+      "candidate_caps": {
+        "256": {"min_input_plus_candidate": 288, "max_input_plus_candidate": 316, "worst_case_margin_tokens": 3780, "all_prompts_fit_at_config_level": true},
+        "512": {"min_input_plus_candidate": 544, "max_input_plus_candidate": 572, "worst_case_margin_tokens": 3524, "all_prompts_fit_at_config_level": true},
+        "1024": {"min_input_plus_candidate": 1056, "max_input_plus_candidate": 1084, "worst_case_margin_tokens": 3012, "all_prompts_fit_at_config_level": true},
+        "2048": {"min_input_plus_candidate": 2080, "max_input_plus_candidate": 2108, "worst_case_margin_tokens": 1988, "all_prompts_fit_at_config_level": true}
+      }
+    },
+    "evaluation": {
+      "prompt_count": 160,
+      "min_input_tokens": 32,
+      "max_input_tokens": 64,
+      "min_prompt_ids": ["prompt_e42271f38d74287b8041"],
+      "max_prompt_ids": ["prompt_4ddd06b37535c043b148"],
+      "candidate_caps": {
+        "256": {"min_input_plus_candidate": 288, "max_input_plus_candidate": 320, "worst_case_margin_tokens": 3776, "all_prompts_fit_at_config_level": true},
+        "512": {"min_input_plus_candidate": 544, "max_input_plus_candidate": 576, "worst_case_margin_tokens": 3520, "all_prompts_fit_at_config_level": true},
+        "1024": {"min_input_plus_candidate": 1056, "max_input_plus_candidate": 1088, "worst_case_margin_tokens": 3008, "all_prompts_fit_at_config_level": true},
+        "2048": {"min_input_plus_candidate": 2080, "max_input_plus_candidate": 2112, "worst_case_margin_tokens": 1984, "all_prompts_fit_at_config_level": true}
+      }
+    },
+    "all": {
+      "prompt_count": 200,
+      "min_input_tokens": 32,
+      "max_input_tokens": 64
+    }
+  },
+  "checkpoints": [
+    {
+      "checkpoint_alias": "1b_sft",
+      "model_id": "allenai/OLMo-2-0425-1B-SFT",
+      "model_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "tokenizer_revision": "0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-SFT\\snapshots\\0d85a3d037876ce6ac7d4311d994400fc66ac27f\\config.json",
+        "sha256": "49bea9bdaa58245ee3d04685b05e39b90a4c1ec69f32afbc0877ae22023c0f6c",
+        "bytes": 624,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-SFT\\snapshots\\0d85a3d037876ce6ac7d4311d994400fc66ac27f",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    },
+    {
+      "checkpoint_alias": "1b_dpo",
+      "model_id": "allenai/OLMo-2-0425-1B-DPO",
+      "model_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "tokenizer_revision": "c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-DPO\\snapshots\\c4b0485961ab24c2433b090f3b922f0913a9290f\\config.json",
+        "sha256": "49bea9bdaa58245ee3d04685b05e39b90a4c1ec69f32afbc0877ae22023c0f6c",
+        "bytes": 624,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-DPO\\snapshots\\c4b0485961ab24c2433b090f3b922f0913a9290f",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    },
+    {
+      "checkpoint_alias": "1b_instruct",
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "model_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "tokenizer_revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\snapshots\\48d788eca847d4d7548f375ad03d3c9312f6139e\\config.json",
+        "sha256": "0d15ebb6cb8d998513b46ef337214176a6fd59fe5f16b30387c70d5f87795a9c",
+        "bytes": 625,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-0425-1B-Instruct\\snapshots\\48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    },
+    {
+      "checkpoint_alias": "7b_sft",
+      "model_id": "allenai/OLMo-2-1124-7B-SFT",
+      "model_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "tokenizer_revision": "1de02c0175118a9de5854aec80a1f970e701e928",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-SFT\\snapshots\\1de02c0175118a9de5854aec80a1f970e701e928\\config.json",
+        "sha256": "9e39950708cf043bf59cb13137e80fb37d25846179d1d01cb6195880649333b0",
+        "bytes": 675,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-SFT\\snapshots\\1de02c0175118a9de5854aec80a1f970e701e928",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    },
+    {
+      "checkpoint_alias": "7b_dpo",
+      "model_id": "allenai/OLMo-2-1124-7B-DPO",
+      "model_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "tokenizer_revision": "e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-DPO\\snapshots\\e34ea60adff2e575f4fe7569eaffd1b28509b6fd\\config.json",
+        "sha256": "5f55669a0bc6e1825836c3c978908dde7918f705995eda1a5ffc40dd7ef47289",
+        "bytes": 678,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-DPO\\snapshots\\e34ea60adff2e575f4fe7569eaffd1b28509b6fd",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    },
+    {
+      "checkpoint_alias": "7b_instruct",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "status": "available",
+      "errors": [],
+      "config": {
+        "cache_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-Instruct\\snapshots\\470b1fba1ae01581f270116362ee4aa1b97f4c84\\config.json",
+        "sha256": "ff8cc8709a229515676797ab6f343a09391041c9a8fbbc78bfec5be4c2e3664e",
+        "bytes": 679,
+        "max_position_embeddings": 4096
+      },
+      "tokenizer_snapshot_path": "C:\\Users\\vasilis\\.cache\\huggingface\\hub\\models--allenai--OLMo-2-1124-7B-Instruct\\snapshots\\470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "resolved_tokenizer_revision_matches_pin": true,
+      "tokenizer_identity_matches_protocol": true,
+      "tokenization_result_group": "tokenization_result_group"
+    }
+  ],
+  "source_integrity": {
+    "before": {
+      "output/revision/full_study/protocol_v2.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+      "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365"
+    },
+    "after_audit_read_pass": {
+      "output/revision/full_study/protocol_v2.json": "029d2e5a044ca3e61f3d42c63fbbf72b8971d7f51dfb797bebf736380a44fe47",
+      "experiments/prompts_revision_v1.json": "6737c5c1a3d51d65b5afc5ae16ad6c6853b5a28b4dc05c5aebf59cf625825264",
+      "experiments/full_revision_study.py": "945a35a27bc82e4e60389ec20ce257074f42bf8315272e8238ffdf06c95679db",
+      "experiments/revision_study.py": "7100f5d347520204de6904713f3c199f896aa00182b769f9d983ce272c761bd2",
+      "experiments/detector_spec.py": "9b82d23ea9c6e03d8c0bb723ce3a00b34320c538a49914e3be15609aeb9ad365"
+    },
+    "identical": true,
+    "all_protocol_recorded_source_hashes_match": true
+  },
+  "assertions": {
+    "six_protocol_checkpoints": true,
+    "expanded_prompt_counts_exact": true,
+    "all_known_values_from_pinned_local_files_and_tokenizers": true,
+    "all_tokenizer_identities_match_protocol": true,
+    "all_config_max_position_embeddings_are_integer_4096": true,
+    "all_candidate_caps_fit_at_configuration_level": true,
+    "source_hashes_before_after_identical": true
+  },
+  "limitations": [
+    "Configuration-level token margins do not prove runtime generation success.",
+    "Configuration-level token margins do not prove device-memory fit.",
+    "Configuration-level token margins do not prove semantic completeness of generated answers.",
+    "This audit does not choose or freeze a generation budget and does not establish full-study budget adequacy."
+  ]
+}

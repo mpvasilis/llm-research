@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "baseline_copies": [
+    {
+      "path": "out__paper__acl_latex.tex",
+      "hash_matches": true
+    },
+    {
+      "path": "out__paper__acl_latex.pdf",
+      "hash_matches": true
+    },
+    {
+      "path": "out__paper__acl_latex.bbl",
+      "hash_matches": true
+    },
+    {
+      "path": "out__paper__custom.bib",
+      "hash_matches": true
+    },
+    {
+      "path": "out__paper__ANNOTATION_GUIDE.md",
+      "hash_matches": true
+    },
+    {
+      "path": "experiments__validation_v3.py",
+      "hash_matches": true
+    },
+    {
+      "path": "experiments__raw_output_robustness.py",
+      "hash_matches": true
+    },
+    {
+      "path": "trace__behavior.py",
+      "hash_matches": true
+    }
+  ],
+  "preserved_historical_working_files": [
+    {
+      "path": "out\\paper\\acl_latex.pdf",
+      "unchanged": true
+    },
+    {
+      "path": "out\\paper\\acl_latex.bbl",
+      "unchanged": true
+    },
+    {
+      "path": "experiments\\raw_output_robustness.py",
+      "unchanged": true
+    },
+    {
+      "path": "trace\\behavior.py",
+      "unchanged": true
+    }
+  ],
+  "scope": "Checks the saved pre-revision working snapshots, not git HEAD."
+}

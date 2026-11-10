@@ -1,0 +1,15 @@
+{
+  "run_dir": "output\\revision\\development_budget_probe\\runs\\budget_probe_run_9acdc0e5ce18effd34337b139ff53c24",
+  "completed": 8,
+  "new_responses": 8,
+  "remaining": 0,
+  "status": "complete",
+  "attempt_id": "attempt_1789486704303564400",
+  "attempt_started_at": "2026-09-15T15:38:24.303579+00:00",
+  "attempt_finished_at": "2026-09-15T17:49:52.536638+00:00",
+  "attempt_wall_seconds": 7888.186180700002,
+  "model_load_seconds": 62.82867629999964,
+  "device": "cpu",
+  "dtype": "float32",
+  "torch_num_threads": 4
+}
