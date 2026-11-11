@@ -84,3 +84,16 @@ If flip and drop move target markers relative to their controls and non-target
 markers do not, preference pairs have a causal, marker-specific effect at this
 learning setting. If they do not move, the paper reports that null. The retrained
 models are not the released DPO model, and we will say so.
+
+## Amendment, 11 November 2026 (before any data were generated)
+
+- Optimizer: AdamW with 8-bit states (bitsandbytes) over fp32 weights. Full
+  fp32 AdamW for the 1.5B-parameter SFT model needs about 24 GB before
+  activations and does not fit on one 24 GB GPU beside the bf16 reference.
+- Cost guard: the GPU job first times real DPO steps and generation
+  (`pivot_runner.py bench`) and stops if the projected total exceeds the
+  budget. If the 60,000-pair sample does not fit the budget, the sample size
+  is lowered for all arms and seeds alike, and the paper reports the value
+  used. Arms, outcomes, contrasts and the analysis are unchanged.
+- Reporting: every pivot number in the paper is written by
+  `experiments/pivot/report_pivot.py` from `output/pivot/analysis.json`.

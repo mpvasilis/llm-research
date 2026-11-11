@@ -4,6 +4,8 @@
     python pivot_runner.py train  --out results --arm baseline --seed 0
     python pivot_runner.py all    --out results
     python pivot_runner.py smoke  --out /tmp/x      # tiny random model, CPU
+    python pivot_runner.py dryrun --out /tmp/y      # whole schedule, tiny models, CPU
+    python pivot_runner.py bench  --out results     # GPU timing and projected hours
 
 Every finished unit is written atomically, so a rerun resumes.
 """
@@ -50,7 +52,8 @@ ATLAS = {
 ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched")
 TRAIN_SEEDS = (0, 1, 2)
 GEN_SEEDS = (0, 1, 2)
-N_PAIRS = 60_000
+N_PAIRS = int(os.environ.get("PIVOT_N_PAIRS", 60_000))
+DRY = False  # set by the dryrun command: tiny random models, synthetic pairs
 MICRO_BATCH = 4
 ACCUM = 8
 LR = 1e-6
@@ -105,7 +108,8 @@ def serialize(tok, text, fmt):
 
 
 @torch.no_grad()
-def generate(model, tok, fmt, prompts, tag, out_dir, max_new=MAX_NEW, batch=32, seeds=GEN_SEEDS):
+def generate(model, tok, fmt, prompts, tag, out_dir, max_new=None, batch=32, seeds=None):
+    max_new, seeds = max_new or MAX_NEW, seeds or GEN_SEEDS
     path = out_dir / f"gen_{tag}.jsonl"
     if path.exists():
         print("skip", path.name, flush=True)
@@ -139,14 +143,26 @@ def generate(model, tok, fmt, prompts, tag, out_dir, max_new=MAX_NEW, batch=32, 
     print(f"done {tag} n={len(rows)} {time.time() - t0:.0f}s", flush=True)
 
 
+def tiny_model(model_id):
+    """Small random OLMo-2, deterministic per model id (dry runs only)."""
+    from transformers import AutoModelForCausalLM, Olmo2Config
+    tok = load_tok(SFT_1B)
+    torch.manual_seed(sum(map(ord, model_id)))
+    cfg = Olmo2Config(vocab_size=len(tok), hidden_size=32, intermediate_size=64, num_hidden_layers=2,
+                      num_attention_heads=2, pad_token_id=tok.pad_token_id, eos_token_id=tok.eos_token_id)
+    return AutoModelForCausalLM.from_config(cfg)
+
+
 def load_model(model_id, dtype):
+    if DRY:
+        return tiny_model(model_id).to(dtype if dtype == torch.float32 else torch.float32)
     from transformers import AutoModelForCausalLM
     return AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=dtype).to(device())
 
 
 def load_tok(model_id):
     from transformers import AutoTokenizer
-    tok = AutoTokenizer.from_pretrained(model_id)
+    tok = AutoTokenizer.from_pretrained(SFT_1B if DRY else model_id)
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
     return tok
@@ -165,7 +181,22 @@ def run_atlas(out_dir):
         torch.cuda.empty_cache()
 
 
+def synthetic_pairs(n=3000):
+    """Pairs with a known marker pattern, for dry runs."""
+    rng = random.Random(7)
+    out = []
+    for i in range(n):
+        u = {"role": "user", "content": f"synthetic question {i}"}
+        words = "plain words " * rng.randint(2, 12)
+        lead = rng.choice(["Here are some ideas. ", "Please consult a doctor. ", ""])
+        out.append(([u, {"role": "assistant", "content": lead + words}],
+                    [u, {"role": "assistant", "content": rng.choice(["", "First, "]) + words}]))
+    return out
+
+
 def load_pairs():
+    if DRY:
+        return synthetic_pairs()
     import pyarrow.parquet as pq
     from huggingface_hub import hf_hub_download
     pairs = []
@@ -186,8 +217,9 @@ def flags(pair):
     return bool(TARGET.search(pair[0][-1]["content"].lower())), bool(TARGET.search(pair[1][-1]["content"].lower()))
 
 
-def build_arm(pairs, arm, seed, n=N_PAIRS):
+def build_arm(pairs, arm, seed, n=None):
     """Return (pairs for training, counts). The sample S depends only on seed."""
+    n = n or N_PAIRS
     rng = random.Random(1000 + seed)
     if arm == "length_matched":
         pool = [p for p in pairs if abs(len(p[0][-1]["content"].split()) - len(p[1][-1]["content"].split())) <= 20]
@@ -240,6 +272,17 @@ def collate(items, pad, dev):
     return {"ids": ids.to(dev), "mask": mask.to(dev), "label_mask": label.to(dev)}
 
 
+def make_optimizer(model):
+    """fp32 weights with 8-bit AdamW states: 1.5B params fit on 24 GB beside the bf16 reference."""
+    if model.device.type == "cuda":
+        try:
+            import bitsandbytes as bnb
+            return bnb.optim.AdamW8bit(model.parameters(), lr=LR, weight_decay=0.0)
+        except ImportError:
+            print("bitsandbytes missing, using torch AdamW (needs about 24 GB for 1B)", flush=True)
+    return torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=0.0)
+
+
 def dpo_train(model, ref, tok, data, seed, log_every=50):
     dev = model.device
     amp = dev.type == "cuda"
@@ -253,7 +296,7 @@ def dpo_train(model, ref, tok, data, seed, log_every=50):
     rng.shuffle(batches)
     total = math.ceil(len(batches) / ACCUM)
     warm = max(1, int(WARMUP * total))
-    opt = torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=0.0)
+    opt = make_optimizer(model)
     sched = torch.optim.lr_scheduler.LambdaLR(
         opt, lambda s: (s + 1) / warm if s < warm else max(0.0, (total - s) / max(1, total - warm)))
     model.train()
@@ -354,29 +397,73 @@ def run_smoke(out_dir):
     print("SMOKE OK", counts, log[-1], flush=True)
 
 
+def run_all(out):
+    run_atlas(out)
+    pairs = load_pairs()
+    print("pairs", len(pairs), flush=True)
+    for seed in TRAIN_SEEDS:
+        for arm in ARMS:
+            run_train(out, arm, seed, pairs)
+    (out / "ALL_DONE").write_text("ok")
+
+
+def run_dry(out):
+    """The full `all` schedule with tiny random models and synthetic pairs, on CPU."""
+    global DRY, N_PAIRS, MAX_NEW, GEN_SEEDS
+    DRY, N_PAIRS, MAX_NEW, GEN_SEEDS = True, 200, 6, (0,)
+    run_all(out)
+    names = sorted(x.name for x in out.iterdir())
+    expected = [f"gen_{t}.jsonl" for t in ATLAS] + [f"gen_cf_{a}_s{s}.jsonl" for a in ARMS for s in TRAIN_SEEDS]
+    missing = [e for e in expected if e not in names]
+    assert not missing, missing
+    print("DRY RUN OK", len(names), "files", flush=True)
+
+
+def run_bench(out, n_micro=16):
+    """Time real DPO steps and generation on this GPU and project the full run."""
+    pairs = load_pairs()
+    data, counts = build_arm(pairs, "baseline", 0)
+    tok = load_tok(SFT_1B)
+    tok.padding_side = "right"
+    ref = load_model(SFT_1B, torch.bfloat16).eval().requires_grad_(False)
+    model = load_model(SFT_1B, torch.float32)
+    torch.cuda.reset_peak_memory_stats()
+    global ACCUM
+    saved, ACCUM = ACCUM, n_micro
+    t0 = time.time()
+    dpo_train(model, ref, tok, data[:n_micro * MICRO_BATCH], 0, log_every=1)
+    per_micro = (time.time() - t0) / n_micro
+    ACCUM = saved
+    peak = torch.cuda.max_memory_allocated() / 2**30
+    del ref
+    model = model.bfloat16()
+    prompts = load_prompts(32)
+    t0 = time.time()
+    generate(model, tok, "chat", prompts, "bench", out, seeds=(0,))
+    per_gen_batch = time.time() - t0
+    (out / "gen_bench.jsonl").unlink()
+    gen_batches_1b = 3 * 5  # 160 prompts x 3 seeds / 32
+    train_h = len(ARMS) * len(TRAIN_SEEDS) * (N_PAIRS / MICRO_BATCH) * per_micro / 3600
+    gen_1b_h = (7 + 15) * gen_batches_1b * per_gen_batch / 3600
+    gen_7b_h = 6 * gen_batches_1b * per_gen_batch * 4 / 3600  # 7B assumed 4x slower
+    report = {"sec_per_micro_batch": per_micro, "peak_gb": peak, "sec_per_gen_batch_1b": per_gen_batch,
+              "n_pairs": N_PAIRS, "counts": counts, "proj_train_h": train_h, "proj_gen_1b_h": gen_1b_h,
+              "proj_gen_7b_h": gen_7b_h, "proj_total_h": train_h + gen_1b_h + gen_7b_h}
+    (out / "bench.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
+    print(json.dumps(report), flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["atlas", "train", "all", "smoke"])
+    ap.add_argument("cmd", choices=["atlas", "train", "all", "smoke", "dryrun", "bench"])
     ap.add_argument("--out", default="results")
     ap.add_argument("--arm", choices=ARMS)
     ap.add_argument("--seed", type=int)
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    if a.cmd == "smoke":
-        run_smoke(out)
-    elif a.cmd == "atlas":
-        run_atlas(out)
-    elif a.cmd == "train":
-        run_train(out, a.arm, a.seed)
-    else:
-        run_atlas(out)
-        pairs = load_pairs()
-        print("pairs", len(pairs), flush=True)
-        for seed in TRAIN_SEEDS:
-            for arm in ARMS:
-                run_train(out, arm, seed, pairs)
-        (out / "ALL_DONE").write_text("ok")
+    {"smoke": run_smoke, "atlas": run_atlas, "all": run_all, "dryrun": run_dry, "bench": run_bench,
+     "train": lambda o: run_train(o, a.arm, a.seed)}[a.cmd](out)
 
 
 if __name__ == "__main__":

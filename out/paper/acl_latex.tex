@@ -40,6 +40,11 @@
 \renewcommand{\topfraction}{.9}\renewcommand{\dbltopfraction}{.9}
 \renewcommand{\textfraction}{.08}\renewcommand{\floatpagefraction}{.85}
 
+% Pivot results (counterfactual DPO, stored-text atlas). The generated file
+% sets \pivottrue and defines every number used in those sections.
+\newif\ifpivot
+\input{out/paper/pivot_results}
+
 \title{Same Responses, Opposite Conclusions: How Detection Rules and\\
 Response Length Shape Measured Advice-Style Language in OLMo-2}
 
@@ -69,10 +74,18 @@ advice and factual prompts for validation phrases and narrows it for
 structuring phrases, at both model sizes.
 In the DPO preference data, referral and structuring phrases favor the chosen
 response, and modeling response length roughly halves that association
-without removing it. Marker comparisons should therefore report the matching
+without removing it.
+\ifpivot
+To test whether preference data moves these markers, we retrain the 1B DPO
+stage fifteen times from the public SFT checkpoint with edited preference
+data. Swapping chosen and rejected on pairs where only the chosen response
+contains a structuring phrase changes the structuring rate in the first 256
+tokens of advice answers by \pivFlipStruct{} points (95\% interval
+\pivFlipStructCI{}).
+\fi
+Marker comparisons should therefore report the matching
 rule, the text window, and length next to the headline rate. The audit labels
-are model-generated and all analyses are observational, so we make no claim
-about semantic empathy or causal training effects.
+are model-generated, so we make no claim about semantic empathy.
 \end{abstract}
 
 \begin{figure*}[t]
@@ -116,6 +129,11 @@ and the text window change measured contrasts. \textbf{RQ2} asks how those
 contrasts vary with the control condition and the checkpoint. \textbf{RQ3}
 asks how phrase-preference associations in the DPO training data change once
 response length is modeled.
+\ifpivot
+\textbf{RQ4} asks whether editing those preference pairs changes the
+markers a retrained model produces, under a scoring rule that removes length
+opportunity.
+\fi
 
 OLMo-2, released with 1B and 7B parameters, suits this study because its
 final Instruct model is the product of
@@ -157,6 +175,13 @@ structuring phrases favor the chosen response. A paired model with flexible
 length terms shrinks these odds ratios toward one without removing them
 (Figure~\ref{fig:overview}b); a narrower referral set is no longer
 distinguishable from no association.
+\ifpivot
+\item \textbf{Editing the preference data tests the association causally
+(RQ4).} Fifteen 1B DPO retrainings on five data arms, scored on a fixed
+256-token window, give \pivNSig{} of four pre-specified target contrasts
+with Holm $p<.05$, with untargeted markers as negative controls
+(Table~\ref{tab:pivot}).
+\fi
 \end{enumerate}
 We release prompts, the lexicon, detector outputs, audit labels, and analysis
 scripts.
@@ -227,9 +252,10 @@ observational and does not establish which examples caused an output.
 
 \section{Measurement and Study Design}
 
-The study has five analyses, each with its own unit and scope
+The study has \ifpivot seven\else five\fi{} analyses, each with its own unit and scope
 (Table~\ref{tab:study-map}).
 
+\newcommand{\floatStudyMap}{%
 \begin{table*}[t]
 \centering
 \small
@@ -243,12 +269,18 @@ RQ1: Sentence audit & 120 sentences from 97 final responses & Detector versus LL
 RQ2: Final conditions & 140 prompts, five conditions, five generations & Personal advice versus four controls at final 1B and 7B & Author-written controls are not topic-paired counterfactuals \\
 RQ2: Checkpoint grid & 90 personal-advice and general-facts prompts, five generations & Change in the advice-minus-facts gap across public 1B and 7B stages & Base-to-SFT also changes the prompt format; detector outputs only \\
 RQ3: DPO pairs & 378,301 1B and 378,341 7B pairs & Exact chosen-versus-rejected matches, with paired flexible length terms & Observational; conditioning on length changes the question; mixtures share 21,508 pairs \\
+\ifpivot
+RQ4: Counterfactual DPO & 15 retrained 1B models (five data arms, three seeds); 160 prompts, three generations & Flip versus baseline and drop versus random drop, exact match in the first 256 tokens & Retrained at reduced batch and sample; not the released DPO model \\
+RQ4: Atlas & 13 checkpoint-format runs; 160 prompts, three generations & Stage change in the advice-minus-information gap under twelve rule-window choices & Detector outputs only; one decoding configuration \\
+\fi
 \bottomrule
 \end{tabular}
 \caption{Evidence map. Each analysis answers a different part of the
 measurement question and has a different unit and scope limit.}
 \label{tab:study-map}
 \end{table*}
+}
+\ifpivot\else\floatStudyMap\fi
 
 \subsection{Marker categories and detector}
 \label{sec:method-detect}
@@ -370,6 +402,46 @@ more common among responses of similar length'', and neither version
 identifies a causal effect. The model specification
 was written down before the six fits but after the aggregate differences were
 known, so we treat the fits as exploratory.
+
+\ifpivot
+\subsection{Counterfactual DPO retraining}
+\label{sec:method-pivot}
+The design, outcomes, and interpretation below were fixed in a protocol
+dated before any of its data were generated. We start from the public 1B SFT
+checkpoint and rerun DPO on edited samples of its preference mixture. A pair
+is \emph{chosen-only} for the target lexicons (structuring and
+referral/disclaimer) if a target phrase appears in the chosen response and
+not the rejected one. For each training seed we draw a sample $S$ of
+\pivNPairs{} pairs, which contains on average \pivNChosenOnly{} chosen-only
+pairs, and build five arms: $S$ itself (\emph{baseline}); $S$ without the
+chosen-only pairs (\emph{drop}); $S$ without the same number of random pairs
+(\emph{random drop}); $S$ with chosen and rejected swapped on chosen-only
+pairs (\emph{flip}); and a separate sample in which the two responses differ
+by at most 20 words (\emph{length-matched}). Training follows the released
+OLMo-2 DPO recipe where it is public (length-normalized DPO loss,
+$\beta=5$, learning rate $10^{-6}$, linear schedule with 10\% warmup, one
+epoch), with an effective batch of 32 and sequences cut at 1,024 tokens.
+
+Each of the fifteen models answers the 160 evaluation prompts (40 topic
+families crossed with emotional framing and with an information or advice
+request) three times at temperature 0.7, with up to 1,024 new tokens. The
+primary outcome is the exact-match rate in the first 256 tokens of advice
+answers, so that longer answers gain no extra opportunity to match. The two
+primary contrasts are flip minus baseline and drop minus random drop, for
+structuring and referral/disclaimer. We average over sampling seeds within a
+prompt, then over training seeds within an arm, bootstrap over the 40
+families (10,000 draws), and apply a Holm correction across the four tests.
+Empathy and validation are not edited and act as negative controls.
+
+\paragraph{Stored-text atlas.} The same prompts and decoding are run on
+thirteen public checkpoint-format combinations: 1B Base, SFT, DPO, RLVR, and
+Instruct and 7B Base, SFT, DPO, and Instruct, plus Base in chat format and
+SFT in a plain Question/Answer format at both sizes. Base output is cut at
+the first generated next question. For every stage transition we compute the
+change in the advice-minus-information gap under twelve specifications
+(exact or union at $\tau\in\{.80,.82,.84\}$, crossed with 64 tokens, 256
+tokens, or all text) and report the share with a positive sign.
+\fi
 
 \paragraph{Reproducibility.} The artifact contains the prompts, lexicon,
 seeds, detector outputs, audit labels, paired DPO features, and the scripts
@@ -512,6 +584,8 @@ no scaling claim.
 Markers often co-occur: 25.7\% of final-7B advice responses trigger all four
 categories (Appendix~\ref{app:response-robustness}).
 
+
+\newcommand{\floatConditions}{%
 \begin{table*}[t]
 \centering
 \small
@@ -537,6 +611,8 @@ emotion appears without a request, and structuring is at ceiling on neutral
 how-to prompts.}
 \label{tab:conditions}
 \end{table*}
+}
+\ifpivot\else\floatConditions\fi
 
 \begin{table}[t]
 \centering
@@ -591,6 +667,8 @@ this transition also switches from plain question-answer text to the chat
 template, so it cannot be attributed to SFT. Every category is already
 detector-positive at Base.
 
+
+\newcommand{\floatInteraction}{%
 \begin{table}[t]
 \centering
 \small
@@ -618,6 +696,8 @@ Base$\to$SFT column also changes the prompt format. Later transitions
 have unadjusted $p\geq.168$.}
 \label{tab:interaction}
 \end{table}
+}
+\ifpivot\else\floatInteraction\fi
 
 \paragraph{Against an emotional control, DPO reverses the empathy gap.}
 The Base/SFT/DPO runs with all five conditions test 24 planned
@@ -686,37 +766,94 @@ prompt and when we drop the largest data source. The two mixtures share 21{,}508
 content-identical pairs, so the 1B and 7B results are not independent
 replications.
 
+\ifpivot
+\subsection{RQ4: Counterfactual preference data}
+\label{sec:pivot}
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llrlrl}
+\toprule
+& Marker & Diff. & 95\% interval & $p$ & Seed range \\
+\midrule
+\pivPrimaryRows
+\bottomrule
+\end{tabular}
+\caption{RQ4: change in exact-match rates (percentage points) in the first
+256 tokens of advice answers. Flip: flip minus baseline. Drop: drop minus
+random drop. Len.: length-matched minus baseline. The first four rows are the
+primary tests with Holm-adjusted $p$; $\dagger$ marks secondary rows with
+unadjusted $p$. Intervals bootstrap the 40 topic families; the seed range
+pairs arms by training seed.}
+\label{tab:pivot}
+\end{table}
+
+Table~\ref{tab:pivot} reports the four primary contrasts. Flipping the
+chosen-only pairs changes the structuring rate by \pivFlipStruct{} points
+(\pivFlipStructCI{}, Holm $p=$\pivFlipStructP{}) and the
+referral/disclaimer rate by \pivFlipDisc{} points (\pivFlipDiscCI{},
+$p=$\pivFlipDiscP{}). Dropping them, relative to dropping the same number
+of random pairs, changes structuring by \pivDropStruct{} (\pivDropStructCI{},
+$p=$\pivDropStructP{}) and referral/disclaimer by \pivDropDisc{}
+(\pivDropDiscCI{}, $p=$\pivDropDiscP{}). The negative-control rows show
+whether the edits also move markers they did not target. At the end of
+training the models prefer the training-set chosen response on
+\pivFinalAcc{} of pairs on average, and \pivCapShare\% of their
+generations reach the 1,024-token cap.
+
+In the stored-text atlas, \pivAtlasMixed{} of \pivAtlasTotal{} stage
+contrasts change sign across the twelve rule-window choices, and prompt
+format alone moves a checkpoint's gap by up to \pivFormatMax{} points
+(Appendix~\ref{app:atlas}).
+\fi
+
 \section{Discussion}
 
-\paragraph{What changes with the measurement, and what does not.}
+\paragraph{What changes with the measurement, and why.}
 The empathy and structuring contrasts depend on the matching rule and, for
 empathy, on the text window. Two conclusions hold at all three thresholds:
 validation phrases exceed their strongest targeted control, and DPO reverses
-the 7B empathy gap against emotional prompts. Stability
-across thresholds is a property of the detector and does not establish that
-it measures the intended construct.
+the 7B empathy gap against emotional prompts. The embedding rule fires when
+any sentence resembles an exemplar, so its chance of firing grows with the
+number of sentences. Responses to the targeted controls are as long as advice
+responses, while factual responses are shorter, so the union separates long
+from short conditions and not two long ones
+(Tables~\ref{tab:window-components} and~\ref{tab:contrasts}).
 
-\paragraph{Why the union detector behaves this way.}
-The embedding rule fires when any sentence resembles an exemplar, so its
-chance of firing grows with the number of sentences. Final-7B responses to
-the targeted controls are as long as advice responses and close to the
-256-token cap, while factual responses are shorter. A rule with this property
-separates long from short conditions well and separates two long conditions
-poorly, which matches the pattern in Tables~\ref{tab:window-components}
-and~\ref{tab:contrasts}.
 \paragraph{Recommendations.}
-We suggest four reporting practices for marker-based comparisons. State the matching rule and show the
-headline contrast under at least one alternative rule. Fix and report the
-text window, and check whether generations reach the length cap. Include a
-control condition that shares the surface property most likely to trigger the
-rule, such as emotional content without a request. When relating markers to
+State the matching rule and show the headline contrast under at least one
+alternative rule. Fix and report the text window and the share of
+generations that reach the length cap. Include a control that shares the
+surface property most likely to trigger the rule. When relating markers to
 preference data, report the association with and without length terms.
+
+\section{Conclusion}
+\label{sec:roadmap}
+
+On identical OLMo-2 responses, the matching rule and the text window decide
+whether an empathy marker looks more or less common in personal advice than
+in an emotional control, and length accounts for about half of the
+chosen-side advantage of referral and structuring phrases in the DPO data.
+\ifpivot
+Retraining DPO on edited preference data, scored on a fixed 256-token
+window, tests that association directly (Table~\ref{tab:pivot}).
+\fi
+These results describe detector outputs; human labels would extend them to
+semantic behavior.
 
 \section{Limitations}
 \label{sec:limitations}
 
+\ifpivot
+The counterfactual models are retrained at 1B with a smaller batch and data
+sample than the released recipe, so they test the preference data at this
+setting and are not the released DPO model; RQ1 to RQ3 remain observational.
+\else
 All analyses are observational and do not attribute outputs to training
-examples. The audit uses LLM-consensus labels, has no human labels, covers 97
+examples.
+\fi The audit uses LLM-consensus labels, has no human labels, covers 97
 responses, has wide per-category intervals, and does not validate
 response-level prevalence. The component and window analyses cover only
 final 7B, because raw responses for other checkpoints were not stored. Base
@@ -726,16 +863,6 @@ advice prompts, and twelve pilot prompts were reused. The DPO length bins are
 post hoc, and the conditional model is exploratory and not preregistered.
 One model family, two sizes, one decoding configuration, and modest
 author-written prompt sets support no scaling or cross-family claim.
-
-\section{Conclusion}
-\label{sec:roadmap}
-
-On identical OLMo-2 responses, the matching rule and the text window decide
-whether an empathy marker looks more or less common in personal advice than
-in an emotional control, and length accounts for about half of the
-chosen-side advantage of referral and structuring phrases in the DPO data.
-These results describe detector outputs; human labels would extend them to
-semantic behavior.
 
 \section*{Ethics Statement}
 
@@ -1170,6 +1297,49 @@ gold item is detected in every draw; its precision and F1 remain highly
 uncertain.}
 \label{tab:audit-bootstrap}
 \end{table}
+
+\ifpivot
+\section{Condition and checkpoint tables}
+\label{app:deferred}
+\floatStudyMap
+\floatConditions
+\floatInteraction
+
+\section{Stored-text checkpoint atlas}
+\label{app:atlas}
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lllrr}
+\toprule
+Size & Stage & Marker & Exact 256 & Share $>0$ \\
+\midrule
+\pivAtlasRows
+\bottomrule
+\end{tabular}
+\caption{Change in the advice-minus-information gap at each stage
+transition. ``Exact 256'' is the change under exact matching on the first 256
+tokens; the last column is the share of twelve rule-window specifications
+with a positive change.}
+\label{tab:atlas}
+\end{table}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lllr}
+\toprule
+Size & Stage & Marker & Chat $-$ QA \\
+\midrule
+\pivFormatRows
+\bottomrule
+\end{tabular}
+\caption{Prompt-format effect: the same checkpoint's advice-minus-information
+gap in chat format minus plain Question/Answer format (exact, 256 tokens).}
+\label{tab:format}
+\end{table}
+\fi
 
 \section{Statistical formulas}
 \label{app:formulas}

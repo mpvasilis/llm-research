@@ -4,7 +4,9 @@
     python experiments/pivot/vast_launch.py watch --id <instance> --budget 15
     python experiments/pivot/vast_launch.py stop  --id <instance>
 
-`watch` syncs results every 10 minutes, and destroys the instance when the run
+The remote job first runs `bench` (real DPO steps and generation on the rented
+GPU). `watch` syncs results every 10 minutes, stops at once if the benchmark
+projects a total over the budget, and destroys the instance when the run
 finishes or when the estimated spend reaches the budget. Only the runner and
 prompts are uploaded; no credentials are sent, since all models are public.
 """
@@ -24,8 +26,9 @@ QUERY = ("gpu_name=RTX_4090 num_gpus=1 reliability>0.99 disk_space>150 inet_down
          "direct_port_count>4 cuda_vers>=12.4 rentable=true")
 SSH_OPTS = ["-o", "StrictHostKeyChecking=accept-new", "-o", "ConnectTimeout=30"]
 REMOTE_SETUP = (
-    "cd /workspace && pip install -q 'transformers>=4.57,<6' accelerate pyarrow huggingface_hub "
-    "&& nohup python pivot_runner.py all --out results > run.log 2>&1 &"
+    "cd /workspace && pip install -q 'transformers>=4.57,<6' accelerate pyarrow huggingface_hub bitsandbytes "
+    "&& PIVOT_N_PAIRS={pairs} nohup sh -c 'python pivot_runner.py bench --out results && python pivot_runner.py all --out results' "
+    "> run.log 2>&1 &"
 )
 
 
@@ -72,7 +75,7 @@ def destroy(iid):
 
 
 def watch(iid, budget):
-    started = time.time()
+    started, checked = time.time(), False
     while True:
         inst = instance(iid)
         if inst is None:
@@ -89,6 +92,15 @@ def watch(iid, budget):
             sync(inst)
             destroy(iid)
             return
+        bench = LOCAL_RESULTS / "bench.json"
+        if bench.exists() and not checked:
+            checked = True
+            proj = json.loads(bench.read_text(encoding="utf-8"))["proj_total_h"] * rate
+            print(f"projected total ${proj:.2f} at ${rate:.3f}/h", flush=True)
+            if proj > budget:
+                print("PROJECTED COST OVER BUDGET; lower PIVOT_N_PAIRS or raise --budget", flush=True)
+                destroy(iid)
+                return
         if spent >= budget:
             print("BUDGET REACHED", flush=True)
             destroy(iid)
@@ -96,7 +108,7 @@ def watch(iid, budget):
         time.sleep(600)
 
 
-def start(budget):
+def start(budget, pairs):
     offers = vast("search", "offers", QUERY, "-o", "dph_total")
     offer = offers[0]
     print("offer", offer["id"], offer["dph_total"], flush=True)
@@ -121,7 +133,7 @@ def start(budget):
             time.sleep(20)
         here = Path(__file__).resolve().parent
         scp_up(inst, [here / "pivot_runner.py", here / "prompts_revision_v1.json"])
-        ssh(inst, REMOTE_SETUP, timeout=900)
+        ssh(inst, REMOTE_SETUP.format(pairs=pairs), timeout=900)
     except Exception:
         destroy(iid)
         raise
@@ -133,9 +145,10 @@ def main():
     ap.add_argument("cmd", choices=["start", "watch", "stop"])
     ap.add_argument("--id", type=int)
     ap.add_argument("--budget", type=float, default=15.0)
+    ap.add_argument("--pairs", type=int, default=60_000, help="pairs per DPO run (protocol: 60000)")
     a = ap.parse_args()
     if a.cmd == "start":
-        start(a.budget)
+        start(a.budget, a.pairs)
     elif a.cmd == "watch":
         watch(a.id, a.budget)
     else:

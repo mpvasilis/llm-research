@@ -152,6 +152,24 @@ def atlas(scored, sizes=("1B", "7B")):
     return {"table": table, "sign_flip": sign_flip, "format_effect": fmt}
 
 
+def training(results):
+    """Per-arm data counts and the last logged loss and accuracy, from train_*.json."""
+    out = {}
+    for p in sorted(results.glob("train_cf_*.json")):
+        t = json.loads(p.read_text(encoding="utf-8"))
+        last = t["log"][-1] if t["log"] else {}
+        out.setdefault(t["arm"], []).append({"seed": t["seed"], "n_train": t["n_train"], **t["counts"],
+                                              "final_loss": last.get("loss"), "final_acc": last.get("acc")})
+    return out
+
+
+def generation(rows):
+    """Share of generations stopped by the token cap, and mean length, per tag."""
+    return {k: {"cap_share": float(np.mean([r["stop"] == "cap" for r in v])),
+                "mean_tokens": float(np.mean([r["n_tokens"] for r in v])), "n": len(v)}
+            for k, v in rows.items()}
+
+
 class _WordTok:
     def encode(self, text, add_special_tokens=False):
         return text.split()
@@ -205,6 +223,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--union", action="store_true")
+    ap.add_argument("--results", type=Path, default=RESULTS)
+    ap.add_argument("--out", type=Path, default=OUT)
     a = ap.parse_args()
     if a.self_test:
         self_test()
@@ -223,9 +243,13 @@ def main():
                 cache.clear()
                 cache[key] = embedding_flags(model, vectors, texts)[1]
             return [{c: e[c] or m[c] >= tau for c in CATEGORIES} for e, m in zip(exact_rows, cache[key])]
-    scored = {p.stem[4:]: score(load(p), tok, union) for p in sorted(RESULTS.glob("gen_*.jsonl"))}
-    OUT.write_text(json.dumps({"counterfactual": counterfactual(scored), "atlas": atlas(scored)}, indent=1), encoding="utf-8")
-    print("wrote", OUT)
+    rows = {p.stem[4:]: load(p) for p in sorted(a.results.glob("gen_*.jsonl"))}
+    scored = {k: score(v, tok, union) for k, v in rows.items()}
+    result = {"counterfactual": counterfactual(scored), "atlas": atlas(scored),
+              "training": training(a.results), "generation": generation(rows)}
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(json.dumps(result, indent=1), encoding="utf-8")
+    print("wrote", a.out)
 
 
 if __name__ == "__main__":
