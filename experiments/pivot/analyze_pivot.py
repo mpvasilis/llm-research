@@ -89,7 +89,8 @@ def arm_effect(left_runs, right_runs, seed=0):
     boot = diff[idx].mean(1)
     p = min(1.0, 2 * min((boot <= 0).mean() + 1 / N_BOOT, (boot >= 0).mean() + 1 / N_BOOT))
     per_seed = (left.mean(1) - right.mean(1)).tolist() if len(left) == len(right) else None
-    return {"estimate": float(diff.mean()), "ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+    se = float(boot.std(ddof=1))
+    return {"estimate": float(diff.mean()), "se": se, "mde80": 2.8 * se, "ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
             "p": float(p), "per_training_seed": per_seed}
 
 

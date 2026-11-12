@@ -97,3 +97,11 @@ models are not the released DPO model, and we will say so.
   used. Arms, outcomes, contrasts and the analysis are unchanged.
 - Reporting: every pivot number in the paper is written by
   `experiments/pivot/report_pivot.py` from `output/pivot/analysis.json`.
+
+## Amendment, 12 November 2026 (before any data were generated)
+
+- Power: for each primary contrast the analysis reports the minimum
+  detectable effect at 80% power and two-sided alpha .05, computed as 2.8
+  times the family-bootstrap standard error (`mde80` in analysis.json). A
+  null result is reported together with this value, so that a reader can
+  tell an absent effect from an underpowered test.
