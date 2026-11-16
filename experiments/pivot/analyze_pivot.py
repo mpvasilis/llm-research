@@ -103,23 +103,26 @@ def holm(pvalues):
     return adjusted
 
 
-def counterfactual(scored, n_seeds=3):
-    runs = {a: [scored[f"cf_{a}_s{s}"] for s in range(n_seeds)] for a in ARMS}
+def counterfactual(scored, n_seeds=2):  # amended 14 Nov 2026: two seeds per arm
+    runs = {a: [scored[f"cf_{a}_s{s}"] for s in range(n_seeds) if f"cf_{a}_s{s}" in scored] for a in ARMS}
+    runs = {a: v for a, v in runs.items() if v}
+    pairs = [(l, r) for l, r in PRIMARY if l in runs and r in runs]
 
     def effect(left, right, cat, rule="exact", window=256):
         return arm_effect([family_means(r[(rule, window, cat)]) for r in runs[left]],
                           [family_means(r[(rule, window, cat)]) for r in runs[right]])
 
-    primary = [{"left": l, "right": r, "category": c, **effect(l, r, c)} for l, r in PRIMARY for c in TARGETS]
+    primary = [{"left": l, "right": r, "category": c, **effect(l, r, c)} for l, r in pairs for c in TARGETS]
     for row, q in zip(primary, holm([x["p"] for x in primary])):
         row["holm_p"] = q
     secondary = []
     for window in WINDOWS:
         for cat in CATEGORIES:
-            for left, right in PRIMARY + [("length_matched", "baseline")]:
+            for left, right in pairs + [("length_matched", "baseline")] * ("length_matched" in runs and "baseline" in runs):
                 secondary.append({"left": left, "right": right, "category": cat, "window": window,
                                   **effect(left, right, cat, window=window)})
-    return {"primary": primary, "secondary": secondary}
+    return {"primary": primary, "secondary": secondary,
+            "seeds": {a: len(v) for a, v in runs.items()}}
 
 
 def gap(prompt_scores):

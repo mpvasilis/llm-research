@@ -55,11 +55,13 @@ preference data, referral and structuring phrases favor the chosen response,
 and modeling response length removes about half of that association.
 \ifpivot
 To test whether preference data moves these markers, we retrain the 1B DPO
-stage fifteen times from the public SFT checkpoint with edited preference
+stage eight times (four data arms, two seeds) from the public SFT checkpoint with edited preference
 data. Swapping chosen and rejected on pairs where only the chosen response
 contains a structuring phrase changes the structuring rate in the first 256
 tokens of advice answers by \pivFlipStruct{} points (95\% interval
-\pivFlipStructCI{}).
+\pivFlipStructCI{}); none of the four pre-specified contrasts is
+significant, and the design excludes effects larger than about nine
+points.
 \fi
 We give a short reporting checklist: the matching rule, the text window, the
 share of truncated answers, a length-matched control, and length-adjusted
@@ -154,7 +156,7 @@ length terms shrinks these odds ratios toward one without removing them
 distinguishable from no association.
 \ifpivot
 \item \textbf{Editing the preference data tests the association causally
-(RQ4).} Fifteen 1B DPO retrainings on five data arms, scored on a fixed
+(RQ4).} Eight 1B DPO retrainings on four data arms, scored on a fixed
 256-token window, give \pivNSig{} of four pre-specified target contrasts
 with Holm $p<.05$, with untargeted markers as negative controls
 (Table~\ref{tab:pivot}).
@@ -219,13 +221,26 @@ changes model rankings \citep{dubois2024length}. These papers treat length as
 a property of the whole response. We ask a narrower question: how much of the
 chosen-side advantage of specific marker phrases in the OLMo-2 DPO mixtures
 remains once length is modeled.
+Preference labels themselves can favor longer answers \citep{saito2023verbosity}.
+
+\paragraph{Preference-data interventions.}
+Ablations of the preference data in open recipes show that the choice of
+pairs moves downstream behavior \citep{ivison2024unpacking}.
+\citet{xiao2026probe} retrain the OLMo-2 7B DPO stage from its SFT checkpoint
+after filtering or swapping pairs selected by a probe, and find that harmful
+behavior moves. Our counterfactual test uses the same kind of intervention on
+the 1B chain, but it targets pairs by marker content, adds a random-drop arm
+of equal size and untargeted markers as negative controls, fixes the outcome
+window in advance, and models length.
 
 \paragraph{Counting words across training stages.}
 \citet{zhou2024relying} count epistemic markers in base, instruction-tuned
 and RLHF models, and \citet{juzek2025delve} trace the overuse of words such as
 ``delve'' to the preference stage. Both rely on lexical counts of the kind we
 examine. A multiverse analysis reports a result under every reasonable
-combination of analysis choices \citep{steegen2016multiverse}; we apply that
+combination of analysis choices \citep{steegen2016multiverse}, and analytic
+choices in LLM-based text annotation can flip downstream conclusions
+\citep{baumann2025hacking}; we apply that
 idea to the matching rule and the text window.
 
 \section{Measurement and Study Design}
@@ -248,7 +263,7 @@ RQ2: Final conditions & 140 prompts, five conditions, five generations & Persona
 RQ2: Checkpoint grid & 90 personal-advice and general-facts prompts, five generations & Change in the advice-minus-facts gap across public 1B and 7B stages & Base-to-SFT also changes the prompt format; detector outputs only \\
 RQ3: DPO pairs & 378,301 1B and 378,341 7B pairs & Exact chosen-versus-rejected matches, with paired flexible length terms & Observational; conditioning on length changes the question; mixtures share 21,508 pairs \\
 \ifpivot
-RQ4: Counterfactual DPO & 15 retrained 1B models (five data arms, three seeds); 160 prompts, three generations & Flip versus baseline and drop versus random drop, exact match in the first 256 tokens & Retrained at reduced batch and sample; not the released DPO model \\
+RQ4: Counterfactual DPO & 8 retrained 1B models (four data arms, two seeds); 160 prompts, three generations & Flip versus baseline and drop versus random drop, exact match in the first 256 tokens & Retrained at reduced batch and sample; not the released DPO model \\
 RQ4: Atlas & 13 checkpoint-format runs; 160 prompts, three generations & Stage change in the advice-minus-information gap under twelve rule-window choices & Detector outputs only; one decoding configuration \\
 \fi
 \bottomrule
@@ -276,7 +291,7 @@ The detector has two components. The \emph{exact} component is
 case-insensitive substring matching against the lexicon. The \emph{embedding}
 component marks a response positive when any of its sentences reaches cosine
 similarity $\tau$ to one of three example sentences for the category, using
-the e5-small sentence-embedding model \citep{wang2024e5}. The \emph{union} detector fires when either component
+the multilingual-e5-small sentence-embedding model \citep{wang2024e5}. The \emph{union} detector fires when either component
 does. The primary threshold $\tau=0.82$ was fixed before the 140-prompt
 battery was run and was not tuned afterwards; we also report $\tau=0.80$ and
 $0.84$. Appendix~\ref{app:lexicon} gives the full specification.
@@ -392,16 +407,15 @@ is \emph{chosen-only} for the target lexicons (structuring and
 referral/disclaimer) if a target phrase appears in the chosen response and
 not the rejected one. For each training seed we draw a sample $S$ of
 \pivNPairs{} pairs, which contains on average \pivNChosenOnly{} chosen-only
-pairs, and build five arms: $S$ itself (\emph{baseline}); $S$ without the
+pairs, and build four arms: $S$ itself (\emph{baseline}); $S$ without the
 chosen-only pairs (\emph{drop}); $S$ without the same number of random pairs
-(\emph{random drop}); $S$ with chosen and rejected swapped on chosen-only
-pairs (\emph{flip}); and a separate sample in which the two responses differ
-by at most 20 words (\emph{length-matched}). Training follows the released
+(\emph{random drop}); and $S$ with chosen and rejected swapped on chosen-only
+pairs (\emph{flip}). Training follows the released
 OLMo-2 DPO recipe where it is public (length-normalized DPO loss,
 $\beta=5$, learning rate $10^{-6}$, linear schedule with 10\% warmup, one
 epoch), with an effective batch of 32 and sequences cut at 1,024 tokens.
 
-Each of the fifteen models answers the 160 evaluation prompts (40 topic
+Each of the eight models answers the 160 evaluation prompts (40 topic
 families crossed with emotional framing and with an information or advice
 request) three times at temperature 0.7, with up to 1,024 new tokens. The
 primary outcome is the exact-match rate in the first 256 tokens of advice
@@ -505,6 +519,13 @@ $.82$ finds neither on 128 tokens or all text, and finds no structuring gap
 in any window. Validation is positive in all twelve specifications and
 significant in ten. A study that picks one rule without reporting the others
 can therefore reach either conclusion from the same responses.
+
+\paragraph{Placebo lexicons and other matchers.}
+Exact empathy and validation gaps exceed all 200 frequency-matched placebo
+lexicons ($p=.005$), whereas union gaps are indistinguishable from unions
+built on random seed sentences; the empathy sign flip is confined to
+$\tau\in[.79,.82]$, and two other encoders and an NLI matcher give positive
+empathy gaps (Appendix~\ref{app:revision-checks}).
 
 \paragraph{False positives come from the embedding rule.}
 The audit covers 120 sentences (56 from the 1B and 64 from the 7B final
@@ -664,6 +685,12 @@ this transition also switches from plain question-answer text to the chat
 template, so it cannot be attributed to SFT. Every category is already
 detector-positive at Base.
 
+\paragraph{Replication on a second prompt set.}
+On 160 new prompts, the Base-to-SFT rise in structuring and the 7B
+SFT-to-DPO narrowing of the structuring gap replicate, and no change after
+DPO exceeds nine points; the SFT-to-DPO validation widening does not
+(Appendix~\ref{app:revision-checks}, Table~\ref{tab:atlas-rq2}).
+
 
 \newcommand{\floatInteraction}{%
 \begin{table}[t]
@@ -773,68 +800,36 @@ replications.
 \ifpivot
 \subsection{RQ4: Counterfactual preference data}
 \label{sec:pivot}
+None of the four primary contrasts is significant (\pivNSig{} of four
+with Holm $p<.05$; Table~\ref{tab:pivot}, Appendix~\ref{app:pivot-table}).
+Flipping chosen-only pairs changes structuring by \pivFlipStruct{} points
+(\pivFlipStructCI{}); dropping them, against a random drop of equal size,
+changes it by \pivDropStruct{} (\pivDropStructCI{}). Referral and the
+untargeted markers stay within four points.
 
-\begin{table}[t]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{llrlrl}
-\toprule
-& Marker & Diff. & 95\% interval & $p$ & Seed range \\
-\midrule
-\pivPrimaryRows
-\bottomrule
-\end{tabular}
-\caption{RQ4: change in exact-match rates (percentage points) in the first
-256 tokens of advice answers. Flip: flip minus baseline. Drop: drop minus
-random drop. Len.: length-matched minus baseline. The first four rows are the
-primary tests with Holm-adjusted $p$; $\dagger$ marks secondary rows with
-unadjusted $p$. Intervals bootstrap the 40 topic families; the seed range
-pairs arms by training seed.}
-\label{tab:pivot}
-\end{table}
+\paragraph{Scope of the null result.}
+The 80\%-power detectable effect is about 7.5 points for structuring. Only \pivNChosenOnly{} of
+\pivNPairs{} pairs (7\%) are edited and final training accuracy is near
+\pivFinalAcc{}, so the result bounds this subset under a light DPO budget,
+not the full mixture or a longer run.
 
-Table~\ref{tab:pivot} reports the four primary contrasts. Flipping the
-chosen-only pairs changes the structuring rate by \pivFlipStruct{} points
-(\pivFlipStructCI{}, Holm $p=$\pivFlipStructP{}) and the
-referral/disclaimer rate by \pivFlipDisc{} points (\pivFlipDiscCI{},
-$p=$\pivFlipDiscP{}). Dropping them, relative to dropping the same number
-of random pairs, changes structuring by \pivDropStruct{} (\pivDropStructCI{},
-$p=$\pivDropStructP{}) and referral/disclaimer by \pivDropDisc{}
-(\pivDropDiscCI{}, $p=$\pivDropDiscP{}). The negative-control rows show
-whether the edits also move markers they did not target.
 
-In the stored-text atlas, \pivAtlasMixed{} of \pivAtlasTotal{} stage
-contrasts change sign across the twelve rule-window choices, and prompt
-format alone moves a checkpoint's gap by up to \pivFormatMax{} points
-(Appendix~\ref{app:atlas}).
 \fi
 
-\section{Discussion}
-
-\paragraph{What holds under every choice.}
-Validation phrases exceed their strongest targeted control in all twelve
-specifications and at all three thresholds, and the DPO interaction that
-shrinks the 7B empathy gap against emotional prompts is significant at all
-three thresholds. The empathy and structuring conclusions depend on the
-rule.
-
-\paragraph{Reporting checklist.}
-(1)~Report the headline contrast under at least two matching rules (here
-the rule moves the empathy gap by 47 points). (2)~Fix the text window and
-report the share of answers at the generation cap (96 to 98\% of control
-answers here). (3)~Include a control that shares the property most likely
-to trigger the rule; against general facts every marker looks
-advice-specific. (4)~Report preference associations with and without length
-terms and within a length-matched band.
-
-\section{Conclusion}
+\section{Discussion and Conclusion}
 \label{sec:roadmap}
-
 On identical OLMo-2 responses, the matching rule decides whether empathy
-and structuring markers look specific to personal advice, and length accounts
-for about half of the chosen-side advantage of referral and structuring
-phrases in the DPO data. Marker comparisons should report all three.
+and structuring markers look specific to personal advice, and length
+accounts for about half of the chosen-side advantage of referral and
+structuring phrases in the DPO data. Validation exceeds its strongest
+control in all twelve specifications, and exact-match gaps exceed placebo
+lexicons.\ifpivot{} Editing the pairs that carry these phrases moves no
+target marker detectably.\fi{} We recommend: (1)~reporting the headline
+contrast under at least two matching rules; (2)~fixing the text window and
+reporting the share of answers at the generation cap; (3)~including a
+control that shares the property most likely to trigger the rule; and
+(4)~reporting preference associations with and without length terms and
+within a length-matched band.
 
 \section{Limitations}
 \label{sec:limitations}
@@ -1298,6 +1293,112 @@ gap in chat format minus plain Question/Answer format (exact, 256 tokens).}
 \label{tab:format}
 \end{table}
 \fi
+
+\ifpivot
+\section{Counterfactual DPO contrasts}
+\label{app:pivot-table}
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llrlrl}
+\toprule
+& Marker & Diff. & 95\% interval & $p$ & Seed range \\
+\midrule
+\pivPrimaryRows
+\bottomrule
+\end{tabular}
+\caption{RQ4: change in exact-match rates (percentage points) in the first
+256 tokens of advice answers. Flip: flip minus baseline. Drop: drop minus
+random drop. The first four rows are the
+primary tests with Holm-adjusted $p$; $\dagger$ marks secondary rows with
+unadjusted $p$. Intervals bootstrap the 40 topic families; the seed range
+pairs arms by training seed.}
+\label{tab:pivot}
+\end{table}
+\fi
+
+\section{Placebo, matcher and replication checks}
+\label{app:revision-checks}
+Scripts are in \texttt{experiments/free\_analyses/}; all use the detector,
+cleaning and windows of the main analysis and a fixed seed. Placebo lexicons
+draw phrases with the same count and word lengths from the same
+log-frequency bins of the response corpus; frequency-matched phrases can
+still be semantically close to a target (for example ``a healthcare provider
+for''), which makes the placebo test conservative.
+
+\paragraph{Placebo lexicons and other matchers.}
+Three further checks locate the problem in the embedding rule
+(Appendix~\ref{app:revision-checks}). First, against 200 placebo lexicons
+matched on phrase count, word length and document frequency, the exact
+empathy and validation gaps lie outside every placebo draw ($p=.005$, the
+floor) and structuring gives $p=.015$; referral/disclaimer does not separate
+($p=.095$). The union gaps, by contrast, are not distinguishable from unions
+built on 200 random three-sentence seed sets ($p$ from .30 to .75). Second,
+the sign flip of the empathy gap lives in a narrow band of the threshold: it
+is negative for $\tau$ from .79 to .82 and returns to the exact value
+($+.323$) from $\tau=.84$ upward. Two other sentence encoders (MiniLM, BGE)
+and an NLI classifier at audit-calibrated thresholds give empathy gaps of
+$+.11$ to $+.34$, none negative. Third, a joint permutation test over the
+twelve specifications rejects ``no gap'' for empathy ($p=.0008$) and
+validation ($p=.004$), not for referral ($p=.14$), and the matching rule
+explains 60 to 99\% of the variance across specifications for every marker
+except referral, where the rule-by-window interaction dominates. Two
+``no gap'' readings under the union are not equivalence: two one-sided tests
+at a 5-point margin fail for empathy on 128 tokens and all text, and the
+structuring union at $\tau=.82$ is slightly negative ($-.03$, 90\% CI
+$[-.06,-.007]$).
+
+\paragraph{Replication on a second prompt set.}
+We regenerated all public 1B and 7B stages on a separate set of 160 prompts
+(40 topic families, each with neutral and emotional phrasings of an
+information and an advice request; three samples each) and recomputed every
+stage change on the twelve specifications (Table~\ref{tab:atlas-rq2}). Two
+results replicate. Structuring rises from Base to SFT ($+.33$ for 1B,
+$+.38$ for 7B under exact matching; all twelve 7B specifications have a
+confidence interval above zero), and no 1B stage change after DPO is larger
+than nine points under any specification. The 7B structuring gap again
+narrows from SFT to DPO ($-.20$, 95\% CI $[-.31,-.08]$; nine of twelve
+specifications below zero), while the 1B change depends on the rule
+($+.01$ exact, $-.29$ union). The SFT-to-DPO widening of the validation gap
+does not replicate ($+.000$ for 1B, $-.004$ for 7B): validation phrases are
+near zero in these generations. We therefore treat that validation change as
+specific to the original prompt battery.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\input{out/paper/rev/placebo_all_text.tex}
+\caption{Final-7B all-text gaps against 200 placebo lexicons (exact) and 200
+random seed sets (union, $\tau=.82$); two-sided $p$ with floor $1/201$.}
+\label{tab:placebo}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\input{out/paper/rev/spec_curve_joint.tex}
+\caption{Joint test over the twelve specifications (5{,}000 prompt
+permutations): median gap and its $p$, number of significant positive
+specifications and its $p$, sum-of-squares shares for rule, window and their
+interaction, and the range of the exact all-text gap when one phrase is left
+out.}
+\label{tab:specjoint}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\scriptsize
+\input{out/paper/rev/atlas_stage_changes.tex}
+\caption{Second prompt set: change in the advice-minus-information gap
+between adjacent stages, with family-clustered 95\% CI under exact matching,
+the union value, the range over twelve specifications, the number of
+specifications with CI above/below zero, and the number equivalent to zero
+at a 5-point margin.}
+\label{tab:atlas-rq2}
+\end{table*}
 
 \section{Statistical formulas}
 \label{app:formulas}

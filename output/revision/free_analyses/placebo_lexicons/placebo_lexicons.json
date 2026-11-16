@@ -1,0 +1,1026 @@
+{
+ "meta": {
+  "n_draws": 200,
+  "seed": 20261114,
+  "tau": 0.82,
+  "reference_corpus": "pivot generations, 13 tags, 6240 rows",
+  "frequency_matching": "same whitespace word count and same floor(log2(df+1)) bin in reference corpus; fallback to adjacent bins counted in bin_shift",
+  "bin_shift_counts": {
+   "0": 6000,
+   "1": 2000
+  },
+  "real_phrase_reference_df": {
+   "i'm sorry to hear": 11,
+   "i am sorry to hear": 1,
+   "i'm really sorry": 1,
+   "that sounds really": 0,
+   "that sounds very": 0,
+   "i can understand": 6,
+   "i can imagine": 1,
+   "it's understandable": 3,
+   "that must be": 3,
+   "i'm here for you": 1,
+   "i hear you": 0,
+   "it sounds like you": 36,
+   "your feelings are valid": 0,
+   "it's okay to feel": 3,
+   "it is okay to feel": 0,
+   "it's normal to feel": 12,
+   "it's completely normal": 0,
+   "what you're feeling": 0,
+   "there's nothing wrong with": 0,
+   "it's natural to": 1,
+   "consult a": 347,
+   "talk to a": 12,
+   "speak with a": 20,
+   "see a doctor": 47,
+   "seek medical": 42,
+   "i am not a doctor": 0,
+   "i'm not a doctor": 3,
+   "i'm not a medical": 0,
+   "medical professional": 3,
+   "healthcare professional": 450,
+   "mental health professional": 7,
+   "seek professional": 51,
+   "professional help": 26,
+   "here are some": 968,
+   "here are a few": 172,
+   "consider the following": 170,
+   "steps you can take": 111,
+   "a few things you can": 33,
+   "first,": 247,
+   "secondly,": 2
+  },
+  "rq3": "not computed: local DPO cache has flags for real phrase groups only, no text"
+ },
+ "results": [
+  {
+   "window": "64",
+   "category": "empathy_opener",
+   "control": "emotional",
+   "real": {
+    "exact": 0.32,
+    "union_0.82": 0.2533333333333334,
+    "embedding_only_0.82": 0.1366666666666667
+   },
+   "exact_placebo": {
+    "mean": 0.003466666666666667,
+    "sd": 0.02556091027337153,
+    "q025": -0.0002499999999999947,
+    "q50": 0.0,
+    "q975": 0.02025000000000006,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.35848333333333327,
+    "sd": 0.17349200233547327,
+    "q025": 0.04258333333333346,
+    "q50": 0.36,
+    "q975": 0.7005,
+    "p_two_sided_abs": 0.7611940298507462,
+    "p_upper": 0.7611940298507462,
+    "p_lower": 0.24378109452736318,
+    "percentile": 24.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.14368333333333333,
+    "sd": 0.21409526767405285,
+    "q025": -0.22025000000000008,
+    "q50": 0.10500000000000001,
+    "q975": 0.5745833333333336,
+    "p_two_sided_abs": 0.5124378109452736,
+    "p_upper": 0.43781094527363185,
+    "p_lower": 0.5671641791044776,
+    "percentile": 56.49999999999999
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.0384833333333333,
+    "sd": 0.17349200233547327,
+    "q025": -0.38049999999999995,
+    "q50": -0.03999999999999995,
+    "q975": 0.27741666666666676,
+    "p_two_sided_abs": 0.6368159203980099,
+    "p_upper": 0.24378109452736318,
+    "p_lower": 0.7611940298507462,
+    "percentile": 76.0
+   }
+  },
+  {
+   "window": "64",
+   "category": "validation",
+   "control": "emotional",
+   "real": {
+    "exact": 0.10333333333333332,
+    "union_0.82": 0.17666666666666664,
+    "embedding_only_0.82": 0.1
+   },
+   "exact_placebo": {
+    "mean": -0.00011666666666666664,
+    "sd": 0.0025750054886022394,
+    "q025": 0.0,
+    "q50": 0.0,
+    "q975": 0.0,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.23303333333333331,
+    "sd": 0.19324643978090653,
+    "q025": -0.11774999999999998,
+    "q50": 0.22500000000000003,
+    "q975": 0.6369166666666667,
+    "p_two_sided_abs": 0.6119402985074627,
+    "p_upper": 0.5920398009950248,
+    "p_lower": 0.417910447761194,
+    "percentile": 41.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.1691,
+    "sd": 0.21218801382381836,
+    "q025": -0.20074999999999996,
+    "q50": 0.15666666666666665,
+    "q975": 0.6070000000000001,
+    "p_two_sided_abs": 0.6666666666666666,
+    "p_upper": 0.582089552238806,
+    "p_lower": 0.42786069651741293,
+    "percentile": 42.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.1297,
+    "sd": 0.19324643978090653,
+    "q025": -0.5335833333333333,
+    "q50": -0.12166666666666673,
+    "q975": 0.22108333333333355,
+    "p_two_sided_abs": 0.7064676616915423,
+    "p_upper": 0.417910447761194,
+    "p_lower": 0.5920398009950248,
+    "percentile": 58.5
+   }
+  },
+  {
+   "window": "64",
+   "category": "disclaimer",
+   "control": "domain_factual",
+   "real": {
+    "exact": 0.023333333333333324,
+    "union_0.82": 0.11333333333333329,
+    "embedding_only_0.82": 0.15333333333333327
+   },
+   "exact_placebo": {
+    "mean": 0.003949999999999999,
+    "sd": 0.04090827737771762,
+    "q025": -0.09008333333333335,
+    "q50": 0.003333333333333334,
+    "q975": 0.1134166666666667,
+    "p_two_sided_abs": 0.38308457711442784,
+    "p_upper": 0.19900497512437812,
+    "p_lower": 0.835820895522388,
+    "percentile": 80.5
+   },
+   "union_placebo_seeds": {
+    "mean": 0.19338333333333332,
+    "sd": 0.18377804370145434,
+    "q025": -0.11683333333333334,
+    "q50": 0.18000000000000002,
+    "q975": 0.5434166666666668,
+    "p_two_sided_abs": 0.6517412935323383,
+    "p_upper": 0.6169154228855721,
+    "p_lower": 0.39303482587064675,
+    "percentile": 38.5
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.18365,
+    "sd": 0.1906422181265646,
+    "q025": -0.13999999999999999,
+    "q50": 0.1716666666666667,
+    "q975": 0.5502499999999999,
+    "p_two_sided_abs": 0.5373134328358209,
+    "p_upper": 0.527363184079602,
+    "p_lower": 0.4925373134328358,
+    "percentile": 47.5
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.17004999999999998,
+    "sd": 0.18377804370145434,
+    "q025": -0.5200833333333335,
+    "q50": -0.1566666666666667,
+    "q975": 0.14016666666666672,
+    "p_two_sided_abs": 0.681592039800995,
+    "p_upper": 0.39303482587064675,
+    "p_lower": 0.6169154228855721,
+    "percentile": 61.5
+   }
+  },
+  {
+   "window": "64",
+   "category": "structure",
+   "control": "neutral_advice",
+   "real": {
+    "exact": 0.39999999999999986,
+    "union_0.82": -0.033333333333333326,
+    "embedding_only_0.82": -0.033333333333333326
+   },
+   "exact_placebo": {
+    "mean": 0.04228333333333333,
+    "sd": 0.1007268822201239,
+    "q025": -0.12008333333333333,
+    "q50": 0.013333333333333334,
+    "q975": 0.25666666666666665,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.20733333333333326,
+    "sd": 0.12837079876883764,
+    "q025": -0.016916666666666712,
+    "q50": 0.22333333333333316,
+    "q975": 0.41708333333333325,
+    "p_two_sided_abs": 0.8855721393034826,
+    "p_upper": 0.9950248756218906,
+    "p_lower": 0.01990049751243781,
+    "percentile": 1.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": -0.014266666666666684,
+    "sd": 0.17791715083941195,
+    "q025": -0.32,
+    "q50": -0.018333333333333396,
+    "q975": 0.3442500000000003,
+    "p_two_sided_abs": 0.7661691542288557,
+    "p_upper": 0.5621890547263682,
+    "p_lower": 0.44776119402985076,
+    "percentile": 44.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.19266666666666662,
+    "sd": 0.12837079876883764,
+    "q025": -0.017083333333333266,
+    "q50": 0.1766666666666667,
+    "q975": 0.4169166666666666,
+    "p_two_sided_abs": 0.01990049751243781,
+    "p_upper": 0.01990049751243781,
+    "p_lower": 0.9950248756218906,
+    "percentile": 98.5
+   }
+  },
+  {
+   "window": "128",
+   "category": "empathy_opener",
+   "control": "emotional",
+   "real": {
+    "exact": 0.32333333333333336,
+    "union_0.82": 0.0633333333333333,
+    "embedding_only_0.82": -0.040000000000000036
+   },
+   "exact_placebo": {
+    "mean": 0.003766666666666667,
+    "sd": 0.02575343726550448,
+    "q025": -0.01,
+    "q50": 0.0,
+    "q975": 0.02675000000000002,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.24496666666666664,
+    "sd": 0.23160402247639686,
+    "q025": -0.14033333333333323,
+    "q50": 0.23833333333333334,
+    "q975": 0.7170833333333333,
+    "p_two_sided_abs": 0.8606965174129353,
+    "p_upper": 0.7661691542288557,
+    "p_lower": 0.2537313432835821,
+    "percentile": 24.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.08726666666666665,
+    "sd": 0.251197413807383,
+    "q025": -0.38675000000000004,
+    "q50": 0.0766666666666666,
+    "q975": 0.6401666666666667,
+    "p_two_sided_abs": 0.8756218905472637,
+    "p_upper": 0.7014925373134329,
+    "p_lower": 0.31343283582089554,
+    "percentile": 30.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.07836666666666671,
+    "sd": 0.23160402247639686,
+    "q025": -0.3937499999999999,
+    "q50": 0.08500000000000002,
+    "q975": 0.46366666666666667,
+    "p_two_sided_abs": 0.35323383084577115,
+    "p_upper": 0.2537313432835821,
+    "p_lower": 0.7661691542288557,
+    "percentile": 76.0
+   }
+  },
+  {
+   "window": "128",
+   "category": "validation",
+   "control": "emotional",
+   "real": {
+    "exact": 0.14,
+    "union_0.82": 0.21,
+    "embedding_only_0.82": 0.13666666666666666
+   },
+   "exact_placebo": {
+    "mean": -3.333333333333327e-05,
+    "sd": 0.003598963806455779,
+    "q025": -0.0002499999999999947,
+    "q50": 0.0,
+    "q975": 0.0033333333333333335,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.15216666666666662,
+    "sd": 0.2265007644907802,
+    "q025": -0.28075000000000006,
+    "q50": 0.12833333333333335,
+    "q975": 0.6003333333333333,
+    "p_two_sided_abs": 0.4427860696517413,
+    "p_upper": 0.38308457711442784,
+    "p_lower": 0.6268656716417911,
+    "percentile": 62.5
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.09653333333333332,
+    "sd": 0.2381395037100047,
+    "q025": -0.3539166666666667,
+    "q50": 0.07999999999999992,
+    "q975": 0.5701666666666667,
+    "p_two_sided_abs": 0.5522388059701493,
+    "p_upper": 0.38308457711442784,
+    "p_lower": 0.6218905472636815,
+    "percentile": 62.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.012166666666666633,
+    "sd": 0.2265007644907802,
+    "q025": -0.4603333333333332,
+    "q50": 0.011666666666666659,
+    "q975": 0.42075000000000023,
+    "p_two_sided_abs": 0.7512437810945274,
+    "p_upper": 0.6268656716417911,
+    "p_lower": 0.38308457711442784,
+    "percentile": 37.5
+   }
+  },
+  {
+   "window": "128",
+   "category": "disclaimer",
+   "control": "domain_factual",
+   "real": {
+    "exact": 0.043333333333333335,
+    "union_0.82": 0.11666666666666659,
+    "embedding_only_0.82": 0.1366666666666665
+   },
+   "exact_placebo": {
+    "mean": 0.013116666666666665,
+    "sd": 0.06269944392103251,
+    "q025": -0.11008333333333334,
+    "q50": 0.013333333333333334,
+    "q975": 0.14133333333333364,
+    "p_two_sided_abs": 0.3880597014925373,
+    "p_upper": 0.23383084577114427,
+    "p_lower": 0.7810945273631841,
+    "percentile": 77.5
+   },
+   "union_placebo_seeds": {
+    "mean": 0.14869999999999997,
+    "sd": 0.1399660124653463,
+    "q025": -0.12341666666666669,
+    "q50": 0.1449999999999999,
+    "q975": 0.4370833333333333,
+    "p_two_sided_abs": 0.6268656716417911,
+    "p_upper": 0.5920398009950248,
+    "p_lower": 0.4228855721393035,
+    "percentile": 41.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.14745,
+    "sd": 0.15406133256981833,
+    "q025": -0.14016666666666666,
+    "q50": 0.1399999999999999,
+    "q975": 0.4475833333333335,
+    "p_two_sided_abs": 0.5422885572139303,
+    "p_upper": 0.5124378109452736,
+    "p_lower": 0.4925373134328358,
+    "percentile": 49.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.10536666666666662,
+    "sd": 0.1399660124653463,
+    "q025": -0.3937499999999999,
+    "q50": -0.10166666666666657,
+    "q975": 0.16675000000000004,
+    "p_two_sided_abs": 0.6965174129353234,
+    "p_upper": 0.4228855721393035,
+    "p_lower": 0.5920398009950248,
+    "percentile": 59.0
+   }
+  },
+  {
+   "window": "128",
+   "category": "structure",
+   "control": "neutral_advice",
+   "real": {
+    "exact": 0.39999999999999986,
+    "union_0.82": -0.029999999999999916,
+    "embedding_only_0.82": -0.029999999999999916
+   },
+   "exact_placebo": {
+    "mean": 0.06136666666666667,
+    "sd": 0.11057849507667696,
+    "q025": -0.12725,
+    "q50": 0.043333333333333335,
+    "q975": 0.2733333333333333,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.15813333333333326,
+    "sd": 0.1292246517062381,
+    "q025": -0.04341666666666678,
+    "q50": 0.15833333333333333,
+    "q975": 0.41008333333333324,
+    "p_two_sided_abs": 0.8557213930348259,
+    "p_upper": 0.945273631840796,
+    "p_lower": 0.05970149253731343,
+    "percentile": 5.5
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.025099999999999976,
+    "sd": 0.18528711027168301,
+    "q025": -0.35675,
+    "q50": 0.025000000000000022,
+    "q975": 0.42041666666666677,
+    "p_two_sided_abs": 0.8557213930348259,
+    "p_upper": 0.6517412935323383,
+    "p_lower": 0.36318407960199006,
+    "percentile": 36.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.2418666666666666,
+    "sd": 0.1292246517062381,
+    "q025": -0.010083333333333392,
+    "q50": 0.24166666666666653,
+    "q975": 0.4434166666666666,
+    "p_two_sided_abs": 0.05970149253731343,
+    "p_upper": 0.05970149253731343,
+    "p_lower": 0.945273631840796,
+    "percentile": 94.5
+   }
+  },
+  {
+   "window": "all",
+   "category": "empathy_opener",
+   "control": "emotional",
+   "real": {
+    "exact": 0.32333333333333336,
+    "union_0.82": -0.14666666666666672,
+    "embedding_only_0.82": -0.21333333333333337
+   },
+   "exact_placebo": {
+    "mean": 0.004050000000000001,
+    "sd": 0.026806329202549654,
+    "q025": -0.016666666666666666,
+    "q50": 0.0,
+    "q975": 0.030000000000000006,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.17089999999999997,
+    "sd": 0.2421474072423053,
+    "q025": -0.19441666666666677,
+    "q50": 0.10666666666666658,
+    "q975": 0.6834166666666665,
+    "p_two_sided_abs": 0.527363184079602,
+    "p_upper": 0.945273631840796,
+    "p_lower": 0.05970149253731343,
+    "percentile": 5.5
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.05084999999999998,
+    "sd": 0.2551175810850188,
+    "q025": -0.3940833333333333,
+    "q50": 0.015000000000000013,
+    "q975": 0.5803333333333334,
+    "p_two_sided_abs": 0.34328358208955223,
+    "p_upper": 0.8855721393034826,
+    "p_lower": 0.12437810945273632,
+    "percentile": 11.5
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.1524333333333334,
+    "sd": 0.2421474072423053,
+    "q025": -0.3600833333333331,
+    "q50": 0.21666666666666679,
+    "q975": 0.5177500000000004,
+    "p_two_sided_abs": 0.06965174129353234,
+    "p_upper": 0.05970149253731343,
+    "p_lower": 0.945273631840796,
+    "percentile": 94.5
+   }
+  },
+  {
+   "window": "all",
+   "category": "validation",
+   "control": "emotional",
+   "real": {
+    "exact": 0.15333333333333335,
+    "union_0.82": 0.24999999999999997,
+    "embedding_only_0.82": 0.17333333333333342
+   },
+   "exact_placebo": {
+    "mean": -9.999999999999995e-05,
+    "sd": 0.0040778301890600594,
+    "q025": -0.01,
+    "q50": 0.0,
+    "q975": 0.003416666666666686,
+    "p_two_sided_abs": 0.004975124378109453,
+    "p_upper": 0.004975124378109453,
+    "p_lower": 1.0,
+    "percentile": 100.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.08098333333333331,
+    "sd": 0.22025968063251947,
+    "q025": -0.3473333333333333,
+    "q50": 0.03333333333333338,
+    "q975": 0.5338333333333334,
+    "p_two_sided_abs": 0.29850746268656714,
+    "p_upper": 0.24378109452736318,
+    "p_lower": 0.7711442786069652,
+    "percentile": 76.0
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.041233333333333295,
+    "sd": 0.2269375438299122,
+    "q025": -0.4343333333333333,
+    "q50": 0.011666666666666714,
+    "q975": 0.49691666666666673,
+    "p_two_sided_abs": 0.39800995024875624,
+    "p_upper": 0.26865671641791045,
+    "p_lower": 0.7412935323383084,
+    "percentile": 74.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.07235000000000003,
+    "sd": 0.22025968063251947,
+    "q025": -0.3804999999999999,
+    "q50": 0.11999999999999997,
+    "q975": 0.5006666666666668,
+    "p_two_sided_abs": 0.8009950248756219,
+    "p_upper": 0.7711442786069652,
+    "p_lower": 0.24378109452736318,
+    "percentile": 23.5
+   }
+  },
+  {
+   "window": "all",
+   "category": "disclaimer",
+   "control": "domain_factual",
+   "real": {
+    "exact": 0.15666666666666665,
+    "union_0.82": 0.08999999999999986,
+    "embedding_only_0.82": 0.10999999999999988
+   },
+   "exact_placebo": {
+    "mean": 0.035366666666666664,
+    "sd": 0.09232150145816947,
+    "q025": -0.13674999999999998,
+    "q50": 0.03500000000000001,
+    "q975": 0.23758333333333354,
+    "p_two_sided_abs": 0.0945273631840796,
+    "p_upper": 0.07462686567164178,
+    "p_lower": 0.9303482587064676,
+    "percentile": 93.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.17744999999999997,
+    "sd": 0.16477417248271828,
+    "q025": -0.09025000000000007,
+    "q50": 0.1433333333333333,
+    "q975": 0.5234166666666666,
+    "p_two_sided_abs": 0.7064676616915423,
+    "p_upper": 0.6766169154228856,
+    "p_lower": 0.3383084577114428,
+    "percentile": 32.5
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.14179999999999995,
+    "sd": 0.1842327079418859,
+    "q025": -0.22358333333333338,
+    "q50": 0.12333333333333332,
+    "q975": 0.5371666666666668,
+    "p_two_sided_abs": 0.6268656716417911,
+    "p_upper": 0.5422885572139303,
+    "p_lower": 0.46766169154228854,
+    "percentile": 46.0
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": -0.02078333333333333,
+    "sd": 0.1647741724827183,
+    "q025": -0.36675,
+    "q50": 0.013333333333333336,
+    "q975": 0.24691666666666678,
+    "p_two_sided_abs": 0.6915422885572139,
+    "p_upper": 0.3383084577114428,
+    "p_lower": 0.6766169154228856,
+    "percentile": 67.5
+   }
+  },
+  {
+   "window": "all",
+   "category": "structure",
+   "control": "neutral_advice",
+   "real": {
+    "exact": 0.3899999999999999,
+    "union_0.82": -0.029999999999999916,
+    "embedding_only_0.82": -0.029999999999999916
+   },
+   "exact_placebo": {
+    "mean": 0.10809999999999999,
+    "sd": 0.14565070306449807,
+    "q025": -0.16675,
+    "q50": 0.12666666666666668,
+    "q975": 0.3435,
+    "p_two_sided_abs": 0.014925373134328358,
+    "p_upper": 0.014925373134328358,
+    "p_lower": 0.9900497512437811,
+    "percentile": 99.0
+   },
+   "union_placebo_seeds": {
+    "mean": 0.08901666666666662,
+    "sd": 0.1137031101777707,
+    "q025": -0.05016666666666692,
+    "q50": 0.06333333333333319,
+    "q975": 0.34683333333333327,
+    "p_two_sided_abs": 0.7512437810945274,
+    "p_upper": 0.8905472636815921,
+    "p_lower": 0.15422885572139303,
+    "percentile": 14.499999999999998
+   },
+   "embedding_only_placebo_seeds": {
+    "mean": 0.004949999999999957,
+    "sd": 0.17659632539793574,
+    "q025": -0.38016666666666665,
+    "q50": -0.00833333333333336,
+    "q975": 0.37733333333333335,
+    "p_two_sided_abs": 0.8009950248756219,
+    "p_upper": 0.6218905472636815,
+    "p_lower": 0.40298507462686567,
+    "percentile": 39.5
+   },
+   "exact_minus_union_placebo_seeds": {
+    "mean": 0.30098333333333327,
+    "sd": 0.1137031101777707,
+    "q025": 0.04316666666666667,
+    "q50": 0.3266666666666667,
+    "q975": 0.4401666666666669,
+    "p_two_sided_abs": 0.15422885572139303,
+    "p_upper": 0.15422885572139303,
+    "p_lower": 0.8905472636815921,
+    "percentile": 85.0
+   }
+  }
+ ],
+ "example_lexicons": [
+  {
+   "empathy_opener": [
+    "why people differ in",
+    "while smooth and synthetic fabrics",
+    "server and are",
+    "are due. by",
+    "**avoid allergenic foods:**",
+    "get to know",
+    "computer, you'll lose",
+    "basics and",
+    "loud sounds. if",
+    "should do more than",
+    "opt for water-rich",
+    "when it comes to"
+   ],
+   "validation": [
+    "adequate downtime between work",
+    "warming, humidifying, and filtering",
+    "lead to a momentary joy,",
+    "**purpose:** discussion items are",
+    "set daily goals",
+    "tissues. here's how",
+    "received. if a message",
+    "different story. it"
+   ],
+   "disclaimer": [
+    "understanding these",
+    "are divided into",
+    "you feel the",
+    "to the same",
+    "damp cloth",
+    "including foods rich in heme",
+    "linearly because of the",
+    "encourage continued participation. ###",
+    "pressure, or",
+    "### 4.",
+    "have a copy",
+    "screen should",
+    "comfortable to"
+   ],
+   "structure": [
+    "can help reduce",
+    "plenty of water throughout",
+    "the release of",
+    "a healthcare provider for",
+    "can be caused by a",
+    "someone",
+    "shine"
+   ]
+  },
+  {
+   "empathy_opener": [
+    "pollen as a foreign",
+    "height where your feet are",
+    "orientation. when there",
+    "full and your",
+    "even if not",
+    "the care label.",
+    "also requires a",
+    "recipe turns",
+    "few weeks for",
+    "involves using a physical",
+    "times) to maintain",
+    "vertical, hidden, and modular"
+   ],
+   "validation": [
+    "the duration of sensitivity",
+    "goals for each week.",
+    "warm indoor heating dries the",
+    "screen, which can lead",
+    "to grow. some",
+    "not match another's.",
+    "commute, influenced by route",
+    "where i keep"
+   ],
+   "disclaimer": [
+    "to remove",
+    "longer than a",
+    "quality of life,",
+    "a cup of",
+    "the ideal",
+    "consider alternatives that can help",
+    "in one nostril more",
+    "angle. <|user|> <|user|> i",
+    "of sync,",
+    "by a",
+    "might use a",
+    "areas where",
+    "exercise to"
+   ],
+   "structure": [
+    "if you have",
+    "on the other hand,",
+    "you have any",
+    "reading in a moving",
+    "can strip the skin of",
+    "project",
+    "document\u2019s"
+   ]
+  },
+  {
+   "empathy_opener": [
+    "same page regarding the",
+    "confusion. - **can be overwhelming:**",
+    "3. nutrition: eat",
+    "birch pollen. -",
+    "to cloud backups,",
+    "**chronological order:** files",
+    "we pack. some",
+    "including coffee,",
+    "7. **use over-the-counter",
+    "non-polar tail interacts with",
+    "for emails like",
+    "a realistic weekly learning"
+   ],
+   "validation": [
+    "prolonged stillness and implementing",
+    "deeply but infrequently. overwatering",
+    "cloud. however, cloud synchronization does",
+    "is insufficient, consider using",
+    "class, take some",
+    "of light, so",
+    "may use equipment that",
+    "person, but here"
+   ],
+   "disclaimer": [
+    "some people",
+    "complex carbohydrates and",
+    "for example, when",
+    "least once a",
+    "a trip",
+    "along with iron can inhibit",
+    "traveling in a hot",
+    "unreliable. bus transfers that",
+    "you lose.",
+    "role in",
+    "chain: use a",
+    "- **test",
+    "soaps or"
+   ],
+   "structure": [
+    "if you have",
+    "it is important to",
+    "can increase the",
+    "guide to help you",
+    "they may be able to",
+    "protective",
+    "abundant,"
+   ]
+  },
+  {
+   "empathy_opener": [
+    "to rule out more",
+    "using over-the-counter or prescription antihistamines",
+    "conclusion, understanding the",
+    "specific advice based",
+    "or dryness for",
+    "are specific, focused",
+    "areas, and they",
+    "or 3",
+    "exacerbate constipation. practice",
+    "meeting aims to accomplish.",
+    "these measures, consider",
+    "person might not work"
+   ],
+   "validation": [
+    "time, the filling material",
+    "among individuals, and what",
+    "buildup. ### 4. using a",
+    "new language can be",
+    "understanding the complex",
+    "speaking exercises (using",
+    "**impact on sleep quality:**",
+    "recipe. 3. seasoning:"
+   ],
+   "disclaimer": [
+    "can significantly",
+    "any more help",
+    "evaluation and treatment",
+    "this ensures that",
+    "your focus",
+    "raw oats, you can cook",
+    "classes that meet during",
+    "are feeling stressed or",
+    "management serve",
+    "to manage",
+    "still have a",
+    "a tooth",
+    "prevent them"
+   ],
+   "structure": [
+    "if you have",
+    "with a healthcare provider",
+    "can result in",
+    "you can set up",
+    "cold weather and indoor heating,",
+    "schedule.",
+    "easy-to-wear"
+   ]
+  },
+  {
+   "empathy_opener": [
+    "can disrupt your regular",
+    "system. this results in a",
+    "week, or specific",
+    "keeping the ear",
+    "it through speaking,",
+    "circulation and aid",
+    "stains react differently:**",
+    "issues more",
+    "to drink water,",
+    "**why it doesn't scale",
+    "- environmental factors:",
+    "of pollen in the"
+   ],
+   "validation": [
+    "and washing away of",
+    "works for everyone: ###",
+    "3-4 key topics. 3. time",
+    "help maintain regular bowel",
+    "and burst. so,",
+    "terms of storage",
+    "frequently, such as deep",
+    "after meals. 2."
+   ],
+   "disclaimer": [
+    "might not",
+    "in the stomach.",
+    "eating foods that",
+    "always a good",
+    "alternating pattern",
+    "the skin is constantly in",
+    "might be experiencing symptoms",
+    "disagree on what their",
+    "or community",
+    "this helps",
+    "doesn't interfere with",
+    "with multiple",
+    "has more"
+   ],
+   "structure": [
+    "can help reduce",
+    "important to note that",
+    "different types of",
+    "listen to your body",
+    "your body that it's time",
+    "allergens",
+    "nine,"
+   ]
+  }
+ ],
+ "example_seed_sets": [
+  {
+   "empathy_opener": [
+    "<|user|>\nThank you for your help!",
+    "Lay out all the clothes you plan to take and group them by category (e.g., tops, bottoms, outerwear).",
+    "<|user|>\nWhat if I have more than one bill?"
+   ],
+   "validation": [
+    "You can't see the hair on your furniture because it's made up of small, fine strands of protein.",
+    "Lubrication is important for reducing friction in the drivetrain, which can help improve shifting and drivetrain efficiency.",
+    "- **Regular Practice:** Set a schedule to review materials at increasing intervals over a week or month."
+   ],
+   "disclaimer": [
+    "Make sure you have all the ingredients, and measure them out carefully.",
+    "To prolong the life of the drivetrain, it's important to regularly inspect and maintain the components, and replace them when necessary.",
+    "**Determine the Contribution Amount:** Based on the monthly calculation, decide how much you can afford to set aside each month."
+   ],
+   "structure": [
+    "This is common in desk work with frequent emails, phone calls, or interruptions from colleagues or the office environment.",
+    "- **Individual Sensitivity**: Some people are more sensitive to pollen than others, and this sensitivity can vary greatly from person to person.",
+    "The space should be clean, organized, and free of clutter to ensure that guests feel welcomed and comfortable."
+   ]
+  },
+  {
+   "empathy_opener": [
+    "Prolonged Stillness:**\n   - **Muscle Atrophy:** Sitting for extended periods can lead to muscle atrophy, especially in the shoulders and neck.",
+    "I experience neck and shoulder fatigue during desk work.",
+    "If you are an advanced exerciser, you may want to increase your exercise time by 15 percent each day until you are exercising for"
+   ],
+   "validation": [
+    "Avoid diuretic foods and beverages.",
+    "- **Implement Task Management Systems**: Tools like task management apps can help you structure your work environment to minimize interruptions.",
+    "When we sleep late on a Saturday or Sunday, our body\u2019s internal clock is out of sync with the outside world."
+   ],
+   "disclaimer": [
+    "However, this is not a hard and fast rule.",
+    "**Steam Inhalation**: Take a hot shower or breathe in steam from a pot of boiling water.",
+    "Use website blockers or apps that limit access to distracting websites during your focused work times."
+   ],
+   "structure": [
+    "- **Dietary Composition:** Foods rich in water content (like fruits and vegetables) will naturally increase fluid intake.",
+    "Take regular breaks: Make a habit of taking short breaks every hour to stretch and move around.",
+    "The way you sit can also make a difference."
+   ]
+  },
+  {
+   "empathy_opener": [
+    "Store items in furniture with hidden drawers.",
+    "- When dehydrated, the body releases more vasopressin, which signals the kidneys to conserve water by producing more concentrated urine.",
+    "This is a key mechanism for regulating body temperature."
+   ],
+   "validation": [
+    "- Hiking gear if planning outdoor activities.",
+    "**Instructional Approach:** Choose classes with instructors who are knowledgeable and enthusiastic about teaching beginners.",
+    "This can be difficult, but it is possible with some effort."
+   ],
+   "disclaimer": [
+    "Muscle glycogen is the primary fuel for exercising muscles.",
+    "For instance, drinking a glass of orange juice with a meal containing iron-fortified cereal or a spinach salad with tomatoes can be beneficial.",
+    "In a small space, you can make use of vertical storage."
+   ],
+   "structure": [
+    "Remember to pack light and prioritize versatility in your clothing choices.",
+    "Use a consistent set of labels across your files for easier searchability.",
+    "You can also get iron from vegetables, such vegetables, as broccoli, asparagus, and spinach."
+   ]
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Badawi et~al.(2026)Badawi, Rahimi, Laskar, Grach, Bertrand, Danok,
@@ -12,6 +12,14 @@ Abeer Badawi, Elahe Rahimi, Md~Tahmid~Rahman Laskar, Sheri Grach, Lindsay
 \newblock In \emph{Proceedings of the 19th Conference of the European Chapter
   of the Association for Computational Linguistics (Volume 1: Long Papers)},
   pages 3873--3896. Association for Computational Linguistics.
+
+\bibitem[{Baumann et~al.(2025)Baumann, R{\"o}ttger, Urman, Wendsj{\"o},
+  Plaza-del Arco, Gruber, and Hovy}]{baumann2025hacking}
+Joachim Baumann, Paul R{\"o}ttger, Aleksandra Urman, Albert Wendsj{\"o},
+  Flor~Miriam Plaza-del Arco, Johannes~B. Gruber, and Dirk Hovy. 2025.
+\newblock \href {https://arxiv.org/abs/2509.08825} {Large language model
+  hacking: Quantifying the hidden risks of using {LLMs} for text annotation}.
+\newblock \emph{Preprint}, arXiv:2509.08825.
 
 \bibitem[{Bean et~al.(2025)Bean, Kearns, Romanou, Hafner, Mayne, Batzner,
   Foroutan, Schmitz, Korgul, Batra, Deb, Beharry, Emde, Foster, Gausen,
@@ -80,18 +88,20 @@ Lujain Ibrahim, Franziska~Sofia Hafner, and Luc Rocher. 2026.
   models to be warm can reduce accuracy and increase sycophancy}.
 \newblock \emph{Nature}, 652:1159--1165.
 
-\bibitem[{K{\"o}pf et~al.(2023)K{\"o}pf, Kilcher, von R{\"u}tte, Anagnostidis,
-  Tam, Stevens, Barhoum, Duc, Stanley, Nagyfi, ES, Suri, Glushkov, Dantuluri,
-  Maguire, Schuhmann, Nguyen, and Mattick}]{kopf2023oasst1}
-Andreas K{\"o}pf, Yannic Kilcher, Dimitri von R{\"u}tte, Sotiris Anagnostidis,
-  Zhi-Rui Tam, Keith Stevens, Abdullah Barhoum, Nguyen~Minh Duc, Oliver
-  Stanley, Rich{\'a}rd Nagyfi, Shahul ES, Sameer Suri, David Glushkov, Arnav
-  Dantuluri, Andrew Maguire, Christoph Schuhmann, Huu Nguyen, and Alexander
-  Mattick. 2023.
-\newblock \href {https://arxiv.org/abs/2304.07327} {{OpenAssistant}
-  conversations -- democratizing large language model alignment}.
-\newblock In \emph{Advances in Neural Information Processing Systems 36
-  (NeurIPS), Datasets and Benchmarks Track}.
+\bibitem[{Ivison et~al.(2024)Ivison, Wang, Liu, Wu, Pyatkin, Lambert, Smith,
+  Choi, and Hajishirzi}]{ivison2024unpacking}
+Hamish Ivison, Yizhong Wang, Jiacheng Liu, Zeqiu Wu, Valentina Pyatkin, Nathan
+  Lambert, Noah~A. Smith, Yejin Choi, and Hannaneh Hajishirzi. 2024.
+\newblock \href {https://arxiv.org/abs/2406.09279} {Unpacking {DPO} and {PPO}:
+  Disentangling best practices for learning from preference feedback}.
+\newblock In \emph{Advances in Neural Information Processing Systems}.
+
+\bibitem[{Juzek and Ward(2025)}]{juzek2025delve}
+Tom~S. Juzek and Zina~B. Ward. 2025.
+\newblock Why does {ChatGPT} ``delve'' so much? exploring the sources of
+  lexical overrepresentation in large language models.
+\newblock In \emph{Proceedings of the 31st International Conference on
+  Computational Linguistics}.
 
 \bibitem[{Kumar et~al.(2026)Kumar, Poungpeth, Yang, Farrell, Lambert, and
   Groh}]{kumar2026reliable}
@@ -130,30 +140,6 @@ Yoon~Kyung Lee, Jaehyeong Lee, Seonu An, and Sowon Hahn. 2026.
   an {LLM} response read as empathic? a multi-dimensional study of empathic
   alignment}.
 
-\bibitem[{Liu et~al.(2025)Liu, Blanton, Elazar, Min, Chen, Chheda-Kothary,
-  Tran, Bischoff, Marsh, Schmitz, Trier, Sarnat, James, Borchardt, Kuehl,
-  Cheng, Farley, Anderson, Albright, Schoenick, Soldaini, Groeneveld, Pang,
-  Koh, Smith, Lebrecht, Choi, Hajishirzi, Farhadi, and
-  Dodge}]{liu2025olmotrace}
-Jiacheng Liu, Taylor Blanton, Yanai Elazar, Sewon Min, Yen-Sung Chen, Arnavi
-  Chheda-Kothary, Huy Tran, Byron Bischoff, Eric Marsh, Michael Schmitz,
-  Cassidy Trier, Aaron Sarnat, Jenna James, Jon Borchardt, Bailey Kuehl, Evie
-  Yu-Yen Cheng, Karen Farley, Taira Anderson, David Albright, and 11 others.
-  2025.
-\newblock \href {https://doi.org/10.18653/v1/2025.acl-demo.18} {{OLMoTrace}:
-  Tracing language model outputs back to trillions of training tokens}.
-\newblock In \emph{Proceedings of the 63rd Annual Meeting of the Association
-  for Computational Linguistics (ACL): System Demonstrations}, pages 178--188,
-  Vienna, Austria. Association for Computational Linguistics.
-
-\bibitem[{Liu et~al.(2024{\natexlab{a}})Liu, Min, Zettlemoyer, Choi, and
-  Hajishirzi}]{liu2024infinigram}
-Jiacheng Liu, Sewon Min, Luke Zettlemoyer, Yejin Choi, and Hannaneh Hajishirzi.
-  2024{\natexlab{a}}.
-\newblock \href {https://arxiv.org/abs/2401.17377} {Infini-gram: Scaling
-  unbounded $n$-gram language models to a trillion tokens}.
-\newblock In \emph{First Conference on Language Modeling (COLM)}.
-
 \bibitem[{Liu et~al.(2021)Liu, Zheng, Demasi, Sabour, Li, Yu, Jiang, and
   Huang}]{liu2021emotional}
 Siyang Liu, Chujie Zheng, Orianna Demasi, Sahand Sabour, Yu~Li, Zhou Yu, Yong
@@ -165,10 +151,10 @@ Siyang Liu, Chujie Zheng, Orianna Demasi, Sahand Sabour, Yu~Li, Zhou Yu, Yong
   Natural Language Processing (Volume 1: Long Papers)}, pages 3469--3483.
   Association for Computational Linguistics.
 
-\bibitem[{Liu et~al.(2024{\natexlab{b}})Liu, Bai, Han, Weng, Xu, Cao, Wang, and
+\bibitem[{Liu et~al.(2024)Liu, Bai, Han, Weng, Xu, Cao, Wang, and
   Cai}]{liu2024lddpo}
 Wei Liu, Yang Bai, Chengcheng Han, Rongxiang Weng, Jun Xu, Xuezhi Cao, Jingang
-  Wang, and Xunliang Cai. 2024{\natexlab{b}}.
+  Wang, and Xunliang Cai. 2024.
 \newblock \href {https://arxiv.org/abs/2409.06411} {Length desensitization in
   direct preference optimization}.
 \newblock \emph{Preprint}, arXiv:2409.06411.
@@ -188,6 +174,14 @@ Ryan Park, Rafael Rafailov, Stefano Ermon, and Chelsea Finn. 2024.
   quality in direct preference optimization}.
 \newblock \emph{Preprint}, arXiv:2403.19159.
 
+\bibitem[{Rafailov et~al.(2023)Rafailov, Sharma, Mitchell, Ermon, Manning, and
+  Finn}]{rafailov2023dpo}
+Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher~D.
+  Manning, and Chelsea Finn. 2023.
+\newblock Direct preference optimization: Your language model is secretly a
+  reward model.
+\newblock In \emph{Advances in Neural Information Processing Systems}.
+
 \bibitem[{Ribeiro et~al.(2020)Ribeiro, Wu, Guestrin, and
   Singh}]{ribeiro2020checklist}
 Marco~Tulio Ribeiro, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. 2020.
@@ -204,6 +198,13 @@ Pamela~D. Rivi{\`e}re, Cameron Jones, and Sean Trott. 2026.
   of situation modeling and mentalizing in transformer language models}.
 \newblock \emph{Preprint}, arXiv:2606.28524.
 
+\bibitem[{Saito et~al.(2023)Saito, Wachi, Wataoka, and
+  Akimoto}]{saito2023verbosity}
+Keita Saito, Akifumi Wachi, Koki Wataoka, and Youhei Akimoto. 2023.
+\newblock \href {https://arxiv.org/abs/2310.10076} {Verbosity bias in
+  preference labeling by large language models}.
+\newblock \emph{Preprint}, arXiv:2310.10076.
+
 \bibitem[{Sharma et~al.(2020)Sharma, Miner, Atkins, and
   Althoff}]{sharma2020epitome}
 Ashish Sharma, Adam~S. Miner, David~C. Atkins, and Tim Althoff. 2020.
@@ -212,12 +213,27 @@ Ashish Sharma, Adam~S. Miner, David~C. Atkins, and Tim Althoff. 2020.
 \newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}.
 
+\bibitem[{Shen et~al.(2023)Shen, Zheng, Zhan, Zhao, Dou, Gui, Zhang, and
+  Huang}]{shen2023loose}
+Wei Shen, Rui Zheng, Wenyu Zhan, Jun Zhao, Shihan Dou, Tao Gui, Qi~Zhang, and
+  Xuanjing Huang. 2023.
+\newblock Loose lips sink ships: Mitigating length bias in reinforcement
+  learning from human feedback.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}.
+
 \bibitem[{Singhal et~al.(2023)Singhal, Goyal, Xu, and
   Durrett}]{singhal2023long}
 Prasann Singhal, Tanya Goyal, Jiacheng Xu, and Greg Durrett. 2023.
 \newblock \href {https://arxiv.org/abs/2310.03716} {A long way to go:
   Investigating length correlations in {RLHF}}.
 \newblock \emph{Preprint}, arXiv:2310.03716.
+
+\bibitem[{Steegen et~al.(2016)Steegen, Tuerlinckx, Gelman, and
+  Vanpaemel}]{steegen2016multiverse}
+Sara Steegen, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016.
+\newblock Increasing transparency through a multiverse analysis.
+\newblock \emph{Perspectives on Psychological Science}, 11(5):702--712.
 
 \bibitem[{{Team OLMo} et~al.(2025){Team OLMo}, Walsh, Soldaini, Groeneveld, Lo,
   Arora, Bhagia, Gu, Huang, Jordan, Lambert, Schwenk, Tafjord, Anderson,
@@ -261,15 +277,6 @@ Anuradha Welivita, Fawzia Zeitoun, and Pearl Pu. 2026.
   Language Learning}, pages 358--381. Association for Computational
   Linguistics.
 
-\bibitem[{Xia et~al.(2024)Xia, Malladi, Gururangan, Arora, and
-  Chen}]{xia2024less}
-Mengzhou Xia, Sadhika Malladi, Suchin Gururangan, Sanjeev Arora, and Danqi
-  Chen. 2024.
-\newblock \href {https://arxiv.org/abs/2402.04333} {{LESS}: Selecting
-  influential data for targeted instruction tuning}.
-\newblock In \emph{Proceedings of the 41st International Conference on Machine
-  Learning}.
-
 \bibitem[{Xiao and Aranguri(2026)}]{xiao2026probe}
 Frank Xiao and Santiago Aranguri. 2026.
 \newblock \href {https://arxiv.org/abs/2602.11079} {Probe-based data
@@ -285,5 +292,12 @@ Jiarui Yao, Shweta Parihar, Nghia~Tuan Bui, Guergana~K. Savova, and Lijing
 \newblock \href {https://arxiv.org/abs/2610.37788} {Locating sycophancy across
   training stages in open language models}.
 \newblock \emph{Preprint}, arXiv:2610.37788.
+
+\bibitem[{Zhou et~al.(2024)Zhou, Hwang, Ren, and Sap}]{zhou2024relying}
+Kaitlyn Zhou, Jena~D. Hwang, Xiang Ren, and Maarten Sap. 2024.
+\newblock Relying on the unreliable: The impact of language models' reluctance
+  to express uncertainty.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
+  for Computational Linguistics}.
 
 \end{thebibliography}

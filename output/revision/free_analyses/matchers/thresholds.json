@@ -1,0 +1,203 @@
+{
+ "e5_ex3": {
+  "rate_matched": {
+   "empathy_opener": 0.8199947476387024,
+   "validation": 0.8199909329414368,
+   "disclaimer": 0.8199997544288635,
+   "structure": 0.8199918270111084
+  },
+  "audit_global": {
+   "empathy_opener": 0.845,
+   "validation": 0.845,
+   "disclaimer": 0.845,
+   "structure": 0.845
+  },
+  "audit_global_macroF1": 0.7371794871794871,
+  "audit_per_category": {
+   "empathy_opener": 0.84,
+   "validation": 0.835,
+   "disclaimer": 0.845,
+   "structure": 0.84
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "e5_ex10": {
+  "rate_matched": {
+   "empathy_opener": 0.840401291847229,
+   "validation": 0.8501042127609253,
+   "disclaimer": 0.8319507837295532,
+   "structure": 0.8313432335853577
+  },
+  "audit_global": {
+   "empathy_opener": 0.87,
+   "validation": 0.87,
+   "disclaimer": 0.87,
+   "structure": 0.87
+  },
+  "audit_global_macroF1": 0.7142857142857142,
+  "audit_per_category": {
+   "empathy_opener": 0.855,
+   "validation": 0.85,
+   "disclaimer": 0.86,
+   "structure": 0.86
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "minilm_ex3": {
+  "rate_matched": {
+   "empathy_opener": 0.29178446531295776,
+   "validation": 0.40030673146247864,
+   "disclaimer": 0.22708559036254883,
+   "structure": 0.18629775941371918
+  },
+  "audit_global": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  },
+  "audit_global_macroF1": 0.6987179487179487,
+  "audit_per_category": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "minilm_ex10": {
+  "rate_matched": {
+   "empathy_opener": 0.3968769907951355,
+   "validation": 0.47865724563598633,
+   "disclaimer": 0.3365054130554199,
+   "structure": 0.29253244400024414
+  },
+  "audit_global": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  },
+  "audit_global_macroF1": 0.6987179487179487,
+  "audit_per_category": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "bge_ex3": {
+  "rate_matched": {
+   "empathy_opener": 0.5678941011428833,
+   "validation": 0.694869339466095,
+   "disclaimer": 0.6420029997825623,
+   "structure": 0.6151091456413269
+  },
+  "audit_global": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  },
+  "audit_global_macroF1": 0.6987179487179487,
+  "audit_per_category": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.71
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "bge_ex10": {
+  "rate_matched": {
+   "empathy_opener": 0.6488410234451294,
+   "validation": 0.742120623588562,
+   "disclaimer": 0.6766259074211121,
+   "structure": 0.6590844392776489
+  },
+  "audit_global": {
+   "empathy_opener": 0.84,
+   "validation": 0.84,
+   "disclaimer": 0.84,
+   "structure": 0.84
+  },
+  "audit_global_macroF1": 0.6987179487179487,
+  "audit_per_category": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.715
+  },
+  "default": {
+   "empathy_opener": 0.82,
+   "validation": 0.82,
+   "disclaimer": 0.82,
+   "structure": 0.82
+  }
+ },
+ "nli": {
+  "rate_matched": {
+   "empathy_opener": 0.9358295202255249,
+   "validation": 0.9005827307701111,
+   "disclaimer": 0.026756592094898224,
+   "structure": 0.05693542957305908
+  },
+  "audit_global": {
+   "empathy_opener": 0.96,
+   "validation": 0.96,
+   "disclaimer": 0.96,
+   "structure": 0.96
+  },
+  "audit_global_macroF1": 0.7052845528455284,
+  "audit_per_category": {
+   "empathy_opener": 0.96,
+   "validation": 0.94,
+   "disclaimer": 0.54,
+   "structure": 0.35
+  },
+  "default": {
+   "empathy_opener": 0.5,
+   "validation": 0.5,
+   "disclaimer": 0.5,
+   "structure": 0.5
+  }
+ },
+ "_audit_positives": {
+  "empathy_opener": 4,
+  "validation": 2,
+  "disclaimer": 1,
+  "structure": 30
+ },
+ "_e5_baseline_sentence_rate": {
+  "empathy_opener": 0.05449555671719812,
+  "validation": 0.019472033455305803,
+  "disclaimer": 0.15642969158389963,
+  "structure": 0.3941453214845792
+ }
+}

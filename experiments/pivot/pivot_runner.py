@@ -49,13 +49,16 @@ ATLAS = {
     "7B_instruct_chat": ("allenai/OLMo-2-1124-7B-Instruct", "chat"),
 }
 
-ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched")
-TRAIN_SEEDS = (0, 1, 2)
+ALL_ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched")
+ARMS = tuple(os.environ.get("PIVOT_ARMS", ",".join(ALL_ARMS)).split(","))
+TRAIN_SEEDS = (0, 1)  # amended 14 Nov 2026 under the cost cap (protocol: 3)
 GEN_SEEDS = (0, 1, 2)
 N_PAIRS = int(os.environ.get("PIVOT_N_PAIRS", 60_000))
 DRY = False  # set by the dryrun command: tiny random models, synthetic pairs
-MICRO_BATCH = 4
-ACCUM = 8
+MICRO_BATCH = 2  # used only by the benchmark
+ACCUM = 16
+PAIRS_PER_STEP = 32  # effective batch per optimizer step
+TOKEN_BUDGET = 1536  # padded tokens per side per micro-batch (pairs x longest sequence)
 LR = 1e-6
 BETA = 5.0
 WARMUP = 0.1
@@ -175,7 +178,8 @@ def run_atlas(out_dir):
             continue
         tok = load_tok(SFT_7B if tag.startswith("7B") else SFT_1B)  # base lacks a chat template
         model = load_model(model_id, torch.bfloat16)
-        generate(model, tok, fmt, prompts, tag, out_dir)
+        # 7B bf16 weights take ~15 GB; a 32-prompt KV cache no longer fits on 24 GB cards
+        generate(model, tok, fmt, prompts, tag, out_dir, batch=8 if tag.startswith("7B") else 32)
         del model
         gc.collect()
         torch.cuda.empty_cache()
@@ -255,7 +259,11 @@ def encode(tok, msgs):
 def avg_logp(model, batch):
     """Mean log-probability per response token for each sequence."""
     logits = model(input_ids=batch["ids"], attention_mask=batch["mask"]).logits
-    lp = F.log_softmax(logits[:, :-1].float(), dim=-1).gather(2, batch["ids"][:, 1:].unsqueeze(-1)).squeeze(-1)
+    # Same value as log_softmax(...).gather(...), computed one sequence at a time so
+    # the full float32 vocabulary tensor never exists for the whole batch.
+    tgt = batch["ids"][:, 1:].unsqueeze(-1)
+    lp = torch.stack([logits[i, :-1].float().gather(1, tgt[i]).squeeze(-1)
+                      - torch.logsumexp(logits[i, :-1].float(), dim=-1) for i in range(logits.shape[0])])
     m = batch["label_mask"][:, 1:].to(lp.dtype)
     return (lp * m).sum(1) / m.sum(1).clamp(min=1)
 
@@ -289,41 +297,52 @@ def dpo_train(model, ref, tok, data, seed, log_every=50):
     rng = random.Random(seed)
     data = list(data)
     rng.shuffle(data)
-    # group by length inside large chunks to limit padding
-    chunks = [sorted(data[i:i + 256 * MICRO_BATCH], key=lambda p: len(p[0][-1]["content"]))
-              for i in range(0, len(data), 256 * MICRO_BATCH)]
-    batches = [c[i:i + MICRO_BATCH] for c in chunks for i in range(0, len(c), MICRO_BATCH)]
-    rng.shuffle(batches)
-    total = math.ceil(len(batches) / ACCUM)
+    # Each optimizer step sees exactly PAIRS_PER_STEP pairs. Inside a step, pairs
+    # are packed into micro-batches under a padded-token budget, so short pairs
+    # share a forward pass and long pairs run alone (24 GB cards).
+    enc = [(encode(tok, p[0]), encode(tok, p[1])) for p in data]
+    steps = [list(range(i, min(i + PAIRS_PER_STEP, len(enc)))) for i in range(0, len(enc), PAIRS_PER_STEP)]
+    total = len(steps)
     warm = max(1, int(WARMUP * total))
     opt = make_optimizer(model)
     sched = torch.optim.lr_scheduler.LambdaLR(
         opt, lambda s: (s + 1) / warm if s < warm else max(0.0, (total - s) / max(1, total - warm)))
     model.train()
     model.gradient_checkpointing_enable()
-    log, step, acc_loss, acc_right, t0 = [], 0, 0.0, 0.0, time.time()
-    for b_idx, chunk in enumerate(batches):
-        c = collate([encode(tok, p[0]) for p in chunk], tok.pad_token_id, dev)
-        r = collate([encode(tok, p[1]) for p in chunk], tok.pad_token_id, dev)
-        with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=amp):
-            with torch.no_grad():
-                rc, rr = avg_logp(ref, c), avg_logp(ref, r)
-            pc, pr = avg_logp(model, c), avg_logp(model, r)
-            margin = (pc - pr) - (rc - rr)
-            loss = -F.logsigmoid(BETA * margin).mean()
-        (loss / ACCUM).backward()
-        acc_loss += loss.item() / ACCUM
-        acc_right += (pc > pr).float().mean().item() / ACCUM
-        if (b_idx + 1) % ACCUM == 0 or b_idx + 1 == len(batches):
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 10.0)
-            opt.step()
-            sched.step()
-            opt.zero_grad(set_to_none=True)
-            step += 1
-            if step % log_every == 0 or step == total:
-                log.append({"step": step, "loss": acc_loss, "acc": acc_right, "secs": time.time() - t0})
-                print(json.dumps(log[-1]), flush=True)
-            acc_loss, acc_right = 0.0, 0.0
+    log, t0 = [], time.time()
+
+    def plen(i):
+        return max(len(enc[i][0][0]), len(enc[i][1][0]))
+
+    for step, idx in enumerate(steps, 1):
+        idx = sorted(idx, key=plen)
+        micro, cur = [], []
+        for i in idx:
+            if cur and (len(cur) + 1) * max(plen(j) for j in cur + [i]) > TOKEN_BUDGET:
+                micro.append(cur)
+                cur = []
+            cur.append(i)
+        micro.append(cur)
+        acc_loss = acc_right = 0.0
+        for mb in micro:
+            c = collate([enc[i][0] for i in mb], tok.pad_token_id, dev)
+            r = collate([enc[i][1] for i in mb], tok.pad_token_id, dev)
+            with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=amp):
+                with torch.no_grad():
+                    rc, rr = avg_logp(ref, c), avg_logp(ref, r)
+                pc, pr = avg_logp(model, c), avg_logp(model, r)
+                margin = (pc - pr) - (rc - rr)
+                loss = -F.logsigmoid(BETA * margin).sum() / len(idx)
+            loss.backward()
+            acc_loss += loss.item()
+            acc_right += (pc > pr).float().sum().item() / len(idx)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 10.0)
+        opt.step()
+        sched.step()
+        opt.zero_grad(set_to_none=True)
+        if step % log_every == 0 or step == total:
+            log.append({"step": step, "loss": acc_loss, "acc": acc_right, "secs": time.time() - t0})
+            print(json.dumps(log[-1]), flush=True)
     model.gradient_checkpointing_disable()
     model.config.use_cache = True
     return log
@@ -457,7 +476,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["atlas", "train", "all", "smoke", "dryrun", "bench"])
     ap.add_argument("--out", default="results")
-    ap.add_argument("--arm", choices=ARMS)
+    ap.add_argument("--arm", choices=ALL_ARMS)
     ap.add_argument("--seed", type=int)
     a = ap.parse_args()
     out = Path(a.out)

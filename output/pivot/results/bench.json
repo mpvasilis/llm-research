@@ -1,0 +1,14 @@
+{
+ "sec_per_micro_batch": 1.099935695528984,
+ "peak_gb": 20.636926651000977,
+ "sec_per_gen_batch_1b": 14.65549087524414,
+ "n_pairs": 16000,
+ "counts": {
+  "n_chosen_only": 1170,
+  "n_rejected_only": 965
+ },
+ "proj_train_h": 29.331618547439575,
+ "proj_gen_1b_h": 1.3434199968973795,
+ "proj_gen_7b_h": 1.4655490875244142,
+ "proj_total_h": 32.140587631861365
+}

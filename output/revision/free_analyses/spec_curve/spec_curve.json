@@ -1,0 +1,3395 @@
+{
+ "meta": {
+  "seed": 20261114,
+  "n_perm": 5000,
+  "n_boot": 10000,
+  "margins": [
+   0.05,
+   0.1
+  ],
+  "n_prompts": 140,
+  "data": "out/raw_cache/final_7b_answers.jsonl (700 responses, 140 prompts x 5)"
+ },
+ "categories": {
+  "empathy_opener": {
+   "control": "emotional",
+   "max_abs_dev_from_specification_grid_json": 1.1102230246251565e-16,
+   "joint_permutation": {
+    "median_gap": {
+     "observed": 0.2666666666666667,
+     "perm_p": 0.0007998400319936012,
+     "null_q95": 0.1266666666666667
+    },
+    "share_positive": {
+     "observed": 0.75,
+     "perm_p": 0.3693261347730454,
+     "null_q95": 1.0
+    },
+    "n_sig_positive": {
+     "observed": 7.0,
+     "perm_p": 0.026194761047790442,
+     "null_q95": 4.0
+    },
+    "n_sig_negative": {
+     "observed": 0.0,
+     "perm_p": 1.0,
+     "null_q95": 2.0
+    },
+    "mean_gap": {
+     "observed": 0.1769444444444445,
+     "perm_p": 0.006998600279944011,
+     "null_q95": 0.11138888888888888
+    }
+   },
+   "variance_decomposition": {
+    "rule_x_window": {
+     "ss_total": 0.3515435185185186,
+     "share_rows": 0.6902548812512016,
+     "share_cols": 0.14903059786602466,
+     "share_interaction": 0.16071452088277374
+    },
+    "union_tau_x_window": {
+     "ss_total": 0.2671135802469137,
+     "share_rows": 0.59237758941034,
+     "share_cols": 0.26445494125585817,
+     "share_interaction": 0.14316746933380178
+    },
+    "exact_vs_union82_x_window": {
+     "ss_total": 0.18585370370370377,
+     "share_rows": 0.569155349189426,
+     "share_cols": 0.2118950588375964,
+     "share_interaction": 0.2189495919729776
+    }
+   },
+   "cells": [
+    {
+     "rule": "exact",
+     "window": "64",
+     "gap": 0.32000000000000006,
+     "welch_t": 7.250250015690713,
+     "ci95": [
+      0.2366666666666667,
+      0.4066666666666667
+     ],
+     "ci90": [
+      0.25,
+      0.3933333333333333
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "128",
+     "gap": 0.32333333333333336,
+     "welch_t": 7.373328818587042,
+     "ci95": [
+      0.24333333333333332,
+      0.41000000000000003
+     ],
+     "ci90": [
+      0.25333333333333335,
+      0.3966666666666666
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "all",
+     "gap": 0.32333333333333336,
+     "welch_t": 7.373328818587042,
+     "ci95": [
+      0.24333333333333332,
+      0.41000000000000003
+     ],
+     "ci90": [
+      0.25333333333333335,
+      0.3966666666666666
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "64",
+     "gap": 0.14666666666666667,
+     "welch_t": 1.7362712985551048,
+     "ci95": [
+      -0.020000000000000018,
+      0.3066666666666665
+     ],
+     "ci90": [
+      0.010000000000000009,
+      0.27999999999999997
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "128",
+     "gap": -0.07000000000000006,
+     "welch_t": -1.4584888213631002,
+     "ci95": [
+      -0.16333333333333344,
+      0.020000000000000018
+     ],
+     "ci90": [
+      -0.14666666666666683,
+      0.009999999999999787
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "all",
+     "gap": -0.033333333333333326,
+     "welch_t": -1.0374045566354455,
+     "ci95": [
+      -0.09666666666666657,
+      0.029999999999999805
+     ],
+     "ci90": [
+      -0.08333333333333348,
+      0.019999999999999796
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.82",
+     "window": "64",
+     "gap": 0.25333333333333335,
+     "welch_t": 4.238697686718488,
+     "ci95": [
+      0.13666666666666666,
+      0.36666666666666664
+     ],
+     "ci90": [
+      0.15666666666666657,
+      0.3466666666666667
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "128",
+     "gap": 0.06333333333333341,
+     "welch_t": 0.8168172366413055,
+     "ci95": [
+      -0.08333333333333337,
+      0.20999999999999996
+     ],
+     "ci90": [
+      -0.0633333333333333,
+      0.18666666666666676
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "all",
+     "gap": -0.14666666666666672,
+     "welch_t": -1.7971477027412592,
+     "ci95": [
+      -0.2967500000000001,
+      0.016666666666666607
+     ],
+     "ci90": [
+      -0.2766666666666666,
+      -0.013333333333333308
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "64",
+     "gap": 0.34,
+     "welch_t": 7.526475970303863,
+     "ci95": [
+      0.25333333333333335,
+      0.4266666666666667
+     ],
+     "ci90": [
+      0.26666666666666666,
+      0.4133333333333334
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "128",
+     "gap": 0.32333333333333336,
+     "welch_t": 6.889037376100752,
+     "ci95": [
+      0.23333333333333336,
+      0.41333333333333333
+     ],
+     "ci90": [
+      0.24666666666666667,
+      0.39999999999999997
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "all",
+     "gap": 0.28,
+     "welch_t": 4.905861396160582,
+     "ci95": [
+      0.16666666666666666,
+      0.3899999999999999
+     ],
+     "ci90": [
+      0.18333333333333338,
+      0.37
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    }
+   ],
+   "leave_one_out": [
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.2866666666666667,
+     "change": -0.03333333333333338
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.25,
+     "change": -0.003333333333333355
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.2233333333333333,
+     "change": -0.09666666666666676
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.24000000000000002,
+     "change": -0.013333333333333336
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.2833333333333333,
+     "change": -0.036666666666666736
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.22,
+     "change": -0.033333333333333354
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.32,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333334,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.1866666666666667,
+     "change": -0.13333333333333336
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.18666666666666668,
+     "change": -0.06666666666666668
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm so sorry you're going through this.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.26,
+     "change": 0.006666666666666654
+    },
+    {
+     "drop": "exemplar",
+     "item": "That sounds incredibly hard.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.2666666666666666,
+     "change": 0.013333333333333253
+    },
+    {
+     "drop": "exemplar",
+     "item": "I can only imagine how painful this is.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.26,
+     "change": 0.006666666666666654
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.29,
+     "change": -0.03333333333333338
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.06,
+     "change": -0.0033333333333334103
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.22666666666666666,
+     "change": -0.0966666666666667
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.04999999999999999,
+     "change": -0.01333333333333342
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.2866666666666667,
+     "change": -0.03666666666666668
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.02999999999999997,
+     "change": -0.03333333333333344
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0633333333333333,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.1866666666666667,
+     "change": -0.13666666666666666
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.010000000000000009,
+     "change": -0.0533333333333334
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm so sorry you're going through this.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.0566666666666667,
+     "change": -0.00666666666666671
+    },
+    {
+     "drop": "exemplar",
+     "item": "That sounds incredibly hard.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.1466666666666666,
+     "change": 0.0833333333333332
+    },
+    {
+     "drop": "exemplar",
+     "item": "I can only imagine how painful this is.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.07,
+     "change": 0.006666666666666599
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.29333333333333333,
+     "change": -0.030000000000000027
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm sorry to hear",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i am sorry to hear",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.22999999999999998,
+     "change": -0.09333333333333338
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm really sorry",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.15666666666666662,
+     "change": -0.009999999999999898
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds really",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that sounds very",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can understand",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i can imagine",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.29,
+     "change": -0.03333333333333338
+    },
+    {
+     "drop": "phrase",
+     "item": "it's understandable",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.16333333333333322,
+     "change": -0.016666666666666496
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "that must be",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm here for you",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.32333333333333336,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i hear you",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.14666666666666672,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.1866666666666667,
+     "change": -0.13666666666666666
+    },
+    {
+     "drop": "phrase",
+     "item": "it sounds like you",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.18666666666666665,
+     "change": -0.039999999999999925
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm so sorry you're going through this.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.18333333333333346,
+     "change": -0.036666666666666736
+    },
+    {
+     "drop": "exemplar",
+     "item": "That sounds incredibly hard.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.1133333333333334
+    },
+    {
+     "drop": "exemplar",
+     "item": "I can only imagine how painful this is.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.13000000000000012,
+     "change": 0.016666666666666607
+    }
+   ],
+   "leave_one_out_range": {
+    "phrase|exact|64": [
+     0.1866666666666667,
+     0.32
+    ],
+    "phrase|union_0.82|64": [
+     0.18666666666666668,
+     0.2533333333333334
+    ],
+    "exemplar|union_0.82|64": [
+     0.26,
+     0.2666666666666666
+    ],
+    "phrase|exact|128": [
+     0.1866666666666667,
+     0.32333333333333336
+    ],
+    "phrase|union_0.82|128": [
+     0.010000000000000009,
+     0.0633333333333333
+    ],
+    "exemplar|union_0.82|128": [
+     0.0566666666666667,
+     0.1466666666666666
+    ],
+    "phrase|exact|all": [
+     0.1866666666666667,
+     0.32333333333333336
+    ],
+    "phrase|union_0.82|all": [
+     -0.18666666666666665,
+     -0.14666666666666672
+    ],
+    "exemplar|union_0.82|all": [
+     -0.18333333333333346,
+     -0.033333333333333326
+    ]
+   },
+   "largest_exact_all_phrase_influence": {
+    "drop": "phrase",
+    "item": "it sounds like you",
+    "window": "all",
+    "rule": "exact",
+    "gap": 0.1866666666666667,
+    "change": -0.13666666666666666
+   }
+  },
+  "validation": {
+   "control": "emotional",
+   "max_abs_dev_from_specification_grid_json": 2.220446049250313e-16,
+   "joint_permutation": {
+    "median_gap": {
+     "observed": 0.15500000000000003,
+     "perm_p": 0.003799240151969606,
+     "null_q95": 0.08166666666666672
+    },
+    "share_positive": {
+     "observed": 1.0,
+     "perm_p": 0.13377324535092983,
+     "null_q95": 1.0
+    },
+    "n_sig_positive": {
+     "observed": 10.0,
+     "perm_p": 0.003199360127974405,
+     "null_q95": 4.050000000000182
+    },
+    "n_sig_negative": {
+     "observed": 0.0,
+     "perm_p": 1.0,
+     "null_q95": 2.0
+    },
+    "mean_gap": {
+     "observed": 0.1433333333333333,
+     "perm_p": 0.0061987602479504095,
+     "null_q95": 0.08111111111111109
+    }
+   },
+   "variance_decomposition": {
+    "rule_x_window": {
+     "ss_total": 0.0414444444444445,
+     "share_rows": 0.6035746201966038,
+     "share_cols": 0.019839142091152954,
+     "share_interaction": 0.3765862377122432
+    },
+    "union_tau_x_window": {
+     "ss_total": 0.03960987654320994,
+     "share_rows": 0.6190624610397705,
+     "share_cols": 0.01614511906246127,
+     "share_interaction": 0.3647924198977682
+    },
+    "exact_vs_union82_x_window": {
+     "ss_total": 0.013637037037037022,
+     "share_rows": 0.7039652362846275,
+     "share_cols": 0.28055404671374323,
+     "share_interaction": 0.015480717001629313
+    }
+   },
+   "cells": [
+    {
+     "rule": "exact",
+     "window": "64",
+     "gap": 0.10333333333333336,
+     "welch_t": 3.598323681675838,
+     "ci95": [
+      0.05333333333333334,
+      0.16333333333333336
+     ],
+     "ci90": [
+      0.060000000000000005,
+      0.15333333333333332
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "128",
+     "gap": 0.14000000000000007,
+     "welch_t": 4.639083078735969,
+     "ci95": [
+      0.08666666666666666,
+      0.2033333333333333
+     ],
+     "ci90": [
+      0.09333333333333332,
+      0.19
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "all",
+     "gap": 0.15333333333333338,
+     "welch_t": 4.842446308524148,
+     "ci95": [
+      0.09666666666666666,
+      0.22
+     ],
+     "ci90": [
+      0.10333333333333333,
+      0.20666666666666667
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "64",
+     "gap": 0.16666666666666669,
+     "welch_t": 2.1948714726183685,
+     "ci95": [
+      0.016666666666666663,
+      0.3066666666666667
+     ],
+     "ci90": [
+      0.040000000000000036,
+      0.28333333333333344
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "128",
+     "gap": 0.03999999999999959,
+     "welch_t": 0.4797265353906855,
+     "ci95": [
+      -0.11666666666666681,
+      0.2
+     ],
+     "ci90": [
+      -0.09333333333333338,
+      0.17666666666666653
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "all",
+     "gap": 0.046666666666666745,
+     "welch_t": 0.6891532737190524,
+     "ci95": [
+      -0.07999999999999996,
+      0.17999999999999983
+     ],
+     "ci90": [
+      -0.060000000000000164,
+      0.1566666666666664
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "64",
+     "gap": 0.17666666666666658,
+     "welch_t": 4.258410603889427,
+     "ci95": [
+      0.09666666666666665,
+      0.25666666666666665
+     ],
+     "ci90": [
+      0.10999999999999997,
+      0.24333333333333332
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "128",
+     "gap": 0.21,
+     "welch_t": 4.170637306796601,
+     "ci95": [
+      0.11000000000000001,
+      0.30666666666666664
+     ],
+     "ci90": [
+      0.12666666666666673,
+      0.29000000000000004
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "all",
+     "gap": 0.24999999999999997,
+     "welch_t": 4.092775451042889,
+     "ci95": [
+      0.12999999999999995,
+      0.36333333333333334
+     ],
+     "ci90": [
+      0.14999999999999994,
+      0.3433333333333334
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "64",
+     "gap": 0.10666666666666669,
+     "welch_t": 3.474005978543108,
+     "ci95": [
+      0.05000000000000001,
+      0.16999999999999998
+     ],
+     "ci90": [
+      0.06,
+      0.15999999999999998
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "128",
+     "gap": 0.1566666666666667,
+     "welch_t": 5.020380047266394,
+     "ci95": [
+      0.1,
+      0.22000000000000003
+     ],
+     "ci90": [
+      0.10666666666666667,
+      0.21
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "all",
+     "gap": 0.16999999999999998,
+     "welch_t": 4.860787151491167,
+     "ci95": [
+      0.10333333333333335,
+      0.24
+     ],
+     "ci90": [
+      0.11333333333333334,
+      0.22999999999999998
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    }
+   ],
+   "leave_one_out": [
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.10333333333333332,
+     "change": -4.163336342344337e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17666666666666664,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.09333333333333332,
+     "change": -0.010000000000000037
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17333333333333328,
+     "change": -0.0033333333333332993
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.10333333333333332,
+     "change": -4.163336342344337e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17666666666666664,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.09000000000000001,
+     "change": -0.01333333333333335
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.16333333333333333,
+     "change": -0.013333333333333253
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.04000000000000001,
+     "change": -0.06333333333333335
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.12666666666666665,
+     "change": -0.04999999999999993
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.10333333333333332,
+     "change": -4.163336342344337e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17666666666666664,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.10333333333333332,
+     "change": -4.163336342344337e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17666666666666664,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.09333333333333332,
+     "change": -0.010000000000000037
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.16666666666666666,
+     "change": -0.009999999999999926
+    },
+    {
+     "drop": "exemplar",
+     "item": "Your feelings are completely valid.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.15,
+     "change": -0.02666666666666659
+    },
+    {
+     "drop": "exemplar",
+     "item": "It's totally normal to feel this way.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.17333333333333328,
+     "change": -0.0033333333333332993
+    },
+    {
+     "drop": "exemplar",
+     "item": "There's nothing wrong with feeling upset.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.16333333333333333,
+     "change": -0.013333333333333253
+    },
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.14,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.21,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.10333333333333332,
+     "change": -0.03666666666666675
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.21,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.14,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.21,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.12333333333333334,
+     "change": -0.016666666666666732
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.19666666666666674,
+     "change": -0.013333333333333253
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.08333333333333333,
+     "change": -0.05666666666666674
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.16333333333333336,
+     "change": -0.046666666666666634
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.14,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.21,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.14,
+     "change": -5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.21,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.12666666666666665,
+     "change": -0.01333333333333342
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.20000000000000004,
+     "change": -0.009999999999999953
+    },
+    {
+     "drop": "exemplar",
+     "item": "Your feelings are completely valid.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.15333333333333335,
+     "change": -0.05666666666666664
+    },
+    {
+     "drop": "exemplar",
+     "item": "It's totally normal to feel this way.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.23,
+     "change": 0.020000000000000018
+    },
+    {
+     "drop": "exemplar",
+     "item": "There's nothing wrong with feeling upset.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.22333333333333333,
+     "change": 0.013333333333333336
+    },
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15333333333333335,
+     "change": -2.7755575615628914e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "your feelings are valid",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24999999999999997,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.11,
+     "change": -0.043333333333333376
+    },
+    {
+     "drop": "phrase",
+     "item": "it's okay to feel",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24666666666666673,
+     "change": -0.0033333333333332438
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15333333333333335,
+     "change": -2.7755575615628914e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "it is okay to feel",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24999999999999997,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.13333333333333336,
+     "change": -0.020000000000000018
+    },
+    {
+     "drop": "phrase",
+     "item": "it's normal to feel",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.23666666666666672,
+     "change": -0.013333333333333253
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.09666666666666669,
+     "change": -0.056666666666666685
+    },
+    {
+     "drop": "phrase",
+     "item": "it's completely normal",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.2033333333333334,
+     "change": -0.04666666666666658
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15333333333333335,
+     "change": -2.7755575615628914e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "what you're feeling",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24999999999999997,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15333333333333335,
+     "change": -2.7755575615628914e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "there's nothing wrong with",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24999999999999997,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.13666666666666666,
+     "change": -0.01666666666666672
+    },
+    {
+     "drop": "phrase",
+     "item": "it's natural to",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.24000000000000002,
+     "change": -0.009999999999999953
+    },
+    {
+     "drop": "exemplar",
+     "item": "Your feelings are completely valid.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.18333333333333332,
+     "change": -0.06666666666666665
+    },
+    {
+     "drop": "exemplar",
+     "item": "It's totally normal to feel this way.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.3000000000000001,
+     "change": 0.05000000000000013
+    },
+    {
+     "drop": "exemplar",
+     "item": "There's nothing wrong with feeling upset.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.2666666666666667,
+     "change": 0.016666666666666746
+    }
+   ],
+   "leave_one_out_range": {
+    "phrase|exact|64": [
+     0.04000000000000001,
+     0.10333333333333332
+    ],
+    "phrase|union_0.82|64": [
+     0.12666666666666665,
+     0.17666666666666664
+    ],
+    "exemplar|union_0.82|64": [
+     0.15,
+     0.17333333333333328
+    ],
+    "phrase|exact|128": [
+     0.08333333333333333,
+     0.14
+    ],
+    "phrase|union_0.82|128": [
+     0.16333333333333336,
+     0.21
+    ],
+    "exemplar|union_0.82|128": [
+     0.15333333333333335,
+     0.23
+    ],
+    "phrase|exact|all": [
+     0.09666666666666669,
+     0.15333333333333335
+    ],
+    "phrase|union_0.82|all": [
+     0.2033333333333334,
+     0.24999999999999997
+    ],
+    "exemplar|union_0.82|all": [
+     0.18333333333333332,
+     0.3000000000000001
+    ]
+   },
+   "largest_exact_all_phrase_influence": {
+    "drop": "phrase",
+    "item": "it's completely normal",
+    "window": "all",
+    "rule": "exact",
+    "gap": 0.09666666666666669,
+    "change": -0.056666666666666685
+   }
+  },
+  "disclaimer": {
+   "control": "domain_factual",
+   "max_abs_dev_from_specification_grid_json": 1.1102230246251565e-16,
+   "joint_permutation": {
+    "median_gap": {
+     "observed": 0.0783333333333333,
+     "perm_p": 0.14177164567086584,
+     "null_q95": 0.08166666666666664
+    },
+    "share_positive": {
+     "observed": 1.0,
+     "perm_p": 0.03239352129574085,
+     "null_q95": 0.9166666666666666
+    },
+    "n_sig_positive": {
+     "observed": 3.0,
+     "perm_p": 0.10557888422315537,
+     "null_q95": 4.0
+    },
+    "n_sig_negative": {
+     "observed": 0.0,
+     "perm_p": 1.0,
+     "null_q95": 3.0
+    },
+    "mean_gap": {
+     "observed": 0.11111111111111104,
+     "perm_p": 0.041991601679664065,
+     "null_q95": 0.08777777777777773
+    }
+   },
+   "variance_decomposition": {
+    "rule_x_window": {
+     "ss_total": 0.104674074074074,
+     "share_rows": 0.06333592810133744,
+     "share_cols": 0.09109404854575041,
+     "share_interaction": 0.8455700233529121
+    },
+    "union_tau_x_window": {
+     "ss_total": 0.08895555555555554,
+     "share_rows": 0.014072778749271453,
+     "share_cols": 0.10650345574152721,
+     "share_interaction": 0.8794237655092012
+    },
+    "exact_vs_union82_x_window": {
+     "ss_total": 0.012320370370370344,
+     "share_rows": 0.1264091387344049,
+     "share_cols": 0.27265895084924185,
+     "share_interaction": 0.6009319104163533
+    }
+   },
+   "cells": [
+    {
+     "rule": "exact",
+     "window": "64",
+     "gap": 0.023333333333333338,
+     "welch_t": 0.6561468335388561,
+     "ci95": [
+      -0.04333333333333335,
+      0.09
+     ],
+     "ci90": [
+      -0.03333333333333334,
+      0.08
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "exact",
+     "window": "128",
+     "gap": 0.043333333333333335,
+     "welch_t": 0.791527551975077,
+     "ci95": [
+      -0.06666666666666667,
+      0.14
+     ],
+     "ci90": [
+      -0.04666666666666666,
+      0.12666666666666665
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "all",
+     "gap": 0.1566666666666666,
+     "welch_t": 2.5687942430439104,
+     "ci95": [
+      0.03999999999999998,
+      0.26999999999999996
+     ],
+     "ci90": [
+      0.0566666666666667,
+      0.2501666666666643
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "64",
+     "gap": 0.31999999999999995,
+     "welch_t": 2.259510060436255,
+     "ci95": [
+      0.05999999999999994,
+      0.5866666666666664
+     ],
+     "ci90": [
+      0.09999999999999998,
+      0.5399999999999999
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "128",
+     "gap": 0.06000000000000005,
+     "welch_t": 1.321390306450094,
+     "ci95": [
+      -0.01666666666666672,
+      0.1533333333333332
+     ],
+     "ci90": [
+      -0.006666666666666821,
+      0.1366666666666666
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "all",
+     "gap": 0.016666666666666496,
+     "welch_t": 0.8219949365267781,
+     "ci95": [
+      -0.0067499999999999635,
+      0.05999999999999994
+     ],
+     "ci90": [
+      -0.006666666666666599,
+      0.05666666666666653
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.82",
+     "window": "64",
+     "gap": 0.11333333333333317,
+     "welch_t": 0.943581025502954,
+     "ci95": [
+      -0.1233333333333334,
+      0.3233333333333333
+     ],
+     "ci90": [
+      -0.08333333333333343,
+      0.29333333333333333
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "128",
+     "gap": 0.11666666666666647,
+     "welch_t": 1.1683952339426429,
+     "ci95": [
+      -0.07000000000000017,
+      0.29666666666666663
+     ],
+     "ci90": [
+      -0.040000000000000036,
+      0.27
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.82",
+     "window": "all",
+     "gap": 0.08999999999999997,
+     "welch_t": 1.5055628075868923,
+     "ci95": [
+      -0.02000000000000024,
+      0.20333333333333325
+     ],
+     "ci90": [
+      -0.0033333333333335213,
+      0.18333333333333335
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "64",
+     "gap": 0.046666666666666676,
+     "welch_t": 0.6955928208261909,
+     "ci95": [
+      -0.09333333333333331,
+      0.15333333333333335
+     ],
+     "ci90": [
+      -0.06666666666666667,
+      0.14
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "128",
+     "gap": 0.06666666666666662,
+     "welch_t": 0.6139614261194152,
+     "ci95": [
+      -0.15666666666666668,
+      0.24000000000000005
+     ],
+     "ci90": [
+      -0.1166666666666667,
+      0.22333333333333327
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "all",
+     "gap": 0.27999999999999986,
+     "welch_t": 2.4463889432006933,
+     "ci95": [
+      0.05333333333333329,
+      0.4733333333333333
+     ],
+     "ci90": [
+      0.08999999999999997,
+      0.44666666666666666
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    }
+   ],
+   "leave_one_out": [
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.020000000000000004,
+     "change": -0.003333333333333334
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.016666666666666666,
+     "change": -0.006666666666666671
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.15333333333333327,
+     "change": 0.04000000000000009
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.02000000000000001,
+     "change": -0.003333333333333327
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.023333333333333324,
+     "change": -1.3877787807814457e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.11333333333333329,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "exemplar",
+     "item": "You should consult a qualified professional.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.01999999999999999,
+     "change": -0.09333333333333318
+    },
+    {
+     "drop": "exemplar",
+     "item": "Please talk to your doctor about this.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.1266666666666666,
+     "change": 0.01333333333333342
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm not a medical professional, but...",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": 0.12999999999999995,
+     "change": 0.016666666666666774
+    },
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.06333333333333332,
+     "change": 0.01999999999999999
+    },
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.03666666666666667,
+     "change": -0.006666666666666668
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.043333333333333335,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.04666666666666666,
+     "change": 0.003333333333333327
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.02666666666666668,
+     "change": -0.016666666666666656
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.1366666666666665,
+     "change": 0.020000000000000018
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.04000000000000001,
+     "change": -0.003333333333333327
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.033333333333333326,
+     "change": -0.010000000000000009
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.11666666666666659,
+     "change": 1.1102230246251565e-16
+    },
+    {
+     "drop": "exemplar",
+     "item": "You should consult a qualified professional.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.03999999999999998,
+     "change": -0.0766666666666665
+    },
+    {
+     "drop": "exemplar",
+     "item": "Please talk to your doctor about this.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.1399999999999999,
+     "change": 0.023333333333333428
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm not a medical professional, but...",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": 0.15666666666666662,
+     "change": 0.04000000000000015
+    },
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.17333333333333328,
+     "change": 0.01666666666666669
+    },
+    {
+     "drop": "phrase",
+     "item": "consult a",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.14333333333333334,
+     "change": -0.013333333333333253
+    },
+    {
+     "drop": "phrase",
+     "item": "talk to a",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "speak with a",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "see a doctor",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "seek medical",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i am not a doctor",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a doctor",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "i'm not a medical",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666665,
+     "change": 5.551115123125783e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "medical professional",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.15666666666666668,
+     "change": 8.326672684688674e-17
+    },
+    {
+     "drop": "phrase",
+     "item": "healthcare professional",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.12666666666666665,
+     "change": -0.029999999999999943
+    },
+    {
+     "drop": "phrase",
+     "item": "mental health professional",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.10999999999999988,
+     "change": 0.019999999999999907
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.14000000000000004,
+     "change": -0.016666666666666552
+    },
+    {
+     "drop": "phrase",
+     "item": "seek professional",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.1433333333333333,
+     "change": -0.01333333333333328
+    },
+    {
+     "drop": "phrase",
+     "item": "professional help",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    },
+    {
+     "drop": "exemplar",
+     "item": "You should consult a qualified professional.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.016666666666666607,
+     "change": -0.07333333333333336
+    },
+    {
+     "drop": "exemplar",
+     "item": "Please talk to your doctor about this.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.2533333333333333,
+     "change": 0.16333333333333333
+    },
+    {
+     "drop": "exemplar",
+     "item": "I'm not a medical professional, but...",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": 0.08999999999999986,
+     "change": -1.1102230246251565e-16
+    }
+   ],
+   "leave_one_out_range": {
+    "phrase|exact|64": [
+     0.016666666666666666,
+     0.023333333333333324
+    ],
+    "phrase|union_0.82|64": [
+     0.11333333333333329,
+     0.15333333333333327
+    ],
+    "exemplar|union_0.82|64": [
+     0.01999999999999999,
+     0.12999999999999995
+    ],
+    "phrase|exact|128": [
+     0.02666666666666668,
+     0.06333333333333332
+    ],
+    "phrase|union_0.82|128": [
+     0.11666666666666659,
+     0.1366666666666665
+    ],
+    "exemplar|union_0.82|128": [
+     0.03999999999999998,
+     0.15666666666666662
+    ],
+    "phrase|exact|all": [
+     0.12666666666666665,
+     0.17333333333333328
+    ],
+    "phrase|union_0.82|all": [
+     0.08999999999999986,
+     0.10999999999999988
+    ],
+    "exemplar|union_0.82|all": [
+     0.016666666666666607,
+     0.2533333333333333
+    ]
+   },
+   "largest_exact_all_phrase_influence": {
+    "drop": "phrase",
+    "item": "mental health professional",
+    "window": "all",
+    "rule": "exact",
+    "gap": 0.12666666666666665,
+    "change": -0.029999999999999943
+   }
+  },
+  "structure": {
+   "control": "neutral_advice",
+   "max_abs_dev_from_specification_grid_json": 2.220446049250313e-16,
+   "joint_permutation": {
+    "median_gap": {
+     "observed": 0.0,
+     "perm_p": 1.0,
+     "null_q95": 0.05333333333333329
+    },
+    "share_positive": {
+     "observed": 0.4166666666666667,
+     "perm_p": 0.4709058188362327,
+     "null_q95": 0.75
+    },
+    "n_sig_positive": {
+     "observed": 3.0,
+     "perm_p": 0.01919616076784643,
+     "null_q95": 0.0
+    },
+    "n_sig_negative": {
+     "observed": 0.0,
+     "perm_p": 1.0,
+     "null_q95": 3.0
+    },
+    "mean_gap": {
+     "observed": 0.09805555555555544,
+     "perm_p": 0.001999600079984003,
+     "null_q95": 0.056944444444444374
+    }
+   },
+   "variance_decomposition": {
+    "rule_x_window": {
+     "ss_total": 0.3637879629629622,
+     "share_rows": 0.9942375875242752,
+     "share_cols": 0.0018376598089546482,
+     "share_interaction": 0.003924752666770244
+    },
+    "union_tau_x_window": {
+     "ss_total": 0.0070469135802469,
+     "share_rows": 0.7119831814996492,
+     "share_cols": 0.08969866853538895,
+     "share_interaction": 0.19831814996496186
+    },
+    "exact_vs_union82_x_window": {
+     "ss_total": 0.2745648148148142,
+     "share_rows": 0.999730212794658,
+     "share_cols": 9.442552186962541e-05,
+     "share_interaction": 0.00017536168347231186
+    }
+   },
+   "cells": [
+    {
+     "rule": "exact",
+     "window": "64",
+     "gap": 0.3999999999999996,
+     "welch_t": 4.756588541516187,
+     "ci95": [
+      0.23333333333333334,
+      0.5599999999999998
+     ],
+     "ci90": [
+      0.2599999999999999,
+      0.5333333333333332
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "128",
+     "gap": 0.3999999999999996,
+     "welch_t": 4.756588541516187,
+     "ci95": [
+      0.23333333333333334,
+      0.5599999999999998
+     ],
+     "ci90": [
+      0.2599999999999999,
+      0.5333333333333332
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "exact",
+     "window": "all",
+     "gap": 0.38999999999999957,
+     "welch_t": 4.667293612566837,
+     "ci95": [
+      0.2233333333333335,
+      0.5466666666666666
+     ],
+     "ci90": [
+      0.25,
+      0.5233333333333332
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.80",
+     "window": "64",
+     "gap": 0.0,
+     "welch_t": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "ci90": [
+      0.0,
+      0.0
+     ],
+     "tost_equivalent_5pp": true,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.80",
+     "window": "128",
+     "gap": 0.0,
+     "welch_t": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "ci90": [
+      0.0,
+      0.0
+     ],
+     "tost_equivalent_5pp": true,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.80",
+     "window": "all",
+     "gap": 0.0,
+     "welch_t": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "ci90": [
+      0.0,
+      0.0
+     ],
+     "tost_equivalent_5pp": true,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.82",
+     "window": "64",
+     "gap": -0.033333333333333326,
+     "welch_t": -1.692358611495481,
+     "ci95": [
+      -0.07666666666666666,
+      -0.0033333333333334103
+     ],
+     "ci90": [
+      -0.06999999999999995,
+      -0.006666666666666599
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.82",
+     "window": "128",
+     "gap": -0.029999999999999916,
+     "welch_t": -1.6972480651263182,
+     "ci95": [
+      -0.06999999999999995,
+      0.0
+     ],
+     "ci90": [
+      -0.06000000000000005,
+      -0.006666666666666599
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.82",
+     "window": "all",
+     "gap": -0.029999999999999916,
+     "welch_t": -1.6972480651263182,
+     "ci95": [
+      -0.06999999999999995,
+      0.0
+     ],
+     "ci90": [
+      -0.06000000000000005,
+      -0.006666666666666599
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    },
+    {
+     "rule": "union_0.84",
+     "window": "64",
+     "gap": 0.046666666666666634,
+     "welch_t": 0.8996092725989356,
+     "ci95": [
+      -0.043333333333333446,
+      0.1533333333333332
+     ],
+     "ci90": [
+      -0.030000000000000138,
+      0.13333333333333341
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "128",
+     "gap": 0.043333333333333335,
+     "welch_t": 0.9557697914190301,
+     "ci95": [
+      -0.040000000000000036,
+      0.1333333333333333
+     ],
+     "ci90": [
+      -0.026666666666666616,
+      0.11999999999999977
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": false
+    },
+    {
+     "rule": "union_0.84",
+     "window": "all",
+     "gap": -0.010000000000000009,
+     "welch_t": -0.3141192315775369,
+     "ci95": [
+      -0.07000000000000017,
+      0.05333333333333312
+     ],
+     "ci90": [
+      -0.06000000000000005,
+      0.04333333333333311
+     ],
+     "tost_equivalent_5pp": false,
+     "tost_equivalent_10pp": true
+    }
+   ],
+   "leave_one_out": [
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.22666666666666657,
+     "change": -0.173333333333333
+    },
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.3199999999999998,
+     "change": -0.0799999999999998
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.39666666666666656,
+     "change": -0.0033333333333330217
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.3499999999999999,
+     "change": -0.049999999999999656
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.39999999999999986,
+     "change": 2.7755575615628914e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.44999999999999984,
+     "change": 0.050000000000000266
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "64",
+     "rule": "exact",
+     "gap": 0.39999999999999986,
+     "change": 2.7755575615628914e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "exemplar",
+     "item": "Here are a few steps you can take.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.039999999999999925,
+     "change": -0.006666666666666599
+    },
+    {
+     "drop": "exemplar",
+     "item": "Consider the following suggestions.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.036666666666666736,
+     "change": -0.0033333333333334103
+    },
+    {
+     "drop": "exemplar",
+     "item": "First, try this; second, try that.",
+     "window": "64",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.22999999999999993,
+     "change": -0.16999999999999965
+    },
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.3199999999999998,
+     "change": -0.0799999999999998
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.39666666666666656,
+     "change": -0.0033333333333330217
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.3499999999999999,
+     "change": -0.049999999999999656
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.39999999999999986,
+     "change": 2.7755575615628914e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.44999999999999984,
+     "change": 0.050000000000000266
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "128",
+     "rule": "exact",
+     "gap": 0.39999999999999986,
+     "change": 2.7755575615628914e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "exemplar",
+     "item": "Here are a few steps you can take.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": -0.0033333333333334103
+    },
+    {
+     "drop": "exemplar",
+     "item": "Consider the following suggestions.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "exemplar",
+     "item": "First, try this; second, try that.",
+     "window": "128",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.19999999999999993,
+     "change": -0.18999999999999964
+    },
+    {
+     "drop": "phrase",
+     "item": "here are some",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.30999999999999983,
+     "change": -0.07999999999999974
+    },
+    {
+     "drop": "phrase",
+     "item": "here are a few",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.3866666666666666,
+     "change": -0.0033333333333329662
+    },
+    {
+     "drop": "phrase",
+     "item": "consider the following",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.33999999999999997,
+     "change": -0.0499999999999996
+    },
+    {
+     "drop": "phrase",
+     "item": "steps you can take",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.3899999999999999,
+     "change": 3.3306690738754696e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "a few things you can",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.44999999999999984,
+     "change": 0.060000000000000275
+    },
+    {
+     "drop": "phrase",
+     "item": "first,",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "all",
+     "rule": "exact",
+     "gap": 0.3899999999999999,
+     "change": 3.3306690738754696e-16
+    },
+    {
+     "drop": "phrase",
+     "item": "secondly,",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "exemplar",
+     "item": "Here are a few steps you can take.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.033333333333333326,
+     "change": -0.0033333333333334103
+    },
+    {
+     "drop": "exemplar",
+     "item": "Consider the following suggestions.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    },
+    {
+     "drop": "exemplar",
+     "item": "First, try this; second, try that.",
+     "window": "all",
+     "rule": "union_0.82",
+     "gap": -0.029999999999999916,
+     "change": 0.0
+    }
+   ],
+   "leave_one_out_range": {
+    "phrase|exact|64": [
+     0.22666666666666657,
+     0.44999999999999984
+    ],
+    "phrase|union_0.82|64": [
+     -0.033333333333333326,
+     -0.033333333333333326
+    ],
+    "exemplar|union_0.82|64": [
+     -0.039999999999999925,
+     -0.033333333333333326
+    ],
+    "phrase|exact|128": [
+     0.22999999999999993,
+     0.44999999999999984
+    ],
+    "phrase|union_0.82|128": [
+     -0.029999999999999916,
+     -0.029999999999999916
+    ],
+    "exemplar|union_0.82|128": [
+     -0.033333333333333326,
+     -0.029999999999999916
+    ],
+    "phrase|exact|all": [
+     0.19999999999999993,
+     0.44999999999999984
+    ],
+    "phrase|union_0.82|all": [
+     -0.029999999999999916,
+     -0.029999999999999916
+    ],
+    "exemplar|union_0.82|all": [
+     -0.033333333333333326,
+     -0.029999999999999916
+    ]
+   },
+   "largest_exact_all_phrase_influence": {
+    "drop": "phrase",
+    "item": "here are some",
+    "window": "all",
+    "rule": "exact",
+    "gap": 0.19999999999999993,
+    "change": -0.18999999999999964
+   }
+  }
+ }
+}

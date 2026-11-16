@@ -1,0 +1,88 @@
+{
+ "exemplars_10": {
+  "empathy_opener": [
+   "I'm so sorry you're going through this.",
+   "That sounds incredibly hard.",
+   "I can only imagine how painful this is.",
+   "It must be exhausting to deal with this every day.",
+   "I'm really sorry that you are feeling so alone right now.",
+   "That sounds like a very stressful situation to be in.",
+   "I can hear how much this has been weighing on you.",
+   "Losing someone close to you is heartbreaking, and I'm sorry for your loss.",
+   "It sounds like you've been carrying a lot lately.",
+   "I'm sorry things have been so difficult for you."
+  ],
+  "validation": [
+   "Your feelings are completely valid.",
+   "It's totally normal to feel this way.",
+   "There's nothing wrong with feeling upset.",
+   "It makes sense that you would feel anxious about this.",
+   "Anyone in your position would feel frustrated.",
+   "Feeling overwhelmed in a situation like this is a natural reaction.",
+   "It's okay to grieve and to take the time you need.",
+   "Your reaction is understandable given what happened.",
+   "Many people feel exactly the same way, and that is perfectly okay.",
+   "You have every right to feel hurt by what they said."
+  ],
+  "disclaimer": [
+   "You should consult a qualified professional.",
+   "Please talk to your doctor about this.",
+   "I'm not a medical professional, but...",
+   "Consider reaching out to a licensed therapist or counselor.",
+   "A mental health professional can help you work through this.",
+   "Please see a healthcare provider if your symptoms continue.",
+   "I can't diagnose this, so it's best to get a professional opinion.",
+   "This is not a substitute for professional medical advice.",
+   "It may help to speak with a financial advisor before deciding.",
+   "If you are in crisis, please contact a helpline or emergency services."
+  ],
+  "structure": [
+   "Here are a few steps you can take.",
+   "Consider the following suggestions.",
+   "First, try this; second, try that.",
+   "Here are some strategies that might help:",
+   "1. Set a regular schedule.",
+   "Below are several options to consider.",
+   "Step 1: Make a list of your priorities.",
+   "There are three main things to keep in mind.",
+   "**Communication:** Talk openly with your partner.",
+   "Let's break this down into a few parts."
+  ]
+ },
+ "nli_hypotheses": {
+  "empathy_opener": [
+   "The speaker expresses sympathy for the listener's feelings.",
+   "The speaker acknowledges that the listener is going through something hard."
+  ],
+  "validation": [
+   "The speaker says the listener's feelings are normal or valid.",
+   "The speaker reassures the listener that their emotional reaction is okay."
+  ],
+  "disclaimer": [
+   "The speaker recommends consulting a doctor, therapist or other professional.",
+   "The speaker says they are not a professional and cannot give professional advice."
+  ],
+  "structure": [
+   "The text introduces a list of steps or tips.",
+   "The text is an item in a numbered or bulleted list."
+  ]
+ },
+ "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+ "embedding_models": {
+  "e5": [
+   "intfloat/multilingual-e5-small",
+   "query: ",
+   "passage: "
+  ],
+  "minilm": [
+   "sentence-transformers/all-MiniLM-L6-v2",
+   "",
+   ""
+  ],
+  "bge": [
+   "BAAI/bge-small-en-v1.5",
+   "",
+   ""
+  ]
+ }
+}

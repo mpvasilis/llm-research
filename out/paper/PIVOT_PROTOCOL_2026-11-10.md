@@ -105,3 +105,54 @@ models are not the released DPO model, and we will say so.
   times the family-bootstrap standard error (`mde80` in analysis.json). A
   null result is reported together with this value, so that a reader can
   tell an absent effect from an underpowered test.
+
+## Amendment, 12 Nov 2026 (memory)
+
+The run uses a 24 GB RTX 3090 spot instance. To fit memory, the micro-batch is 2
+pairs with 16 accumulation steps (effective batch unchanged at 32 pairs), and
+per-token log-probabilities are computed one sequence at a time
+(`logit[target] - logsumexp(logits)`, numerically the same quantity as before).
+No analysis choice changes.
+
+## Amendment, 12 Nov 2026 (training size)
+
+The on-GPU benchmark (RTX 3090, 0.99 s per 2-pair micro-batch) projected 127 GPU
+hours for 15 runs of 60,000 pairs, above the cost cap. Each DPO run therefore uses
+the first 24,000 pairs of the same fixed shuffle (the cheapest available host cost $0.18 per hour). Arms, seeds, loss, beta,
+learning rate and all outcomes are unchanged; the minimum detectable effect is
+reported with every contrast, so the smaller run size is visible in the results.
+
+## Amendment, 12 Nov 2026 (scope under the cost cap)
+
+A second benchmark (24,000 pairs, five arms) projected 66 GPU hours and $17.26 at
+the available host price, above the remaining credit. The run therefore trains
+four arms (baseline, random_drop, drop_chosen_only, flip_chosen_only) with three
+seeds each and 16,000 pairs per run. The secondary length-matched arm is not
+trained. Both primary contrasts (flip minus baseline, drop minus random drop) and
+the Holm family are unchanged.
+
+## Amendment, 14 Nov 2026 (memory, before any DPO step was completed)
+
+With micro-batch 2 the first DPO run ran out of GPU memory on its second
+optimizer step (long pairs; the benchmark already peaked at 20.6 of 24 GB).
+Training now uses micro-batch 1 with 32 accumulation steps, so the effective
+batch stays 32 and the optimizer, data order and all other settings are
+unchanged. Atlas generation for the 7B checkpoints uses a generation batch of
+8 instead of 32 for the same reason; sampling settings and seeds are unchanged.
+No outcome data had been generated for any training arm when these changes
+were made.
+
+Later the same day, before any training run had finished: micro-batch 1 ran at
+34 s per optimizer step, about twice the benchmark. The loop now forms each
+optimizer step from exactly 32 consecutive shuffled pairs and packs them into
+micro-batches under a budget of 1,536 padded tokens per side, so short pairs
+share a forward pass and long pairs run alone. The loss is the mean over the
+32 pairs, as before. The interrupted first run was discarded and restarted.
+
+## Amendment, 14 Nov 2026 (seeds, before any training run had finished)
+
+Measured training speed on the full data is about 39 s per optimizer step,
+so twelve runs would cost about $25, above the cap. The study now trains two
+seeds (0 and 1) per arm: four arms, eight runs. All contrasts, outcomes and
+the analysis plan are unchanged; seed-level results are reported for both
+seeds. Seed 2 is dropped before any of its runs started.
