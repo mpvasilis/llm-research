@@ -182,3 +182,10 @@ the chosen-only share set to 25% instead of 50%. Primary contrast and Holm
 correction are unchanged. Together with Study 1 (natural share, about 7%) and
 amendment 4 (50%), this gives three dose points for the flip effect on
 structuring. Launch: `python experiments/pivot/vast_launch.py start --study dose`.
+
+## Amendment 6 (2026-11-19): 12% dose point
+
+Registered before the run starts, after the 25% result (amendment 5) showed a
+saturated effect. Same design as amendments 4 and 5 with the chosen-only share
+at 12%, to locate the threshold between the natural share (about 7%, no
+effect) and 25% (full effect). Primary contrast and Holm correction unchanged.

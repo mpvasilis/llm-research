@@ -546,6 +546,9 @@ while the detector category also matches disclaimers, so its 0.06 precision
 partly reflects target mismatch. Positives are rare for three categories and
 intervals are wide (Appendix~\ref{app:audit-bootstrap}).
 
+A blinded human pass over 390 sentences agrees: exact-match precision is
+82 to 100, embedding-rule empathy precision 21 (Appendix~\ref{app:human-audit}).
+
 \newcommand{\floatDetval}{%
 \begin{table}[t]
 \centering
@@ -801,38 +804,17 @@ replications.
 \ifpivot
 \subsection{RQ4: Counterfactual preference data}
 \label{sec:pivot}
-None of the four primary contrasts is significant (\pivNSig{} of four
-with Holm $p<.05$; Table~\ref{tab:pivot}, Appendix~\ref{app:pivot-table}).
+At the natural share (\pivNChosenOnly{} of \pivNPairs{} pairs, 7\%), no
+primary contrast is significant (\pivNSig{} of four; Appendix~\ref{app:pivot-table}).
 Flipping chosen-only pairs changes structuring by \pivFlipStruct{} points
-(\pivFlipStructCI{}); dropping them, against a random drop of equal size,
-changes it by \pivDropStruct{} (\pivDropStructCI{}). Referral and the
-untargeted markers stay within four points.
+(\pivFlipStructCI{}; detectable effect about 7.5).
 
-\paragraph{Scope of the null result.}
-The 80\%-power detectable effect is about 7.5 points for structuring. Only \pivNChosenOnly{} of
-\pivNPairs{} pairs (7\%) are edited and final training accuracy is near
-\pivFinalAcc{}, so the first study bounds this subset under a light DPO budget.
-
-\paragraph{Study 2: enriched sample.}
-A second pre-registered study (protocol amendment 4) raises the dose. Each
-16{,}000-pair sample draws half of its pairs from the 28{,}150 chosen-only
-pairs, the learning rate rises to $2.5\times10^{-6}$, and each arm has three
-seeds. Flipping the chosen-only pairs in this sample lowers structuring in
-the first 256 tokens by 91.3 points (95\% interval $-94.4$ to $-87.6$;
-Holm $p<.001$; per seed $-90.8$, $-91.7$, $-91.3$) and raises disclaimers
-by 8.3 points ($4.6$ to $12.5$; Holm $p<.001$). Empathy openers and
-validation, which the edit does not target, move by less than one point.
-The flipped models also answer more briefly (median 178 versus 635
-tokens), but the structuring gap is the same in the first 64 tokens
-($-90.1$), where both arms have equal room, so length does not explain it.
-A third pre-registered run (amendment 5) repeats the design at a 25\%
-share. Structuring falls by 93.8 points ($-96.2$ to $-91.0$; Holm $p<.001$;
-per seed $-95.0$, $-92.9$, $-93.3$), the same as at 50\%, while the
-disclaimer increase does not replicate ($-0.8$, Holm $p=.07$). The
-structuring effect is therefore saturated by a 25\% share and absent at the
-natural 7\% share, so the dose at which preference pairs take control of the
-marker lies between these two points; the disclaimer result at 50\% should
-be read as unconfirmed.
+\paragraph{Dose.}
+Two pre-registered follow-ups use samples with 50\% or 25\% chosen-only
+pairs (three seeds each). Flipping them lowers structuring by 91.3 points
+at 50\% ($-94.4$ to $-87.6$) and 93.8 at 25\% ($-96.2$ to $-91.0$; Holm
+$p<.001$), also within the first 64 tokens. The effect thus appears between a 7\% and a 25\% share
+(Appendix~\ref{app:dose}).
 
 \fi
 
@@ -843,14 +825,12 @@ and structuring markers look specific to personal advice, and length
 accounts for about half of the chosen-side advantage of referral and
 structuring phrases in the DPO data. Validation exceeds its strongest
 control in all twelve specifications, and exact-match gaps exceed placebo
-lexicons.\ifpivot{} Editing the pairs that carry these phrases has no detectable
-effect at their natural share, and removes almost all structuring once
-they make up a quarter of training or more.\fi{} We recommend: (1)~reporting the headline
+lexicons.\ifpivot{} Flipping the pairs that carry these phrases removes structuring once
+they reach a quarter of training.\fi{} We recommend: (1)~reporting the headline
 contrast under at least two matching rules; (2)~fixing the text window and
 reporting the share of answers at the generation cap; (3)~including a
 control that shares the property most likely to trigger the rule; and
-(4)~reporting preference associations with and without length terms and
-within a length-matched band.
+(4)~reporting preference associations with and without length terms.
 
 \section{Limitations}
 \label{sec:limitations}
@@ -862,7 +842,8 @@ setting and are not the released DPO model; RQ1 to RQ3 remain observational.
 \else
 All analyses are observational and do not attribute outputs to training
 examples.
-\fi The audit uses LLM-consensus labels, has no human labels, covers 97
+\fi The human audit has a single annotator, so it gives no human agreement
+estimate; both audits cover 97
 responses, has wide per-category intervals, and does not validate
 response-level prevalence. The component and window analyses cover only
 final 7B, because raw responses for other checkpoints were not stored. Base
@@ -1237,6 +1218,46 @@ OR${}=1$ denotes no modeled marker-choice association, not a zero change in
 preference probability.}
 \label{fig:dpo-conditional}
 \end{figure*}
+
+
+
+\section{Dose studies}
+\label{app:dose}
+A second pre-registered study (protocol amendment 4) raises the dose. Each
+16{,}000-pair sample draws half of its pairs from the 28{,}150 chosen-only
+pairs, the learning rate rises to $2.5\times10^{-6}$, and each arm has three
+seeds. Flipping the chosen-only pairs in this sample lowers structuring in
+the first 256 tokens by 91.3 points (95\% interval $-94.4$ to $-87.6$;
+Holm $p<.001$; per seed $-90.8$, $-91.7$, $-91.3$) and raises disclaimers
+by 8.3 points ($4.6$ to $12.5$; Holm $p<.001$). Empathy openers and
+validation, which the edit does not target, move by less than one point.
+Flipped models answer more briefly (median 178 versus 635 tokens), but the
+gap is the same within the first 64 tokens ($-90.1$).
+A third pre-registered run (amendment 5) repeats the design at a 25\%
+share. Structuring falls by 93.8 points ($-96.2$ to $-91.0$; Holm $p<.001$;
+per seed $-95.0$, $-92.9$, $-93.3$), the same as at 50\%, while the
+disclaimer increase does not replicate ($-0.8$, Holm $p=.07$). The
+structuring effect is therefore saturated by a 25\% share and absent at the
+natural 7\% share, so the dose at which preference pairs take control of the
+marker lies between these two points; the disclaimer result at 50\% should
+be read as unconfirmed.
+
+\section{Human audit}
+\label{app:human-audit}
+A blinded human annotator labeled a second, design-weighted sample of 390
+sentences from 97 responses, without access to detector outputs or model
+identities. With design weights, exact matching has precision 81.6 and
+recall 90.0 for empathy openers, 94.7 and 77.9 for referral and
+disclaimer, and 100 and 19.0 for validation. For structuring it has
+precision 100 but recall 9.9, because the lexicon catches organizing
+preambles rather than every list item. The embedding union reaches 93.1
+recall for structuring but precision 20.8 for empathy and 11.1 for
+referral and disclaimer, so the human labels reproduce the LLM-consensus
+pattern: the embedding rule buys recall with false positives. The
+design-corrected empathy gap under exact matching is 2.3 points (1.8 to
+2.9). Because the counterfactual studies score structuring with the exact
+lexicon, their effects concern structuring preambles, which this rule
+detects without false positives.
 
 \section{Response-cluster audit uncertainty}
 \label{app:audit-bootstrap}
