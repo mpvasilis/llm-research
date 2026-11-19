@@ -203,17 +203,17 @@ def main():
     ap.add_argument("--budget", type=float, default=15.0)
     ap.add_argument("--spot", action="store_true", help="interruptible bid instance; job resumes after outbid")
     ap.add_argument("--pairs", type=int, default=60_000, help="pairs per DPO run (protocol: 60000)")
-    ap.add_argument("--study", choices=["main", "strong", "dose", "dose12"], default="main",
+    ap.add_argument("--study", choices=["main", "strong", "dose", "dose12", "dose25s", "dose12s"], default="main",
                     help="strong: enriched baseline vs flip at 50%% share; dose: same at 25%% share")
     a = ap.parse_args()
-    if a.study in ("strong", "dose", "dose12"):
+    if a.study in ("strong", "dose", "dose12", "dose25s", "dose12s"):
         global REMOTE_SETUP, LOCAL_RESULTS, N_TRAIN_RUNS
-        share = {"strong": "0.5", "dose": "0.25", "dose12": "0.12"}[a.study]
+        share = {"strong": "0.5", "dose": "0.25", "dose12": "0.12", "dose25s": "0.25", "dose12s": "0.12"}[a.study]
         REMOTE_SETUP = REMOTE_SETUP.replace(
             "PIVOT_ARMS=baseline,random_drop,drop_chosen_only,flip_chosen_only",
             "PIVOT_ARMS=enriched_baseline,enriched_flip PIVOT_SEEDS=0,1,2 PIVOT_LR=2.5e-6 "
             f"PIVOT_SKIP_ATLAS=1 PIVOT_ENRICH_SHARE={share}")
-        LOCAL_RESULTS = ROOT / "output" / "pivot" / {"strong": "results_strong", "dose": "results_dose25", "dose12": "results_dose12"}[a.study]
+        LOCAL_RESULTS = ROOT / "output" / "pivot" / {"strong": "results_strong", "dose": "results_dose25", "dose12": "results_dose12", "dose25s": "results_dose25_16k", "dose12s": "results_dose12_16k"}[a.study]
         N_TRAIN_RUNS = 10 ** 9  # run_all writes ALL_DONE after all six runs
     if a.cmd == "start":
         start(a.budget, a.pairs, a.spot)

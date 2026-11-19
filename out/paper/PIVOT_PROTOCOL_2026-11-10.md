@@ -189,3 +189,18 @@ Registered before the run starts, after the 25% result (amendment 5) showed a
 saturated effect. Same design as amendments 4 and 5 with the chosen-only share
 at 12%, to locate the threshold between the natural share (about 7%, no
 effect) and 25% (full effect). Primary contrast and Holm correction unchanged.
+
+## Amendment 7 (2026-11-20): deviation note and 16,000-pair dose runs
+
+Deviation found after the fact: the amendment 5 run (25% share) executed with
+60,000 pairs per sample (15,000 chosen-only, 1,875 steps), not the 16,000 used
+by Study 1 and amendment 4, because the launcher's default pair count was not
+overridden. Share and sample size are therefore confounded in that run. The
+amendment 6 run (12%) had the same defect and was stopped after one of six
+training runs; its partial output is kept but not analysed.
+
+To restore a clean dose series, both dose points are rerun at 16,000 pairs,
+otherwise identical to amendment 4: 25% (4,000 chosen-only pairs) and 12%
+(1,920 chosen-only pairs), arms enriched_baseline and enriched_flip, seeds
+0-2, LR 2.5e-6. Primary contrast and Holm correction unchanged. The 60,000-pair
+25% run is reported as a secondary, larger-sample result.
