@@ -22,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 LOCAL_RESULTS = ROOT / "output" / "pivot" / "results"
 IMAGE = "pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime"
-QUERY = ("gpu_name in [RTX_3090,RTX_4090] num_gpus=1 gpu_ram>=23 reliability>0.98 disk_space>150 inet_down>500 "
+QUERY = ("gpu_name in [RTX_3090,RTX_4090] num_gpus=1 gpu_ram>=23 reliability>0.98 disk_space>150 inet_down>1500 "
          "direct_port_count>4 cuda_vers>=12.4 rentable=true dph_total<0.22 "
          "inet_down_cost<0.005 storage_cost<0.2")
 SPOT_QUERY = ("gpu_name in [RTX_3090,RTX_4090,RTX_A5000,RTX_A6000,A40] num_gpus=1 gpu_ram>=23 "
@@ -170,7 +170,7 @@ def start(budget, pairs, spot=False):
         print("offer", offer["id"], offer["dph_total"], flush=True)
     created = vast("create", "instance", str(offer["id"]), "--image", IMAGE, "--disk", "150",
                    "--ssh", "--direct", "--label", "pivot-study", *extra)
-    if not created.get("success"):
+    if not created.get("success") and not created.get("new_contract"):
         sys.exit(f"could not rent: {created}")
     iid = created["new_contract"]
     print("instance", iid, flush=True)
@@ -203,7 +203,18 @@ def main():
     ap.add_argument("--budget", type=float, default=15.0)
     ap.add_argument("--spot", action="store_true", help="interruptible bid instance; job resumes after outbid")
     ap.add_argument("--pairs", type=int, default=60_000, help="pairs per DPO run (protocol: 60000)")
+    ap.add_argument("--study", choices=["main", "strong", "dose"], default="main",
+                    help="strong: enriched baseline vs flip at 50%% share; dose: same at 25%% share")
     a = ap.parse_args()
+    if a.study in ("strong", "dose"):
+        global REMOTE_SETUP, LOCAL_RESULTS, N_TRAIN_RUNS
+        share = "0.5" if a.study == "strong" else "0.25"
+        REMOTE_SETUP = REMOTE_SETUP.replace(
+            "PIVOT_ARMS=baseline,random_drop,drop_chosen_only,flip_chosen_only",
+            "PIVOT_ARMS=enriched_baseline,enriched_flip PIVOT_SEEDS=0,1,2 PIVOT_LR=2.5e-6 "
+            f"PIVOT_SKIP_ATLAS=1 PIVOT_ENRICH_SHARE={share}")
+        LOCAL_RESULTS = ROOT / "output" / "pivot" / ("results_strong" if a.study == "strong" else "results_dose25")
+        N_TRAIN_RUNS = 10 ** 9  # run_all writes ALL_DONE after all six runs
     if a.cmd == "start":
         start(a.budget, a.pairs, a.spot)
     elif a.cmd == "watch":

@@ -17,9 +17,11 @@ from experiments.detector_spec import CATEGORIES, LEXICON
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS = ROOT / "output" / "pivot" / "results"
 OUT = ROOT / "output" / "pivot" / "analysis.json"
-ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched")
+ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched",
+        "enriched_baseline", "enriched_flip")
 WINDOWS = (64, 256, None)
-PRIMARY = [("flip_chosen_only", "baseline"), ("drop_chosen_only", "random_drop")]
+PRIMARY = [("flip_chosen_only", "baseline"), ("drop_chosen_only", "random_drop"),
+           ("enriched_flip", "enriched_baseline")]  # Study 2 (amendment 4)
 TARGETS = ("structure", "disclaimer")
 N_BOOT = 10_000
 
@@ -103,7 +105,7 @@ def holm(pvalues):
     return adjusted
 
 
-def counterfactual(scored, n_seeds=2):  # amended 14 Nov 2026: two seeds per arm
+def counterfactual(scored, n_seeds=3):  # amended 14 Nov 2026: two seeds per arm
     runs = {a: [scored[f"cf_{a}_s{s}"] for s in range(n_seeds) if f"cf_{a}_s{s}" in scored] for a in ARMS}
     runs = {a: v for a, v in runs.items() if v}
     pairs = [(l, r) for l, r in PRIMARY if l in runs and r in runs]
@@ -249,7 +251,8 @@ def main():
             return [{c: e[c] or m[c] >= tau for c in CATEGORIES} for e, m in zip(exact_rows, cache[key])]
     rows = {p.stem[4:]: load(p) for p in sorted(a.results.glob("gen_*.jsonl"))}
     scored = {k: score(v, tok, union) for k, v in rows.items()}
-    result = {"counterfactual": counterfactual(scored), "atlas": atlas(scored),
+    has_atlas = any(k.startswith("1B_") for k in scored)
+    result = {"counterfactual": counterfactual(scored), "atlas": atlas(scored) if has_atlas else None,
               "training": training(a.results), "generation": generation(rows)}
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(result, indent=1), encoding="utf-8")

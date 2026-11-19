@@ -156,3 +156,29 @@ so twelve runs would cost about $25, above the cap. The study now trains two
 seeds (0 and 1) per arm: four arms, eight runs. All contrasts, outcomes and
 the analysis plan are unchanged; seed-level results are reported for both
 seeds. Seed 2 is dropped before any of its runs started.
+
+## Amendment 4 (16 Nov 2026): Study 2, a stronger dose
+
+Written after Study 1 was analysed (null on all four primary contrasts, with
+7% of pairs chosen-only and final training accuracy near 0.53). Study 2 is
+therefore confirmatory of dose only, and is reported as a separate study.
+
+- Sample: 16,000 pairs per run, of which 8,000 are drawn from the chosen-only
+  pool (target phrase in the chosen response only) and 8,000 from all other
+  pairs. The sample depends only on the training seed.
+- Arms: `enriched_baseline` (sample as drawn) and `enriched_flip` (chosen and
+  rejected swapped on the 8,000 chosen-only pairs). Seeds 0, 1, 2.
+- Learning rate 2.5e-6 (Study 1: 1e-6); all other settings unchanged.
+- Primary contrasts: enriched_flip minus enriched_baseline for structuring and
+  referral/disclaimer, exact match, first 256 tokens, Holm over the two.
+  Prediction: both negative. Empathy and validation are negative controls.
+- No atlas is regenerated.
+
+## Amendment 5 (2026-11-17): dose point
+
+Registered before any 25% run starts. Same design as amendment 4 (arms
+enriched_baseline and enriched_flip, seeds 0-2, LR 2.5e-6, 16,000 pairs), with
+the chosen-only share set to 25% instead of 50%. Primary contrast and Holm
+correction are unchanged. Together with Study 1 (natural share, about 7%) and
+amendment 4 (50%), this gives three dose points for the flip effect on
+structuring. Launch: `python experiments/pivot/vast_launch.py start --study dose`.

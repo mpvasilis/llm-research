@@ -49,9 +49,13 @@ ATLAS = {
     "7B_instruct_chat": ("allenai/OLMo-2-1124-7B-Instruct", "chat"),
 }
 
-ALL_ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched")
+ALL_ARMS = ("baseline", "random_drop", "drop_chosen_only", "flip_chosen_only", "length_matched",
+            "enriched_baseline", "enriched_flip")
+# Study 2 (amended 16 Nov 2026): a stronger dose. The sample is enriched so that
+# half of the pairs are chosen-only, and the learning rate is raised.
+ENRICH_SHARE = float(os.environ.get("PIVOT_ENRICH_SHARE", 0.5))
 ARMS = tuple(os.environ.get("PIVOT_ARMS", ",".join(ALL_ARMS)).split(","))
-TRAIN_SEEDS = (0, 1)  # amended 14 Nov 2026 under the cost cap (protocol: 3)
+TRAIN_SEEDS = tuple(int(x) for x in os.environ.get("PIVOT_SEEDS", "0,1").split(","))  # amended 14 Nov 2026 (protocol: 3)
 GEN_SEEDS = (0, 1, 2)
 N_PAIRS = int(os.environ.get("PIVOT_N_PAIRS", 60_000))
 DRY = False  # set by the dryrun command: tiny random models, synthetic pairs
@@ -59,7 +63,7 @@ MICRO_BATCH = 2  # used only by the benchmark
 ACCUM = 16
 PAIRS_PER_STEP = 32  # effective batch per optimizer step
 TOKEN_BUDGET = 1536  # padded tokens per side per micro-batch (pairs x longest sequence)
-LR = 1e-6
+LR = float(os.environ.get("PIVOT_LR", 1e-6))
 BETA = 5.0
 WARMUP = 0.1
 MAX_SEQ = 1024
@@ -230,6 +234,23 @@ def build_arm(pairs, arm, seed, n=None):
         if len(pool) < n:
             raise ValueError(f"length pool too small: {len(pool)}")
         return rng.sample(pool, n), {"pool": len(pool)}
+    if arm.startswith("enriched_"):
+        idx_only = [i for i, p in enumerate(pairs) if flags(p) == (True, False)]
+        idx_rest = [i for i, p in enumerate(pairs) if flags(p) != (True, False)]
+        k = int(n * ENRICH_SHARE)
+        if len(idx_only) < k:
+            raise ValueError(f"chosen-only pool too small: {len(idx_only)}")
+        sample = [pairs[i] for i in rng.sample(idx_only, k) + rng.sample(idx_rest, n - k)]
+        rng.shuffle(sample)
+        only = [i for i, p in enumerate(sample) if flags(p) == (True, False)]
+        counts = {"n_chosen_only": len(only), "n_rejected_only": sum(flags(p) == (False, True) for p in sample),
+                  "pool_chosen_only": len(idx_only)}
+        if arm == "enriched_baseline":
+            return sample, counts
+        if arm == "enriched_flip":
+            flip = set(only)
+            return [(p[1], p[0]) if i in flip else p for i, p in enumerate(sample)], counts
+        raise ValueError(arm)
     sample = rng.sample(pairs, n)
     only = [i for i, p in enumerate(sample) if flags(p) == (True, False)]
     counts = {"n_chosen_only": len(only), "n_rejected_only": sum(flags(p) == (False, True) for p in sample)}
@@ -363,7 +384,7 @@ def run_train(out_dir, arm, seed, pairs=None):
     t0 = time.time()
     log = dpo_train(model, ref, tok, data, seed)
     (out_dir / f"train_{tag}.json").write_text(json.dumps(
-        {"arm": arm, "seed": seed, "n_train": len(data), "counts": counts, "log": log,
+        {"arm": arm, "seed": seed, "lr": LR, "enrich_share": ENRICH_SHARE, "n_train": len(data), "counts": counts, "log": log,
          "n_total_pairs": len(pairs), "train_secs": time.time() - t0}), encoding="utf-8")
     del ref
     gc.collect()
@@ -417,7 +438,8 @@ def run_smoke(out_dir):
 
 
 def run_all(out):
-    run_atlas(out)
+    if os.environ.get("PIVOT_SKIP_ATLAS") != "1":
+        run_atlas(out)
     pairs = load_pairs()
     print("pairs", len(pairs), flush=True)
     for seed in TRAIN_SEEDS:

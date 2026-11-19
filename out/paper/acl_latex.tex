@@ -60,8 +60,9 @@ data. Swapping chosen and rejected on pairs where only the chosen response
 contains a structuring phrase changes the structuring rate in the first 256
 tokens of advice answers by \pivFlipStruct{} points (95\% interval
 \pivFlipStructCI{}); none of the four pre-specified contrasts is
-significant, and the design excludes effects larger than about nine
-points.
+significant. When chosen-only pairs make up a quarter or half of a
+retraining sample, flipping them cuts structuring by 91 to 94 points
+(three seeds each, Holm $p<.001$).
 \fi
 We give a short reporting checklist: the matching rule, the text window, the
 share of truncated answers, a length-matched control, and length-adjusted
@@ -810,9 +811,28 @@ untargeted markers stay within four points.
 \paragraph{Scope of the null result.}
 The 80\%-power detectable effect is about 7.5 points for structuring. Only \pivNChosenOnly{} of
 \pivNPairs{} pairs (7\%) are edited and final training accuracy is near
-\pivFinalAcc{}, so the result bounds this subset under a light DPO budget,
-not the full mixture or a longer run.
+\pivFinalAcc{}, so the first study bounds this subset under a light DPO budget.
 
+\paragraph{Study 2: enriched sample.}
+A second pre-registered study (protocol amendment 4) raises the dose. Each
+16{,}000-pair sample draws half of its pairs from the 28{,}150 chosen-only
+pairs, the learning rate rises to $2.5\times10^{-6}$, and each arm has three
+seeds. Flipping the chosen-only pairs in this sample lowers structuring in
+the first 256 tokens by 91.3 points (95\% interval $-94.4$ to $-87.6$;
+Holm $p<.001$; per seed $-90.8$, $-91.7$, $-91.3$) and raises disclaimers
+by 8.3 points ($4.6$ to $12.5$; Holm $p<.001$). Empathy openers and
+validation, which the edit does not target, move by less than one point.
+The flipped models also answer more briefly (median 178 versus 635
+tokens), but the structuring gap is the same in the first 64 tokens
+($-90.1$), where both arms have equal room, so length does not explain it.
+A third pre-registered run (amendment 5) repeats the design at a 25\%
+share. Structuring falls by 93.8 points ($-96.2$ to $-91.0$; Holm $p<.001$;
+per seed $-95.0$, $-92.9$, $-93.3$), the same as at 50\%, while the
+disclaimer increase does not replicate ($-0.8$, Holm $p=.07$). The
+structuring effect is therefore saturated by a 25\% share and absent at the
+natural 7\% share, so the dose at which preference pairs take control of the
+marker lies between these two points; the disclaimer result at 50\% should
+be read as unconfirmed.
 
 \fi
 
@@ -823,8 +843,9 @@ and structuring markers look specific to personal advice, and length
 accounts for about half of the chosen-side advantage of referral and
 structuring phrases in the DPO data. Validation exceeds its strongest
 control in all twelve specifications, and exact-match gaps exceed placebo
-lexicons.\ifpivot{} Editing the pairs that carry these phrases moves no
-target marker detectably.\fi{} We recommend: (1)~reporting the headline
+lexicons.\ifpivot{} Editing the pairs that carry these phrases has no detectable
+effect at their natural share, and removes almost all structuring once
+they make up a quarter of training or more.\fi{} We recommend: (1)~reporting the headline
 contrast under at least two matching rules; (2)~fixing the text window and
 reporting the share of answers at the generation cap; (3)~including a
 control that shares the property most likely to trigger the rule; and
