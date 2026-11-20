@@ -1,0 +1,371 @@
+{
+ "counterfactual": {
+  "primary": [
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "structure",
+    "estimate": -0.47222222222222215,
+    "se": 0.03215589056618316,
+    "mde80": 0.09003649358531285,
+    "ci95": [
+     -0.5361111111111111,
+     -0.40972222222222215
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     -0.44583333333333336,
+     -0.45000000000000007,
+     -0.5208333333333334
+    ],
+    "holm_p": 0.0004
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "disclaimer",
+    "estimate": 0.09722222222222221,
+    "se": 0.024984101095852813,
+    "mde80": 0.06995548306838788,
+    "ci95": [
+     0.05,
+     0.14861111111111108
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     0.09166666666666667,
+     0.12083333333333335,
+     0.07916666666666668
+    ],
+    "holm_p": 0.0004
+   }
+  ],
+  "secondary": [
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "empathy_opener",
+    "window": 64,
+    "estimate": -0.008333333333333335,
+    "se": 0.009908419839129922,
+    "mde80": 0.02774357554956378,
+    "ci95": [
+     -0.026388888888888896,
+     0.01111111111111111
+    ],
+    "p": 0.37079999999999996,
+    "per_training_seed": [
+     -0.008333333333333335,
+     -0.01666666666666667,
+     0.0
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "validation",
+    "window": 64,
+    "estimate": -0.0027777777777777775,
+    "se": 0.004393865940298455,
+    "mde80": 0.012302824632835673,
+    "ci95": [
+     -0.0125,
+     0.004166666666666667
+    ],
+    "p": 0.7666,
+    "per_training_seed": [
+     -0.004166666666666667,
+     0.004166666666666667,
+     -0.008333333333333335
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "disclaimer",
+    "window": 64,
+    "estimate": 0.00972222222222222,
+    "se": 0.006487528545350437,
+    "mde80": 0.01816507992698122,
+    "ci95": [
+     -0.0027777777777777775,
+     0.02361111111111111
+    ],
+    "p": 0.14400000000000002,
+    "per_training_seed": [
+     0.004166666666666667,
+     0.016666666666666666,
+     0.008333333333333333
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "structure",
+    "window": 64,
+    "estimate": -0.4638888888888889,
+    "se": 0.0327722436825533,
+    "mde80": 0.09176228231114923,
+    "ci95": [
+     -0.5291666666666666,
+     -0.4
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     -0.4375,
+     -0.4375,
+     -0.5166666666666665
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "empathy_opener",
+    "window": 256,
+    "estimate": -0.008333333333333335,
+    "se": 0.009908419839129922,
+    "mde80": 0.02774357554956378,
+    "ci95": [
+     -0.026388888888888896,
+     0.01111111111111111
+    ],
+    "p": 0.37079999999999996,
+    "per_training_seed": [
+     -0.008333333333333335,
+     -0.01666666666666667,
+     0.0
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "validation",
+    "window": 256,
+    "estimate": -0.004166666666666667,
+    "se": 0.004618816956256505,
+    "mde80": 0.012932687477518212,
+    "ci95": [
+     -0.01388888888888889,
+     0.0027777777777777775
+    ],
+    "p": 0.505,
+    "per_training_seed": [
+     -0.004166666666666667,
+     0.004166666666666667,
+     -0.0125
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "disclaimer",
+    "window": 256,
+    "estimate": 0.09722222222222221,
+    "se": 0.024984101095852813,
+    "mde80": 0.06995548306838788,
+    "ci95": [
+     0.05,
+     0.14861111111111108
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     0.09166666666666667,
+     0.12083333333333335,
+     0.07916666666666668
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "structure",
+    "window": 256,
+    "estimate": -0.47222222222222215,
+    "se": 0.03215589056618316,
+    "mde80": 0.09003649358531285,
+    "ci95": [
+     -0.5361111111111111,
+     -0.40972222222222215
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     -0.44583333333333336,
+     -0.45000000000000007,
+     -0.5208333333333334
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "empathy_opener",
+    "window": null,
+    "estimate": -0.008333333333333335,
+    "se": 0.009908419839129922,
+    "mde80": 0.02774357554956378,
+    "ci95": [
+     -0.026388888888888896,
+     0.01111111111111111
+    ],
+    "p": 0.37079999999999996,
+    "per_training_seed": [
+     -0.008333333333333335,
+     -0.01666666666666667,
+     0.0
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "validation",
+    "window": null,
+    "estimate": -0.009722222222222222,
+    "se": 0.0055326792218452735,
+    "mde80": 0.015491501821166764,
+    "ci95": [
+     -0.02222222222222222,
+     0.0
+    ],
+    "p": 0.061,
+    "per_training_seed": [
+     -0.008333333333333335,
+     0.0,
+     -0.020833333333333336
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "disclaimer",
+    "window": null,
+    "estimate": -0.15555555555555553,
+    "se": 0.028544313782480547,
+    "mde80": 0.07992407859094552,
+    "ci95": [
+     -0.21388888888888885,
+     -0.10277777777777777
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     -0.175,
+     -0.1166666666666667,
+     -0.175
+    ]
+   },
+   {
+    "left": "enriched_flip",
+    "right": "enriched_baseline",
+    "category": "structure",
+    "window": null,
+    "estimate": -0.4736111111111111,
+    "se": 0.03221157041403644,
+    "mde80": 0.09019239715930202,
+    "ci95": [
+     -0.5375,
+     -0.4111111111111111
+    ],
+    "p": 0.0002,
+    "per_training_seed": [
+     -0.45,
+     -0.45000000000000007,
+     -0.5208333333333334
+    ]
+   }
+  ],
+  "seeds": {
+   "enriched_baseline": 3,
+   "enriched_flip": 3
+  }
+ },
+ "atlas": null,
+ "training": {
+  "enriched_baseline": [
+   {
+    "seed": 0,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 797,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.6661019953899086,
+    "final_acc": 0.59375
+   },
+   {
+    "seed": 1,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 759,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.6978316721506417,
+    "final_acc": 0.53125
+   },
+   {
+    "seed": 2,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 796,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.7047430137172341,
+    "final_acc": 0.5
+   }
+  ],
+  "enriched_flip": [
+   {
+    "seed": 0,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 797,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.6685863211750984,
+    "final_acc": 0.59375
+   },
+   {
+    "seed": 1,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 759,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.6819567698985338,
+    "final_acc": 0.46875
+   },
+   {
+    "seed": 2,
+    "n_train": 16000,
+    "n_chosen_only": 4000,
+    "n_rejected_only": 796,
+    "pool_chosen_only": 28150,
+    "final_loss": 0.6175064058043063,
+    "final_acc": 0.5
+   }
+  ]
+ },
+ "generation": {
+  "cf_enriched_baseline_s0": {
+   "cap_share": 0.0,
+   "mean_tokens": 575.3958333333334,
+   "n": 480
+  },
+  "cf_enriched_baseline_s1": {
+   "cap_share": 0.0,
+   "mean_tokens": 601.0895833333333,
+   "n": 480
+  },
+  "cf_enriched_baseline_s2": {
+   "cap_share": 0.0,
+   "mean_tokens": 603.7666666666667,
+   "n": 480
+  },
+  "cf_enriched_flip_s0": {
+   "cap_share": 0.0020833333333333333,
+   "mean_tokens": 298.74791666666664,
+   "n": 480
+  },
+  "cf_enriched_flip_s1": {
+   "cap_share": 0.0,
+   "mean_tokens": 332.2270833333333,
+   "n": 480
+  },
+  "cf_enriched_flip_s2": {
+   "cap_share": 0.0,
+   "mean_tokens": 285.95,
+   "n": 480
+  }
+ }
+}

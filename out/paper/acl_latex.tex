@@ -60,9 +60,9 @@ data. Swapping chosen and rejected on pairs where only the chosen response
 contains a structuring phrase changes the structuring rate in the first 256
 tokens of advice answers by \pivFlipStruct{} points (95\% interval
 \pivFlipStructCI{}); none of the four pre-specified contrasts is
-significant. When chosen-only pairs make up half of a retraining
-sample, flipping them cuts structuring by 91 points (three seeds, Holm
-$p<.001$).
+significant. Raising the share of these pairs to 12\%, 25\%, and 50\%
+of a retraining sample makes flipping them cut structuring by 21, 47, and
+91 points (three seeds each, Holm $p<.001$).
 \fi
 We give a short reporting checklist: the matching rule, the text window, the
 share of truncated answers, a length-matched control, and length-adjusted
@@ -807,13 +807,15 @@ replications.
 At the natural share (\pivNChosenOnly{} of \pivNPairs{} pairs, 7\%), no
 primary contrast is significant (\pivNSig{} of four; Appendix~\ref{app:pivot-table}).
 Flipping chosen-only pairs changes structuring by \pivFlipStruct{} points
-(\pivFlipStructCI{}; detectable effect about 7.5).
+(\pivFlipStructCI{}).
 
 \paragraph{Dose.}
-With half of each 16{,}000-pair sample drawn from chosen-only pairs
-(three seeds), flipping lowers structuring by 91.3 points ($-94.4$ to
-$-87.6$; Holm $p<.001$), also in the first 64 tokens. A 60{,}000-pair run at a 25\% share gives $-93.8$ (Appendix~\ref{app:dose}).
-The pairs control the marker at a large share, not at their natural 7\%.
+At 16{,}000 pairs and chosen-only shares of 12\%, 25\%, and 50\% (three
+pre-registered studies, three seeds each), flipping
+lowers structuring by 20.8 ($-27.6$ to $-14.2$), 47.2 ($-53.6$ to $-41.0$),
+and 91.3 points ($-94.4$ to $-87.6$), all Holm $p<.001$, and raises
+disclaimers. The effect grows with the share, so the null at 7\% reflects
+a small dose (Appendix~\ref{app:dose}).
 
 \fi
 
@@ -824,8 +826,8 @@ and structuring markers look specific to personal advice, and length
 accounts for about half of the chosen-side advantage of referral and
 structuring phrases in the DPO data. Validation exceeds its strongest
 control in all twelve specifications, and exact-match gaps exceed placebo
-lexicons.\ifpivot{} Flipping the pairs that carry these phrases removes structuring once
-they are a large share of training.\fi{} We recommend: (1)~reporting the headline
+lexicons.\ifpivot{} Flipping the pairs that carry these phrases lowers structuring in
+proportion to their share of training.\fi{} We recommend: (1)~reporting the headline
 contrast under at least two matching rules; (2)~fixing the text window and
 reporting the share of answers at the generation cap; (3)~including a
 control that shares the property most likely to trigger the rule; and
@@ -1238,9 +1240,11 @@ chosen-only, 1{,}875 steps) rather than 16{,}000, so it differs from the
 50\% study in sample size as well as share (protocol amendment 7). Structuring falls by 93.8 points ($-96.2$ to $-91.0$; Holm $p<.001$;
 per seed $-95.0$, $-92.9$, $-93.3$), the same as at 50\%, while the
 disclaimer increase does not replicate ($-0.8$, Holm $p=.07$). It
-confirms the large structuring effect in a bigger sample; it does not by
-itself locate a threshold. The disclaimer result at 50\% should be read as
-unconfirmed.
+confirms the large structuring effect in a bigger sample. Reruns at
+16{,}000 pairs (amendment 7) give $-20.8$ at 12\% (per seed $-20.0$,
+$-21.3$, $-21.3$) and $-47.2$ at 25\% ($-44.6$, $-45.0$, $-52.1$), with
+disclaimer increases of 3.9 ($1.8$ to $6.1$) and 9.7 ($5.0$ to $14.9$), so
+the 50\% disclaimer effect replicates at matched sample size.
 
 \section{Human audit}
 \label{app:human-audit}
