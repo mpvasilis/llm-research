@@ -41,7 +41,7 @@ matching rule and the amount of text searched, can decide whether such a
 count supports a conclusion. Our case study is advice-style language in
 OLMo-2, whose post-training data and intermediate checkpoints are public. We
 combine 140 prompts in five conditions, 1B and 7B checkpoints from base to
-final model, a 120-sentence audit, and about 378,000 preference pairs per
+final model, a 390-sentence human audit, and about 378,000 preference pairs per
 model. We compare how often an empathy marker fires on personal-advice prompts
 and on prompts that mention an emotion without asking for help. On the same
 700 responses of the final 7B model, the gap is $+32.3$ percentage points
@@ -50,7 +50,7 @@ the rule moves the gap by 47 points (simultaneous 95\% interval 28 to 66).
 Across twelve rule and window choices, exact matching finds clear
 advice-specific empathy and structuring gaps in every window, and the
 embedding rule at its default threshold finds none on full answers. In the
-audit, every false positive comes from the embedding rule. In the DPO
+human audit, the embedding rule supplies most false positives. In the DPO
 preference data, referral and structuring phrases favor the chosen response,
 and modeling response length removes about half of that association.
 \ifpivot
@@ -142,8 +142,8 @@ On identical final-7B responses, replacing exact matching with the
 exact-or-embedding union moves the empathy gap by 47.0 percentage points and
 the structuring gap by 42.0 (Figure~\ref{fig:overview}a). Across twelve rule
 and window choices, exact matching finds clear gaps where the union finds
-none. In a 120-sentence audit, every false positive comes from the embedding
-rule.
+none. In a 390-sentence human audit, the embedding rule supplies most false
+positives.
 \item \textbf{Controls and checkpoints separate markers that look alike
 (RQ2).} All four markers separate personal advice from general facts, yet only
 validation phrases exceed every targeted control. Between the SFT and DPO
@@ -163,7 +163,7 @@ with Holm $p<.05$, with untargeted markers as negative controls
 (Table~\ref{tab:pivot}).
 \fi
 \end{enumerate}
-We release prompts, the lexicon, detector outputs, audit labels, and analysis
+We release prompts, the lexicon, detector outputs, human audit labels, and analysis
 scripts.
 
 \section{Related Work}
@@ -201,7 +201,7 @@ training is studied for its effects on accuracy and sycophancy
 far simpler than these instruments, and deliberately so, since lexicon and
 embedding rules are what a quick checkpoint comparison reaches for.
 
-\paragraph{Measurement validity and LLM annotators.}
+\paragraph{Measurement validity and automated judges.}
 Behavioral testing argues for targeted controls beyond aggregate scores
 \citep{ribeiro2020checklist}. Measurement-theory accounts of evaluation
 separate the concept, its systematization, and the instrument that scores it
@@ -211,8 +211,9 @@ terms follow that separation. LLM judges can approach expert agreement on empath
 mental-health text \citep{badawi2026trust,welivita2026empathetic}.
 \citet{calderon2025alttest} give a statistical
 procedure for deciding when an LLM may replace human annotators, which
-requires a human-annotated subset. Our audit has no such subset, so we use it
-to diagnose the detector's rules and not to validate a construct.
+requires a human-annotated subset. We check our detector against human
+sentence labels instead, and use them to diagnose its rules rather than to
+validate a construct.
 
 \paragraph{Length in preference learning and evaluation.}
 Reward models and preference data encode length correlations
@@ -259,7 +260,7 @@ The study has \ifpivot seven\else five\fi{} analyses, each with its own unit and
 Analysis & Material & Comparison & Main scope limit \\
 \midrule
 RQ1 detector and window & 700 stored final-7B responses, 140 prompts, five generations & Exact-only versus union contrasts, all text versus 64- and 128-token prefixes & Generations capped at 256 tokens, final 7B only \\
-RQ1 sentence audit & 120 sentences from 97 final 1B and 7B responses & Detector versus LLM-consensus sentence labels & No human labels, and the referral label is narrower than the detector category \\
+RQ1 sentence audit & 390 design-weighted sentences from 97 final-model responses & Detector versus blinded human sentence labels & One annotator, so no agreement estimate \\
 RQ2 final conditions & 140 prompts, five conditions, five generations & Personal advice versus four controls at final 1B and 7B & Author-written controls are not topic-paired counterfactuals \\
 RQ2 checkpoint grid & 90 personal-advice and general-facts prompts, five generations & Change in the advice-minus-facts gap across public 1B and 7B stages & Base-to-SFT also changes the prompt format, detector outputs only \\
 RQ3 DPO pairs & 378,301 1B and 378,341 7B pairs & Exact chosen-versus-rejected matches, with paired flexible length terms & Observational, conditioning on length changes the question, mixtures share 21,508 pairs \\
@@ -286,7 +287,8 @@ empathy-opener rule searches every sentence, not only an opening span.
 Referral/disclaimer combines referrals, disclaimers, and professional-language
 fragments such as ``consult a'' and ``medical professional''. It is not a
 detector of referrals alone. A fifth category, \texttt{crisis\_referral}, is
-excluded after producing 0 true positives and 11 false positives in the audit.
+excluded during development because it produced only false positives on a
+pilot check.
 
 The detector has two components. The \emph{exact} component is
 case-insensitive substring matching against the lexicon. The \emph{embedding}
@@ -339,15 +341,13 @@ results.
 
 \subsection{Sentence-level audit}
 \label{sec:method-audit}
-To relate detector outputs to sentence meaning, we sample 120 final-model
-sentences at random within condition (40 personal advice, 30 general facts,
-20 emotion without a request, 20 neutral how-to, 10 health facts), without
-stratifying on detector predictions. Two separately run, blinded passes of an
-LLM annotator (Codex) label each sentence for the four categories, and Claude
-Opus 4.8 adjudicates their disagreements.
-These labels are a diagnostic of the detector's rules against one explicit
-labeling scheme. They are not human validation, and we do not use them to
-recalibrate response-level rates.
+To relate detector outputs to sentence meaning, we sample 390 final-model
+sentences from 97 responses across conditions. The sample is enriched for
+detector-positive sentences, and every estimate is weighted back by inclusion
+probability. One human annotator (pseudonym AV-01), blind to detector outputs
+and model identities, labels each sentence for empathy, validation, referral
+or disclaimer, and structuring. We use these labels to diagnose the
+detector's rules, not to recalibrate response-level rates.
 
 \subsection{Inference}
 \label{sec:method-stats}
@@ -437,7 +437,7 @@ tokens, or all text) and report the share with a positive sign.
 \fi
 
 \paragraph{Reproducibility.} The artifact contains the prompts, lexicon,
-seeds, detector outputs, audit labels, paired DPO features, and the scripts
+seeds, detector outputs, human audit labels, paired DPO features, and the scripts
 behind every statistic (Appendix~\ref{app:formulas}).
 
 \section{Results}
@@ -527,26 +527,17 @@ built on random seed sentences. The empathy sign flip is confined to
 $\tau\in[.79,.82]$, and two other encoders and an NLI matcher give positive
 empathy gaps (Appendix~\ref{app:revision-checks}).
 
-\paragraph{False positives come from the embedding rule.}
-The audit covers 120 sentences (56 from the 1B and 64 from the 7B final
-model, from 97 distinct responses). The two annotation passes agree on 117
-sentences (97.5\%). Cohen's $\kappa$ is .885 for empathy expression, .663 for
-validation, 1.000 for referral, and .978 for structuring. Against the
-adjudicated labels, exact matching has no false positives. Its
-true-positive/false-positive/false-negative counts are 2/0/2 for empathy
-expression, 1/0/1 for validation, 1/0/0 for referral, and 9/0/21 for
-structuring. Exact matching fired on only 13 audited sentences, so this shows
-that the embedding rule adds errors, not that exact matching is error free.
-Adding the embedding rule raises structuring recall from 0.30 to 0.87 and
-introduces every false positive in the sample (Table~\ref{tab:detval}).
-
-The referral label requires an actual recommendation to seek a professional,
-while the detector category also matches disclaimers, so its 0.06 precision
-partly reflects target mismatch. Positives are rare for three categories and
-intervals are wide (Appendix~\ref{app:audit-bootstrap}).
-
-A blinded human pass over 390 sentences agrees, with exact-match precision is
-82 to 100, embedding-rule empathy precision 21 (Appendix~\ref{app:human-audit}).
+\paragraph{The embedding rule supplies most false positives.}
+In the human audit, exact matching keeps design-weighted precision at 82 or
+higher in every category, but it misses most validation (recall 19.0) and
+structuring sentences (9.9). Adding the embedding rule lifts structuring
+recall to 93.1 and empathy and referral recall to 100. It also drops empathy
+precision from 82 to 21 and referral precision from 95 to 11
+(Table~\ref{tab:detval}). Under exact matching, the design-corrected
+advice-minus-control empathy gap is 2.3 points (1.8 to 2.9). The
+counterfactual studies score structuring with the exact lexicon, which has no
+false positives here but catches organizing preambles rather than every list
+item (Appendix~\ref{app:human-audit}).
 
 \newcommand{\floatDetval}{%
 \begin{table}[t]
@@ -554,18 +545,18 @@ A blinded human pass over 390 sentences agrees, with exact-match precision is
 \small
 \begin{tabular}{lcccc}
 \toprule
-category & P & R & F1 & tp/fp/fn \\
+ & \multicolumn{2}{c}{exact} & \multicolumn{2}{c}{union} \\
+category & P & R & P & R \\
 \midrule
-empathy expr. & 0.22 & 0.50 & 0.31 & 2/7/2 \\
-validation & 0.33 & 0.50 & 0.40 & 1/2/1 \\
-ref./discl. & 0.06 & 1.00 & 0.12 & 1/15/0 \\
-structuring & 0.49 & 0.87 & 0.63 & 26/27/4 \\
+empathy expr. & 81.6 & 90.0 & 20.8 & 100 \\
+validation & 100 & 19.0 & 42.9 & 27.6 \\
+ref./discl. & 94.7 & 77.9 & 11.1 & 100 \\
+structuring & 100 & 9.9 & 90.2 & 93.1 \\
 \bottomrule
 \end{tabular}
-\caption{Union-detector precision, recall, and F1 against the adjudicated
-LLM-consensus labels for 120 sentences ($\tau=0.82$). The referral label is
-narrower than the referral/disclaimer category. Response-cluster bootstrap
-intervals are in Appendix~\ref{app:audit-bootstrap}.}
+\caption{Design-weighted precision and recall (\%) of exact matching and the
+exact-or-embedding union ($\tau=0.82$) against blinded human labels for 390
+sentences from 97 responses.}
 \label{tab:detval}
 \end{table}
 }
@@ -842,10 +833,9 @@ setting and are not the released DPO model. RQ1 to RQ3 remain observational.
 \else
 All analyses are observational and do not attribute outputs to training
 examples.
-\fi The human audit has a single annotator, so it gives no human agreement
-estimate. Both audits cover 97
-responses, has wide per-category intervals, and does not validate
-response-level prevalence. The component and window analyses cover only
+\fi The human audit has a single annotator, so no inter-annotator agreement
+exists. It covers 97 responses and does not validate response-level
+prevalence. The component and window analyses cover only
 final 7B, because raw responses for other checkpoints were not stored. Base
 and later checkpoints use different prompt formats, which confounds every
 Base-to-SFT contrast. The targeted controls are not topic-paired to the
@@ -857,14 +847,14 @@ author-written prompt sets support no scaling or cross-family claim.
 \section*{Ethics Statement}
 
 \paragraph{Data and human subjects.} We use public corpora and open-weight
-OLMo-2 checkpoints. We did not recruit participants or collect new human
-annotations for the analyses reported here. The 140 prompts are author-written
+OLMo-2 checkpoints. Apart from one annotator who labeled the audit
+sentences, we did not recruit participants. The 140 prompts are author-written
 hypothetical situations without personal information.
 
 \paragraph{Sensitive domain.} Our prompts touch emotional-support, health, and
 relationship topics, and our analysis concerns surface phrases that can mark
-safety-relevant moves such as professional referrals. Within the LLM-labeled
-audit sample, the detector produces many false positives, and we also drop
+safety-relevant moves such as professional referrals. Within the human audit
+sample, the detector produces many false positives, and we also drop
 \texttt{crisis\_referral}. Nothing here should
 be read as evidence that the studied models reliably provide crisis support.
 They were not evaluated for clinical accuracy and are not mental-health tools.
@@ -902,7 +892,8 @@ new to the full battery.
 
 This section records the four-category detector implemented in
 \path{experiments/raw_output_robustness.py}. An earlier variant also included
-a crisis category, which is excluded after its audit result. A category fires for an answer if \emph{either} (i)~any lexicon phrase occurs
+a crisis category, which was excluded during development because it produced
+only false positives on a pilot check. A category fires for an answer if \emph{either} (i)~any lexicon phrase occurs
 as a case-insensitive substring, \emph{or} (ii)~any sentence has cosine
 similarity $\geq\tau$ to a seed exemplar
 (\texttt{intfloat/multilingual-e5-small}, \texttt{query:}/\texttt{passage:}
@@ -1247,7 +1238,7 @@ the 50\% disclaimer effect replicates at matched sample size.
 
 \section{Human audit}
 \label{app:human-audit}
-A blinded human annotator labeled a second, design-weighted sample of 390
+A blinded human annotator (AV-01) labeled a design-weighted sample of 390
 sentences from 97 responses, without access to detector outputs or model
 identities. With design weights, exact matching has precision 81.6 and
 recall 90.0 for empathy openers, 94.7 and 77.9 for referral and
@@ -1255,44 +1246,12 @@ disclaimer, and 100 and 19.0 for validation. For structuring it has
 precision 100 but recall 9.9, because the lexicon catches organizing
 preambles rather than every list item. The embedding union reaches 93.1
 recall for structuring but precision 20.8 for empathy and 11.1 for
-referral and disclaimer, so the human labels reproduce the LLM-consensus
-pattern, in which the embedding rule buys recall with false positives. The
+referral and disclaimer, so the embedding rule buys recall with false
+positives. The
 design-corrected empathy gap under exact matching is 2.3 points (1.8 to
 2.9). Because the counterfactual studies score structuring with the exact
 lexicon, their effects concern structuring preambles, which this rule
 detects without false positives.
-
-\section{Response-cluster audit uncertainty}
-\label{app:audit-bootstrap}
-
-The 120 audit sentences come from 97 seed-0 responses. The artifact records
-the adjudicator's model identifier and run metadata. Exact build identifiers
-of the first-pass annotator were not retained. To preserve dependence
-among sentences from the same response, we assign Dirichlet$(1)$ weights to
-response keys in a 10{,}000-draw Bayesian bootstrap and recompute each metric.
-Table~\ref{tab:audit-bootstrap} reports percentile intervals. These intervals
-quantify sampling uncertainty around the LLM-consensus labels.
-
-\begin{table}[t]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{lccc}
-\toprule
-Category & Precision 95\% & Recall 95\% & F1 95\% \\
-\midrule
-empathy expression & [.04,.46] & [.10,.90] & [.05,.57] \\
-validation         & [.02,.84] & [.03,.98] & [.02,.83] \\
-referral           & [.00,.22] & [1.00,1.00] & [.00,.36] \\
-structuring        & [.35,.63] & [.74,.96] & [.49,.74] \\
-\bottomrule
-\end{tabular}
-\caption{Bayesian response-cluster bootstrap intervals for the 120-sentence
-LLM-consensus audit. Referral recall is degenerate because the single positive
-gold item is detected in every draw, while its precision and F1 remain highly
-uncertain.}
-\label{tab:audit-bootstrap}
-\end{table}
 
 \ifpivot
 \section{Condition and checkpoint tables}
@@ -1467,9 +1426,8 @@ $3.2\times10^{-9}$. The accompanying scripts derive all statistics from the
 artifact.
 
 \paragraph{Files.} Stagewise, condition, and corpus numbers derive from
-\texttt{summary\_v3.json}. Audit numbers, both annotation passes, consensus
-labels, and adjudication reasons are in
-\texttt{ai\_consensus\_validation\_v3.json}. Paired DPO features and
+\texttt{summary\_v3.json}. Human audit labels and
+design-weighted scores are under \path{output/revision/human_audit_v2/}. Paired DPO features and
 conditional estimates are under \path{output/revision/dpo_conditional/}. The
 detector-component contrasts are produced by
 \path{experiments/window_component_reanalysis_20261109.py}, with estimates and
